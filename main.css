@@ -1,0 +1,269 @@
+html  body{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    font-family: shabnam;
+
+}
+@font-face {
+    font-family: Shabnam;
+    src: url("font/Shabnam-Bold.eot");
+    src: url("font/Shabnam-Bold.eot?#iefix") format("FontName-opentype"),
+        url("font/Shabnam-Bold.woff") format("woff"),
+        url("font/Shabnam-Bold.ttf") format("truetype");
+}
+
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly;
+    background-color: black;
+    width: 99vw;
+
+
+}
+.navbar i{
+    color: white;
+    font-size: 2rem;
+}
+.container{
+    width:100vw;
+   
+}
+.container-list{
+    width:100vw;
+    max-width: 1310px;
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(255, 254, 254, 0.933);
+    flex-wrap: wrap;
+    justify-content:center;
+}
+.imge{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+   
+    
+}
+img{
+    width: 100%;
+
+}
+.rate{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    font-size: 20px;
+
+}
+
+
+.name{
+    
+    direction: rtl;
+    line-height: 2rem;
+    font-size: 1.5rem;
+    padding: .5rem;
+    
+
+}
+.price{
+    display: flex;
+    justify-content: space-evenly;
+    line-height: 3;
+   
+}
+.price-1{
+    text-decoration: line-through red 3px;
+    font-size: 2rem;
+    bottom: 63px;
+    font-size: 2rem;
+    background-color: blanchedalmond;
+    position: absolute;
+    left: 12px;
+    width: 70px;
+    border-radius: 12rem;
+    padding-left: 10px;
+
+}
+.price-2{
+   
+    font-size: 2rem;
+    padding-left: 20px;
+
+    
+}
+.also{
+    direction: rtl;
+}
+.also img{
+    width: 50%;
+}
+.color{
+    text-align-last: justify;
+}
+select{
+    margin: 15px;
+    width: 150px;
+    padding: 5px 35px 5px 5px;
+    font-size: 1rem;
+    border: 1px solid #FFF;
+    background: #eee;
+    font-family: shabnam;
+}
+button{
+    font-family: shabnam;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+.media{
+    display: flex;
+    background-color: black;
+    justify-content: space-around;
+    padding: .5rem;
+}
+.media i{
+    color: white;
+    font-size: 1.5rem;
+
+}
+.adress{
+    width: 100vw;
+    display: flex;
+    background-color: black;
+    color: white;
+    direction: rtl;
+    font-size: .8rem;
+    align-items: center;
+    border: 3px solid black;
+   
+}
+.adress i{
+    font-size: 1.5rem;
+    padding: .5rem;
+}
+.not-available{
+    background-color: rgb(53, 52, 52);
+    text-decoration: line-through 2px red;
+}
+.text{
+    direction: rtl;
+    text-align: justify;
+    padding: .5rem;
+    line-height: 2;
+
+}
+.parent{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+}
+.child{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.parent img{
+    width: 265px;
+    border-radius: 2rem;
+    padding: 1rem;
+}
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.join {
+    display: flex;
+    width: 150px;
+    height: 100px;
+    font-size: 2rem;
+    border-bottom: 5px solid black;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+
+.login {
+    display: flex;
+    width: 150px;
+    height: 100px;
+    font-size: 2rem;
+    border-bottom: 5px solid black;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+.head{
+    display: flex;
+    justify-content: space-around;
+}
+
+.information {
+    padding-top: 2rem;
+    background-color: white;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    direction: rtl;
+    font-family: shabnam;
+}
+.a{
+    height: 50px;
+    font-size: 1.8rem;
+}
+
+@media(max-width:830px){
+    body{
+        padding: 0;
+        margin: 0;
+    }
+    .navbar i{
+        
+        font-size: 1rem;
+    }
+    .name{
+        direction: rtl;
+        line-height: 1rem;
+        font-size: .8rem;
+    }
+        
+    .navbar img{
+        width: 150px;
+    }
+    .price-1{
+        text-decoration: line-through red 3px;
+        font-size: 1rem;
+        bottom: 40px;
+        background-color: blanchedalmond;
+        position: absolute;
+        left: 15px;
+        width: 34px;
+        border-radius: 12rem;
+        padding-left: 10px;
+    }
+    .price-2{
+        font-size: 1rem;
+        padding-left: 23px;
+        padding-bottom: 5px;
+    }
+    
+    
+    .parent img{
+        width: 185px;
+        padding:1px;
+}
+}
