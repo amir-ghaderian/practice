@@ -81,7 +81,8 @@ img{
    
 }
 .price-1{
-    text-decoration: line-through red 3px;
+    -webkit-text-decoration-line: line-through 3px red;
+    text-decoration-line: line-through; 
     font-size: 2rem;
     bottom: 63px;
     font-size: 2rem;
