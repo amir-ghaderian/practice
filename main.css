@@ -229,6 +229,8 @@ button{
 .a{
     height: 50px;
     font-size: 1.8rem;
+    margin:2rem;
+    font-family: shabnam;
 }
 .anim{
     width: 100vw;
