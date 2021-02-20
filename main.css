@@ -4,7 +4,7 @@ html  body{
     margin: 0;
     display: flex;
     flex-direction: column;
-    max-width: 800px;
+    
     font-family: shabnam;
 
 }
@@ -42,20 +42,16 @@ html  body{
     background-color: rgba(255, 254, 254, 0.933);
     flex-wrap: wrap;
     justify-content:center;
+    padding: 0;
+    margin: 0;
+    align-self: flex-end;
+
 }
 .imge{
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    max-width: 600px;
-   
-    
 }
-img{
-    width: 100%;
 
-}
 .rate{
     display: flex;
     flex-direction: row;
@@ -67,7 +63,8 @@ img{
 
 .name{
     
-    direction: rtl;
+    display: flex;
+    justify-content: flex-end;
     line-height: 2rem;
     font-size: 1.5rem;
     padding: .5rem;
@@ -98,6 +95,12 @@ img{
    
     font-size: 2rem;
     padding-left: 20px;
+}
+.price-3{
+    font-size: 2rem;
+    -webkit-text-decoration-line: line-through 3px red;
+    text-decoration-line: line-through; 
+
 
     
 }
@@ -108,7 +111,8 @@ img{
     width: 50%;
 }
 .color{
-    text-align-last: justify;
+    display: flex;
+    justify-content: space-around;
 }
 select{
     margin: 15px;
@@ -128,8 +132,7 @@ button{
     display: flex;
     background-color: black;
     justify-content: space-evenly;
-    padding: .5rem;
-    width: 100vw;
+    
 }
 .media i{
     color: white;
@@ -137,7 +140,6 @@ button{
 
 }
 .adress{
-    width: 100vw;
     display: flex;
     background-color: black;
     color: white;
@@ -256,11 +258,6 @@ button{
         
         font-size: 1rem;
     }
-    .name{
-        direction: rtl;
-        line-height: 1rem;
-        font-size: .8rem;
-    }
         
     .navbar img{
         width: 150px;
@@ -268,16 +265,16 @@ button{
     .price-1{
         text-decoration: line-through red 3px;
         font-size: 1rem;
-        bottom: 40px;
+        bottom: 55px;
         background-color: blanchedalmond;
         position: absolute;
-        left: 15px;
+        left: 12px;
         width: 34px;
         border-radius: 12rem;
         padding-left: 10px;
     }
     .price-2{
-        font-size: 1rem;
+        font-size: 2rem;
         padding-left: 23px;
         padding-bottom: 5px;
     }
@@ -287,4 +284,9 @@ button{
         width: 185px;
         padding:1px;
 }
+    .imge{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
 }
