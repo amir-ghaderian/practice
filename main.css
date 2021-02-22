@@ -44,7 +44,7 @@ html  body{
     justify-content:center;
     padding: 0;
     margin: 0;
-    align-self: flex-end;
+    align-self: center;
 
 }
 .imge{
@@ -144,15 +144,12 @@ button{
     background-color: black;
     color: white;
     direction: rtl;
-    font-size: .8rem;
-    align-items: center;
+    font-size: 1.5rem;
+    justify-content: center;
     border: 3px solid black;
    
 }
-.adress i{
-    font-size: 1.5rem;
-    padding: .5rem;
-}
+
 .not-available{
     background-color: rgb(53, 52, 52);
     text-decoration: line-through 2px red;
@@ -226,11 +223,19 @@ button{
     direction: rtl;
     font-family: shabnam;
 }
-.a{
+input {
+    
+    border: 0px solid;
     height: 50px;
-    font-size: 1.8rem;
-    margin:2rem;
+    width: 260px;
+    color: #383636;
+}
+.a{
+   
+    font-size: 1.4rem;
+    margin:1.4rem;
     font-family: shabnam;
+    padding-right: 15px;
 }
 .anim{
     width: 100vw;
@@ -238,7 +243,7 @@ button{
     display: flex;
     justify-content: center;
     text-align: justify;
-    font-size: .9rem;
+    font-size: 2rem;
     line-height: 2;
     animation-name: myfirst;
     animation-duration: 2s;
@@ -265,9 +270,10 @@ button{
         width: 150px;
     }
     .price-1{
-        text-decoration: line-through red 3px;
+        -webkit-text-decoration-line: line-through 3px red;
+        text-decoration-line: line-through; 
         font-size: 1rem;
-        bottom: 55px;
+        bottom: 30px;
         background-color: blanchedalmond;
         position: absolute;
         left: 12px;
@@ -276,12 +282,21 @@ button{
         padding-left: 10px;
     }
     .price-2{
-        font-size: 2rem;
-        padding-left: 23px;
+        font-size: 1rem;
+        padding-left: 19px;
         padding-bottom: 5px;
     }
-    
-    
+    .anim{
+        font-size: .9rem;
+    }
+    .name{
+        font-size: .8rem;
+        line-height: 1;
+
+    }
+    .adress{
+        font-size: 1rem;
+    }
     .parent img{
         width: 185px;
         padding:1px;
