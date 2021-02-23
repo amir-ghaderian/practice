@@ -167,6 +167,7 @@ button{
     flex-direction: column;
     text-align-last: center;
     position: relative;
+    align-items: center;
 
 }
 .child{
