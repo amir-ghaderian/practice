@@ -42,7 +42,7 @@ html  body{
     flex-direction: row;
     background-color: rgba(255, 254, 254, 0.933);
     flex-wrap: wrap;
-    justify-content:center;
+    justify-content:start;
     padding: 0;
     margin: 0;
     align-self: center;
@@ -271,7 +271,9 @@ input {
         
         font-size: 1rem;
     }
-        
+    .container-list{
+        justify-content: center;
+    }    
     .navbar img{
         width: 120px;
     }
