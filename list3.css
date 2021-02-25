@@ -1,0 +1,56 @@
+body{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: burlywood;
+    justify-content: center;
+    
+
+}
+.parent{
+    background-size: cover;
+    background-position: center;
+    min-width: 32%;
+    min-height: 80vh;
+    display: flex;
+    align-items: flex-end;
+    margin: .3rem;
+    border-radius: .5rem;
+}
+    
+
+
+.child{
+    height: 10%;
+    width: 100%;
+    color: blanchedalmond;
+    font-size: 1.4rem;
+    text-align: right;
+    background-color: dimgray;
+    font-weight: 900;
+    position: relative;
+    
+}
+.price {
+    font-size: 2rem;
+    color: white;
+    position: absolute;
+    font-weight: 900;
+
+}
+@media(max-width:500px){
+    .parent{
+        min-width:95% ;
+        min-height: 80vh;
+    }
+    .child{
+        font-size: 1rem;
+        font-weight: 700;
+        text-align: center;
+    }
+}   
