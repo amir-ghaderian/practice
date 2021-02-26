@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            font-family: shabnam;
+
+        }
+        @font-face {
+            font-family: Shabnam;
+            src: url("font/Shabnam-Bold.eot");
+            src: url("font/Shabnam-Bold.eot?#iefix") format("FontName-opentype"),
+                url("font/Shabnam-Bold.woff") format("woff"),
+                url("font/Shabnam-Bold.ttf") format("truetype");
+        }
+
+        .parent{
+            width: 32%;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            padding-top: 45.5%;
+            margin: .3rem;
+        }
+        .child{
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            text-align:end;
+            font-size: 2rem;
+            color: rgb(232, 238, 238);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            font-weight: 900;
+}
+  @media (max-width:1000px) {
+        .child{
+            font-size: 1.5rem;
+        }
+  }
+
+
+@media (max-width:720px){
+    .child{
+        font-size: 1rem;
+    }
+}
+@media (max-width:500px){
+    .parent{
+        width: 49%;
+        padding-top: 68.5%;
+        margin: .1rem;
+    }
+    .child{
+        font-size: .7rem;
+
+    }
+}
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+   <div class="parent" style="background-image: url(image/3.jpeg);">
+       <div class="child">236000   مانتو مدل هوشتوشک</div>
+   </div>
+   <div class="parent"  style="background-image: url(image/4.jpeg);">
+       <div class="child">مانتو مدل هوشتوشک</div>
+   </div>
+   <div class="parent"  style="background-image: url(image/1.jpeg);">
+       <div class="child">مانتو مدل هوشتوشک</div>
+   </div>
+   <div class="parent"  style="background-image: url(image/6.jpeg);">
+       <div class="child">مانتو مدل هوشتوشک</div>
+   </div>
+   <div class="parent"  style="background-image: url(image/5.jpeg);">
+       <div class="child">مانتو مدل هوشتوشک</div>
+   </div>
+   <div class="parent"  style="background-image: url(image/7\ \(15\).jpeg);">
+       <div class="child">مانتو مدل هوشتوشک</div>
+   </div>
+   <div class="parent"  style="background-image: url(image/7\ \(16\).jpeg);">
+       <div class="child">مانتو مدل هوشتوشک</div>
+   </div>
+   <div class="parent"  style="background-image: url(image/7\ \(17\).jpeg);">
+       <div class="child">مانتو مدل هوشتوشک</div>
+   </div>
+   <div class="parent"  style="background-image: url(image/7\ \(18\).jpeg);">
+       <div class="child">مانتو مدل هوشتوشک</div>
+   </div>
+   <div class="parent"  style="background-image: url(image/7\ \(19\).jpeg);">
+       <div class="child">مانتو مدل هوشتوشک</div>
+   </div>
+</div>
+</body>
+</html>
