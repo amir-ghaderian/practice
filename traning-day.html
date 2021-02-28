@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .container{
+        .container {
             width: 100%;
             display: flex;
             flex-wrap: wrap;
             font-family: shabnam;
 
         }
+
         @font-face {
             font-family: Shabnam;
             src: url("font/Shabnam-Bold.eot");
@@ -21,86 +23,111 @@
                 url("font/Shabnam-Bold.ttf") format("truetype");
         }
 
-        .parent{
+        .navbar {
+            display: flex;
+            justify-content: space-evenly;
+            font-size: 1rem;
+            border-bottom: 2px solid;
+            padding-bottom: .5rem;
+           
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            border-bottom: 4px solid;
+
+        }
+
+        .parent {
             width: 32%;
             background-position: center;
             background-size: cover;
             position: relative;
             padding-top: 45.5%;
             margin: .3rem;
+
         }
-        .child{
+
+        .child {
+            width: 100%;
+            height: 10%;
+            background-color: #5f503d;
             position: absolute;
-            top: 0;
+            text-align: center;
             left: 0;
             bottom: 0;
             right: 0;
-            text-align:end;
-            font-size: 2rem;
-            color: rgb(232, 238, 238);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            font-weight: 900;
-}
-  @media (max-width:1000px) {
-        .child{
             font-size: 1.5rem;
+            color: rgb(232, 238, 238);
+
+
         }
-  }
+
+        @media(max-width: 755px) {
+            .parent {
+                width: 50%;
+                margin: 0;
+                padding-top: 65.5%;
+            }
+
+            .child {
+                font-size: 1rem;
+            }
+        }
+
+        @media(max-width: 550px) {
+            .parent {
+                width: 100%;
+                padding-top: 111.5%;
+            }
 
 
-@media (max-width:720px){
-    .child{
-        font-size: 1rem;
-    }
-}
-@media (max-width:500px){
-    .parent{
-        width: 49%;
-        padding-top: 68.5%;
-        margin: .1rem;
-    }
-    .child{
-        font-size: .7rem;
-
-    }
-}
-        
+        }
     </style>
+    <header>
+        <nav class="navbar">
+            <div class="logo">SORMEH</div>
+            <ul>colection</ul>
+            <ul>bar</ul>
+
+        </nav>
+    </header>
 </head>
+
 <body>
     <div class="container">
-   <div class="parent" style="background-image: url(image/3.jpeg);">
-       <div class="child">236000   مانتو مدل هوشتوشک</div>
-   </div>
-   <div class="parent"  style="background-image: url(image/4.jpeg);">
-       <div class="child">مانتو مدل هوشتوشک</div>
-   </div>
-   <div class="parent"  style="background-image: url(image/1.jpeg);">
-       <div class="child">مانتو مدل هوشتوشک</div>
-   </div>
-   <div class="parent"  style="background-image: url(image/6.jpeg);">
-       <div class="child">مانتو مدل هوشتوشک</div>
-   </div>
-   <div class="parent"  style="background-image: url(image/5.jpeg);">
-       <div class="child">مانتو مدل هوشتوشک</div>
-   </div>
-   <div class="parent"  style="background-image: url(image/7\ \(15\).jpeg);">
-       <div class="child">مانتو مدل هوشتوشک</div>
-   </div>
-   <div class="parent"  style="background-image: url(image/7\ \(16\).jpeg);">
-       <div class="child">مانتو مدل هوشتوشک</div>
-   </div>
-   <div class="parent"  style="background-image: url(image/7\ \(17\).jpeg);">
-       <div class="child">مانتو مدل هوشتوشک</div>
-   </div>
-   <div class="parent"  style="background-image: url(image/7\ \(18\).jpeg);">
-       <div class="child">مانتو مدل هوشتوشک</div>
-   </div>
-   <div class="parent"  style="background-image: url(image/7\ \(19\).jpeg);">
-       <div class="child">مانتو مدل هوشتوشک</div>
-   </div>
-</div>
+       <a href="detail.html"> <div class="parent" style="background-image: url(image/3.jpeg);">
+            <div class="child">236000مانتو میکرو مدل الناز</div>
+        </a>
+        </div>
+        <a href="detail.html"><div class="parent" style="background-image: url(image/4.jpeg);">
+            <div class="child">مانتو پوپلین مدل برگی </div></a> 
+        </div>
+        <div class="parent" style="background-image: url(image/1.jpeg);">
+            <div class="child">مانتو مدل ونسا</div>
+        </div>
+        <div class="parent" style="background-image: url(image/6.jpeg);">
+            <div class="child">مانتو مدل المیرا</div>
+        </div>
+        <div class="parent" style="background-image: url(image/5.jpeg);">
+            <div class="child">مانتو مدل خاتون</div>
+        </div>
+        <div class="parent" style="background-image: url(image/7\ \(15\).jpeg);">
+            <div class="child">مانتو مدل نگین</div>
+        </div>
+        <div class="parent" style="background-image: url(image/7\ \(16\).jpeg);">
+            <div class="child">مانتو مدل تمنا</div>
+        </div>
+        <div class="parent" style="background-image: url(image/7\ \(17\).jpeg);">
+            <div class="child">مانتو مدل میکرو کش</div>
+        </div>
+        <div class="parent" style="background-image: url(image/7\ \(18\).jpeg);">
+            <div class="child">مانتو مدل مازاراتی کتی</div>
+        </div>
+        <div class="parent" style="background-image: url(image/7\ \(19\).jpeg);">
+            <div class="child">مانتو مدل سگک دار</div>
+        </div>
+    </div>
 </body>
+
 </html>
