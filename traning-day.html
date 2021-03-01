@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        body{
+           margin: 0;
+           padding: 0;
+        }
         .container {
             width: 100%;
             display: flex;
@@ -62,8 +66,28 @@
 
 
         }
-
-        @media(max-width: 755px) {
+        .price{
+            position: absolute;
+            color: rgb(232, 238, 238); 
+            animation-iteration-count: infinite;
+            animation-name: amir;
+            animation-duration: 1s; 
+            font-size: xx-large;     
+        }
+    @keyframes amir{
+            0%{
+            color:red;
+        }
+        100%{
+            color: white;
+        }
+    }
+    @media(max-width: 1030px){
+        .child{
+            font-size:1.2rem ;
+        }
+    }
+        @media(max-width: 900px) {
             .parent {
                 width: 50%;
                 margin: 0;
@@ -73,6 +97,9 @@
             .child {
                 font-size: 1rem;
             }
+            .price{
+                font-size: x-large;
+            }
         }
 
         @media(max-width: 550px) {
@@ -80,7 +107,9 @@
                 width: 100%;
                 padding-top: 111.5%;
             }
-
+            .price{
+                font-size: larger;
+            }
 
         }
     </style>
@@ -97,35 +126,35 @@
 <body>
     <div class="container">
        <a href="detail.html"> <div class="parent" style="background-image: url(image/3.jpeg);">
-            <div class="child">236000مانتو میکرو مدل الناز</div>
+            <div class="child"> <div class="price">238</div>   مانتو میکرو مدل الناز</div>
         </a>
         </div>
         <a href="detail.html"><div class="parent" style="background-image: url(image/4.jpeg);">
-            <div class="child">مانتو پوپلین مدل برگی </div></a> 
+            <div class="child"><div class="price">238</div> مانتو پوپلین مدل برگی </div></a> 
         </div>
         <div class="parent" style="background-image: url(image/1.jpeg);">
-            <div class="child">مانتو مدل ونسا</div>
+            <div class="child"><div class="price">238</div>مانتو مدل ونسا</div>
         </div>
         <div class="parent" style="background-image: url(image/6.jpeg);">
-            <div class="child">مانتو مدل المیرا</div>
+            <div class="child"><div class="price">238</div>مانتو مدل المیرا</div>
         </div>
         <div class="parent" style="background-image: url(image/5.jpeg);">
-            <div class="child">مانتو مدل خاتون</div>
+            <div class="child"><div class="price">238</div>مانتو مدل خاتون</div>
         </div>
         <div class="parent" style="background-image: url(image/7\ \(15\).jpeg);">
-            <div class="child">مانتو مدل نگین</div>
+            <div class="child"><div class="price">238</div>مانتو مدل نگین</div>
         </div>
         <div class="parent" style="background-image: url(image/7\ \(16\).jpeg);">
-            <div class="child">مانتو مدل تمنا</div>
+            <div class="child"><div class="price">238</div>مانتو مدل تمنا</div>
         </div>
         <div class="parent" style="background-image: url(image/7\ \(17\).jpeg);">
-            <div class="child">مانتو مدل میکرو کش</div>
+            <div class="child"><div class="price">238</div>مانتو مدل میکرو کش</div>
         </div>
         <div class="parent" style="background-image: url(image/7\ \(18\).jpeg);">
-            <div class="child">مانتو مدل مازاراتی کتی</div>
+            <div class="child"><div class="price">238</div>مانتو مدل مازاراتی کتی</div>
         </div>
         <div class="parent" style="background-image: url(image/7\ \(19\).jpeg);">
-            <div class="child">مانتو مدل سگک دار</div>
+            <div class="child"><div class="price">238</div>مانتو مدل سگک دار</div>
         </div>
     </div>
 </body>
