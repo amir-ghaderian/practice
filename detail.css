@@ -40,8 +40,12 @@ body{
 
 }
 .pic{
+    width: 100%;
+    background-position: center;
+    background-size: cover;
     display: flex;
     flex-direction: column;
+    padding-top: 121.5%;
 
 }
 .dashbord{
@@ -60,13 +64,20 @@ select{
     font-family: shabanam;
 }
 .also-img{
-   
-    display: flex;
-    flex-wrap: wrap;
+    background-position: center;
+    background-size: cover;
+    padding-top: 188%;
+    width: 99%;
+
 }
-.also-img img{
-  width: 50%;
+.also{
+    display: grid;
+    grid-auto-flow: column;
+
+    
 }
+
+
 button{
     
     background-color: rgb(243 240 240);
@@ -86,12 +97,26 @@ button{
     border-radius: 1rem;
 }
 
+.media{
+    display: flex;
+    font-size: 2em;
+    color: gray ;
+    justify-content: center;
+
+}
+.media i{
+    padding: .2em;
+
+}
+.adress{
+    display: flex;
+    justify-content: center;
+}
 
 
-
-@media(max-width:600px){
+@media(max-width:850px){
     .container{
-        max-width: 380px;
+        max-width: 100%
     }
     .name{
         font-size: 1rem;
@@ -101,5 +126,8 @@ button{
     }
     button{
         font-size: 1rem;
+    }
+    .also-img{
+        max-height: 8em;
     }
 }

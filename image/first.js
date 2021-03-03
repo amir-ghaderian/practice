@@ -16,5 +16,6 @@ console.log(p)
 let name="amir"
 let family='ghaderian'
 let website=`www.sormeh-bazar.com`
+console.log(typeof('www.sormeh-bazar.com'))
 
 console.log(typeof(p))
