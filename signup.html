@@ -14,6 +14,21 @@
         margin: 0;
 
     }
+    .navbar {
+        display: flex;
+        font-size: 1rem;
+        justify-content: space-between;
+        align-items: center;
+        
+    }
+    .navbar a{
+        text-decoration: none;
+        color: black;
+    }
+
+
+    
+
     .container{
         width: 100%;
         display: flex;
@@ -60,8 +75,20 @@
         color: white;
         font-size: 1rem;
 }
+@media  (max-width: 615px){
+    .navbar img{
+        width: 10em;
+    }
+}
 </style>
 <body>
+    <header>
+        <div class="navbar">
+            <ul>colection</ul>
+            <a href="signup.html"><ul>login</ul></a>
+            <ul> <img src="image/logo.png" alt=""></ul>
+        </div>
+    </header>
     <div class="container">
         <div class="information">
              <div class="n1">  <i class="fas fa-user"></i><input  class="tools" type="text" placeholder="name  "><em>نام و نام خانوادگی</em></div> 
