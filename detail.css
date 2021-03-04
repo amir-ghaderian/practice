@@ -31,6 +31,7 @@ body{
     flex-direction: column;
     max-width: 600px;
     align-self: center;
+    
 
 }
 .name{
@@ -73,6 +74,7 @@ select{
 .also{
     display: grid;
     grid-auto-flow: column;
+    
 
     
 }
@@ -102,11 +104,17 @@ button{
     font-size: 2em;
     color: gray ;
     justify-content: center;
+    border-top: 2px solid gray;
 
 }
 .media i{
     padding: .2em;
 
+}
+.media i:hover {
+    color:purple;
+    transition: color .5s;
+    
 }
 .adress{
     display: flex;
