@@ -35,7 +35,7 @@ body{
 }
 .name{
     direction: rtl;
-    font-size: 2rem;
+    font-size: 1.5rem;
     padding-top: 1rem;
 
 }
@@ -116,11 +116,7 @@ button{
 
 @media(max-width:850px){
     .container{
-<<<<<<< HEAD
         max-width: 100%
-=======
-        max-width: 100%;
->>>>>>> 000933c8c6ff2f58bb3cfb1cae5ab7efe56a87a5
     }
     .name{
         font-size: 1rem;
