@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/d2d35f7979.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <style>
@@ -41,6 +42,7 @@
         font-size: 1rem;
         justify-content: space-between;
         align-items: center;
+
     }
 
 
@@ -85,29 +87,107 @@
         display: block;
 
     }
-    .color{
-        
+
+    .color {
+
         display: flex;
         margin-top: -1em;
 
     }
-    .color-item{
+
+    .color-item {
         width: 15px;
         height: 15px;
         padding: .1em;
-        
+
+    }
+
+    .media {
+        display: flex;
+        font-size: 2em;
+        color: gray;
+        justify-content: center;
+        border-top: 2px solid gray;
+        width: 80vw;
+
+    }
+
+    .media i {
+        padding: .2em;
+
+    }
+
+    .media i:hover {
+        color: purple;
+        transition: color .5s;
+
+    }
+
+    .adress {
+        display: flex;
+        justify-content: center;
+    }
+
+    .right {
+        display: flow-root;
+        direction: rtl;
+        color: gray;
+        font-size: .4em;
+    }
+
+    .location {
+        display: flex;
+        direction: rtl;
+        list-style: none;
+        color: grey;
+        font-size: .7em;
+    }
+
+    .location li {
+        margin-right: 2em;
+
+    }
+
+    .location i {
+        display: flex;
+        flex-direction: column;
+        padding: .2em;
+    }
+
+    .subscription {
+        color: gray;
+        font-size: .3em;
+
+
+    }
+
+    button {
+        background-color: gray;
+        font-family: shabnam;
+        border-radius: .5em;
+        margin: 1em;
+        color:white;
+        font-size: 2.2em;
     }
     
+
+
     @media (max-width: 1095px) {
         .navbar {
             width: 50em;
         }
     }
-    @media (max-width: 815px){
-        .navbar{ 
+
+    @media (max-width: 815px) {
+        .navbar {
             width: 40em;
         }
+
+        .media {
+            width: 100%;
+        }
     }
+
     @media (max-width: 655px) {
         .container {
             width: 50%;
@@ -135,7 +215,9 @@
     <header>
         <div class="navbar">
             <ul>colection</ul>
-            <a href="signup.html"><ul>signup</ul></a>
+            <a href="signup.html">
+                <ul>signup</ul>
+            </a>
             <ul> <img src="image/logo.png" alt=""></ul>
         </div>
     </header>
@@ -144,7 +226,11 @@
             <div class="parent" style="background-image: url(image/7\ \(18\).jpeg);"></div>
             <div class="child">
                 <div class="price">238000</div>
-                <div class="color"><div class="color-item" style="background-color: rgb(47, 94, 95);"></div><div class="color-item" style="background-color: rgb(87, 38, 3);"></div><div class="color-item" style="background-color: rgb(228, 11, 11);"></div></div>مانتو مدل یاخما تور دار
+                <div class="color">
+                    <div class="color-item" style="background-color: rgb(47, 94, 95);"></div>
+                    <div class="color-item" style="background-color: rgb(87, 38, 3);"></div>
+                    <div class="color-item" style="background-color: rgb(228, 11, 11);"></div>
+                </div>مانتو مدل یاخما تور دار
         </a>
     </div>
     </div>
@@ -152,21 +238,33 @@
         <div class="parent" style="background-image: url(image/7\ \(11\).jpeg);"></div>
         <div class="child">
             <div class="price">238000</div>
-            <div class="color"><div class="color-item" style="background-color: cadetblue;"></div><div class="color-item" style="background-color: chocolate;"></div><div class="color-item" style="background-color: darkgreen;"></div></div> مانتو مدل پایین کلوش
+            <div class="color">
+                <div class="color-item" style="background-color: cadetblue;"></div>
+                <div class="color-item" style="background-color: chocolate;"></div>
+                <div class="color-item" style="background-color: darkgreen;"></div>
+            </div> مانتو مدل پایین کلوش
         </div>
     </div>
     <div class="container">
         <div class="parent" style="background-image: url(image/7\ \(12\).jpeg);"></div>
         <div class="child">
             <div class="price">238000</div>
-            <div class="color"><div class="color-item" style="background-color: black;"></div><div class="color-item" style="background-color: rgb(108, 92, 197);"></div><div class="color-item" style="background-color: yellowgreen;"></div></div>مانتو مدل میکرو کلاهدار
+            <div class="color">
+                <div class="color-item" style="background-color: black;"></div>
+                <div class="color-item" style="background-color: rgb(108, 92, 197);"></div>
+                <div class="color-item" style="background-color: yellowgreen;"></div>
+            </div>مانتو مدل میکرو کلاهدار
         </div>
     </div>
     <div class="container">
         <div class="parent" style="background-image: url(image/7\ \(13\).jpeg);"></div>
         <div class="child">
             <div class="price">238000</div>
-            <div class="color"><div class="color-item" style="background-color: rgb(26, 243, 243);"></div><div class="color-item" style="background-color: yellowgreen;"></div><div class="color-item" style="background-color: brown;"></div></div>مانتو مدل حریر منگوله دار
+            <div class="color">
+                <div class="color-item" style="background-color: rgb(26, 243, 243);"></div>
+                <div class="color-item" style="background-color: yellowgreen;"></div>
+                <div class="color-item" style="background-color: brown;"></div>
+            </div>مانتو مدل حریر منگوله دار
         </div>
     </div>
     <div class="container">
@@ -194,5 +292,41 @@
         </div>
     </div>
 </body>
+<footer>
+    <div class="media">
+        <i class="fab fa-whatsapp"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-telegram"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fas fa-phone-volume"></i>
+        <i class="fab fa-facebook"></i>
+    </div>
+    <div class="subscription">
+        <button>اشتراک</button><input type="text">جهت دریافت اشتراک ایمیل خود را وارد کنیید
+    </div>
+    <div class="location">
+        <section>
+            <i class="fas fa-map-marker-alt"></i>
+            <i class="fas fa-map-marker-alt"></i>
+            <i class="fas fa-map-marker-alt"></i>
+        </section>
+        <section>
+            <li>شعبه مرکزی</li>
+            <li>شعبه دو</li>
+            <li>شعبه سه</li>
+        </section>
+        <section>
+            <li>تهران بازار بزرک</li>
+            <li>کرج گوهردشت</li>
+            <li>کرج گوهردشت</li>
+        </section>
+    </div>
+    <div class="adress">
+        <img src="image/000.jpg" alt="">
+        <img src="image/neshan.jpg" alt="">
+        <img src="image/download.png">
+    </div>
+    <em class="right">کلیه حقوق معنوی این سایت متعلق به شرکت پیرامد میباشد</em>
+</footer>
 
 </html>

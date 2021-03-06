@@ -108,6 +108,7 @@ button{
     color: gray ;
     justify-content: center;
     border-top: 2px solid gray;
+    width: 100vw;
 
 }
 .media i{
