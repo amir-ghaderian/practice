@@ -94,21 +94,30 @@ button{
     justify-content: space-evenly;
     padding: 1rem;
     list-style: none;
-    padding-top: 2rem;
     color: grey;
     margin-top: 1rem;
     border: 2px solid grey;
     border-radius: 1rem;
+    margin: .5em;
+    background-image: url(image/wallpapers.jpg);
+} 
+.detail li{
+    background-color: #adacac;
+    color: white;
+    margin: .4em;
+    border-radius: .5em;
+    padding: .5em;
+
 }
 
 .media{
-    width: 100vw;
+    
     display: flex;
     font-size: 2em;
     color: gray ;
     justify-content: center;
     border-top: 2px solid gray;
-    width: 100vw;
+    
 
 }
 .media i{
@@ -141,5 +150,18 @@ button{
     }
     .also-img{
         max-height: 8em;
+    }
+    .media i{
+        font-size: .5em;
+    }
+    .adress img{
+        width: 4.8em;
+    }
+    .detail li{
+    margin: .3em;
+    border-radius: .5em;
+    padding: .5em;
+    font-size: .7em;
+
     }
 }
