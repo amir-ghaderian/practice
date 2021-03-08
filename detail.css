@@ -82,11 +82,11 @@ select{
 }
 
 
-button{
+.go{
     
-    background-color: rgb(243 240 240);
+    background-color: rgb(181 181 181);
     border-radius: .5rem;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
 }
 .detail{
     display: flex;
@@ -110,31 +110,111 @@ button{
 
 }
 
-.media{
-    
+.media {
     display: flex;
     font-size: 2em;
-    color: gray ;
+    color: gray;
     justify-content: center;
     border-top: 2px solid gray;
-    
+    padding-top: 1em;
+    margin-top: 2em;
 
 }
-.media i{
+
+.media i {
     padding: .2em;
 
 }
+
 .media i:hover {
-    color:purple;
+    color: purple;
     transition: color .5s;
-    
+
 }
-.adress{
+
+.adress {
     display: flex;
     justify-content: center;
 }
 
+.right {
+    display: flow-root;
+    direction: rtl;
+    color: gray;
+    font-size: .4em;
+}
 
+.location {
+    display: flex;
+    direction: rtl;
+    list-style: none;
+    color: grey;
+    font-size: .7em;
+}
+
+.location li {
+    margin-right: 2em;
+
+}
+
+.location i {
+    display: flex;
+    flex-direction: column;
+    padding: .2em;
+}
+
+.subscription {
+    color: gray;
+    font-size: .3em;
+
+
+}
+
+button {
+    background-color: gray;
+    font-family: shabnam;
+    border-radius: .5em;
+    margin: 1em;
+    color: white;
+    font-size: 2.2em;
+    border: none;
+    line-height: 2em
+}
+footer{
+    width: 98vw;
+}
+.footer-list {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+input {
+    font-size: 2em;
+    font-family: shabnam;
+    width: 22em;
+    background-color: gray;
+    color: white;
+    padding: .3em;
+    border-radius: .5em;
+    direction: rtl;
+    border: none;
+    line-height: 3em;
+}
+
+.saller{
+    width: 5em;
+    height: 5em;
+    border-radius: 3em;
+    background-position: center;
+    background-size: cover;
+    position: fixed;
+    bottom: 1em;
+    left: 1em;
+}
 @media(max-width:850px){
     .container{
         max-width: 100%
@@ -145,17 +225,41 @@ button{
     select{
         font-size: 1rem;
     }
-    button{
-        font-size: 1rem;
+    .go{
+        font-size: .8em;
     }
     .also-img{
         max-height: 8em;
     }
-    .media i{
-        font-size: .5em;
+    .location {
+        font-size: .4em;
     }
     .adress img{
         width: 4.8em;
+    }
+
+    input {
+    font-size: 1em;
+    font-family: shabnam;
+    width: 30em;
+    background-color: #a5a3a3;
+    color: white;
+    padding: .5em;
+    border-radius: .5em;
+    direction: rtl;
+    border: none;
+    line-height: 3.5em;
+    }
+
+    footer button {
+    background-color: #a5a3a3;
+    font-family: shabnam;
+    border-radius: .6em;
+    margin: 1em;
+    color: white;
+    font-size: 1.7em;
+    border: none;
+    line-height: 2.3em;
     }
     .detail li{
     margin: .3em;
@@ -164,4 +268,9 @@ button{
     font-size: .7em;
 
     }
-}
+    .location li {
+        margin-right: 0;
+        font-size: smaller;
+        text-align: inherit;
+    }
+}  
