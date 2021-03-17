@@ -50,7 +50,49 @@
     .navbar img {
         width: 15em;
     }
+    ul{
+        padding: 0;
+        margin: 0;
+    }
+    .wrapper img{
+        display: block;
+        margin: 1em;
+        border-radius: 2em;
+    }
+    .wrapper{
+        
+        overflow: hidden;
+        
+    }
+    .box{
+        list-style: none;
+        display: flex;
+        animation:animate 15s ease infinite;
 
+    }
+    .box :hover{
+        animation-play-state: paused;
+    }
+    @keyframes animate{
+        0%{
+            transform: translateX(0);
+        }
+        10%{
+            transform: translateX(-50%);
+        }
+        30%{
+            transform: translateX(-100%);
+        }
+        50%{
+            transform: translateX(-150%);
+        }
+        75%{
+            transform: translateX(-200%);
+        }
+        100%{
+            transform: revert;
+        }
+    }
     .container {
         width: 33%;
         display: flex;
@@ -291,11 +333,10 @@
 
         .navbar {
             font-size: .5rem;
-            width: 10em;
+            width: 34em;
         }
     }
 </style>
-
 <body>
     <header>
         <div class="navbar">
@@ -306,9 +347,10 @@
             <ul> <img src="image/logo.png" alt=""></ul>
         </div>
     </header>
+    
     <div class="container">
         <a href="detail.html">
-            <div class="parent" style="background-image: url(image/7\ \(18\).jpeg);"></div>
+            <div class="parent" style="background-image: url(image/7\ \(17\).jpeg);"></div>
             <div class="child">
                 <div class="price">238000</div>
                 <div class="color">
@@ -320,7 +362,7 @@
     </div>
     </div>
     <div class="container">
-        <div class="parent" style="background-image: url(image/7\ \(11\).jpeg);"></div>
+        <div class="parent" style="background-image: url(image/7\ \(12\).jpeg);"></div>
         <div class="child">
             <div class="price">238000</div>
             <div class="color">
@@ -331,7 +373,7 @@
         </div>
     </div>
     <div class="container">
-        <div class="parent" style="background-image: url(image/7\ \(12\).jpeg);"></div>
+        <div class="parent" style="background-image: url(image/7\ \(16\).jpeg);"></div>
         <div class="child">
             <div class="price">238000</div>
             <div class="color">
@@ -342,7 +384,7 @@
         </div>
     </div>
     <div class="container">
-        <div class="parent" style="background-image: url(image/7\ \(13\).jpeg);"></div>
+        <div class="parent" style="background-image: url(image/7\ \(20\).jpeg);"></div>
         <div class="child">
             <div class="price">238000</div>
             <div class="color">
@@ -353,30 +395,40 @@
         </div>
     </div>
     <div class="container">
-        <div class="parent" style="background-image: url(image/7\ \(14\).jpeg);"></div>
+        <div class="parent" style="background-image: url(image/7\ \(19\).jpeg);"></div>
         <div class="child">
             <div class="price">238000</div>مانتو مدل میکرو سگک دار
         </div>
     </div>
     <div class="container">
-        <div class="parent" style="background-image: url(image/7\ \(15\).jpeg);"></div>
+        <div class="parent" style="background-image: url(image/7\ \(12\).jpeg);"></div>
         <div class="child">
             <div class="price">238000</div>مانتو مدل سه خط ورزشی
         </div>
     </div>
     <div class="container">
-        <div class="parent" style="background-image: url(image/7\ \(16\).jpeg);"></div>
+        <div class="parent" style="background-image: url(image/7\ \(20\).jpeg);"></div>
         <div class="child">
             <div class="price">238000</div>مانتو مدل حریر چاک دار
         </div>
     </div>
     <div class="container">
-        <div class="parent" style="background-image: url(image/7\ \(17\).jpeg);"></div>
+        <div class="parent" style="background-image: url(image/7\ \(2\).jpeg);"></div>
         <div class="child">
             <div class="price">238000</div>مانتو مدل سوییت کتی
         </div>
     </div>
     <div class="saller" style="background-image: url(image/online-service-operator.jpg);">
+    </div>
+    <div class="wrapper">
+        <div class="box">
+            <ul><img src="image/a.jpeg" alt=""></ul>
+            <ul><img src="image/b.jpeg" alt=""></ul>
+            <ul><img src="image/c.jpeg" alt=""></ul>
+            <ul><img src="image/e.jpeg" alt=""></ul>
+            <ul><img src="image/d.jpeg" alt=""></ul>
+            <ul><img src="image/b.jpeg" alt=""></ul>
+        </div>
     </div>
 </body>
 <footer>
