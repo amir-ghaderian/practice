@@ -99,7 +99,10 @@ select{
     border: 2px solid grey;
     border-radius: 1rem;
     margin: .5em;
-    background-image: url(image/wallpapers.jpg);
+    background-image: url(image/Sleepy+Clouds+32.97%27+L+x+1.74%22+W+Wallpaper+Roll.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 } 
 .detail li{
     background-color: #adacac;

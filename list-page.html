@@ -50,49 +50,97 @@
     .navbar img {
         width: 15em;
     }
-    ul{
+
+    ul {
         padding: 0;
         margin: 0;
     }
-    .wrapper img{
+
+    .wrapper img {
         display: block;
         margin: 1em;
         border-radius: 2em;
     }
-    .wrapper{
-        
+
+    .wrapper {
+
         overflow: hidden;
-        
-    }
-    .box{
-        list-style: none;
-        display: flex;
-        animation:animate 15s ease infinite;
 
     }
-    .box :hover{
+
+    .box {
+        list-style: none;
+        display: flex;
+        animation: animate 15s ease infinite;
+
+    }
+
+    .box :hover {
         animation-play-state: paused;
     }
-    @keyframes animate{
-        0%{
+
+    @keyframes animate {
+        0% {
             transform: translateX(0);
         }
-        10%{
+
+        10% {
             transform: translateX(-50%);
         }
-        30%{
+
+        30% {
             transform: translateX(-100%);
         }
-        50%{
+
+        50% {
             transform: translateX(-150%);
         }
-        75%{
+
+        75% {
             transform: translateX(-200%);
         }
-        100%{
+
+        100% {
             transform: revert;
         }
     }
+
+    .season {
+        width: 60em;
+        height: 15em;
+        background-image: url(image/Untitled.png);
+        background-position: center;
+        background-size: cover;
+        animation: slide 2s infinite;
+        margin: .2em;
+        border-radius: 2em;
+    }
+    
+
+    @keyframes slide {
+        0% {
+            background-image: url(/image/Untitled.png);
+        }
+
+        25% {
+            background-image: url(/image/Untitled2.png);
+        }
+
+        50% {
+            background-image: url(/image/Untitled3.png);
+        }
+
+        75% {
+            background-image: url(/image/Untitled4.png);
+        }
+
+        100% {
+            background-image: url(/image/Untitled5.png);
+        }
+    }
+
+
+
     .container {
         width: 33%;
         display: flex;
@@ -101,10 +149,11 @@
         top: 0;
         transition: top ease 1s;
     }
-    
+
     .container:hover {
-     top: -10px;
+        top: -10px;
     }
+
     a {
         text-decoration: none;
         color: black;
@@ -324,6 +373,32 @@
             width: 2.5em;
             height: 2.5em;
         }
+
+        @keyframes animate {
+            0% {
+                transform: translateX(100%);
+            }
+
+            25% {
+                transform: translateX(-100%);
+            }
+
+            50% {
+                transform: translateX(-200%);
+            }
+
+            75% {
+                transform: translateX(-300%);
+            }
+
+            99% {
+                transform: translateX(-500%);
+            }
+
+            100% {
+                transform: revert;
+            }
+        }
     }
 
     @media (max-width: 415px) {
@@ -337,6 +412,7 @@
         }
     }
 </style>
+
 <body>
     <header>
         <div class="navbar">
@@ -347,7 +423,9 @@
             <ul> <img src="image/logo.png" alt=""></ul>
         </div>
     </header>
-    
+    <div class="season">
+    </div>
+    </div>
     <div class="container">
         <a href="detail.html">
             <div class="parent" style="background-image: url(image/7\ \(17\).jpeg);"></div>
