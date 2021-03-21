@@ -99,10 +99,9 @@ select{
     border: 2px solid grey;
     border-radius: 1rem;
     margin: .5em;
-    background-image: url(image/Sleepy+Clouds+32.97%27+L+x+1.74%22+W+Wallpaper+Roll.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-image: url(image/WhatsApp\ Image\ 2021-03-21\ at\ 20.56.04.jpeg);            
+    background-repeat: repeat;
+    background-blend-mode: difference;
 } 
 .detail li{
     background-color: #adacac;
