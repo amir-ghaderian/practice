@@ -1,21 +1,11 @@
-//variable
-//case- sensitive
 
-//1.DECLARATION
-let Visitor
-//2.DEFUINTION
-Visitor=18
+let hour = 10;
 
+if (hour >= 6 && hour < 12) 
+ console.log('good morning');
 
-alert (Visitor)
+else if (hour >= 12 && hour < 18 )
+  console.log('good afternoon');
 
-//constant
-const p =3.14
-console.log(p)
-
-let name="amir"
-let family='ghaderian'
-let website=`www.sormeh-bazar.com`
-console.log(typeof('www.sormeh-bazar.com'))
-
-console.log(typeof(p))
+else
+  console.log('good evening');
