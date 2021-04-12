@@ -99,3 +99,121 @@ body{
     background-color: blue;
 
 }
+.parent{
+    display: flex;
+    width: 100vw;
+    height: 100%;
+
+}
+.box-1{
+    width: 30%;
+    height: 40%;
+    background-color: gray;
+}
+.box-2{
+    width: 40%;
+    background-color: hotpink;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+}
+.box-3{
+    width: 30%;
+    background-color: deepskyblue;
+    height: 40%;
+}
+.title{
+    height: 40%;
+    width: 100%;
+   text-align: center;
+    background-color: black;
+    font-size: 2em;
+    color: #eeee;
+}
+.main1{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    
+}
+.cercel{
+    background-color: brown;
+    width: 7%;
+    height: 14%;
+    border-radius: 5em;
+    position: absolute;
+    top: 3em;
+    left: 1em;
+}
+.name{
+    display: flex;
+    align-self: center;
+}
+.b1{
+    width: 30%;
+    height: 4em;
+    background-color: blanchedalmond;
+}
+.b2{
+    width: 30%;
+    height: 4em;
+    background-color: cornsilk;
+}
+.b3{
+    width: 30%;
+    height: 4em;
+    background-color: burlywood;
+}
+.fal{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.line1{
+    width: 100%;
+    height: 5.7em;
+    background-color: tan;
+    display: flex;
+
+}
+.line2{
+    width: 100%;
+    height: 5.7em;
+    background-color: rgb(184, 179, 173);
+
+}
+.line3{
+    width: 100%;
+    height: 4em;
+    background-color: rgb(13, 19, 71);
+
+}
+.line4{
+    width: 100%;
+    height: 4em;
+    background-color: rgb(19, 134, 29);
+
+}
+.line5{
+    width: 100%;
+    height: 4em;
+    background-color: rgb(117, 71, 10);
+
+}
+.pic{
+    width: 15%;
+    height: 100%;
+    background-color: tomato;
+}
+.h2{
+    width: 85%;
+    height: 50%;
+    background-color: thistle;
+}
+.h1{
+    width: 85%;
+    height: 50%;
+    background-color: yellow;
+}
