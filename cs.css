@@ -224,6 +224,18 @@ span{
     margin-top: .8em;
     position: absolute;
 }
+.img-2{
+    background-image: url(image/mushe\ sarashpaz.jfif);
+    background-position: center;
+    background-size: contain;
+    border-radius: 4em;
+    width: 4em;
+    height: 4em;
+    border: 1px solid black;
+    margin-left: .4em;
+    margin-top: .8em;
+    position: absolute;
+}
 h4{
     color: gray;
     display: contents;
@@ -257,5 +269,13 @@ height: 2em;
 font-weight: bolder;
     font-size: x-large;
     padding-top: .5em;
+}
+.navbar{
+  
+    height: 3em;
+    display: flex;
+
+    color: gray;
+
 }
 
