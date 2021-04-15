@@ -137,6 +137,12 @@ body{
     background-color: black;
     font-size: 2em;
     color: #eeee;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.wap{
+    margin-left: 3em;
 }
 .main1{
     display: flex;
