@@ -146,14 +146,14 @@ body{
     
 }
 .cercel{
-    background-image: url(image/logo.png);
+    background-image: url(image/ASD.PNG);
     background-position: center;
-    background-size: contain;
+    background-size: cover;
     width: 7%;
     height: 14%;
     border-radius: 5em;
     position: absolute;
-    top: 3.8em;
+    top: 6.8em;
     left: 4em;
 }
 .name{
@@ -213,7 +213,7 @@ span{
     margin-left: -1em;
 }
 .img{
-    background-image: url(image/logo.png);
+    background-image: url(image/ASD.png);
     background-position: center;
     background-size: contain;
     border-radius: 4em;
@@ -225,7 +225,7 @@ span{
     position: absolute;
 }
 .img-2{
-    background-image: url(image/mushe\ sarashpaz.jfif);
+    background-image: url(image/ASDF.JPG);
     background-position: center;
     background-size: contain;
     border-radius: 4em;
@@ -274,8 +274,30 @@ font-weight: bolder;
   
     height: 3em;
     display: flex;
-
+   position: relative;
     color: gray;
+
+}
+.navbar  li{
+    display: inline;
+    margin-left: 4em;
+    font-weight: 900;
+    font-size: 1.2em;
+}
+.navbar li:hover{
+    transition: .5s;
+    color: crimson;
+}
+.tweet{
+    width: 4em;
+    height: 1.4em;
+    text-align: center;
+    border-radius: .8em;
+    background-color: #7f7ffb ;
+    color: white;
+    position: absolute;
+    right: 2em;
+    top: 1em;
 
 }
 
