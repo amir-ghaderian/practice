@@ -101,7 +101,7 @@ body{
 }
 .parent{
     display: flex;
-    width: 100vw;
+    width: 100%;
     height: 100%;
     background-color: #dcdcdc;
     justify-content: center;
@@ -212,7 +212,7 @@ body{
 span{
     font-size: .8em;
     color: black;
-    text-align: -webkit-match-parent;
+    text-transform: capitalize;
     position: absolute;
     bottom: 1em;
     left: 8em;
@@ -305,5 +305,11 @@ font-weight: bolder;
     right: 2em;
     top: 1em;
 
+}
+@media (max-width:1070px){
+    .h2{
+        font-size: 1em;
+        margin-left: 1em;
+    }
 }
 
