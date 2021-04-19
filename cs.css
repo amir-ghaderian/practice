@@ -8,7 +8,7 @@ body{
 .container{
     display: flex;
     flex-direction: column;
-    max-width:98% ;
+    max-width:95% ;
 }
 .box{
     
@@ -88,7 +88,7 @@ body{
 }
 .row3{
     background-color: blue;
-    width: 5%;
+    min-width:70px;
     height: 2em;
     
 }
@@ -104,13 +104,13 @@ body{
     background-color: red;
 }
 .row5{
-    width: 5%;
+    width: 6vw;
     height: 2em;
     background-color:yellow;
 
 }
 .row6{
-    width: 5%;
+    min-width:70px;
     height: 2em;
     background-color: rgb(255, 0, 0);
 
@@ -327,6 +327,9 @@ font-weight: bolder;
     top: 1em;
 
 }
+label{
+    padding-left: 20px;
+}
 @media (max-width:1070px){
     .h2{
         font-size: 1em;
@@ -335,6 +338,9 @@ font-weight: bolder;
     .wap{
         font-size: .5em;
         margin-left: 5em;
+    }
+    .row5{
+        width: 16vw;
     }
 }
 
