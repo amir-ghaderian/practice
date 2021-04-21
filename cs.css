@@ -104,7 +104,7 @@ body{
     background-color: red;
 }
 .row5{
-    width: 6vw;
+    width: 4em;
     height: 2em;
     background-color:#fb9a08;
 
@@ -340,8 +340,11 @@ label{
         font-size: .5em;
         margin-left: 5em;
     }
+    
+}
+@media (max-width:380px){
     .row5{
-        min-width: 4em;
+        max-width: 2em;
     }
 }
 
