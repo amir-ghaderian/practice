@@ -75,6 +75,15 @@ body{
     margin: 1em;
     background-color: green;
 }
+.box7{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 2em;
+    margin: 1em;
+    background-color:#fb9a08;
+}
 .row1{
     
     width: 50%;
@@ -106,7 +115,7 @@ body{
 .row5{
     width: 4em;
     height: 2em;
-    background-color:#fb9a08;
+    background-color:green;
 
 }
 .row6{
@@ -116,7 +125,7 @@ body{
 
 }
 .row7{
-    width: .56em;
+    width: 1.7em;
     height: 2em;
     background-color: green;
 }
