@@ -113,7 +113,7 @@ body{
     background-color: red;
 }
 .row5{
-    width: 4em;
+    width: 8em;
     height: 2em;
     background-color:green;
 
@@ -351,7 +351,7 @@ label{
     }
     
 }
-@media (max-width:380px){
+@media (max-width:680px){
     .row5{
         max-width: 2em;
     }
