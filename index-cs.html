@@ -104,7 +104,7 @@
       height: 50px;
       border-radius: 50%;
       border: solid #e6ecf0;
-      margin: .4em;
+      margin: 1em;
     }
 
     .front {
@@ -113,16 +113,49 @@
       align-items: baseline;
       line-height: 3em;
     }
-    .item{
+
+    .item {
       width: 100%;
       background-color: white;
       height: 50%;
-      border: 2px solid #e6ecf0 ;
-    }
-    .front2{
+      border: 2px solid #e6ecf0;
       display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      align-content: start;
+      align-items: center;
     }
-    
+
+    .follow {
+      background-color: white;
+      color: cornflowerblue;
+      height: 2em;
+      width: 6em;
+      border-radius: 2em;
+      border: 1px solid cornflowerblue;
+      font-weight: 800;
+      margin-left: -5em;
+    }
+    @media (max-width:1000px){
+      .box3{
+        display: none;
+      }
+    }
+    @media (max-width:700px){
+      .container{
+        flex-direction: column;
+        align-items: center;
+      }
+      .box1{
+        width: 100%;
+        background-color: white;
+      }
+      .box2{
+        width: 100%;
+        background-color: white;
+      }
+      
+    }
   </style>
 </head>
 
@@ -190,19 +223,27 @@
       </div>
     </div>
     <div class="box3">
+
       <div class="item">
+
         <div class="pic-profile"></div>
-        <div class="pic-profile"></div>
-        <div class="front2">
-          <h3>KIM</h3>
-          <h4>@kimya</h4>
-        </div>
+
+        <h3>KIM</h3>
+        <h4>@kimya</h4>
+        <button class="follow">follow</button>
       </div>
       <div class="item">
-        
-        </div>
+        <div class="pic-profile"></div>
+
+        <h3>KIM</h3>
+        <h4>@kimya</h4>
+        <button class="follow">follow</button>
       </div>
+
+
     </div>
+  </div>
+  </div>
   </div>
 </body>
 
