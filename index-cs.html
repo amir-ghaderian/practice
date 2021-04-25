@@ -32,7 +32,7 @@
       width: 290px;
       height: 30%;
       background-color: hotpink;
-      margin: 0 1em;
+
 
     }
 
@@ -40,7 +40,7 @@
       width: 50%;
       height: 60%;
       background-color: khaki;
-      margin:  0 1em;
+      margin: 0 1em;
 
     }
 
@@ -48,7 +48,7 @@
       width: 290px;
       height: 30%;
       background-color: deepskyblue;
-      margin: 0 1em;
+
 
     }
 
@@ -64,6 +64,7 @@
       height: 3em;
       display: flex;
       align-items: flex-end;
+      line-height: 3em;
     }
 
     .circel {
@@ -88,6 +89,30 @@
       justify-content: space-between;
       padding-left: 1em;
     }
+
+    .row {
+      min-height: 51px;
+      height: 4.4em;
+      background-color: white;
+      border: 2px solid #e6ecf0;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .pic-profile {
+      width: 48px;
+      height: 50px;
+      border-radius: 50%;
+      border: solid #e6ecf0;
+      margin: .4em;
+    }
+
+    .front {
+      width: 0em;
+      display: flex;
+      align-items: baseline;
+      line-height: 3em;
+    }
     
   </style>
 </head>
@@ -98,6 +123,7 @@
       <div class="title"></div>
       <div class="name">
         <div class="circel"></div>
+        Ramy
       </div>
       <div class="follower">
         <ul>
@@ -112,7 +138,20 @@
         </ul>
       </div>
     </div>
-    <div class="box2"></div>
+    <div class="box2">
+      <div class="row">
+        <div class="pic-profile"></div>
+        <div class="front">
+          <h3>RAMY</h3>
+          <h4>@ramy</h4>
+        </div>
+        <span>helloo how are you</span>
+      </div>
+      <div class="row"></div>
+      <div class="row"></div>
+      <div class="row"></div>
+      <div class="row"></div>
+    </div>
     <div class="box3"></div>
   </div>
 </body>
