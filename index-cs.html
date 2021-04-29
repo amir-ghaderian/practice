@@ -54,8 +54,22 @@
 
     .title {
       width: 100%;
-      background-color: black;
-      height: 4em;
+    background-color: black;
+    height: 3.7em;
+    margin: 0px;
+    color: white;
+    font-size: 1.7em;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    font-family: sans-serif;
+    flex-direction: column;
+    align-items: center;
+
+    }
+    .profile-name{
+      display: flex;
+      flex-direction: column;
     }
 
     .name {
@@ -73,6 +87,9 @@
       border-radius: 50%;
       background-color: red;
       margin-left: 1em;
+      background-image: url(/develop/twitter/remy.jpg);
+      background-position: center;
+      background-size: cover;
     }
 
     .follower {
@@ -173,10 +190,15 @@
 <body>
   <div class="container">
     <div class="box1">
-      <div class="title"></div>
+      <div class="title">RATATOUILLE</div>
       <div class="name">
+        
         <div class="circel"></div>
-        Ramy
+        <div class="profile-name">
+          <span>Remy</span>> 
+          <span>@remy</span>
+  
+        </div>
       </div>
       <div class="follower">
         <ul>
