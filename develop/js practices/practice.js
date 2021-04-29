@@ -1,3 +1,52 @@
+function myValue(){
+  var details = document.getElementsByClassName("details")[0].value;
+  alert(details);
+}
+
+function myBox(){
+  var box = document.getElementById("box").style.background = "red";
+}
+
+function myMouse(){
+  var box = document.getElementById("box").style.background = "aqua";
+}
+function myBox2(){
+  var box2 = document.getElementById("box2").style.background = "black";
+}
+
+function myMouse2(){
+  var box2 = document.getElementById("box2").style.background = "pink";
+}
+function myFocus(){
+  var example = document.getElementById("example").style.background = "blue";
+}
+function myFocus2(){
+  var example = document.getElementById("example").style.background = "white";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var cars = ["audi", "BMW", "Benz", "ferrari"];
 console.log(cars);
 
@@ -24,56 +73,65 @@ if (homeTown == "America") {
 } else {
   console.log("you are not qualafied");
 }
-var i = '4';
+var i = "4";
 while (i.length < 14) {
-    i = i + '@'
-    console.log(i);
+  i = i + "@";
+  console.log(i);
 }
 
-
-
-var aArray = ["mohammad" , "amin" , "hasan" , "hosein"];
+var aArray = ["mohammad", "amin", "hasan", "hosein"];
 console.log(aArray);
 
-var bArray = ["mohammad" , "amin" , "hasan" , "hosein"];
+var bArray = ["mohammad", "amin", "hasan", "hosein"];
 console.log(bArray.pop());
 
-var cArray = ["mohammad" , "amin" , "hasan" , "hosein"];
+var cArray = ["mohammad", "amin", "hasan", "hosein"];
 cArray.push("ali");
 console.log(cArray);
 
-var dArray = ["mohammad" , "amin" , "hasan" , "hosein"];
+var dArray = ["mohammad", "amin", "hasan", "hosein"];
 console.log(cArray.shift());
 
-var eArray = ["mohammad" , "amin" , "hasan" , "hosein"];
+var eArray = ["mohammad", "amin", "hasan", "hosein"];
 eArray.shift(eArray);
 console.log(eArray);
 
-var fArray = ["mohammad" , "amin" , "hasan" , "hosein"];
+var fArray = ["mohammad", "amin", "hasan", "hosein"];
 fArray.pop(fArray);
 console.log(fArray);
 
-var gArray = ["mohammad" , "amin" , "hasan" , "hosein"];
+var gArray = ["mohammad", "amin", "hasan", "hosein"];
 gArray.unshift("amir");
 console.log(gArray);
 
-var hArray = ["mohammad" , "amin" , "hasan" , "hosein"];
+var hArray = ["mohammad", "amin", "hasan", "hosein"];
 delete hArray[1];
 console.log(hArray);
 
-var iArray = ["mohammad" , "amin" , "hasan" , "hosein"];
+var iArray = ["mohammad", "amin", "hasan", "hosein"];
 iArray.reverse(iArray);
 console.log(iArray);
 
-var jArray = ["mohammad" , "amin" , "hasan" , "hosein"];
+var jArray = ["mohammad", "amin", "hasan", "hosein"];
 jArray.push("hamid");
 console.log(jArray.sort());
 
-var kArray = ["mohammad" , "amin" , "hasan" , "hosein"];
+var kArray = ["mohammad", "amin", "hasan", "hosein"];
 kArray.push("ida");
 kArray.reverse(kArray);
 console.log(kArray.slice(2));
 
-var mArray = ["mohammad" , "amin" , "hasan" , "hosein"];
-var nArray = ["volvo" , "ferrari" , "benz" , "BMW"];
+var mArray = ["mohammad", "amin", "hasan", "hosein"];
+var nArray = ["volvo", "ferrari", "benz", "BMW"];
 console.log(mArray.concat(nArray));
+
+function aFunction() {
+  var z = x + y;
+  console.log(z);
+}
+aFunction((x = 4), (y = 7));
+
+var refresh = "refresh this page";
+document.write(refresh);
+console.log(refresh);
+

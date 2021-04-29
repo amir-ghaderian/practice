@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>javaScript</title>
     <script src="practice.js"></script>
-</head>
-<body>
-    
-<div class="index">
+  </head>
+  <style>
+    #box {
+      background-color: aqua;
+      width: 150px;
+      height: 40px;
+    }
+    #box2 {
+      background-color: pink;
+      width: 150px;
+      height: 40px;
+    }
+  </style>
 
-  
-</div>
+  <body>
+    <button onclick="alert(5)">click here</button>
 
-
-
-</body>
+    <button onclick="myValue()">مقدار</button>
+    <input type="text" class="details" />
+    <div id="box" onmouseover="myBox()" onmouseout="myMouse()"></div>
+    <div id="box2" onmousedown="myBox2()" onmouseup="myMouse2()"></div>
+    <input type="text" onfocusin="myFocus()" onfocusout="myFocus2()" id="example">
+  </body>
 </html>

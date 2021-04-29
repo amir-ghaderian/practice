@@ -234,7 +234,8 @@ body {
 /*right box*/
 .right-box {
   padding-left: 0.5rem;
-  flex-direction: column;max-width: 100%;
+  flex-direction: column;
+  max-width: 100%;
 }
 .right-images {
   display: flex;
@@ -284,4 +285,21 @@ body {
 }
 /*right box*/
 
-
+@media (max-width: 700px) {
+  .all-boxes {
+    flex-direction: column;
+    align-items: center;
+  }
+  .left-box {
+    width: 100%;
+    font-size: 16px;
+  }
+  .middle-box {
+    width: 100%;
+    font-size: 13px;
+  }
+  .right-box {
+    width: 100%;
+    font-size: 15px;
+  }
+}
