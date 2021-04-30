@@ -1,51 +1,34 @@
-function myValue(){
+function myValue() {
   var details = document.getElementsByClassName("details")[0].value;
   alert(details);
 }
 
-function myBox(){
-  var box = document.getElementById("box").style.background = "red";
+function myBox() {
+  var box = (document.getElementById("box").style.background = "red");
 }
 
-function myMouse(){
-  var box = document.getElementById("box").style.background = "aqua";
+function myMouse() {
+  var box = (document.getElementById("box").style.background = "aqua");
 }
-function myBox2(){
-  var box2 = document.getElementById("box2").style.background = "black";
-}
-
-function myMouse2(){
-  var box2 = document.getElementById("box2").style.background = "pink";
-}
-function myFocus(){
-  var example = document.getElementById("example").style.background = "blue";
-}
-function myFocus2(){
-  var example = document.getElementById("example").style.background = "white";
+function myBox2() {
+  var box2 = (document.getElementById("box2").style.background = "black");
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function myMouse2() {
+  var box2 = (document.getElementById("box2").style.background = "pink");
+}
+function myFocus() {
+  var example = (document.getElementById("example").style.background = "blue");
+}
+function myFocus2() {
+  var example = (document.getElementById("example").style.background = "white");
+}
+function myText() {
+  alert(1);
+}
+function newText() {
+  alert(2);
+}
 
 var cars = ["audi", "BMW", "Benz", "ferrari"];
 console.log(cars);
@@ -131,7 +114,5 @@ function aFunction() {
 }
 aFunction((x = 4), (y = 7));
 
-var refresh = "refresh this page";
-document.write(refresh);
-console.log(refresh);
-
+var a = (document.getElementById("try").innerHTML = 'hello');
+console.log(a);
