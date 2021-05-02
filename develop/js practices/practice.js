@@ -116,7 +116,12 @@ function aFunction() {
 }
 aFunction((x = 4), (y = 7));
 
+<<<<<<< HEAD
 
 
 
 document.getElementById("newTag").innerHTML  = "fgr";
+=======
+document.getElementById("try").innerHTML = 'hello';
+
+>>>>>>> 289aeafc4230700b140fe8036dad8c6fa4b28b97
