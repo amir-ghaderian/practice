@@ -1,3 +1,5 @@
+
+
 function myValue() {
   var details = document.getElementsByClassName("details")[0].value;
   alert(details);
@@ -114,5 +116,7 @@ function aFunction() {
 }
 aFunction((x = 4), (y = 7));
 
-var a = (document.getElementById("try").innerHTML = 'hello');
-console.log(a);
+
+
+
+document.getElementById("newTag").innerHTML  = "fgr";
