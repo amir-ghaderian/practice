@@ -114,5 +114,5 @@ function aFunction() {
 }
 aFunction((x = 4), (y = 7));
 
-var a = (document.getElementById("try").innerHTML = 'hello');
-console.log(a);
+document.getElementById("try").innerHTML = 'hello';
+
