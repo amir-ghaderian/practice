@@ -1,5 +1,3 @@
-
-
 function myValue() {
   var details = document.getElementsByClassName("details")[0].value;
   alert(details);
@@ -116,12 +114,21 @@ function aFunction() {
 }
 aFunction((x = 4), (y = 7));
 
-<<<<<<< HEAD
+document.getElementById("newTag").innerHTML = "fgr";
 
+const usersAge = 16;
 
+if (usersAge >= 18) {
+  console.log("old enough");
+} else {
+  console.log("too young");
+}
 
-document.getElementById("newTag").innerHTML  = "fgr";
-=======
-document.getElementById("try").innerHTML = 'hello';
-
->>>>>>> 289aeafc4230700b140fe8036dad8c6fa4b28b97
+const examGrade = 8;
+if (examGrade >= 17) {
+  console.log("good jub");
+} else if (examGrade <= 17 && examGrade < 14) {
+  console.log("poop");
+} else if (examGrade > 10) {
+  console.log("pass");
+}
