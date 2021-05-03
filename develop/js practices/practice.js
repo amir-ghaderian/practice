@@ -132,3 +132,39 @@ if (examGrade >= 17) {
 } else if (examGrade > 10) {
   console.log("pass");
 }
+
+const birthYear = "1375";
+const schoolYear = Number(birthYear) + 5;
+console.log(schoolYear);
+let time = "10:30";
+const schoolTime = "i will go to school at :" + time;
+console.log(schoolTime);
+
+console.log(2 * 3 * 3);
+
+if (12) console.log("it's ok");
+
+console.log(Boolean(12));
+
+console.log(Boolean(0));
+
+let day = Number(prompt("enter a number between 0 to 5"));
+switch (day) {
+  case 0:
+    console.log("saturday");
+    break;
+  case 1:
+    console.log("sunday");
+    break;
+  case 2:
+    console.log("monday");
+    break;
+  case 3:
+    console.log("tuesday");
+    break;
+  case 4:
+    console.log("wednesday");
+
+  case 5:
+    console.log("tursday");
+}
