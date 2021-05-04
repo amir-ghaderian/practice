@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
   <title>Document</title>
   <style>
     body {
@@ -36,18 +37,22 @@
       padding-bottom: 1em;
       height: 3em;
       display: flex;
-      position: relative;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
       color: gray;
-
+     
     }
 
     .navbar li {
       display: inline;
-      margin-left: 4em;
-      font-weight: 900;
+      margin-left: 2.5em;
+      font-weight: 700;
       font-size: 1.2em;
+      padding: .6em;
     }
-
+    
     .navbar li:hover {
       transition: .5s;
       color: #4AB3F4;
@@ -71,7 +76,7 @@
     .box1 {
       width: 290px;
       height: 35%;
-      margin-top: .5em;
+      margin-top: 4em;
 
 
     }
@@ -80,14 +85,14 @@
       width: 50%;
       height: 60%;
 
-      margin: .5em 1em;
+      margin: 4em 1em;
 
     }
 
     .box3 {
       width: 290px;
       height: 30%;
-      margin-top: .5em;
+      margin-top: 4em;
 
 
     }
@@ -129,10 +134,10 @@
       width: 5em;
       height: 5em;
       border-radius: 50%;
-      background-color: red;
       margin-left: 1em;
       background-image: url(develop/twitter/remy.jpg);
       background-size: cover;
+      border: 2px solid #E6ECF0;
     }
 
     .follower {
@@ -247,6 +252,9 @@
     h5 {
       color: gray;
     }
+    .menu{
+      display: none;
+    }
 
     @media (max-width:1100px) {
       .box3 {
@@ -270,18 +278,25 @@
         background-color: white;
       }
 
-      .navbar {
+      .navbar li{
         display: none;
+      }
+      .navbar{
+        font-size: larger;
+      }
+      .menu{
+        display: inline;
+        padding: .3em;
       }
     }
   </style>
 </head>
 <nav class="navbar">
   <ul>
-    <li>home</li>
-    <li>moment</li>
-    <li>natification</li>
-    <li>messages</li>
+    <li>HOME</li><i class="fas fa-home menu"></i>
+    <li>MOMENT</li><i class="fas fa-hashtag menu"></i>
+    <li>NATIFICATION</li><i class="far fa-bell menu"></i>
+    <li>MESSAGES</li><i class="far fa-envelope menu"></i>
   </ul>
   <div class="tweet">Tweet</div>
 </nav>
@@ -322,7 +337,7 @@
         <div class="pic-profile"></div>
         <div class="front">
           <div class="label">
-            <h4>REMY</h4>
+            <h3>REMY</h3>
             <h5>@remy Nov 19</h5>
           </div>
 
@@ -333,7 +348,7 @@
         <div class="pic-profile" style="margin-bottom: 3em;"></div>
         <div class="front">
           <div class="label">
-            <h4>REMY</h4>
+            <h3>REMY</h3>
             <h5>@remy Nov 19</h5>
           </div>
           <span>Its 2007.You just got home from elementary school.Your mom pizza bagels in the oven.Ratatouile is in
@@ -344,7 +359,7 @@
         <div class="pic-profile"></div>
         <div class="front">
           <div class="label">
-            <h4>REMY</h4>
+            <h3>REMY</h3>
             <h5>@remy Nov 19</h5>
           </div>
           <span>Lets make some pasta!</span>
@@ -354,7 +369,7 @@
         <div class="pic-profile"></div>
         <div class="front">
           <div class="label">
-            <h4>REMY</h4>
+            <h3>REMY</h3>
             <h5>@remy Nov 19</h5>
           </div>
           <span>Lets make some pasta!</span>
@@ -364,7 +379,7 @@
         <div class="pic-profile"></div>
         <div class="front">
           <div class="label">
-            <h4>REMY</h4>
+            <h3>REMY</h3>
             <h5>@remy Nov 19</h5>
           </div>
           <span>Lets make some pasta!</span>
