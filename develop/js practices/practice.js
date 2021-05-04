@@ -168,3 +168,19 @@ switch (day) {
   case 5:
     console.log("tursday");
 }
+
+let counter = 8;
+while (counter > 0) {
+  console.log(counter);
+  counter--;
+}
+
+var userNumber = 2;
+while (userNumber < 10) {
+  console.log(userNumber);
+  userNumber++;
+}
+for(let membership = 0;
+  membership<10;
+  membership++;
+  console.log(membership);)

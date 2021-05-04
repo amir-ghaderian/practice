@@ -1,278 +1,256 @@
-body{
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    font-family: shabnam;
-    align-items: center;
-} 
+body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: shabnam;
+  align-items: center;
+}
 @font-face {
-    font-family: Shabnam;
-    src: url("font/Shabnam-Bold.eot");
-    src: url("font/Shabnam-Bold.eot?#iefix") format("FontName-opentype"),
-        url("font/Shabnam-Bold.woff") format("woff"),
-        url("font/Shabnam-Bold.ttf") format("truetype");
+  font-family: Shabnam;
+  src: url("font/Shabnam-Bold.eot");
+  src: url("font/Shabnam-Bold.eot?#iefix") format("FontName-opentype"),
+    url("font/Shabnam-Bold.woff") format("woff"),
+    url("font/Shabnam-Bold.ttf") format("truetype");
 }
-.navbar{
-    display: flex;
-    justify-content: space-evenly;
-    font-size: 1rem;
-    border-bottom: 2px solid;
-    padding-bottom: .5rem;
-    
-}
-.logo{
-    font-size: 2.5rem;
-    border-bottom: 4px solid;
-   
+.navbar {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 1rem;
+  border-bottom: 2px solid;
+  padding-bottom: 0.5rem;
 }
 
-.container{
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    max-width: 800px;
-    align-self: center;
-    
-
-}
-.name{
-    direction: rtl;
-    font-size: 1.5rem;
-    padding-top: 1rem;
-
-}
-.pic{
-    width: 100%;
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    padding-top: 121.5%;
-
-}
-.dashbord{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding-top: 1rem;
-
-}
-select{
-    
-    background-color: rgb(243 240 240);
-    color: black;
-    border-radius: .5rem;
-    font-size: 1.5rem;
-    font-family: shabanam;
-}
-.also-img{
-    background-position: center;
-    background-size: cover;
-    padding-top: 188%;
-    width: 99%;
-
-}
-.also{
-    display: grid;
-    grid-auto-flow: column;
-    
-
-    
+.logo {
+  font-size: 2.5rem;
+  border-bottom: 4px solid;
 }
 
-
-.go{
-    
-    background-color: rgb(181 181 181);
-    border-radius: .5rem;
-    font-size: 1.1rem;
+.container {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  align-self: center;
 }
-.detail{
-    display: flex;
-    direction: rtl;
-    justify-content: space-evenly;
-    padding: 1rem;
-    list-style: none;
-    color: grey;
-    margin-top: 1rem;
-    border: 2px solid grey;
-    border-radius: 1rem;
-    margin: .5em;
-    background-image: url(image/WhatsApp\ Image\ 2021-03-21\ at\ 20.56.04.jpeg);            
-    background-repeat: repeat;
-    background-blend-mode: difference;
-} 
-.detail li{
-    background-color: #adacac;
-    color: white;
-    margin: .4em;
-    border-radius: .5em;
-    padding: .5em;
+.name {
+  direction: rtl;
+  font-size: 1.5rem;
+  padding-top: 1rem;
+}
+.pic {
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  padding-top: 121.5%;
+}
+.dashbord {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 1rem;
+}
+select {
+  background-color: rgb(243 240 240);
+  color: black;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  font-family: shabanam;
+}
+.also-img {
+  background-position: center;
+  background-size: cover;
+  padding-top: 188%;
+  width: 99%;
+}
+.also {
+  display: grid;
+  grid-auto-flow: column;
+}
 
+.go {
+  background-color: rgb(181 181 181);
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
+}
+.detail {
+  display: flex;
+  direction: rtl;
+  justify-content: space-evenly;
+  padding: 1rem;
+  list-style: none;
+  color: grey;
+  margin-top: 1rem;
+  border: 2px solid grey;
+  border-radius: 1rem;
+  margin: 0.5em;
+  background-image: url(image/WhatsApp\ Image\ 2021-03-21\ at\ 20.56.04.jpeg);
+  background-repeat: repeat;
+  background-blend-mode: difference;
+}
+.detail li {
+  background-color: #adacac;
+  color: white;
+  margin: 0.4em;
+  border-radius: 0.5em;
+  padding: 0.5em;
 }
 
 .media {
-    display: flex;
-    font-size: 2em;
-    color: gray;
-    justify-content: center;
-    border-top: 2px solid gray;
-    padding-top: 1em;
-    margin-top: 2em;
-
+  display: flex;
+  font-size: 2em;
+  color: gray;
+  justify-content: center;
+  border-top: 2px solid gray;
+  padding-top: 1em;
+  margin-top: 2em;
 }
 
 .media i {
-    padding: .2em;
-
+  padding: 0.2em;
 }
 
 .media i:hover {
-    color: purple;
-    transition: color .5s;
-
+  color: purple;
+  transition: color 0.5s;
 }
 
 .adress {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .right {
-    display: flow-root;
-    direction: rtl;
-    color: gray;
-    font-size: .4em;
+  display: flow-root;
+  direction: rtl;
+  color: gray;
+  font-size: 0.4em;
 }
 
 .location {
-    display: flex;
-    direction: rtl;
-    list-style: none;
-    color: grey;
-    font-size: .7em;
+  display: flex;
+  direction: rtl;
+  list-style: none;
+  color: grey;
+  font-size: 0.7em;
 }
 
 .location li {
-    margin-right: 2em;
-
+  margin-right: 2em;
 }
 
 .location i {
-    display: flex;
-    flex-direction: column;
-    padding: .2em;
+  display: flex;
+  flex-direction: column;
+  padding: 0.2em;
 }
 
 .subscription {
-    color: gray;
-    font-size: .3em;
-
-
+  color: gray;
+  font-size: 0.3em;
 }
 
 button {
-    background-color: gray;
-    font-family: shabnam;
-    border-radius: .5em;
-    margin: 1em;
-    color: white;
-    font-size: 2.2em;
-    border: none;
-    line-height: 2em
+  background-color: gray;
+  font-family: shabnam;
+  border-radius: 0.5em;
+  margin: 1em;
+  color: white;
+  font-size: 2.2em;
+  border: none;
+  line-height: 2em;
 }
-footer{
-    width: 98vw;
+footer {
+  width: 98vw;
 }
 .footer-list {
-    display: flex;
-    flex-direction: row-reverse;
-    width: 100%;
-    justify-content: space-around;
-    align-items: center;
-
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
 }
 
 input {
-    font-size: 2em;
-    font-family: shabnam;
-    width: 22em;
-    background-color: gray;
-    color: white;
-    padding: .3em;
-    border-radius: .5em;
-    direction: rtl;
-    border: none;
-    line-height: 3em;
+  font-size: 2em;
+  font-family: shabnam;
+  width: 22em;
+  background-color: gray;
+  color: white;
+  padding: 0.3em;
+  border-radius: 0.5em;
+  direction: rtl;
+  border: none;
+  line-height: 3em;
 }
 
-.saller{
-    width: 5em;
-    height: 5em;
-    border-radius: 3em;
-    background-position: center;
-    background-size: cover;
-    position: fixed;
-    bottom: 1em;
-    left: 1em;
+.saller {
+  width: 5em;
+  height: 5em;
+  border-radius: 3em;
+  background-position: center;
+  background-size: cover;
+  position: fixed;
+  bottom: 1em;
+  left: 1em;
 }
-@media(max-width:850px){
-    .container{
-        max-width: 100%
-    }
-    .name{
-        font-size: 1rem;
-    }
-    select{
-        font-size: 1rem;
-    }
-    .go{
-        font-size: .8em;
-    }
-    .also-img{
-        max-height: 8em;
-    }
-    .location {
-        font-size: .4em;
-    }
-    .adress img{
-        width: 4.8em;
-    }
+@media (max-width: 850px) {
+  .container {
+    max-width: 100%;
+  }
+  .name {
+    font-size: 1rem;
+  }
+  select {
+    font-size: 1rem;
+  }
+  .go {
+    font-size: 0.8em;
+  }
+  .also-img {
+    max-height: 8em;
+  }
+  .location {
+    font-size: 0.4em;
+  }
+  .adress img {
+    width: 4.8em;
+  }
 
-    input {
+  input {
     font-size: 1em;
     font-family: shabnam;
     width: 30em;
     background-color: #a5a3a3;
     color: white;
-    padding: .5em;
-    border-radius: .5em;
+    padding: 0.5em;
+    border-radius: 0.5em;
     direction: rtl;
     border: none;
     line-height: 3.5em;
-    }
+  }
 
-    footer button {
+  footer button {
     background-color: #a5a3a3;
     font-family: shabnam;
-    border-radius: .6em;
+    border-radius: 0.6em;
     margin: 1em;
     color: white;
     font-size: 1.7em;
     border: none;
     line-height: 2.3em;
-    }
-    .detail li{
-    margin: .3em;
-    border-radius: .5em;
-    padding: .5em;
-    font-size: .7em;
-
-    }
-    .location li {
-        margin-right: 0;
-        font-size: smaller;
-        text-align: inherit;
-    }
-}  
+  }
+  .detail li {
+    margin: 0.3em;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    font-size: 0.7em;
+  }
+  .location li {
+    margin-right: 0;
+    font-size: smaller;
+    text-align: inherit;
+  }
+}
