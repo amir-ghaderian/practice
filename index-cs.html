@@ -73,6 +73,11 @@
       top: 1em;
 
     }
+    .i{
+      font-size: 3em;
+      color:#4AB3F4 ;
+      margin-left: 2em;
+    }
 
     .box1 {
       width: 290px;
@@ -145,20 +150,24 @@
       width: 100%;
       background-color: white;
       display: flex;
-      flex-direction: column;
+      
 
     }
 
     .follower ul {
       display: flex;
       list-style: none;
-      justify-content: space-between;
+      flex-direction: column;
       padding-left: 1em;
+    }
+    .name1{
+      color: gray;
+      padding-bottom: 1em;
     }
 
     .row {
       min-height: 51px;
-      padding-bottom: .3em;
+      
       background-color: white;
       border: 2px solid #e6ecf0;
       display: flex;
@@ -244,15 +253,12 @@
     }
 
     .f1 {
-      width: 90%;
+      width: 33%;
       font-weight: 700;
+      color: #4AB3F4;
     }
 
-    .f2 {
-      width: 75%;
-      color: #4AB3F4;
-      font-weight: 900;
-    }
+   
 
     h5 {
       color: gray;
@@ -281,6 +287,9 @@
     @media (max-width:1100px) {
       .box3 {
         display: none;
+      }
+      .box2{
+        width: 70%;
       }
     }
 
@@ -312,16 +321,22 @@
         display: inline;
         padding: .3em;
       }
+      .i{
+        font-size: medium;
+        margin-left: 0;
+        padding-top: 1.9em;
+      }
     }
   </style>
 </head>
 <nav class="navbar">
   <ul>
-    <li>HOME</li><i class="fas fa-home menu"></i>
-    <li>MOMENT</li><i class="fas fa-hashtag menu"></i>
-    <li>NATIFICATION</li><i class="far fa-bell menu"></i>
-    <li>MESSAGES</li><i class="far fa-envelope menu"></i>
+    <li>Home</li><i class="fas fa-home menu"></i>
+    <li>Moment</li><i class="fas fa-hashtag menu"></i>
+    <li>Natification</li><i class="far fa-bell menu"></i>
+    <li>Messages</li><i class="far fa-envelope menu"></i>
   </ul>
+  <div class="i"><i class="fab fa-twitter"></i></div>
   <div class="tweet">Tweet</div>
 </nav>
 
@@ -342,16 +357,21 @@
       <div class="follower">
         <div class="f1">
           <ul>
-            <li>Tweets</li>
-            <li>Follower</li>
-            <li>Following</li>
+            <li class="name1">Tweets</li>
+            <li>2356</li>
+            
           </ul>
         </div>
-        <div class="f2">
+        <div class="f1">
           <ul>
-            <li>2543</li>
-            <li>236</li>
-            <li>218</li>
+            <li class="name1">Following</li>
+            <li>238</li>
+          </ul>
+        </div>
+        <div class="f1">
+          <ul>
+            <li class="name1">follower</li>
+            <li>335</li>
           </ul>
         </div>
       </div>
