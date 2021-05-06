@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js"
+    integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
   <title>Document</title>
   <style>
     body {
@@ -42,7 +43,7 @@
       left: 0;
       z-index: 100;
       color: gray;
-     
+
     }
 
     .navbar li {
@@ -52,7 +53,7 @@
       font-size: 1.2em;
       padding: .6em;
     }
-    
+
     .navbar li:hover {
       transition: .5s;
       color: #4AB3F4;
@@ -176,10 +177,11 @@
       background-image: url(develop/twitter/remy.jpg);
       background-size: cover;
     }
-   h4{
-     color: gray;
-     font-size: medium;
-   }
+
+    h4 {
+      color: gray;
+      font-size: medium;
+    }
 
     .front {
       width: 75%;
@@ -189,14 +191,17 @@
 
 
     .item {
-
       background-color: white;
       height: 50%;
       border-bottom: 2px solid #e6ecf0;
       display: flex;
-      flex-wrap: wrap-reverse;
+      flex-wrap: wrap;
       padding-bottom: 1.2em;
-      align-items: stretch;
+      flex-direction: column;
+      align-content: space-between;
+      justify-content: flex-end;
+
+
     }
 
     .head {
@@ -252,8 +257,25 @@
     h5 {
       color: gray;
     }
-    .menu{
+
+    .menu {
       display: none;
+    }
+
+    .r1 {
+      width: 75%;
+      height: 50%;
+      display: flex;
+
+    }
+
+    .r2 {
+      width: 60%;
+      height: 50%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-around;
+
     }
 
     @media (max-width:1100px) {
@@ -278,13 +300,15 @@
         background-color: white;
       }
 
-      .navbar li{
+      .navbar li {
         display: none;
       }
-      .navbar{
+
+      .navbar {
         font-size: larger;
       }
-      .menu{
+
+      .menu {
         display: inline;
         padding: .3em;
       }
@@ -395,16 +419,19 @@
           style="background-image: url(develop/twitter/164-1645079_ratatouille-logo-img-linguini-ratatouille.png); background-position: center;">
         </div>
 
-        <h3> Linguini</h3>
-        <h4> @linguini</h4>
-        <button class="follow">follow</button>
+        <div class="r1">
+          <h3> Linguini</h3>
+          <h4> @linguini</h4>
+        </div>
+        <div class="r2"><button class="follow">follow</button></div>
+
       </div>
       <div class="item">
         <div class="pic-profile"></div>
 
-        <h3>CS130TA</h3>
-        <h4>@cs130ta</h4>
-        <button class="follow">follow</button>
+        <div class="r1"><h3>CS130TA</h3> <h4>@cs130ta</h4></div>
+       <div class="r2"><button class="follow">follow</button></div>
+        
       </div>
 
 
