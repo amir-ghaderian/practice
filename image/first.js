@@ -13,9 +13,33 @@
 // console.log(h);
 // var txt='amir hast ye oshgool';
 // console.log(txt.indexOf('oshgool'));
-var txt="انواع مانتو جدید ارزان قیمت شیک رسمی اسپرت اداری پاییزه بهاره مدل کوتاه بلند گرم کیفیت بی نظیر وارداتی کم هزینه استانبول گرگا";
+
 // console.log(txt.search('اداری'));
 // console.log(txt.slice(-42,-7));
 // console.log(txt.substring(5,34));
 // console.log(txt.toLocaleUpperCase())
-console.log(txt.trim())
+// console.log(txt.trim(3,6));
+// var txt = ["انواع مانتو جدید ارزان قیمت شیک رسمی اسپرت اداری پاییزه بهاره مدل کوتاه بلند گرم 'کیفیت', بی نظیر وارداتی کم هزینه 'استانبول', گرگا"] 
+// document.write("امیرخان قادری خان خان ها");
+ var txt ="امیرخان قادری خان خان ";
+document.write(txt);
+var doci = document.getElementsByTagName("p");
+console.log(doci);
+ var myptag = document.getElementsByClassName("x");
+ console.log(myptag);
+ var myptag = document.getElementById("y")
+ console.log(myptag);
+ document.getElementById("y").innerHTML = "یا سید آل محمد";
+ var mypcolor = document.getElementById("x");
+ document.getElementById("y").style.color = "red";
+ document.getElementById("y").style.fontSize = "2em";
+ document.getElementById("y").align = "center";
+ var mycont = document.querySelectorAll(".container");
+ console.log(mycont);
+ var jj = document.querySelectorAll(".x");
+ console.log(jj);
+ document.getElementById("y").setAttribute("display","");
+
+ 
+ 
+
