@@ -7,10 +7,18 @@
     <title>Document</title>
 </head>
 <style>
+    body{
+        display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+    }
     .container{
         background-color: blue;
         width: 100%;
         height: 100%;
+        
     }
     #item1{
         color: brown;
@@ -24,6 +32,18 @@
     .x{
         color: blue;
     }
+    #box4{
+        width: 200px;
+        height: 200px;
+        background-color: chartreuse;
+        padding: 7em;
+    }
+    #box5{
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        padding: 7em;
+    }
 </style>
 <body>
     <div class="container">
@@ -34,9 +54,11 @@
     <button onclick="alert('سلام')">هشدار</button>
     <button onclick= "asghar ()">خطا</button>
     <button onclick="myvalue()">وروود</button>
-    <input type="text" placeholder="نام خود را وارد کنیید" class="name">
+    <input type ="text" placeholder="نام خود را وارد کنیید" class="name">
      
-    
+    <div id="box4" onmouseover = " MouseOver() " onmouseout="MouseOut()"></div>
+    <input type="text" onfocusin="FocusIn()" onfocusOut="FocusOut()" id="name1" onkeyup="KayUp()">
+    <div id="box5" onmousedown = " Mousedown() " onmouseup="MouseUp()"></div>
 </body>
 <script  src="first.js"></script>
 </html>
