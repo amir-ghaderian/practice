@@ -39,7 +39,13 @@ console.log(doci);
  var jj = document.querySelectorAll(".x");
  console.log(jj);
  document.getElementById("y").setAttribute("display","");
-
- 
+ function asghar() {
+     alert("خطا");
+ }
+ function myvalue() {
+     var name =document.getElementsByClassName("name")[0].value ;
+     alert(name);
+     document.getElementsByClassName("name")[0].value="";
+ }
  
 
