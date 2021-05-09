@@ -180,7 +180,11 @@ while (userNumber < 10) {
   console.log(userNumber);
   userNumber++;
 }
-for(let membership = 0;
-  membership<10;
-  membership++;
-  console.log(membership);)
+function newNameFunc() {
+  let text = "wlcome";
+  console.log(text);
+}
+newNameFunc()
+
+for (let b = 10 ,b > 1 , b--){
+  console.log(b);}
