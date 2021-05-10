@@ -114,7 +114,7 @@ function aFunction() {
 }
 aFunction((x = 4), (y = 7));
 
-document.getElementById("newTag").innerHTML = "fgr";
+document.getElementById("box").innerHTML = "fgr";
 
 const usersAge = 16;
 
@@ -186,5 +186,6 @@ function newNameFunc() {
 }
 newNameFunc()
 
-for (let b = 10 ,b > 1 , b--){
-  console.log(b);}
+for (let qq = 10 ;qq > 1; qq--){
+  console.log(qq);
+}
