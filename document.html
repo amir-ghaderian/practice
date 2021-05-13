@@ -17,6 +17,25 @@
     <input type="text" placeholder="age..." class="age">
     <input type="submit" class="btn" value="check" onclick="mycheck()">
     <p id="error"></p>
+    <h1 oncopy="mycopy()">این متن را کپی کنیید</h1>
+    <select onchange="change()">
+        <option>اصغر</option>
+        <option>اکبر</option>
+        <option>کریم</option>
+        <option>رحیم</option>
+        <option>خسرو</option>
+    </select>
+    
+    <h4></h4>
+    <select onchange="change2()">
+        <option> لطفا استان خود را انتخاب کنیید</option>
+        <option id="op1">گوهدشت</option>
+        <option id="op2">رزکان</option>
+    </select>
+<select>
+    <option >تهران</option>
+    <option >البرز</option>
+</select>
 </body>
 <script>
     function check() {
@@ -38,20 +57,35 @@
         var myerror = document.getElementById("error");
         try {
             if (isNaN(age)) throw "لطفا عدد وارد کنیید";
-            if (age<18) throw "محتویات این سایت برای سن شما مناسب نمیباشد"
-            if (age>18)  throw "سن شما ثبت شد"
+            if (age < 18) throw "محتویات این سایت برای سن شما مناسب نمیباشد"
+            if (age > 18) throw "سن شما ثبت شد"
             {
-                
+
             }
 
 
         } catch (error) {
             myerror.innerHTML = error;
         } finally {
-           document.getElementsByClassName("age")[0].value="";
+            document.getElementsByClassName("age")[0].value = "";
         }
     }
-
+   function mycopy(){
+       alert("متن مورد نظر کپی شد")
+   }
+   function change(){
+       var txt=document.getElementsByTagName("h4")[0];
+       var option=document.getElementsByTagName("select")[0];
+       txt.innerHTML= "نام رفیق شما"+option.value + " " + "است" ;
+   }
+   function change2(){
+    var txt=document.getElementsByTagName("h5")[0];
+       var option=document.getElementsByTagName("select")[0]; 
+       if(option.value="البرز"){
+       document.getElementById("op1").innerHTML="گوهردشت" ;
+       document.getElementById("op2").innerHTML="رزکان" ;
+   }
+   }
 </script>
 
 </html>
