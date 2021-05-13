@@ -37,13 +37,18 @@
         var age = document.getElementsByClassName("age")[0].value;
         var myerror = document.getElementById("error");
         try {
-            if (IsNaN(age)) throw "لطفا عدد وارد کنیید";
+            if (isNaN(age)) throw "لطفا عدد وارد کنیید";
+            if (age<18) throw "محتویات این سایت برای سن شما مناسب نمیباشد"
+            if (age>18)  throw "سن شما ثبت شد"
+            {
+                
+            }
 
 
         } catch (error) {
             myerror.innerHTML = error;
         } finally {
-
+           document.getElementsByClassName("age")[0].value="";
         }
     }
 
