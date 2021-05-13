@@ -44,7 +44,7 @@ console.log(doci);
  }
  function myvalue() {
      var name =document.getElementsByClassName("name")[0].value ;
-     document.getElementById("y").innerHTML = name;
+    ElementById("y").innerHTML = name;
      document.getElementsByClassName("name")[0].value="";
  }
  function MouseOver() {
@@ -68,4 +68,11 @@ function FocusOut() {
 function KayUp() {
     var box5 = document.getElementById("name1").value;
    var name =  document.getElementById("y").innerHTML = box5;
+}
+function check() {
+    var myForm = document.forms["checkFrom"];
+    var myName = myForm["name"].value;
+   if (myName.lenght=="") {
+       alert("نام")
+   }
 }
