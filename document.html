@@ -1,32 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <form action="#" method="post" name="checkFrom" onsubmit="check()" >
+    <form action="#" method="post" name="checkFrom" onsubmit="check()">
         <input type="text" placeholder="name!!" class="name" name="name" required>
         <input type="submit" value="check" name="btn" class="btn">
-        </form>
+    </form>
+    <h2>enter your age</h2>
+    <input type="text" placeholder="age..." class="age">
+    <input type="submit" class="btn" value="check" onclick="mycheck()">
+    <p id="error"></p>
 </body>
 <script>
     function check() {
-    var myForm = document.forms["checkFrom"];
-    var myName = myForm["name"].value;
-    
-    if (myName.length == "" ) {
-        alert("لطفا نام را وارد کنیید");
-    }else if (myName.length<6) {
-        alert("حداقل ورودی 6 حرف");
-    }else if (myName.length>10) {
-        alert("حداکثر حروف ورودی 10 میباشد");
-    }else {
-        alert("اطلاعات شما به درستی وارد شد");
+        var myForm = document.forms["checkFrom"];
+        var myName = myForm["name"].value;
+
+        if (myName.length == "") {
+            alert("لطفا نام را وارد کنیید");
+        } else if (myName.length < 6) {
+            alert("حداقل ورودی 6 حرف");
+        } else if (myName.length > 10) {
+            alert("حداکثر حروف ورودی 10 میباشد");
+        } else {
+            alert("اطلاعات شما به درستی وارد شد");
+        }
     }
-}
+    function mycheck() {
+        var age = document.getElementsByClassName("age")[0].value;
+        var myerror = document.getElementById("error");
+        try {
+            if (IsNaN(age)) throw "لطفا عدد وارد کنیید";
+
+
+        } catch (error) {
+            myerror.innerHTML = error;
+        } finally {
+
+        }
+    }
 
 </script>
+
 </html>
