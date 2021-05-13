@@ -195,14 +195,13 @@ let txxt = document.getElementById("txxt")[0];
 document.getElementsByTagName("input")[0].addEventListener("keyup", myDown);
 
 function myDown() {
-  document.getElementById("txxt")[0].innerHTML = document.getElementsByTagName(
-    "input"
-  )[0].value;
+  document.getElementById("txxt")[0].innerHTML =
+    document.getElementsByTagName("input")[0].value;
 }
 
-function myClick() {
-  alert("clicked");
+var myAttr = document.getElementById("userName").attributes;
+console.log(myAttr);
+
+function myAttri() {
+ var diagram =  document.getElementById("userName").attributes.removeNamedItem("class");
 }
-setInterval(function () {
-  alert("hoshdar");
-}, 2000);
