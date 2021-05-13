@@ -184,8 +184,25 @@ function newNameFunc() {
   let text = "wlcome";
   console.log(text);
 }
-newNameFunc()
+newNameFunc();
 
-for (let qq = 10 ;qq > 1; qq--){
+for (let qq = 10; qq > 1; qq--) {
   console.log(qq);
 }
+let name = document.getElementsByTagName("input")[0];
+let txxt = document.getElementById("txxt")[0];
+
+document.getElementsByTagName("input")[0].addEventListener("keyup", myDown);
+
+function myDown() {
+  document.getElementById("txxt")[0].innerHTML = document.getElementsByTagName(
+    "input"
+  )[0].value;
+}
+
+function myClick() {
+  alert("clicked");
+}
+setInterval(function () {
+  alert("hoshdar");
+}, 2000);
