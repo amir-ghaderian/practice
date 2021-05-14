@@ -205,3 +205,5 @@ console.log(myAttr);
 function myAttri() {
  var diagram =  document.getElementById("userName").attributes.removeNamedItem("class");
 }
+var iPro = Math.pow(2, 10);
+console.log(iPro);
