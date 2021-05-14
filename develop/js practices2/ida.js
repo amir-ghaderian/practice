@@ -42,12 +42,26 @@ for (let count = 0; count < 20; count += 1) {
   document.write("Hola <br>");
 }
 
- for (let myLOgo = 0 ;myLOgo<7; myLOgo++ ){document.write("your exam was" + myLOgo +"<br />");}
-
- let b = 0;
-while(b <= 6)
-{
-document.write("the number is :" + b);
-document.write("<br />");
-b++;
+for (let myLOgo = 0; myLOgo < 7; myLOgo++) {
+  document.write("your exam was" + myLOgo + "<br />");
 }
+
+let b = 0;
+while (b <= 6) {
+  document.write("the number is :" + b);
+  document.write("<br />");
+  b++;
+}
+
+var f = 0;
+do {
+  alert("new test");
+  f++;
+} while (i <= 4);
+
+window.onload = function() {
+  window.alert('I\'m done loading now!');
+  };
+  
+
+
