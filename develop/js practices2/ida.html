@@ -9,6 +9,14 @@
 </head>
 <body onscroll="alert('scrolled')" onresize="alert('you are resizing this window')" onload="alert('this page succesfully loaded')">
     <p>nbsp</p>
+    <form onReset="alert('reseting');">
+        <input type="reset"   value="reset" /><input type="text" />
+    </form>
+        <form>
+            <input type="reset" onReset="alert('onreset');" value="reset"><input type="text" />
+        </form>
+        <form><input type="submit" onsubmit="alert('submited');" value="submit"><input type="text" />
+        </form>
     <p>nbsp</p>
     <p>nbsp</p>
     <p>nbsp</p>
