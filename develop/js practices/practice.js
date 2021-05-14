@@ -195,7 +195,7 @@ let txxt = document.getElementById("txxt")[0];
 document.getElementsByTagName("input")[0].addEventListener("keyup", myDown);
 
 function myDown() {
-  document.getElementById("txxt")[0].innerHTML =
+  document.getElementById("txxt").innerHTML =
     document.getElementsByTagName("input")[0].value;
 }
 

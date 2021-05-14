@@ -32,8 +32,8 @@
         <option id="op1">گوهدشت</option>
         <option id="op2">رزکان</option>
     </select>
-<select>
-    <option >تهران</option>
+<select onchange="change2()" >
+    <option>تهران</option>
     <option >البرز</option>
 </select>
 </body>
@@ -76,15 +76,16 @@
    function change(){
        var txt=document.getElementsByTagName("h4")[0];
        var option=document.getElementsByTagName("select")[0];
-       txt.innerHTML= "نام رفیق شما"+option.value + " " + "است" ;
+       txt.innerHTML= " نام رفیق شما "+option.value + " " + " است " ;
    }
-   function change2(){
-    var txt=document.getElementsByTagName("h5")[0];
-       var option=document.getElementsByTagName("select")[0]; 
-       if(option.value="البرز"){
-       document.getElementById("op1").innerHTML="گوهردشت" ;
-       document.getElementById("op2").innerHTML="رزکان" ;
-   }
+   function change2() {
+       var txt=document.getElementsByTagName("h4")[0];
+       var option=document.getElementsByTagName("select")[2]; 
+       if(option.value ==="البرز") {
+             txt.innerHTML= "You selected alborz" ;
+       } else {
+        txt.innerHTML= "";
+       }
    }
 </script>
 
