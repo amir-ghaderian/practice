@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,13 @@
     <title>Document</title>
 
 </head>
+<style>
+    h6{
+        font-size: 2em;
+        color: red;
+    }
+</style>
+
 <body>
     <h4>استان خود را انتخاب کننید</h4>
     <select onchange="chenge()">
@@ -16,60 +24,95 @@
         <option>گیلان</option>
     </select>
     <h5>لطفا شهر خود را انتخاب کنیید</h5>
-    <select >
-        
+    <select id="city" onchange="chenge2()">
+
         <option id="op1"></option>
         <option id="op2"></option>
         <option id="op3"></option>
     </select>
 
-    <select id="city"></select>
+    <h6>استان مورد نظر شما</h6>
 </body>
 <script>
-function chenge() {
-    
-    var option=document.getElementsByTagName("select")[0];
+    function chenge() {
 
-    var tehranCity = ["رزکان", "اسلام شهر", "شهریار", "لواسان"];
-    
-    if (option.value==="تهران") {
-
-        document.getElementById("op1").innerHTML="اسلام شهر";
-        document.getElementById("op2").innerHTML="شهریار";
-        document.getElementById("op3").innerHTML="لواسان";
-
-        var x = document.getElementById("city");
+        var option = document.getElementsByTagName("select")[0];
 
 
-        x.options.length = 0;
+        var tehranCity = ["پرند", "اسلام شهر", "شهریار", "لواسان"];
+        var alborzCity = ["کرج", "جهانشهر", "گوهردشت", "مهرشهر", "رباطکریم"];
+        var khorasanCity = ["تایبد", "شاهرود", "مشهد", "طوس", "نیشابور"];
+        var GilanCity = ["فومن", "لاهیجان", "صومعه سرا", "رشت",];
 
-        for (let index = 0; index < tehranCity.length; index++) {
-            const element = tehranCity[index];
-            
-            var option = document.createElement("option");
-            option.text = element;
-            x.add(option);
+        if (option.value === "تهران") {
+
+
+
+            var x = document.getElementById("city");
+
+
+            x.options.length = 0;
+
+            for (let index = 0; index < tehranCity.length; index++) {
+                const element = tehranCity[index];
+
+                var option = document.createElement("option");
+                option.text = element;
+                x.add(option);
+            }
+
         }
-        
+        if (option.value === "البرز") {
+            var x = document.getElementById("city");
+
+
+            x.options.length = 0;
+            for (let index = 0; index < alborzCity.length; index++) {
+                const element = alborzCity[index];
+
+                var option = document.createElement("option");
+                option.text = element;
+                x.add(option);
+            }
+
+
+        }
+        if (option.value === "خراسان") {
+            var x = document.getElementById("city");
+            x.options.length = 0;
+            for (let index = 0; index < khorasanCity.length; index++) {
+                const element = khorasanCity[index];
+
+                var option = document.createElement("option");
+                option.text = element;
+                x.add(option);
+            }
+
+        }
+        if (option.value === "گیلان") {
+            var x = document.getElementById("city");
+            x.options.length = 0;
+            for (let index = 0; index < GilanCity.length; index++) {
+                const element = GilanCity[index];
+
+                var option = document.createElement("option");
+                option.text = element;
+                x.add(option);
+
+            }
+
+        }
+
+
     }
-    if (option.value==="البرز") {
-        document.getElementById("op1").innerHTML="کرج"
-        document.getElementById("op2").innerHTML="جهانشهر"
-        document.getElementById("op3").innerHTML="گوهردشت"
-        
+    function chenge2() {
+        var txt = document.getElementsByTagName("h6")[0];
+        var option = document.getElementsByTagName("select")[0];
+        // var option2=document.getElementsByTagName("select")[0]میخواستم دو تا خروجی ها رو باهم ادغام کنم و تو خروجی پایین جا بدم که نشد:((()))
+        txt.innerHTML = " استان شما " + option.value + " میباشد ";
+
+
     }
-    if (option.value==="خراسان") {
-        document.getElementById("op1").innerHTML="نیشابور"
-        document.getElementById("op2").innerHTML="طوس"
-        document.getElementById("op3").innerHTML="مشهد"
-    }
-    if (option.value==="گیلان") {
-        document.getElementById("op1").innerHTML="رشت"
-        document.getElementById("op2").innerHTML="لاهیجان"
-        document.getElementById("op3").innerHTML="صومعه سرا"
-    }
-    
-    
-}
 </script>
+
 </html>
