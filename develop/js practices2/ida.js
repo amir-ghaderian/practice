@@ -55,9 +55,9 @@ while (b <= 6) {
 
 var f = 0;
 do {
-  alert("new test");
+  console.log("new test");
   f++;
-} while (i <= 4);
+} while (f <= 4);
 
 window.onload = function() {
   window.alert('I\'m done loading now!');
