@@ -22,16 +22,35 @@
         <option id="op2"></option>
         <option id="op3"></option>
     </select>
+
+    <select id="city"></select>
 </body>
 <script>
 function chenge() {
     
     var option=document.getElementsByTagName("select")[0];
+
+    var tehranCity = ["رزکان", "اسلام شهر", "شهریار", "لواسان"];
     
     if (option.value==="تهران") {
+
         document.getElementById("op1").innerHTML="اسلام شهر";
         document.getElementById("op2").innerHTML="شهریار";
         document.getElementById("op3").innerHTML="لواسان";
+
+        var x = document.getElementById("city");
+
+
+        x.options.length = 0;
+
+        for (let index = 0; index < tehranCity.length; index++) {
+            const element = tehranCity[index];
+            
+            var option = document.createElement("option");
+            option.text = element;
+            x.add(option);
+        }
+        
     }
     if (option.value==="البرز") {
         document.getElementById("op1").innerHTML="کرج"
