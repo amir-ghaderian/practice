@@ -3,9 +3,9 @@ console.log(iPro);
 
 var myMark = prompt("enter a number between 0 to 20");
 if (myMark > 10) {
-  alert(" qualafied");
+  console.log(" qualafied");
 } else {
-  alert("not qualafied");
+  console.log("not qualafied");
 }
 console.log(myMark);
 
@@ -59,9 +59,32 @@ do {
   f++;
 } while (f <= 4);
 
-window.onload = function() {
-  window.alert('I\'m done loading now!');
-  };
-  
+window.onload = function () {
+  window.alert("I'm done loading now!");
+};
 
+let members = ["hassan", "hosein"];
 
+let memberObj = { age: 30, name: "hassan", grade: 3 };
+console.log(
+  memberObj.name + " is " + memberObj.age + " from grade " + memberObj.grade
+);
+
+var t = 4;
+var q = "amber";
+var z = t + q;
+console.log(z);
+
+function check() {
+  var age = document.getElementsByClassName("age")[0].value;
+  var myError = document.getElementById("error");
+
+  try {
+    if (isNaN(age)) throw "invalid";
+    age = Number(age);
+    if (age < 18) throw "not allowed to join";
+  } catch (error) {
+    myError.innerHTML = error;
+  } finally {
+  }
+}

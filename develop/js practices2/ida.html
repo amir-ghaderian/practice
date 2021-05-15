@@ -7,27 +7,31 @@
     <title>java script</title>
     <script src="ida.js"></script>
 </head>
-<body onscroll="alert('scrolled')" onresize="alert('you are resizing this window')" onload="alert('this page succesfully loaded')">
+<body onscroll="console.log('scrolled')" onresize="console.log('you are resizing this window')" onload="console.log('this page succesfully loaded')">
     <p>nbsp</p>
-    <form onReset="alert('reseting');">
+    <form onReset="console.log('reseting');">
         <input type="reset"   value="reset" /><input type="text" />
     </form>
         <form>
-            <input type="reset" onReset="alert('onreset');" value="reset"><input type="text" />
+            <input type="reset" onReset="console.log('onreset');" value="reset"><input type="text" />
         </form>
-        <form><input type="submit" onsubmit="alert('submited');" value="submit"><input type="text" />
+        <form><input type="submit" onsubmit="console.log('submited');" value="submit"><input type="text" />
         </form>
     <p>nbsp</p>
     <p>nbsp</p>
     <p>nbsp</p>
     <p>nbsp</p>
-    <p>nbsp</p>
-    <p>nbsp</p>
-    <p>nbsp</p>
-    <p>nbsp</p>
-    <p>nbsp</p>
-    <p onselect="alert('you are selecting this part')">select</p>
+    <p onselect="console.log('you are selecting this part')">select</p>
     <p>&nbsp;</p>
     <p>&nbsp;</p> 
+
+    <h1>welcome</h1>
+    <h2>enter your age</h2>
+    <input type="text" placeholder="age..." class="age">
+    <input type="submit" class="btn" value="check" onclick="check()">
+    <br>
+    <br>
+    <br>
+    <p id="error"></p>
 </body>
 </html>
