@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="text" onblur="myBlur()" class="name" oninvalid="myvalid()" required onpaste="mypaste()">
+        <input type="submit">
+    </form>
+    <br>
+    <br>
+    <p id="txt"></p>
+    <video controls id="myVideo" width="600px" height="300px" onvolumechange="change()" onpause="mypause()">
+         <source src="/image/sabzLearn-ir.mp4" >
+    </video>
+    <p id="ki" style="font-size: 2em;" ></p>
+</body>
+<script>
+// function  myBlur(){
+// //     alert("از کادر خارج شدید")
+// }    
+ function myvalid(){
+     document.getElementById("txt").innerHTML="لطفا کادر را پر کنیید";
+ }
+ function change() {
+     alert("صدا تغییر یافت");
+ }
+ function mypaste() {
+     alert("paste done");
+ }
+ function mypause() {
+     document.getElementById("ki").innerHTML= "kodom ahmaghiiiii pause kard????"
+ }
+</script>
+</html>
