@@ -13,6 +13,12 @@
         font-size: 2em;
         color: red;
     }
+
+    #c63 {
+        display: flex;
+        justify-content: center;
+    
+    }
 </style>
 
 <body>
@@ -38,7 +44,8 @@
         <input type="reset">
     </form>
     <br><br><br>
-    <div id="to_scroll" style="width: 200px; height: 150px; background-color: burlywood; overflow: scroll;" onscroll="myscroll()">Lorem ipsum dolor sit amet
+    <div id="to_scroll" style="width: 200px; height: 150px; background-color: burlywood; overflow: scroll;"
+        onscroll="myscroll()">Lorem ipsum dolor sit amet
         consectetur adipisicing elit. Blanditiis cupiditate omnis rerum officiis minus cum culpa et nihil, repellat
         maxime exercitationem nisi provident iste incidunt odio consequatur, distinctio, nulla quibusdam.
         Illo quia ex debitis assumenda eos, quo dicta maxime totam, numquam animi, necessitatibus error quibusdam? Neque
@@ -65,9 +72,11 @@
         quam nesciunt nam provident iusto et architecto. Saepe non atque doloremque sit aperiam deserunt ullam!
         Saepe id dolores est qui quod quisquam laborum, dolorem soluta, expedita sit deserunt aut mollitia maxime
         pariatur. Fugit aperiam, suscipit nihil aspernatur quia quo porro molestias velit, ab corporis saepe?</div>
-        <p id="c63"></p>
-        
-        <button id="BTN" onclick="goToUp()">بروبالا</button>
+    <p id="c63"></p>
+
+    <button id="BTN" onclick="goToUp()">UP</button>
+    <br>
+    <button id="BTN2" onclick="goToDown()">DOWN</button>
 </body>
 <script>
     function chenge() {
@@ -163,26 +172,35 @@
     }
 
     function myscroll() {
-        
-        
-        document.getElementById("c63").innerHTML= document.getElementById("to_scroll").scrollTop;
-        
 
-        if (document.getElementById("to_scroll").scrollTop <= 400 ) {
 
-            document.getElementById("BTN").style.display ="none";
+        document.getElementById("c63").innerHTML = document.getElementById("to_scroll").scrollTop;
+
+
+        if (document.getElementById("to_scroll").scrollTop <= 400) {
+
+            document.getElementById("BTN").style.display = "none";
         } else {
-            document.getElementById("BTN").style.display ="block";    
+            document.getElementById("BTN").style.display = "block";
         }
-        
+        if (document.getElementById("to_scroll").scrollTop >= 400) {
+
+            document.getElementById("BTN2").style.display = "none";
+        } else {
+            document.getElementById("BTN2").style.display = "block";
+        }
+
     }
 
     function goToUp() {
-        document.getElementById("to_scroll").scrollTop = 0 ;
+        document.getElementById("to_scroll").scrollTop = 0;
     }
-    
-    
-    
+    function goToDown() {
+        document.getElementById("to_scroll").scrollTop = 1620;
+    }
+
+
+
 </script>
 
 </html>
