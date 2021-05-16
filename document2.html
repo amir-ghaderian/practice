@@ -9,7 +9,7 @@
 
 </head>
 <style>
-    h6{
+    h6 {
         font-size: 2em;
         color: red;
     }
@@ -36,6 +36,8 @@
 <script>
     function chenge() {
 
+
+        
         var option = document.getElementsByTagName("select")[0];
 
 
@@ -105,11 +107,15 @@
 
 
     }
+
     function chenge2() {
+
+
+
         var txt = document.getElementsByTagName("h6")[0];
         var option = document.getElementsByTagName("select")[0];
-        // var option2=document.getElementsByTagName("select")[0]میخواستم دو تا خروجی ها رو باهم ادغام کنم و تو خروجی پایین جا بدم که نشد:((()))
-        txt.innerHTML = " استان شما " + option.value + " میباشد ";
+        var option2 = document.getElementsByTagName("select")[1];
+        txt.innerHTML = " استان شما " + option.value + " میباشد " + option2.value;
 
 
     }
