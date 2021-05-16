@@ -32,12 +32,46 @@
     </select>
 
     <h6>استان مورد نظر شما</h6>
+    <button ondblclick="dbl()">دبل کلیک کنیید</button>
+    <form onreset="myreset()">
+        <input type="text">
+        <input type="reset">
+    </form>
+    <br><br><br>
+    <div style="width: 200px; height: 150px; background-color: burlywood; overflow: scroll;" onscroll="myscroll()">Lorem ipsum dolor sit amet
+        consectetur adipisicing elit. Blanditiis cupiditate omnis rerum officiis minus cum culpa et nihil, repellat
+        maxime exercitationem nisi provident iste incidunt odio consequatur, distinctio, nulla quibusdam.
+        Illo quia ex debitis assumenda eos, quo dicta maxime totam, numquam animi, necessitatibus error quibusdam? Neque
+        delectus, eligendi similique nam iusto, ut laborum voluptas qui, deleniti labore consectetur. Excepturi, qui.
+        Praesentium non veniam labore magni assumenda consequuntur, quasi porro ab fugiat sunt accusantium fuga
+        architecto, accusamus deserunt nemo voluptas a corporis quibusdam vitae voluptate tempora, animi maiores
+        ratione! Cupiditate, assumenda.
+        Pariatur porro in exercitationem quam libero dolorem asperiores praesentium recusandae inventore illum facilis,
+        dolorum repellendus cupiditate harum nostrum aliquam dolores nemo voluptates quaerat excepturi rerum numquam.
+        Sapiente nesciunt consequuntur officia!
+        Explicabo corporis saepe dolor distinctio aliquam, et cum voluptatibus modi, voluptate sequi maxime possimus
+        repellendus! Neque ea placeat, id doloremque consectetur et corporis consequuntur nulla rem deleniti laboriosam
+        cum eligendi.
+        Totam eligendi quae voluptatum asperiores est dicta animi consequatur nostrum similique aliquid officiis, ea
+        expedita beatae ipsa voluptate excepturi laborum tenetur incidunt suscipit! Harum praesentium dolorem debitis
+        ratione quibusdam ut?
+        Culpa ullam, soluta asperiores animi, consectetur assumenda blanditiis, commodi aliquid delectus neque tenetur
+        ducimus! Consequatur id ab ipsa quidem iure reiciendis doloremque quibusdam eaque ratione officia, voluptas, et
+        vel sit?
+        Repellendus dolores quaerat omnis. Deleniti dolores earum blanditiis voluptate voluptas iusto fuga placeat,
+        vitae enim, aut deserunt minima explicabo neque eveniet, excepturi sequi quos nisi. Nisi voluptas vero
+        consectetur dolorum.
+        Ipsam vel quo hic illo tempore consectetur, maxime impedit recusandae saepe assumenda cupiditate sequi alias
+        quam nesciunt nam provident iusto et architecto. Saepe non atque doloremque sit aperiam deserunt ullam!
+        Saepe id dolores est qui quod quisquam laborum, dolorem soluta, expedita sit deserunt aut mollitia maxime
+        pariatur. Fugit aperiam, suscipit nihil aspernatur quia quo porro molestias velit, ab corporis saepe?</div>
+        <p id="c63"></p><button id="BTN">بروبالا</button>
 </body>
 <script>
     function chenge() {
 
 
-        
+
         var option = document.getElementsByTagName("select")[0];
 
 
@@ -118,6 +152,21 @@
         txt.innerHTML = " استان شما " + option.value + " میباشد " + option2.value;
 
 
+    }
+    function dbl() {
+        alert("حالا که چی...!؟؟؟");
+    }
+    function myreset() {
+        alert("فرم پاک شد!!!");
+    }
+    var scrolltop =0;
+    function myscroll() {
+        
+        document.getElementById("c63").innerHTML=scrolltop;
+        scrolltop++;
+        
+    }if (document.getElementById("BTN").scrolltop<=100 ) {
+        document.getElementById("BTN").style.display ="block";//mikhastam vaghtii be akhare scrool miresam dokmeh neshon bede ke badan set konam bara balla  raftanesh...
     }
 </script>
 
