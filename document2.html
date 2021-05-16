@@ -38,7 +38,7 @@
         <input type="reset">
     </form>
     <br><br><br>
-    <div style="width: 200px; height: 150px; background-color: burlywood; overflow: scroll;" onscroll="myscroll()">Lorem ipsum dolor sit amet
+    <div id="to_scroll" style="width: 200px; height: 150px; background-color: burlywood; overflow: scroll;" onscroll="myscroll()">Lorem ipsum dolor sit amet
         consectetur adipisicing elit. Blanditiis cupiditate omnis rerum officiis minus cum culpa et nihil, repellat
         maxime exercitationem nisi provident iste incidunt odio consequatur, distinctio, nulla quibusdam.
         Illo quia ex debitis assumenda eos, quo dicta maxime totam, numquam animi, necessitatibus error quibusdam? Neque
@@ -65,7 +65,9 @@
         quam nesciunt nam provident iusto et architecto. Saepe non atque doloremque sit aperiam deserunt ullam!
         Saepe id dolores est qui quod quisquam laborum, dolorem soluta, expedita sit deserunt aut mollitia maxime
         pariatur. Fugit aperiam, suscipit nihil aspernatur quia quo porro molestias velit, ab corporis saepe?</div>
-        <p id="c63"></p><button id="BTN">بروبالا</button>
+        <p id="c63"></p>
+        
+        <button id="BTN" onclick="goToUp()">بروبالا</button>
 </body>
 <script>
     function chenge() {
@@ -154,20 +156,33 @@
 
     }
     function dbl() {
-        alert("حالا که چی...!؟؟؟");
+        alert("حالا که چی...!؟؟؟");// console.log() next time
     }
     function myreset() {
-        alert("فرم پاک شد!!!");
+        alert("فرم پاک شد!!!"); // english next time :*
     }
-    var scrolltop =0;
+
     function myscroll() {
         
-        document.getElementById("c63").innerHTML=scrolltop;
-        scrolltop++;
         
-    }if (document.getElementById("BTN").scrolltop<=100 ) {
-        document.getElementById("BTN").style.display ="block";//mikhastam vaghtii be akhare scrool miresam dokmeh neshon bede ke badan set konam bara balla  raftanesh...
+        document.getElementById("c63").innerHTML= document.getElementById("to_scroll").scrollTop;
+        
+
+        if (document.getElementById("to_scroll").scrollTop <= 400 ) {
+
+            document.getElementById("BTN").style.display ="none";
+        } else {
+            document.getElementById("BTN").style.display ="block";    
+        }
+        
     }
+
+    function goToUp() {
+        document.getElementById("to_scroll").scrollTop = 0 ;
+    }
+    
+    
+    
 </script>
 
 </html>
