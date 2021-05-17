@@ -88,3 +88,30 @@ function check() {
   } finally {
   }
 }
+
+var rightnow = new Date();
+rightnow.setDate(3);
+document.write(rightnow);
+
+var matrix = new Date();
+matrix.setHours(2);
+document.write(matrix);
+
+var matrix1 = new Date();
+matrix1.setMilliseconds(23);
+document.write(matrix1);
+
+var matrix2 = new Date();
+matrix2.setFullYear(2019);
+document.write(matrix2);
+
+var instance_name = new String("string here");
+document.write(instance_name);
+
+var little_bit = "cake";
+var phrase = little_bit.link();
+document.write(phrase);
+
+var crash = "night";
+var night = crash.fontsize(25);
+document.write(night);
