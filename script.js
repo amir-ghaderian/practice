@@ -29,6 +29,9 @@ function myover() {
 
 var ptxt = document.getElementById("ptxt");
 var name = document.getElementById("name1");
-document.getElementById("name1").addEventListener("keydown", function () {
+document.getElementById("name1").addEventListener("keydown", function  mykey() {
     document.getElementById("ptxt").innerHTML = document.getElementById("name1").value;
 });
+function myRemove(){
+    document.getElementById("name1").removeEventListener("keydown", mykey());
+}
