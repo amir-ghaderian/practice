@@ -4,4 +4,7 @@ function myClick() {
     .addEventListener(submit, myClick);
   alert(myClick);
 }
-
+function myMovement() {
+  let animate = document.getElementById("animate");
+  
+}
