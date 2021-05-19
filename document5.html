@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="name..." id="name">
+    <input type="submit" placeholder="remove" onclick="mynone()">
+    <div id="txt"></div>
+
+</body>
+<script>
+    var name = document.getElementById("name").addEventListener("keyup", keyup);
+    var txt = document.getElementById("txt");
+    function keyup() {
+        document.getElementById("txt").innerHTML = document.getElementById("name").value;
+
+    }
+    function mynone() {
+        document.getElementById("name").removeEventListener("keyup",keyup);
+    }
+    
+</script>
+
+</html>

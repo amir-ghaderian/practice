@@ -33,5 +33,6 @@ document.getElementById("name1").addEventListener("keydown", function  mykey() {
     document.getElementById("ptxt").innerHTML = document.getElementById("name1").value;
 });
 function myRemove(){
-    document.getElementById("name1").removeEventListener("keydown", mykey());
+   document.getElementById("ptxt").removeEventListener("keydown", mykey );//probleem
+    document.getElementById("box1").removeEventListener("ClicK",myClick);
 }
