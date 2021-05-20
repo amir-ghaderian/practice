@@ -1,10 +1,4 @@
 function myClick() {
-  var myclick = document
-    .getElementById("myclick")[0]
-    .addEventListener(submit, myClick);
-  alert(myClick);
-}
-function myMovement() {
-  let animate = document.getElementById("animate");
+  document.getElementsByClassName("animate")[0].style.right = "100px";
   
 }
