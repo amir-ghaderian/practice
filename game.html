@@ -40,22 +40,28 @@
     <input type="submit" onclick="random()" />
     <input type="number" id="txt2" placeholder="height" />
     <input type="submit" onclick="random()" />
+    <button onclick="myDown()">change color</button>
     <div class="main">
       <div class="circel"></div>
-      <div id="light" class="ball"></div>
+      <div class="ball"></div>
     </div>
   </body>
   <script>
-
     function random() {
+      var x = document.getElementById("txt").value;
+      document.getElementsByClassName("ball")[0].style.right = x + "px";
 
-      var x=  document.getElementById("txt").value;
-      document.getElementsByClassName("ball")[0].style.right= x +"px";
+      var y = document.getElementById("txt2").value;
+      document.getElementsByClassName("ball")[0].style.bottom = y + "px";
 
-      var y=document.getElementById("txt2").value;
-      document.getElementsByClassName("ball")[0].style.bottom= y +"px";
-     if (x == 5 ) {onfocus = "myDown()";}
-     function myDown(){var down = document.getElementById("light").style.color = "black";}
+      if (x == 5 ) {
+        function myDown() {
+          var down = (document.getElementsByClassName(
+            "ball"
+          )[0].style.background = "black");
+        }
+      }
+    }
 
     //       document.getElementsByClassName("ball").style.background="black";nashoood ke besheeee
     //   }
