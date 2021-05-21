@@ -21,23 +21,44 @@
             border-radius: 5em;
             background-color: red;
             position: absolute;
+            border: 5px solid yellow;
             
+        }
+        .circel{
+            width: 100px;
+            height: 100px;
+            border: 3px solid yellow;
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            background-color:burlywood ;
+            border-radius: 5em;
         }
     </style>
 </head>
 
 <body>
-    <button id="btn" onclick="random()"></button>
+    <input type="number"  id="txt" placeholder="width">
+    <input type="submit"  onclick="random()" >
+    <input type="number"  id="txt2" placeholder="height">
+    <input type="submit"  onclick="random()" >
     <div class="main">
+        <div class="circel"></div>
         <div class="ball"></div>
     </div>
 </body>
 <script>
 
     function random() {
-        document.getElementsByClassName("ball")[0].style.right="100px";
-        // var x =document.getElementsByClassName("ball").item;
-        // console.log(x);
+        
+      var x=  document.getElementById("txt").value;
+      document.getElementsByClassName("ball")[0].style.right= x +"px";
+
+      var y=document.getElementById("txt2").value;
+      document.getElementsByClassName("ball")[0].style.bottom= y +"px";
+    //   if (x=111 , y=674) {
+    //       document.getElementsByClassName("ball").style.background="black";nashoood ke besheeee
+    //   }
     }
 </script>
 
