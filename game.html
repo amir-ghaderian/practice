@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        .main {
-            width: 100%;
-            height: 90vh;
-            background-color: burlywood;
-            border-radius: 1em;
-            position: relative;
-        }
+      .main {
+        width: 100%;
+        height: 90vh;
+        background-color: burlywood;
+        border-radius: 1em;
+        position: relative;
+      }
 
       .ball {
         width: 100px;
@@ -22,31 +22,30 @@
         position: absolute;
         border: 5px solid yellow;
       }
-
     </style>
   </head>
 
-<body>
-    <input type="number"  min="0" max="100" id="txt" placeholder="width">
-    <input type="submit"  onclick="random()" >
-    <input type="number" min="0" max="100" id="txt2" placeholder="height">
-    <input type="submit"  onclick="random()" >
+  <body>
+    <input type="number" min="0" max="100" id="txt" placeholder="width" />
+    <input type="submit" onclick="random()" />
+    <input type="number" min="0" max="100" id="txt2" placeholder="height" />
+    <input type="submit" onclick="random()" />
     <div class="main">
       <div class="ball"></div>
     </div>
   </body>
   <script>
     function random() {
-        
-      var x=  document.getElementById("txt").value;
-      document.getElementsByClassName("ball")[0].style.left= x +"%";
+      var x = document.getElementById("txt").value;
+      document.getElementsByClassName("ball")[0].style.left = x + "%";
 
-      var y=document.getElementById("txt2").value;
-      document.getElementsByClassName("ball")[0].style.top= y +"%";
-     if (x === y) {
-          document.getElementsByClassName("ball")[0].style.background="black";
-       }
+      var y = document.getElementById("txt2").value;
+      document.getElementsByClassName("ball")[0].style.top = y + "%";
+      if (x === y) {
+        document.getElementsByClassName("ball")[0].style.background = "black";
+      }
     }
-    
-</script>
+    var index = 90vh;
+    document.getElementsByClassName("ball")[0].style.height = "index";
+  </script>
 </html>
