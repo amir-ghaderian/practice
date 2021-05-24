@@ -46,6 +46,7 @@
       onkeyup="random()"
     />
 
+<<<<<<< HEAD
     <div class="main">
       <div class="ball"></div>
     </div>
@@ -54,6 +55,33 @@
     function random() {
       var x = document.getElementById("txt").value;
       document.getElementsByClassName("ball")[0].style.left = x * 0.92 + "%";
+=======
+  <div class="main">
+    <div class="ball" onclick="Click()" ondblclick="Click2()"></div>
+  </div>
+</body>
+<script>
+  function random() {
+
+    var x = document.getElementById("txt").value;
+    document.getElementsByClassName("ball")[0].style.left = x * 0.92 + "%";
+
+    var y = document.getElementById("txt2").value;
+    document.getElementsByClassName("ball")[0].style.top = y * 0.81 + "%";
+    //  if (x === y) {
+    //       document.getElementsByClassName("ball")[0].style.background="black"; hadaf az neveshtan in if ye test bod ke age ro ham oftad har do eleman yekii hazf beshe ... bazii bood...jedii nagir
+    //    }
+  }
+  function Click(){
+    document.getElementsByClassName("ball")[0].style.background="blue";
+   
+  }
+  function Click2(){
+    document.getElementsByClassName("ball")[0].style.background="red";
+  }
+
+</script>
+>>>>>>> b5fde23adcc64c270816db08eb9a7b5962498072
 
       var y = document.getElementById("txt2").value;
       document.getElementsByClassName("ball")[0].style.top = y * 0.81 + "%";
