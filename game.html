@@ -35,7 +35,7 @@
   <input type="number" min="0" max="100" id="txt2" placeholder="height" onkeyup="random()">
 
   <div class="main">
-    <div class="ball"></div>
+    <div class="ball" onclick="Click()" ondblclick="Click2()"></div>
   </div>
 </body>
 <script>
@@ -49,6 +49,13 @@
     //  if (x === y) {
     //       document.getElementsByClassName("ball")[0].style.background="black"; hadaf az neveshtan in if ye test bod ke age ro ham oftad har do eleman yekii hazf beshe ... bazii bood...jedii nagir
     //    }
+  }
+  function Click(){
+    document.getElementsByClassName("ball")[0].style.background="blue";
+   
+  }
+  function Click2(){
+    document.getElementsByClassName("ball")[0].style.background="red";
   }
 
 </script>
