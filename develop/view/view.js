@@ -1,11 +1,17 @@
-var paragraph = document.createElement("p1");
-var node = document.createTextNode("This is new p ");
-paragraph.appendChild(node);
-var element = document.getElementById("div1");
-element.appendChild(paragraph);
+var attendees =
+  '{"workers" :[' +
+  '{"firstName":"ahmad" , "lastName":"mohammadi" , "age":23},' +
+  '{"firstName":"hossein" , "lastName":"ahmadi" , "age":13},]}';
+var obj = JSON.parse(attendees);
+document.getElementById("max").innerHTML =
+  obj.workers[1].firstName + "  last name is:  " + obj.workers[1].lastName;
 
-var para = document.createElement("p3");
-var node1 = document.createTextNode("wellcome");
-para.insertBefore(node1);
-var trick = document.getElementById("slight");
-trick.insertBefore(para,child);
+class trick {
+  constructor(name, year) {
+    this.name = name;
+    this.year = year;
+  }
+}
+myTrick = new trick("ida", 2001);
+document.getElementById("grand").innerHTML = myTrick.name + "" + myTrick.year;
+

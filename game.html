@@ -1,19 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .main {
+        width: 100%;
+        height: 90vh;
+        background-color: burlywood;
+        border-radius: 1em;
+        position: relative;
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <style>
-    .main {
-      width: 100%;
-      height: 90vh;
-      background-color: burlywood;
-      border-radius: 1em;
-      position: relative;
+      .ball {
+        width: 100px;
+        height: 100px;
+        border-radius: 5em;
+        background-color: red;
+        position: absolute;
+        border: 5px solid yellow;
+      }
+      input {
+        margin: 1em;
+      }
+    </style>
+  </head>
 
+<<<<<<< HEAD
     }
 
     .ball {
@@ -34,7 +49,36 @@
 <body>
   <input type="number" min="0" max="100" id="txt" placeholder="width" onkeyup="random()">
   <input type="number" min="0" max="100" id="txt2" placeholder="height" onkeyup="random()">
+=======
+  <body>
+    <input
+      type="number"
+      min="0"
+      max="100"
+      id="txt"
+      placeholder="width"
+      onkeyup="random()"
+    />
+    <input
+      type="number"
+      min="0"
+      max="100"
+      id="txt2"
+      placeholder="height"
+      onkeyup="random()"
+    />
+>>>>>>> 8f11359b44a4ef06ebeabc05aa071633c1ef6211
 
+<<<<<<< HEAD
+    <div class="main">
+      <div class="ball"></div>
+    </div>
+  </body>
+  <script>
+    function random() {
+      var x = document.getElementById("txt").value;
+      document.getElementsByClassName("ball")[0].style.left = x * 0.92 + "%";
+=======
   <div class="main">
     <div class="ball" onclick="Click()"></div>
   </div>
@@ -67,5 +111,17 @@
 
 
 </script>
+>>>>>>> b5fde23adcc64c270816db08eb9a7b5962498072
 
+<<<<<<< HEAD
 </html>
+=======
+      var y = document.getElementById("txt2").value;
+      document.getElementsByClassName("ball")[0].style.top = y * 0.81 + "%";
+      //  if (x === y) {
+      //       document.getElementsByClassName("ball")[0].style.background="black"; hadaf az neveshtan in if ye test bod ke age ro ham oftad har do eleman yekii hazf beshe ... bazii bood...jedii nagir
+      //    }
+    }
+  </script>
+</html>
+>>>>>>> 8f11359b44a4ef06ebeabc05aa071633c1ef6211
