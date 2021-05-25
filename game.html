@@ -24,7 +24,8 @@
       position: absolute;
       border: 5px solid yellow;
     }
-    input{
+
+    input {
       margin: 1em;
     }
   </style>
@@ -35,7 +36,7 @@
   <input type="number" min="0" max="100" id="txt2" placeholder="height" onkeyup="random()">
 
   <div class="main">
-    <div class="ball" onclick="Click()" ondblclick="Click2()"></div>
+    <div class="ball" onclick="Click()"></div>
   </div>
 </body>
 <script>
@@ -46,17 +47,24 @@
 
     var y = document.getElementById("txt2").value;
     document.getElementsByClassName("ball")[0].style.top = y * 0.81 + "%";
-    //  if (x === y) {
-    //       document.getElementsByClassName("ball")[0].style.background="black"; hadaf az neveshtan in if ye test bod ke age ro ham oftad har do eleman yekii hazf beshe ... bazii bood...jedii nagir
-    //    }
+    
   }
-  function Click(){
-    document.getElementsByClassName("ball")[0].style.background="blue";
-   
-  }
-  function Click2(){
-    document.getElementsByClassName("ball")[0].style.background="red";
-  }
+  //  function Click() {
+  //    var c3 = document.getElementsByClassName("ball")[0];
+  //    document.getElementsByClassName("ball")[0].style.background = "blue";
+  //    if (c3 ==="blue") {
+  //      document.getElementsByClassName("ball")[0].style.background = "red";
+  //    } else {
+  //      document.getElementsByClassName("ball")[0].style.background = "green";
+  //    }
+  //  }
+
+   function Click() {
+     var randomColor = Math.floor(Math.random() * 16777215).toString(16);
+     document.getElementsByClassName("ball")[0].style.background = "#"+ randomColor;
+   }
+
+
 
 </script>
 

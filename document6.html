@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" onkeyup="  myTime = setTimeout(mykey ,1000)">
+    <input type="submit" value="clear time" onclick="clearTimeout(myTime)"> ///error
+    <h1 id="box"></h1>
+</body>
+<script>
+    function mykey() {
+        document.getElementById("box").innerHTML = document.getElementsByTagName("input")[0].value;
+
+    }
+</script>
+
+</html>
