@@ -7,17 +7,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    .timer {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: baseline;
+        font-size: 2em;
+        color: red;
+    }
+</style>
 
 <body>
-    <input type="text" onkeyup="  myTime = setTimeout(mykey ,1000)">
+    <input type="text" onkeyup="  myTime = setTimeout(mykey ,6000)">
     <input type="submit" value="clear time" onclick="clearTimeout(myTime)"> ///error
     <h1 id="box"></h1>
+    <div class="timer">
+        <span id="sale">زمان باقیمانده تا شروع حراج</span>
+        <p id="txt3"></p>
+        <p id="txt2"></p>
+        <p id="txt"></p>
+    </div>
 </body>
 <script>
     function mykey() {
         document.getElementById("box").innerHTML = document.getElementsByTagName("input")[0].value;
 
     }
+    var second = 60;
+    var minuts = 59;
+    var hours = 12;
+    var myInterVAL = setInterval(function () {
+        document.getElementById("txt").innerHTML = second;
+        document.getElementById("txt2").innerHTML = minuts;
+        document.getElementById("txt3").innerHTML = hours;
+        second--;
+        if (second == -1) {
+            minuts--;
+            second = 60;
+
+        }
+        if (minuts == -1) {
+            hours--;
+            minuts = 59;
+        }
+        if (hours==-1 ,minuts==-1,second==-1){
+            clearInterval(myInterVAL)=document.getElementById("sale").innerHTML="حراج شروع شد";
+        }
+    }, 1000);
+
 </script>
 
 </html>
