@@ -25,3 +25,8 @@ document.getElementById("crave").innerHTML = d;
 
 document.getElementById("crave1").innerHTML = Math.random();
 
+document.getElementById("crave1").innerHTML =Math.floor( Math.random()*8);
+
+function myWidth(){document.getElementById("type").value;
+if (isNaN){alert("undefined");}}
+
