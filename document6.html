@@ -18,8 +18,8 @@
 </style>
 
 <body>
-    <input type="text" > <!-- What you wrote was retarded -->
-    <input type="submit" value="reset timer" onclick="restTimer()"> 
+    <input type="text" onkeyup="setInterval(mykey,3000 )"> <!-- fixed -->
+    <input type="submit" value="reset timer" onclick=clearInterval(mykey) > 
     <h1 id="box"></h1>
     <div class="timer">
         <span id="sale">زمان باقیمانده تا شروع حراج</span>
@@ -51,11 +51,11 @@
             hours--;
             minuts = 59;
         }
-        if (hours==-1 ,minuts==-1,second==-1){
+        if (hours==0 ,minuts==0){
             clearInterval(myInterVAL);
             document.getElementById("sale").innerHTML="حراج شروع شد";
         }
-    }, 1); // 1000 time faster so you know the ""end""" is not working
+    }, 1); // fixed
 
     function restTimer() {
         second = 60;
