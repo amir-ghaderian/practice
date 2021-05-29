@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-       
+
     </style>
 </head>
 
@@ -16,17 +16,30 @@
         <li id="html">html</li>
         <li id="CSS">css</li>
         <li>git</li>
+        <li id="jQery">jQuery</li>
     </ul>
+    <p id="box">is studing jQery useful houman?</p><button onclick="myremove()">na baba</button>
 </body>
 <script>
     var liNode = document.createElement("li");
     var nweLi = document.createTextNode("java script");
     liNode.appendChild(nweLi);
     var mylist = document.getElementById("mylist");
-    mylist.appendChild(nweLi);
+    mylist.appendChild(liNode);
     var html = document.getElementById("html");
     var css = document.getElementById("css");
-    mylist.insertBefore(liNode, html);  // not working//
+    mylist.insertBefore(liNode, html);
+    var ANGULAR = document.createElement("li");
+    var angu = document.createTextNode("ANGULAR  LEARING SOON");
+    ANGULAR.appendChild(angu);
+    mylist.appendChild(ANGULAR);
+
+
+    function myremove(){
+        var jQery =document.getElementById("jQery");
+        jQery.remove();
+    }
+    
 </script>
 
 </html>
