@@ -1,26 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        a{
+        a {
             text-decoration: none;
         }
     </style>
 </head>
+
 <body>
     <a href="www.google.com" id="mylink">گوگول</a>
     <input type="checkbox" id="c63">
+    <br>
+    <form action="#">
+        <label>day</label>
+        <input type="text" id="day" placeholder="day" name="day">
+        <br>
+        <br>
+        <label>month</label>
+        <input type="text" id="month" name="month" placeholder="month">
+        <br>
+        <br>
+        <button type="submit">send</button>
+    </form>
 </body>
 <script>
-    document.getElementById("mylink").addEventListener("click",function (event) {
+    document.getElementById("mylink").addEventListener("click", function (event) {
         event.preventDefault();
     });
-    document.getElementById("c63").addEventListener("click",function (event) {
+    document.getElementById("c63").addEventListener("click", function (event) {
         event.preventDefault()
     })
+    const form = document.querySelector('form');
+    const day = document.getElementById('day');
+    const month = document.getElementById('month');
+
+    form.addEventListener("submit", valiDateform);
+    function valiDateform(event) {
+        if (day.value < 1 || day.value > 31) {
+            alert("روز درست را وارد کنیید");
+            day.focus();
+            event.preventDefault;
+        } else if (month.value < 1 || month.value > 12) {
+            alert("ماه را درست وارد کنیید");
+            month.focus();
+            event.preventDefault;
+        }
+
+    }
 </script>
+
 </html>
