@@ -48,17 +48,12 @@
 
     var y = document.getElementById("txt2").value;
     document.getElementsByClassName("ball")[0].style.top = y * 0.81 + "%";
+
+    // Can you fix the size issue based on explanation on video? or I can do it for you
+    // https://www.loom.com/share/84a6a57541494130b6fa9f0250f7fc6d
     
   }
-  //  function Click() {
-  //    var c3 = document.getElementsByClassName("ball")[0];
-  //    document.getElementsByClassName("ball")[0].style.background = "blue";
-  //    if (c3 ==="blue") {
-  //      document.getElementsByClassName("ball")[0].style.background = "red";
-  //    } else {
-  //      document.getElementsByClassName("ball")[0].style.background = "green";
-  //    }
-  //  }
+
 
    function Click() {
 
@@ -67,9 +62,12 @@
 
      var randomColor = Math.floor(Math.random() * 16777215).toString(16);
      document.getElementsByClassName("ball")[0].style.background = "#"+ randomColor;
+
+     // nice copy from stack... make this function to only uses one of the allowed colors 
    }
 
 
+   // we need to move on... chop chop https://www.google.com/search?q=chop+chop+meaning 
 
 </script>
 
