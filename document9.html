@@ -19,6 +19,11 @@
         <li id="jQery">jQuery</li>
     </ul>
     <p id="box">is studing jQery useful houman?</p><button onclick="myremove()">na baba</button>
+    <br>
+</br>
+</br>
+<h1>abut</h1>
+<button onclick="goForward()"> go forward</button>
 </body>
 <script>
     var liNode = document.createElement("li");
@@ -39,7 +44,9 @@
         var jQery =document.getElementById("jQery");
         jQery.remove();
     }
-    
+    function goForward(){
+    return history.forward();
+}
 </script>
 
 </html>

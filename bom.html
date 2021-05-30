@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h1>index</h1>
+   <button onclick="goback()"> back</button>
+   <button onclick="refresh()"> refresh</button>
+</body>
+<script>
+//  var age =  prompt("چند سال داریید");
+//  document.write("سن شما"+age +"میباشد");
+//  if (age == 10 ) {
+//     document.write("شما کودکی بیش نیستید")
+//  }
+
+function goback(){
+    return history.back();
+}
+function goForward(){
+    return history.forward();
+}
+function refresh() {
+    // console.log(history)
+    return history.go(0);
+    console.log(history.length);
+}
+
+ 
+</script>
+</html>
