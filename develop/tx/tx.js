@@ -12,3 +12,31 @@ var mins = rainBow.getMinutes();
 document.write(mins);
 var sec = rainBow.getSeconds();
 document.write(sec);
+
+var truck;
+function openWindow() {
+  truck = window.open(
+    "https://www.w3schools.com",
+    "w3school",
+    "width=500px",
+    "height=500px"
+  );
+}
+function resizeWindow() {
+  truck.resizeTo(500, 800);
+}
+
+function closeWindow() {
+  if (truck) {
+    truck.close;
+  }
+}
+function windowPrint() {
+  window.print();
+}
+function windowLoad() {
+  window.location.reload();
+}
+function goToSchoolSite() {
+  window.location.replace("https://www.w3schools.com");
+}
