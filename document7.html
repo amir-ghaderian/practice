@@ -14,34 +14,38 @@
 
     .n2 {
         background-color: blue;
+        
+
     }
 </style>
 
 <body>
     <input type="text" placeholder="name..." id="txt" class="n1">
-    <button onclick="click() ">remove</button>
+    <button onclick="click1()">remove</button>
     <br><br><br>
     <input type="text" id="user">
-    <button onclick=" click2()">add class</button>
+    <button onclick="click2()">add class</button>
+    <script>
+        // var no = document.getElementById("txt").getAttributeNode("class").specified;
+        // var attr = document.getElementById("txt").attributes.getNamedItem("id").value;
+        // var attr1 = document.getElementById("txt").attributes.item(1).name;
+    
+        // console.log(attr);
+        // console.log(no);
+        // console.log(attr1);
+    
+        function click1() {
+            var elem = document.getElementById("txt").attributes.removeNamedItem("class");
+        }
+    
+    
+        function click2() {
+            var elemen = document.getElementById("user");
+            var attr = document.createAttribute("class");
+            attr.value = "n2";
+            elemen.attributes.setNamedItem(attr);
+        }
+    
+    </script>
 </body>
-<script>
-    // var no = document.getElementById("txt").getAttributeNode("class").specified;
-    // var attr = document.getElementById("txt").attributes.getNamedItem("id").value;
-    // var attr1 = document.getElementById("txt").attributes.item(1).name;
-
-    // console.log(attr);
-    // console.log(no);
-    // console.log(attr1);
-    function click() {
-        var elem = document.getElementById("txt").attributes.removeNamedItem("class");
-    }//not working
-    function click2() {
-        var elemen = document.getElementById("user");
-        var attr = document.createAttribute("class");
-        attr.value = "n2";
-        elemen.attributes.setNamedItem(attr);
-    }
-
-</script>
-
 </html>

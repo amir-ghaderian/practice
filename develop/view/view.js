@@ -1,10 +1,14 @@
 var attendees =
   '{"workers" :[' +
   '{"firstName":"ahmad" , "lastName":"mohammadi" , "age":23},' +
-  '{"firstName":"hossein" , "lastName":"ahmadi" , "age":13},]}';
+  '{"firstName":"hossein" , "lastName":"ahmadi" , "age":13}]}';
 var obj = JSON.parse(attendees);
+
+console.log(obj);
+
+//  workers[1]
 document.getElementById("max").innerHTML =
-  obj.firstName[1] + "  last name is:  " + obj.lastName[1];
+  obj.workers[1].firstName + "  last name is:  " + obj.workers[1].lastName;
 
 class trick {
   constructor(name, year) {
@@ -15,10 +19,10 @@ class trick {
 myTrick = new trick("ida", 2001);
 document.getElementById("grand").innerHTML = myTrick.name + "" + myTrick.year;
 
- {"players":
- [ "book": "mohakeme",
-  "name": "hassan"]
-};
+//  {"players":
+//  [ "book": "mohakeme",
+//   "name": "hassan"]
+// };
 
 var d = new Date(1400/3/5);
 document.getElementById("crave").innerHTML = d;
