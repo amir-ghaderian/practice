@@ -23,12 +23,12 @@ function openWindow() {
   );
 }
 function resizeWindow() {
-  truck.resizeTo(500, 800);
+  truck.resizeTo(500, 800);///not working
 }
 
 function closeWindow() {
   if (truck) {
-    truck.close;
+    truck.close;////کار نمیکنه ...میدونی چرا ؟؟ چون از اینا  ()میخواد چون تابع است
   }
 }
 function windowPrint() {
