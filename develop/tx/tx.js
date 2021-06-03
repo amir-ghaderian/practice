@@ -18,17 +18,20 @@ function openWindow() {
   truck = window.open(
     "https://www.w3schools.com",
     "w3school",
-    "width=500px",
-    "height=500px"
-  );
+    "width=500px,height=500px");
 }
 function resizeWindow() {
   truck.resizeTo(500, 800);///not working
+
+  // it doesnt allow resize because its not hosted
+  // not important
+  // for more look at:
+  // https://stackoverflow.com/questions/29983786/blocked-a-frame-of-origin-null-from-accessing-a-cross-origin-frame-chrome/65234451
 }
 
 function closeWindow() {
   if (truck) {
-    truck.close;////کار نمیکنه ...میدونی چرا ؟؟ چون از اینا  ()میخواد چون تابع است
+    truck.close();  ////کار نمیکنه ...میدونی چرا ؟؟ چون از اینا  ()میخواد چون تابع است
   }
 }
 function windowPrint() {
