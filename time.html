@@ -24,7 +24,7 @@
     // }
     // var userpanelsetinterval = setInterval(userpanel(), 1000);
 
-    function nowTime(){
+    function nowTime() {
         var mytime = new Date;
         var h = mytime.getHours();
         var m = mytime.getMinutes();
@@ -33,8 +33,16 @@
         document.getElementById("clock").innerText = myclock;
 
     }
-     setInterval(nowTime,1000);
+    setInterval(nowTime, 1000);
 
+/////
+
+    with (mytime) {
+        console.log(getFullYear());
+        console.log(getHours());
+        console.log(getMinutes());
+        console.log(getSeconds());
+    }
 
 </script>
 
