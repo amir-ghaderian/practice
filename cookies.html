@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onload="checkCookies()">
+
+</body>
+<script>
+    function setCookies(cName, cValue, cDays) {
+        var myTime = new Date();
+        myTime.setTime(myTime.getTime() + (cDays * 24 * 60 * 60 * 1000));
+        var ex = "expaiers" + myTime.toUTCString();
+        document.cookie = cName + "=" + cValue + ";" + ex + ";path=/"
+    }
+    function getCookies(cName) {
+        var Name = cName + "=";
+        var decodedcookie = decodeURIComponent(document.cookie);
+        var mycookie = decodedcookie.split(";");
+        for (var i = 0; i < mycookie.length; i++) {
+            var c = mycookie[i];
+            while (c.charAt(0) == " ") {
+                c = c.substring(1);
+            }
+            if (c.indexOf(Name) == 0) {
+                return c.substring(Name.length, c.length);
+            }
+        }
+        return "";
+    }
+    function checkCookies() {
+        var email = getCookies("userEmail");
+        if (email != "") {
+            alert("welcome dear friand ehit email " + email);
+        } else {
+            email = prompt("please enter your email", "");
+            setCookies("userEmail", email, 12)
+        }
+    }
+    prompt("please enter your email")
+</script>
+
+</html>

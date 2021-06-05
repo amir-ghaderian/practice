@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="clock"></p>
+</body>
+<script>
+    var mytime = new Date;
+    console.log();
+    // function userpanel() {
+    //     var mytime = new Date;
+    //     if (mytime.getMinutes() <= 3) {
+    //         console.log("پنل باز است");
+    //     } else {
+    //         console.log("پنل بسته شد");
+    //     }
+    // }
+    // var userpanelsetinterval = setInterval(userpanel(), 1000);
+
+    function nowTime() {
+        var mytime = new Date;
+        var h = mytime.getHours();
+        var m = mytime.getMinutes();
+        var s = mytime.getSeconds();
+        var myclock = h + " : " + m + " : " + s;
+        document.getElementById("clock").innerText = myclock;
+
+    }
+    setInterval(nowTime, 1000);
+
+/////
+
+    with (mytime) {
+        console.log(getFullYear());
+        console.log(getHours());
+        console.log(getMinutes());
+        console.log(getSeconds());
+    }
+
+</script>
+
+</html>

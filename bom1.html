@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="openWindow()">open google</button>
+    <button onclick="closeWindow()">close google</button>
+    <button onclick="printWindow()">print page</button>
+    <button onclick="reloadWindow()">refresh</button>
+    <button onclick="sizeWindow()">resize</button>
+</body>
+<script>
+    var mywindow;
+    function openWindow() {
+         mywindow= window.open("", "hibi", "width=200,height=200");
+         mywindow.document.body="خوش آمدید";///nashod
+    }
+    function closeWindow(){
+        if (mywindow) {
+            mywindow.close();
+        }
+    }
+    function printWindow(){
+        window.print();
+    }
+    function reloadWindow(){
+        window.location.reload();
+    }
+    function sizeWindow(){
+        mywindow.resizeTo(500,800);
+    }
+   
+</script>
+
+</html>
