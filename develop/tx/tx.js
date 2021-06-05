@@ -40,3 +40,23 @@ function windowLoad() {
 function goToSchoolSite() {
   window.location.replace("https://www.w3schools.com");
 }
+var ball = new Date();
+console.log(ball);
+
+var ball2 = new Date();
+ball2.setFullYear(2002);
+console.log(ball2.getFullYear());
+
+var ball2 = new Date();
+ball2.setFullYear(2002);
+console.log(typeof ball2.getFullYear());
+
+function userTime() {
+  var ball = new Date();
+  if (ball.getMinutes() < 28) {
+    console.log("you can use course");
+  } else {
+    console.log("you can not use course");
+  }
+}
+var userSetInterval = setInterval("userTime()", 1000);
