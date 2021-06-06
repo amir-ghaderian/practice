@@ -45,9 +45,10 @@
 
     var x = document.getElementById("txt").value;
 
-    var ballWidth =  80; // get the actual width from dom
-    var containerWidth =  800; // get the actual container width from dom
-    var widthPercent = (containerWidth - ballWidth) / containerWidth;
+    var ballWidth = document.getElementsByClassName("ball")[0].attributes.style;
+    console.log(ballWidth);/// har che ke zadiim nashod bastam raftam ta farda
+    var containerWidth = document.getElementsByClassName("main")[0].style.width;
+    var widthPercent = (containerWidth - ballWidth +"px") / containerWidth;
 
     // do the same for height then
 

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: #333;
+        margin-top: 70px;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1 {
+        color: #FFF;
+    }
+
+    #out {
+        width: 90vw;
+        font-size: 2em;
+    }
+
+    .card {
+        width: 90vw;
+        font-size: 1em;
+        background-color: #FFF;
+        border-radius: .3em;
+
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>weight converter</h1>
+        <form>
+            <input type="number" id="out" placeholder="enter number...">
+        </form>
+        <div id="output">
+            <div class="card">
+                <h4>kiloogram:</h4>
+                <div id="kilogramoutput"></div>
+            </div>
+
+            <div class="output">
+                <div class="card">
+                    <h4>miligram:</h4>
+                    <div id="miligramoutput"></div>
+                </div>
+            </div>
+            <div class="output">
+                <div class="card">
+                    <h4>TON:</h4>
+                    <div id="TONoutput"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    //set input hidden
+    document.getElementById("output").style.visibility = "hidden";
+    ////SET KEYUP EVENTT
+    document.getElementById("out").addEventListener('keyup', function (e) {
+        console.log(e.target.value);
+        // set output visible
+        document.getElementById("output").style.visibility = "visible";
+        var bmi = e.target.value;
+        document.getElementById("kilogramoutput").innerHTML = bmi / 1000;
+        document.getElementById("miligramoutput").innerHTML = bmi  * 1000;
+        document.getElementById("TONoutput").innerHTML = bmi/1000000;
+
+    });
+</script>
+
+</html>
