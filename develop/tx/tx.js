@@ -18,10 +18,11 @@ function openWindow() {
   truck = window.open(
     "https://www.w3schools.com",
     "w3school",
-    "width=500px,height=500px");
+    "width=500px,height=500px"
+  );
 }
 function resizeWindow() {
-  truck.resizeTo(500, 800);///not working
+  truck.resizeTo(500, 800); ///not working
 
   // it doesnt allow resize because its not hosted
   // not important
@@ -31,7 +32,7 @@ function resizeWindow() {
 
 function closeWindow() {
   if (truck) {
-    truck.close();  ////کار نمیکنه ...میدونی چرا ؟؟ چون از اینا  ()میخواد چون تابع است
+    truck.close(); ////کار نمیکنه ...میدونی چرا ؟؟ چون از اینا  ()میخواد چون تابع است
   }
 }
 function windowPrint() {
@@ -62,4 +63,31 @@ function userTime() {
     console.log("you can not use course");
   }
 }
-var userSetInterval = setInterval("userTime()", 1000);
+setInterval("userTime()", 1000);
+
+var train = new Date();
+train.setSeconds(34);
+console.log(train.getSeconds());
+
+var coconut = new Date();
+console.log(coconut);
+
+function userSeconds() {
+  var coconut = new Date();
+  if (coconut.getSeconds() == 5) {
+    console.log("hello");
+  } else {
+    console.log("goodbye");
+  }
+}
+setInterval("userSeconds()", 2000);
+
+function nowTime() {
+  var newTime = new Date();
+  var h = newTime.getHours();
+  var m = newTime.getMinutes();
+  var s = newTime.getSeconds();
+  var myClock = h + ":" + m + ":" + s;
+  document.getElementById("newClock").innerText = myClock;
+}
+setInterval("nowTime()", 3000);
