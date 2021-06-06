@@ -44,7 +44,14 @@
   function random() {
 
     var x = document.getElementById("txt").value;
-    document.getElementsByClassName("ball")[0].style.left = x * 0.92 + "%";
+
+    var ballWidth =  80; // get the actual width from dom
+    var containerWidth =  800; // get the actual container width from dom
+    var widthPercent = (containerWidth - ballWidth) / containerWidth;
+
+    // do the same for height then
+
+    document.getElementsByClassName("ball")[0].style.left = x * widthPercent + "%";
 
     var y = document.getElementById("txt2").value;
     document.getElementsByClassName("ball")[0].style.top = y * 0.81 + "%";
