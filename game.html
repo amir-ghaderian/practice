@@ -68,14 +68,17 @@
     var allowedColors = ['#ff0000', '#00ff00', '#0000ff', '#ff00ff', '#ffff00', '#00ffff', '#ffffff'];
 
 
-    var randomColor = Math.floor(Math.random() * 16777215).toString(16);
-    document.getElementsByClassName("ball")[0].style.background = "#" + randomColor;
+    var randomColor = allowedColors[Math.floor(Math.random()*allowedColors.length)]
+    document.getElementsByClassName("ball")[0].style.background =  randomColor;
+    console.log(randomColor);
+    
+    ///:))
 
-    // nice copy from stack... make this function to only uses one of the allowed colors 
+    
   }
 
 
-   // we need to move on... chop chop https://www.google.com/search?q=chop+chop+meaning 
+   
 
 </script>
 
