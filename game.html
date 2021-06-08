@@ -22,6 +22,7 @@
       background-color: red;
       position: absolute;
       border: 5px solid yellow;
+      box-sizing: border-box;
     }
 
     input {
@@ -43,24 +44,46 @@
   </div>
 </body>
 <script>
-  function random() {
-
-    var x = document.getElementById("txt").value;
+  function moveTo(x,y) {
 
     var ballWidth = document.getElementsByClassName("ball")[0].clientWidth;
     var containerWidth = document.getElementsByClassName("main")[0].clientWidth;
     var widthPercent = (containerWidth - ballWidth) / containerWidth;
     document.getElementsByClassName("ball")[0].style.left = x * widthPercent + "%";
 
-    var y = document.getElementById("txt2").value;
     var ballheight = document.getElementsByClassName("ball")[0].clientHeight;
     var containerheight = document.getElementsByClassName("main")[0].clientHeight;
     var heightPercent = (containerheight - ballheight) / containerheight;
     document.getElementsByClassName("ball")[0].style.top = y * heightPercent + "%";
 
-   
-
   }
+
+  startX = 0;
+  startY = 0;
+
+  addition = 0.9;
+  directionX = 1;
+
+  currentX = 0;
+  currentY = 0;
+
+  setInterval(function(){ 
+
+    currentX = currentX + (directionX * addition);
+
+    console.log(currentX);
+
+    if (currentX >= 100) {
+      directionX = directionX * -1;
+    }
+
+    if (currentX <= 0) {
+      directionX = directionX * -1;
+    }
+
+     moveTo(currentX, currentY);
+    
+   }, 40);
 
 
   function Click() {
