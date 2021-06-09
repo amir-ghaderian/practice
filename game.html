@@ -36,7 +36,7 @@
 </head>
 
 <body>
-  <input type="number" min="0" max="100" id="txt" placeholder="width" onkeyup="random()">
+  <input type="number" min="0" max="100" id="txt" placeholder="width" onkeyup="moveTo(x,y)">
   <input type="number" min="0" max="100" id="txt2" placeholder="height" onkeyup="random()">
 
   <div class="main">
@@ -44,7 +44,7 @@
   </div>
 </body>
 <script>
-  function moveTo(x,y) {
+  function moveTo(x, y) {
 
     var ballWidth = document.getElementsByClassName("ball")[0].clientWidth;
     var containerWidth = document.getElementsByClassName("main")[0].clientWidth;
@@ -63,25 +63,31 @@
 
   addition = 0.9;
   directionX = 1;
+  directionY = 1;
 
   currentX = 0;
   currentY = 0;
 
-  setInterval(function(){ 
+  setInterval(function () {
 
     currentX = currentX + (directionX * addition);
+    currentY = currentY + (directionY * addition);
+    
 
-    console.log(currentX);
+    if (currentX <= 100 , currentY >=  100) {
+    directionX = directionX * -1;
+    directionY = directionY * -1;
+    
+    
+  }
 
-    if (currentX >= 100) {
-      directionX = directionX * -1;
-    }
+  if (currentX <= 0 , currentY <= 0) {
+    directionX = directionX * -1;
+    directionY = directionY * -1;
+  }
 
-    if (currentX <= 0) {
-      directionX = directionX * -1;
-    }
-
-     moveTo(currentX, currentY);
+  moveTo(currentX, currentY );
+  
     
    }, 40);
 
@@ -91,17 +97,17 @@
     var allowedColors = ['#ff0000', '#00ff00', '#0000ff', '#ff00ff', '#ffff00', '#00ffff', '#ffffff'];
 
 
-    var randomColor = allowedColors[Math.floor(Math.random()*allowedColors.length)]
-    document.getElementsByClassName("ball")[0].style.background =  randomColor;
+    var randomColor = allowedColors[Math.floor(Math.random() * allowedColors.length)]
+    document.getElementsByClassName("ball")[0].style.background = randomColor;
     console.log(randomColor);
-    
-    ///:))
 
     
+
+
   }
 
 
-   
+
 
 </script>
 
