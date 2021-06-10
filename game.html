@@ -86,7 +86,7 @@
     directionY = directionY * -1;
   }
 
-  // moveTo(currentX, currentY );
+   moveTo(currentX, currentY );
   
     
    }, 40);
@@ -100,11 +100,10 @@
     var randomColor = allowedColors[Math.floor(Math.random() * allowedColors.length)]
     document.getElementsByClassName("ball")[0].style.background = randomColor;
     console.log(randomColor);
-    var j=0;
-    while (randomColor--) {
-      j= Math.floor(Math.random()*(randomColor+1));///not working
-    }
-
+    
+if (allowedColors[0]==randomColor) {
+  console.log(sotiiiiiii);
+}
 
   }
 
