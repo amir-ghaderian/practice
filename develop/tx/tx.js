@@ -80,7 +80,7 @@ function userSeconds() {
     console.log("goodbye");
   }
 }
-setInterval("userSeconds()", 2000);
+setInterval("userSeconds()", 1000);
 
 function nowTime() {
   var newTime = new Date();
@@ -90,4 +90,4 @@ function nowTime() {
   var myClock = h + ":" + m + ":" + s;
   document.getElementById("newClock").innerText = myClock;
 }
-setInterval("nowTime()", 3000);
+setInterval("nowTime()", 1000);

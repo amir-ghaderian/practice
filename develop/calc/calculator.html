@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>calc</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      form {
+        background-color: black;
+        width: 250px;
+        border-radius: 10px;
+        height: 300px;
+      }
+      #car {
+        background-color: #ddd;
+        height: 40px;
+        text-align: left;
+        border-radius: 7px;
+        margin: 5px;
+        width: 240px;
+        border: none;
+      }
+      input[type="button"] {
+        background-color: #fff;
+        border-radius: 8px;
+        height: 36px;
+        width: 36px;
+        text-align: center;
+        margin: 3px;
+        border: none;
+      }
+      #yellow {
+        background-color: yellow;
+        width: 33%;
+      }
+    </style>
+    <script>
+      function data(val) {
+        calc.display.value += val;
+      }
+      function AC() {
+        calc.display.value = "";
+      }
+      function C() {
+        calc.display.value = calc.display.value.slice(0 - 1);
+      }
+    </script>
+  </head>
+  <body>
+    <form action="calc">
+      <input type="text" value="" name="display" id="car" />
+      <input type="button" value="AC" onclick="AC()" />
+      <input type="button" value="C" onclick="C()" />
+      <input type="button" value="%" onclick="data(this.value)" />
+      <input type="button" value="-" onclick="data(this.value)" />
+      <input type="button" value="9" onclick="data(this.value)" />
+      <input type="button" value="8" onclick="data(this.value)" />
+      <input type="button" value="7" onclick="data(this.value)" />
+      <input type="button" value="+" onclick="data(this.value)" />
+      <input type="button" value="6" onclick="data(this.value)" />
+      <input type="button" value="5" onclick="data(this.value)" />
+      <input type="button" value="4" onclick="data(this.value)" />
+      <input type="button" value="/" onclick="data(this.value)" />
+      <input type="button" value="3" onclick="data(this.value)" />
+      <input type="button" value="2" onclick="data(this.value)" />
+      <input type="button" value="1" onclick="data(this.value)" />
+      <input type="button" value="+" onclick="data(this.value)" />
+      <input type="button" value="0" onclick="data(this.value)" />
+      <input type="button" value="." onclick="data(this.value)" />
+      <input type="button" value="=" id="yellow" />
+      <div style="clear: both"></div>
+    </form>
+  </body>
+</html>
