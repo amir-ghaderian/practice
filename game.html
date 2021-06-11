@@ -40,7 +40,7 @@
   <input type="number" min="0" max="100" id="txt2" placeholder="height" onkeyup="random()">
 
   <div class="main">
-    <div class="ball" onclick="Click()"></div>
+    <div class="ball" onclick="changeColor()"></div>
   </div>
 </body>
 <script>
@@ -65,26 +65,23 @@
   directionX = 1;
   directionY = 1;
 
-  currentX = 0;
-  currentY = 0;
+  currentX = 30;
+  currentY = 70;
 
   setInterval(function () {
 
     currentX = currentX + (directionX * addition);
     currentY = currentY + (directionY * addition);
-    
 
-    if (currentX <= 100 , currentY >=  100) {
+
+  if (currentX <= 0 || currentX >= 100) {
     directionX = directionX * -1;
-    directionY = directionY * -1;
-    
-    
   }
-
-  if (currentX <= 0 , currentY <= 0) {
-    directionX = directionX * -1;
+  
+  if (currentY <= 0 || currentY >= 100) {
     directionY = directionY * -1;
   }
+  
 
    moveTo(currentX, currentY );
   
@@ -92,18 +89,25 @@
    }, 40);
 
 
-  function Click() {
+  setInterval(changeColor, 1000);
 
-    var allowedColors = ['#ff0000', '#00ff00', '#0000ff', '#ff00ff', '#ffff00', '#00ffff', '#ffffff'];
+  var allowedColors = ['#ff0000', '#00ff00', '#0000ff', '#ff00ff', '#ffff00', '#00ffff', '#ffffff'];
+  currentColor = ''
 
+  function changeColor() {
 
-    var randomColor = allowedColors[Math.floor(Math.random() * allowedColors.length)]
-    document.getElementsByClassName("ball")[0].style.background = randomColor;
-    console.log(randomColor);
     
-if (allowedColors[0]==randomColor) {
-  console.log(sotiiiiiii);
-}
+    var randomColor = allowedColors[Math.floor(Math.random() * allowedColors.length)];
+    console.log(randomColor + ' >>> ' + currentColor);
+
+    document.getElementsByClassName("ball")[0].style.background = randomColor;
+    currentColor = randomColor;
+    
+    if (allowedColors[0]==randomColor) {
+      console.log('sotiiiiiii');
+    }
+
+
 
   }
 
