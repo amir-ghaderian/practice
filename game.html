@@ -38,7 +38,7 @@
 <body>
   <input type="number" min="0" max="100" id="txt" placeholder="width" onkeyup="moveTo(x,y)">
   <input type="number" min="0" max="100" id="txt2" placeholder="height" onkeyup="random()">
-
+  <p id="set"></p>
   <div class="main">
     <div class="ball" onclick="changeColor()"></div>
   </div>
@@ -74,19 +74,19 @@
     currentY = currentY + (directionY * addition);
 
 
-  if (currentX <= 0 || currentX >= 100) {
-    directionX = directionX * -1;
-  }
-  
-  if (currentY <= 0 || currentY >= 100) {
-    directionY = directionY * -1;
-  }
-  
+    if (currentX <= 0 || currentX >= 100) {
+      directionX = directionX * -1;
+    }
 
-   moveTo(currentX, currentY );
-  
-    
-   }, 40);
+    if (currentY <= 0 || currentY >= 100) {
+      directionY = directionY * -1;
+    }
+
+
+    moveTo(currentX, currentY);
+
+
+  }, 40);
 
 
   setInterval(changeColor, 1000);
@@ -96,16 +96,19 @@
 
   function changeColor() {
 
-    
+
     var randomColor = allowedColors[Math.floor(Math.random() * allowedColors.length)];
     console.log(randomColor + ' >>> ' + currentColor);
 
+    var prvColor = document.getElementById("set").innerHTML = randomColor ;
+     console.log(prvColor);
+     
     document.getElementsByClassName("ball")[0].style.background = randomColor;
     currentColor = randomColor;
-    
-    if (allowedColors[0]==randomColor) {
-      console.log('sotiiiiiii');
-    }
+
+      if (prvColor[0] === randomColor[1]) {
+        console.log('sotiiiiiii');
+      }
 
 
 
