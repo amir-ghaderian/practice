@@ -100,15 +100,21 @@
     var randomColor = allowedColors[Math.floor(Math.random() * allowedColors.length)];
     console.log(randomColor + ' >>> ' + currentColor);
 
-    var prvColor = document.getElementById("set").innerHTML = randomColor ;
-     console.log(prvColor);
+    if (randomColor == currentColor) {
+      console.log('ranj techrari ast')
+    }
+
+    while (randomColor === currentColor) {
+      // ye colore random jadid ijad kon beriz to randomColor    
+      randomColor = allowedColors[Math.floor(Math.random() * allowedColors.length)];
+      console.log('---- new random: ' + randomColor); 
+    }
+
      
     document.getElementsByClassName("ball")[0].style.background = randomColor;
     currentColor = randomColor;
 
-      if (prvColor[0] === randomColor[1]) {
-        console.log('sotiiiiiii');
-      }
+    
 
 
 
