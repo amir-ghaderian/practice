@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        background-color: orange;
+        text-align: center;
+        color: white;
+      }
+      button {
+        width: 150px;
+        height: 30px;
+      }
+      #seconds,
+      #tens,
+      #dot {
+        font-size: 3rem;
+      }
+      #start,
+      #stop,
+      #reset {
+        font-size: 1rem;
+      }
+      .wrapp h2 {
+        font-size: 4rem;
+      }
+    </style>
+  </head>
+  <script>
+    var tens = 00;
+    var seconds = 00;
+    var myTens = document.getElementById("tens");
+    var mySec = document.getElementById("seconds");
+    var myStart = document.getElementById("start");
+    var myStop = document.getElementById("stop");
+    var myReset = document.getElementById("reset");
+    var Interval;
+    function myResetButton() {
+      tens = "00";
+      seconds = "00";
+      myTens.innerHTML = tens;
+      mySec.innerHTML = seconds;
+    }
+    function myStartButton() {
+   
+    }
+    function myStopButton() {
+ 
+    }
+  </script>
+  <body>
+    <div class="wrapp">
+      <h2>javaScript chronometer</h2>
+
+      <p>
+        <span id="seconds">00</span><span id="dot">:</span
+        ><span id="tens">00</span>
+      </p>
+      <button id="start" onclick="myStartButton()">start</button>
+      <button id="stop" onclick="myStopButton()">stop</button>
+      <button id="reset" onclick="myResetButton()">reset</button>
+    </div>
+  </body>
+</html>
