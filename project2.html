@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,62 +8,134 @@
     <title>Document</title>
 </head>
 <style>
-    .container{
+    body{
+        background-color: rgb(245, 232, 215);
+    }
+    .container {
         width: 100%;
         height: 100%;
-        background-color: burlywood;
-
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-    .main{
+
+    .main {
         width: 90%;
         border: 2px solid gray;
         display: flex;
         flex-direction: column;
+        border-radius: 1em;
+        padding: 1em;
     }
-    .item{
+
+    .item {
         width: 100%;
         background-color: honeydew;
         font-size: 1em;
         border: 1px solid gray;
         border-radius: .1em;
+        display: flex;
+        justify-content: space-between;
+        line-height: 2;
     }
-    #btn{
-        background-color: red;
+
+    #btn {
+
         color: white;
         font-size: 2em;
-    
+
     }
-    ul li{
+
+    ul li {
         list-style: none;
     }
+
+    button {
+        background-color: red;
+
+    }
+    #addform{
+        padding: 1em;
+    }
+    .a20{
+        line-height: 2;
+        background-color: green;
+    }
 </style>
+
 <body>
     <div class="container">
         <h4>add item</h4>
-        <input type="text"  placeholder="add">
-        <input type="submit" name=" add"  id="add">
+        <form id="addform">
+            <input type="text" placeholder="add" id="add">
+            <input type="submit" class="a20">
+        </form>
         <div class="main">
             <h2>item</h2>
-            <ul class="group">
+            <ul id="itemlist">
                 <li class="item">
                     amir
-                    <button id="btn">X</button>
+                    <button class="btn-2">X</button>
                 </li>
                 <li class="item">
                     aidaa
-                    <button id="btn">X</button>
+                    <button class="btn-2">X</button>
                 </li>
                 <li class="item">
                     ghasem
-                    <button id="btn">X</button>
+                    <button class="btn-2">X</button>
                 </li>
                 <li class="item">
                     hormoz
-                    <button id="btn">X</button>
+                    <button class="btn-2">X</button>
                 </li>
             </ul>
 
         </div>
     </div>
 </body>
+<script>
+
+
+
+    var form = document.getElementById("addform");
+    var itemlist = document.getElementById("itemlist");
+
+    form.addEventListener("submit", additem);
+    itemlist.addEventListener("click", removeitem);
+
+    function additem(e) {
+        e.preventDefault();
+
+        var NewItem = document.getElementById("add").value;
+        ///create element 
+        var li = document.createElement("li");
+        ///add class
+        li.className = "item";
+
+        ////
+        li.appendChild(document.createTextNode(NewItem));
+        ///
+        var deletbtn = document.createElement("button");
+        deletbtn.className = ("btn-2");
+        //apend text node to dlt button
+        deletbtn.appendChild(document.createTextNode("X"));
+        li.appendChild(deletbtn);
+        itemlist.appendChild(li);
+        document.getElementById("add").value = "";
+
+    }
+    function removeitem(e) {
+        e.preventDefault();
+        // console.log(document.getElementsByClassName("btn-2")[0].parentElement)
+        if (e.target.classList.contains("btn-2")) {
+            if (confirm("آیا برای حذف مطمعن هستید؟")) {
+                var li = e.target.parentElement;
+                itemlist.removeChild(li);
+            }
+        }
+    }
+</script>
+
 </html>
