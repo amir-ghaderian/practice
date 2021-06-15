@@ -68,6 +68,7 @@
 
     .edit {
         line-height: 2;
+        background-color: yellow;
     }
 </style>
 
@@ -83,23 +84,23 @@
             <ul id="itemlist">
                 <li class="item">
                     amir
-                    <button style="background-color: yellow; " class="edit" onclick="edititem()">i</button>
+                    <button style="background-color: yellow; " class="edit" onclick="edititem(0)">i</button>
                     <button class="btn-2">X</button>
 
                 </li>
                 <li class="item">
                     aidaa
-                    <button style="background-color: yellow; " class="edit" onclick="edititem()">i</button>
+                    <button style="background-color: yellow; " class="edit" onclick="edititem(1)">i</button>
                     <button class="btn-2">X</button>
                 </li>
                 <li class="item">
                     ghasem
-                    <button style="background-color: yellow; " class="edit" onclick="edititem()">i</button>
+                    <button style="background-color: yellow; " class="edit" onclick="edititem(2)">i</button>
                     <button class="btn-2">X</button>
                 </li>
                 <li class="item">
                     hormoz
-                    <button style="background-color: yellow; " class="edit" onclick="edititem()">i</button>
+                    <button style="background-color: yellow; " class="edit" onclick="edititem(3)">i</button>
                     <button class="btn-2">X</button>
                 </li>
             </ul>
@@ -130,6 +131,12 @@
 
         ////
         li.appendChild(document.createTextNode(NewItem));
+        ///// edit btn
+        var editbtn=document.createElement("button");
+         editbtn.className= ("edit");
+         editbtn.appendChild(document.createTextNode("i"));
+         li.appendChild(editbtn);
+         itemlist.appendChild(li)
         ///
         var deletbtn = document.createElement("button");
         deletbtn.className = ("btn-2");
@@ -138,7 +145,7 @@
         li.appendChild(deletbtn);
         itemlist.appendChild(li);
         document.getElementById("add").value = "";
-
+         
     }
     function removeitem(e) {
         e.preventDefault();
@@ -154,9 +161,9 @@
 
         var z = prompt("تغییرات را وارد کنیید");
         if (z != null) {
-            var i = 1;///kheylii talash kardam ke har dokme item khodeshoo edit kone... fln ke nashode 
-            var e = [document.getElementsByClassName("item").item.length];
-            document.getElementsByClassName("item")[e].innerText = z;
+             var i =1;
+            var e = [document.getElementsByClassName("item").item.length + i] ;
+            document.getElementsByClassName("item")[(e)].innerHTML = z;
             console.log(e);
 
 
