@@ -10,7 +10,13 @@
 //}
 //window.setInterval("myNewInterval", 10000);
 var myLi = document.getElementById("myLi");
-var createLi = document.createElement("li");
+var liNode = document.createElement("li");
 var newLi = document.createTextNode("6");
-createLi.appendChild(newLi);
-myLi.appendChild(createLi);
+liNode.appendChild(newLi);
+myList.appendChild(liNode);
+var insertHere = document.getElementById("insertHere");
+myList.insertBefore(liNode, insertHere);
+function myRemove() {
+  var max = document.getElementById("max");
+  max.remove();
+}
