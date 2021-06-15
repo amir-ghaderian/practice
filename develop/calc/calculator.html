@@ -11,7 +11,7 @@
         padding: 0;
       }
 
-      form {
+      #form {
         background-color: black;
         width: 250px;
         border-radius: 10px;
@@ -42,8 +42,8 @@
       }
     </style>
     <script>
-      document.cookie = "username=ida amiri;
-      expires = Sa, 07 Nov 2022 00:00:00 GMT;Path=/";
+    //  document.cookie = "username=ida amiri;
+     // expires = Sa, 07 Nov 2022 00:00:00 GMT;Path=/";
       function data(val) {
         calculator.numbers.value += val;
       }
@@ -56,10 +56,15 @@
       function equal() {
         calculator.numbers.value = eval(calculator.numbers.value);
       }
+      function check(){
+        //let myForms = document.forms["checkForm"]["name"]
+      var myForm = document.getElementsByClassName("btn").value;
+    if (myForm.lengh==""){alert("fill out field")else(myForm.lengh<8)alert(at least 8 characters)}};
+
     </script>
   </head>
   <body>
-    <form name="calculator">
+    <form id="form" name="calculator">
       <input type="text" value="" name="numbers" id="car" />
       <input type="button" value="9" onclick="data(this.value)" />
       <input type="button" value="8" onclick="data(this.value)" />
@@ -83,6 +88,15 @@
       <input type="button" value="0" onclick="data(this.value)" />
       <input type="button" value="." onclick="data(this.value)" />
       <input type="button" value="=" id="yellow" onclick="equal()" />
+    </form>
+    <form action="#" method="post" name="checkingForm">
+      <input type="text" placeholder="name" class="name" required/>
+      <input type="submit" value="check"  name="btn" class="btn" />
+    </form>
+    </form>
+    <form action="#" method="post" name="checkForm" onsubmit="check()">
+      <input type="text" placeholder="name" class="name" required/>
+      <input type="submit" value="check"  name="btn" class="btn" />
     </form>
   </body>
 </html>
