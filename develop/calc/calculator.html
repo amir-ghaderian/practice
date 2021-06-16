@@ -41,27 +41,7 @@
         width: 33%;
       }
     </style>
-    <script>
-    //  document.cookie = "username=ida amiri;
-     // expires = Sa, 07 Nov 2022 00:00:00 GMT;Path=/";
-      function data(val) {
-        calculator.numbers.value += val;
-      }
-      function AC() {
-        calculator.numbers.value = "";
-      }
-      function C() {
-        calculator.numbers.value = calculator.numbers.value.slice(0 - 1);
-      }
-      function equal() {
-        calculator.numbers.value = eval(calculator.numbers.value);
-      }
-      function check(){
-        //let myForms = document.forms["checkForm"]["name"]
-      var myForm = document.getElementsByClassName("btn").value;
-    if (myForm.lengh==""){alert("fill out field")else(myForm.lengh<8)alert(at least 8 characters)}};
 
-    </script>
   </head>
   <body>
     <form id="form" name="calculator">
@@ -89,14 +69,65 @@
       <input type="button" value="." onclick="data(this.value)" />
       <input type="button" value="=" id="yellow" onclick="equal()" />
     </form>
-    <form action="#" method="post" name="checkingForm">
-      <input type="text" placeholder="name" class="name" required/>
-      <input type="submit" value="check"  name="btn" class="btn" />
-    </form>
-    </form>
-    <form action="#" method="post" name="checkForm" onsubmit="check()">
-      <input type="text" placeholder="name" class="name" required/>
+
+    <form method="post" name="checkForm" onsubmit="check()">
+      <input type="text" placeholder="name" class="name" /> 
       <input type="submit" value="check"  name="btn" class="btn" />
     </form>
   </body>
+
+  <script>
+    //  document.cookie = "username=ida amiri;
+     // expires = Sa, 07 Nov 2022 00:00:00 GMT;Path=/";
+      function data(val) {
+        calculator.numbers.value += val;
+      }
+      function AC() {
+        calculator.numbers.value = "";
+      }
+      function C() {
+        calculator.numbers.value = calculator.numbers.value.slice(0 - 1);
+      }
+      function equal() {
+        calculator.numbers.value = eval(calculator.numbers.value);
+      }
+
+      function check() {
+
+        // what you did here was bad... you are rusty... put in more time for practice 
+        //let myForms = document.forms["checkForm"]["name"]
+        // var myForm = document.getElementsByClassName("btn").value;
+
+        var myForm = document.forms["checkForm"];
+
+        console.log(myForm);
+
+        var name = myForm.children[0].value;
+
+        // dont try to mush ifs and elses in one line... you will mistake that way
+        //if (name.lengh === 0 ) { // you forgot a t in length
+        if (name.length === 0 ) {
+          console.log("fill out field");
+
+        } else {
+
+          if (name.lengh < 8) {
+            console.log('at least 8 characters');
+          }
+
+          console.log('name: ' + name)
+        }
+
+      }
+
+      // this is fore preventing page from refreshing when form submits
+      var form = document.forms["checkForm"]
+      function handleForm(event) { 
+        // stops page from refresh
+        event.preventDefault(); 
+      } 
+      form.addEventListener('submit', handleForm);
+      
+
+    </script>
 </html>
