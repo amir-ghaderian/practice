@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    function myFirsFunc() {
+      return "ss officer";
+    }
+    var myFunc = myFirsFunc();
+    console.log(myFunc);
+    function mySecondFunc() {
+      var a = 100;
+    }
+    //console.log(a); variable of specific function doesnt exist out of that function : scope
+    function myThirdFunc(a, b, c) {
+      return a + b + c;
+    }
+    var myMath = myThirdFunc(2, 3, 4);
+    console.log(myMath);
+    var myFlower = "chrysanthemoms";
+    //function myForthFunc(flower) {if(flower===myFlower){alert("hi")}
+    function myForthFunc(flower = "hello") {
+      return flower;
+    }
+    console.log(myForthFunc());
+    function myFifthFunc(student1, student2) {
+      return student1 + student2;
+    }
+    var t = myFifthFunc("ida amiri", " amir qaderian");
+    console.log(t);
+    var b = function () {
+      console.log("welcome");
+    };
+    b();//anonymous func
+
+  </script>
+</html>
