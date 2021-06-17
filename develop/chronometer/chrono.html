@@ -30,33 +30,37 @@
       }
     </style>
   </head>
-  <script>
-    var tens = 00;
-    var seconds = 00;
-    var myTens = document.getElementById("tens");
-    var mySec = document.getElementById("seconds");
-    var myStart = document.getElementById("start");
-    var myStop = document.getElementById("stop");
-    var myReset = document.getElementById("reset");
-    var Interval;
-    function myResetButton() {
-      tens = "00";
-      seconds = "00";
-      myTens.innerHTML = tens;
-      mySec.innerHTML = seconds;
-    }
-    function myStartButton() {
-   
-    }
-    function myStopButton() {
+  <script>       
+    var rock = setInterval(myNewFunc(), 1000);
+  function myNewFunc() {
+    var a = new Date();
+    var b = a.toLocaleTimeString();
+      document.getElementById("climb").innerHTML = b;
+}
+        var tens = 00;
+        var seconds = 00;
+        var myTens = document.getElementById("tens");
+        var mySec = document.getElementById("seconds");
+        var myStart = document.getElementById("start");
+        var myStop = document.getElementById("stop");
+        var myReset = document.getElementById("reset");
+        var Interval;
+        function myResetButton() {
+          tens = "00";
+          seconds = "00";
+          myTens.innerHTML = tens;
+          mySec.innerHTML = seconds;
+        }
  
-    }
+        
+        function myStopButton() {}
   </script>
   <body>
     <div class="wrapp">
       <h2>javaScript chronometer</h2>
 
       <p>
+        <h3 id="climb"></h3>
         <span id="seconds">00</span><span id="dot">:</span
         ><span id="tens">00</span>
       </p>
