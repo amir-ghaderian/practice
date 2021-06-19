@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <button onclick="mySixthFunc()">try</button>
+    <button id="eighth" onclick="myEighthFunc()">refresh</button>
+    <p id="megastic">hoooo</p>
+  </body>
   <script>
     function myFirsFunc() {
       return "ss officer";
@@ -36,7 +40,24 @@
     var b = function () {
       console.log("welcome");
     };
-    b();//anonymous func
+    b(); //anonymous func
 
+    function mySixthFunc() {
+      var myInterval = setInterval(mySeventhFunc(), 2000);
+    }
+    function mySeventhFunc() {
+      alert("hello");
+    }
+    var inter = setInterval(myEighthFunc, 3000);
+    function myEighthFunc() {
+      var c = new Date();
+      var h = c.toLocaleString();
+      document.getElementById("megastic")=h
+    }
+    function myEighthFunc(){
+       var createClock = setInterval("myEighthFunc"(), 1000)}; 
+       
+       function myEighthFunc(){
+         window.location = window.location.href;document.getElementById("eighth");}setInterval("myEighthFunc()",3000)
   </script>
 </html>
