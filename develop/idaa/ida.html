@@ -16,7 +16,9 @@
       return "ss officer";
     }
     var myFunc = myFirsFunc();
+
     console.log(myFunc);
+
     function mySecondFunc() {
       var a = 100;
     }
@@ -31,12 +33,16 @@
     function myForthFunc(flower = "hello") {
       return flower;
     }
-    console.log(myForthFunc());
+    console.log(myForthFunc());  // this one writes 'hello' (the default) since no parameter passed
+
+    console.log(myForthFunc('jimbo')); // this one writes 'jimbo' since its passed to function as parameter
+
     function myFifthFunc(student1, student2) {
       return student1 + student2;
     }
     var t = myFifthFunc("ida amiri", " amir qaderian");
     console.log(t);
+
     var b = function () {
       console.log("welcome");
     };
@@ -48,16 +54,21 @@
     function mySeventhFunc() {
       alert("hello");
     }
-    var inter = setInterval(myEighthFunc, 3000);
+    var inter = setInterval(myEighthFunc, 1000);
+
     function myEighthFunc() {
       var c = new Date();
       var h = c.toLocaleString();
-      document.getElementById("megastic")=h
+      document.getElementById("megastic").innerHTML = h;
     }
-    function myEighthFunc(){
-       var createClock = setInterval("myEighthFunc"(), 1000)}; 
+    // function myNinthFunc(){
+    //   var createClock = setInterval("myEighthFunc"(), 1000)
+    // }; 
        
-       function myEighthFunc(){
-         window.location = window.location.href;document.getElementById("eighth");}setInterval("myEighthFunc()",3000)
+    // function myTenthFunc(){
+    //   window.location = window.location.href;
+    //   document.getElementById("eighth");
+    // }
+    // setInterval("myEighthFunc()",3000) //wrong
   </script>
 </html>
