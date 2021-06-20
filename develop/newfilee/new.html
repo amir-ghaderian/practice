@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    function setColor(color) {
+      document.body.style.background = color;
+    }
+    function randClr() {
+      var clrRand,
+        colors = myArray("pink", "purple", "yellow", "red", "blue");
+      clrRand = colors[Math.floor(Math.random() * colors.length)];
+      setClrRand(clrRand);
+    }
+  </script>
+  <body>
+    <button onclick="randClr()">colors</button>
+    <button onclick="document.body.style.background ='#35f1f8';">
+      change to blue color
+    </button>
+  </body>
+</html>
