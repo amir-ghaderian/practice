@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="/image/2.jpg" alt="" name='slider' width="750" height="600">
+
+</body>
+<script>
+    var i = 0;
+    var images = [];
+    var time = 2500;
+    images.push("/image/2.jpg");
+    images.push("/image/3.jpeg");
+    images.push("/image/4.jpeg");
+    images.push("/image/5.jpeg");
+    images.push("/image/6.jpeg");
+    //console.log(images[1]);
+    function changeImge() {
+        document.slider.src = images[i]
+        if (i <images.length -1) {
+            i++;
+        }else{
+            i = 0;
+        }
+    }
+    setInterval("changeImge()",time);
+</script>
+
+</html>
