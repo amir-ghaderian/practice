@@ -35,7 +35,7 @@
 <body>
     <div id="slider">
         <div id="box">
-            <img src="/image/2.jpeg" alt="img">
+            <img src="image/2.jpeg" alt="img">
         </div>
         <button class="prv" onclick="prvImage()">-</button>
         <button class="next" onclick="nextImages()">+</button>
@@ -43,25 +43,33 @@
 </body>
 <script>
     var sildercontainer = document.getElementById("box");
-    var images = ["/image/3", "image/4", "image/5", "image/6"];
-    var i = images.length;
+
+    var images = ["image/2", "image/3", "image/4", "image/5", "image/6"];
+    var i = 0;
+
     function nextImages() {
-        if (i < images.length) {
+
+        console.log(i)
+        if (i < images.length -1) {
             i++;
         } else {
-            i = 1;
-
+            i = 0;
         }
-        sildercontainer.innerHTML = "<img src =" + images[i - 1] + ".jpeg>";
+        var tag = "<img src =" + images[i] + ".jpeg>";
+        console.log(tag)
+        sildercontainer.innerHTML = tag;
     }
     function prvImage() {
-        if (i < images.length && i > 1) {
+        console.log(i)
+        if (i > 1) {
             i--;
         } else {
             i = images.length;
 
         }
-        sildercontainer.innerHTML = "<img src =" + images[i - 1] + ".jpeg>";
+        var tag = "<img src =" + images[i] + ".jpeg>";
+        console.log(tag)
+        sildercontainer.innerHTML = tag;
     }
         ///to bargasht moshkel dare be avaliii bar nemigardeh
 
