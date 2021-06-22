@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .circele {
+        width: 20px;
+        height: 20px;
+        border-radius: 15px;
+        border: 1px solid black;
+        position: absolute;
+
+    }
+</style>
+
+<body>
+
+</body>
+<script>
+    document.onmousemove = animateCircel;
+    function animateCircel(event) {
+        var colors = ['red', 'blue', 'green', 'yellow'];
+        var circele = document.createElement("div");
+        circele.setAttribute('class', 'circele');
+        circele.style.left = event.clientX + "px";
+        circele.style.top = event.clientY + "px";
+        circele.style.transition = 'all 0.5s linear 0s'
+        // console.log(event.clientX)
+        document.body.appendChild(circele);
+        var randomcolor = Math.floor(Math.random() * colors.length);
+        var color = colors[randomcolor];
+        circele.style.left = circele.offsetLeft - 20 + 'px';
+        circele.style.top = circele.offsetTop - 20 + 'px';
+        circele.style.width = '50px';
+        circele.style.height = '50px';
+        circele.style.borderWidth = '5px';
+        circele.style.borderColor = color;
+        circele.style.opacity = 0;
+    }
+</script>
+
+</html>
