@@ -30,6 +30,25 @@
     .next {
         margin-left: 950px;
     }
+
+    .thumbs {
+        display: flex;
+        width: 100%;
+        height: 200px;
+    }
+
+    .thumb {
+        
+        width: 100px;
+        height: 80px;
+    }
+
+    .thm {
+        width: 100px;
+        height: 80px;
+    }
+
+
 </style>
 
 <body>
@@ -39,6 +58,14 @@
         </div>
         <button class="prv" onclick="prvImage()">-</button>
         <button class="next" onclick="nextImages()">+</button>
+    </div>
+
+    <div class="thumbs">
+        <div class="thumb"><img class="thm" src="image/2.jpeg"></div>
+        <div class="thumb"><img class="thm" src="image/3.jpeg"></div>
+        <div class="thumb"><img class="thm" src="image/4.jpeg"></div>
+        <div class="thumb"><img class="thm" src="image/5.jpeg"></div>
+        <div class="thumb"><img class="thm" src="image/6.jpeg"></div>
     </div>
 </body>
 <script>
@@ -61,10 +88,10 @@
     }
     function prvImage() {
         console.log(i)
-        if (i > 1) {
+        if (i >= 1) {
             i--;
         } else {
-            i = images.length;
+            i = images.length -1;
 
         }
         var tag = "<img src =" + images[i] + ".jpeg>";
