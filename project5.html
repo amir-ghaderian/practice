@@ -38,7 +38,7 @@
     }
 
     .thumb {
-        
+
         width: 100px;
         height: 80px;
     }
@@ -47,8 +47,6 @@
         width: 100px;
         height: 80px;
     }
-
-
 </style>
 
 <body>
@@ -76,32 +74,44 @@
 
     function nextImages() {
 
-        console.log(i)
-        if (i < images.length -1) {
+    
+        if (i < images.length - 1) {
             i++;
         } else {
             i = 0;
         }
         var tag = "<img src =" + images[i] + ".jpeg>";
-        console.log(tag)
+        
         sildercontainer.innerHTML = tag;
     }
     function prvImage() {
-        console.log(i)
+        
         if (i >= 1) {
             i--;
         } else {
-            i = images.length -1;
+            i = images.length - 1;
 
         }
         var tag = "<img src =" + images[i] + ".jpeg>";
-        console.log(tag)
+        
         sildercontainer.innerHTML = tag;
+
+
+        //////
+
+
+        var pics = ["image/2", "image/3", "image/4", "image/5", "image/6"];
+        var tag2 = "<img src =" + pics[i] + ".jpeg>";
+        var pic = document.getElementsByClassName('thm')[i];
+        pic.style.border = " 5px solid red";
+
+
+
+        // var prvpic = document.getElementsByClassName('thm')[i - 1];
+        //  console.log(prvpic);
+        //  prvpic.style.border ='none';
     }
-        ///tag aali bood ama hanoz to bargasht moshkel dareee
-        ///man var raftam nashod discard kardam 
-        ///i aval nabayad images.length bashe??
-        //prvimage  to tag namayad i -1 beshee
+
 
 
 </script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wellcome</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var time = new Date();
+    var hour = time.getHours();
+    console.log(hour)
+    if (hour >3 && hour<11) {
+        alert('good morning');
+    }else if( hour>12 && hour<15){
+        alert('luch time...')
+    }else if (hour>15 && hour<19){
+            alert('good after noon ...')
+    }else if (hour>19 &&hour<=23){
+        alert('good night')
+    }
+    else{
+        alert('good evening')
+    }
+</script>
+
+</html>
