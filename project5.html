@@ -47,11 +47,9 @@
         width: 100px;
         height: 80px;
     }
-    #border{
+
+    .border {
         border: 2px solid red;
-    }
-    #border2{
-        border: 1px solid black;
     }
 </style>
 
@@ -109,12 +107,17 @@
         var pics = ["image/2", "image/3", "image/4", "image/5", "image/6"];
         var tag2 = "<img src =" + pics[i] + ".jpeg>";
         var pic = document.getElementsByClassName('thm')[i];
-        //var prvpic = pic[i-1] ;
-        
+
+        var prvpic = document.getElementsByClassName('thm')[i - 2];
+        console.log(prvpic)
+
         if (pics[i] == images[i]) {
-            pic.setAttribute("Id","border");
-         
-    }
+            pic.classList.add('border');
+
+        }
+      
+          /// prvpic.classList.remove('border');   in nekbatoo koja bezaram
+    
 
     }
 
