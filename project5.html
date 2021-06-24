@@ -47,6 +47,12 @@
         width: 100px;
         height: 80px;
     }
+    #border{
+        border: 2px solid red;
+    }
+    #border2{
+        border: 1px solid black;
+    }
 </style>
 
 <body>
@@ -74,18 +80,18 @@
 
     function nextImages() {
 
-    
+
         if (i < images.length - 1) {
             i++;
         } else {
             i = 0;
         }
         var tag = "<img src =" + images[i] + ".jpeg>";
-        
+
         sildercontainer.innerHTML = tag;
     }
     function prvImage() {
-        
+
         if (i >= 1) {
             i--;
         } else {
@@ -93,7 +99,7 @@
 
         }
         var tag = "<img src =" + images[i] + ".jpeg>";
-        
+
         sildercontainer.innerHTML = tag;
 
 
@@ -103,16 +109,14 @@
         var pics = ["image/2", "image/3", "image/4", "image/5", "image/6"];
         var tag2 = "<img src =" + pics[i] + ".jpeg>";
         var pic = document.getElementsByClassName('thm')[i];
-        pic.style.border = " 5px solid red";
-
-
-
-        // var prvpic = document.getElementsByClassName('thm')[i - 1];
-        //  console.log(prvpic);
-        //  prvpic.style.border ='none';
+        //var prvpic = pic[i-1] ;
+        
+        if (pics[i] == images[i]) {
+            pic.setAttribute("Id","border");
+         
     }
 
-
+    }
 
 </script>
 
