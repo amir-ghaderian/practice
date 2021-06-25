@@ -51,6 +51,10 @@
     .border {
         border: 2px solid red;
     }
+
+    .border2 {
+        border: 2px solid black;
+    }
 </style>
 
 <body>
@@ -106,19 +110,19 @@
 
         var pics = ["image/2", "image/3", "image/4", "image/5", "image/6"];
         var tag2 = "<img src =" + pics[i] + ".jpeg>";
-        var pic = document.getElementsByClassName('thm')[i];
+        var pic = document.getElementsByClassName('thumb')[i];
 
-        var prvpic = document.getElementsByClassName('thm')[i - 2];
+        var prvpic = document.getElementsByClassName('thumb')[i - (-1)];
         console.log(prvpic)
 
         if (pics[i] == images[i]) {
             pic.classList.add('border');
 
-        }
-      
-          /// prvpic.classList.remove('border');   in nekbatoo koja bezaram
-    
 
+        } if(prvpic!==null)  {
+
+           prvpic.classList.remove('border');///riz bug dareee
+        }
     }
 
 </script>
