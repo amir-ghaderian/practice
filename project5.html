@@ -91,7 +91,9 @@
         var tag = "<img src =" + images[i] + ".jpeg>";
 
         sildercontainer.innerHTML = tag;
+        updateThumbBorders();
     }
+
     function prvImage() {
 
         if (i >= 1) {
@@ -104,25 +106,38 @@
 
         sildercontainer.innerHTML = tag;
 
-
+        updateThumbBorders();
         //////
 
 
-        var pics = ["image/2", "image/3", "image/4", "image/5", "image/6"];
-        var tag2 = "<img src =" + pics[i] + ".jpeg>";
-        var pic = document.getElementsByClassName('thumb')[i];
+        // var pics = ["image/2", "image/3", "image/4", "image/5", "image/6"];
+        // var tag2 = "<img src =" + pics[i] + ".jpeg>";
+        // var pic = document.getElementsByClassName('thumb')[i];
 
-        var prvpic = document.getElementsByClassName('thumb')[i - (-1)];
-        console.log(prvpic)
+        // var prvpic = document.getElementsByClassName('thumb')[i - (-1)];
+        // console.log(prvpic)
 
-        if (pics[i] == images[i]) {
-            pic.classList.add('border');
+        // if (pics[i] == images[i]) {
+        //     pic.classList.add('border');
 
 
-        } if(prvpic!==null)  {
+        // } if(prvpic!==null)  {
 
-           prvpic.classList.remove('border');///riz bug dareee
-        }
+        //    prvpic.classList.remove('border');///riz bug dareee
+        // }
+    }
+
+
+    function updateThumbBorders() {
+
+
+        // reomove border class from all thumbs
+
+
+        // add border class to selected index
+        // i
+
+
     }
 
 </script>
