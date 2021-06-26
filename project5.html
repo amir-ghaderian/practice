@@ -132,9 +132,30 @@
 
 
         // reomove border class from all thumbs
+        var bb = document.getElementsByClassName('thm')[i];
+        var pic = bb.getAttribute('src');
+        var pictag = images[i] + ".jpeg";
 
 
+        for (let i = 0; i <= 4; i++) {
+            document.getElementsByClassName('thm')[i].classList.remove('border')
+
+
+        }
         // add border class to selected index
+
+        if (pic[i] == pictag[i]) {
+            bb.classList.add('border');
+        } else {
+            document.getElementsByClassName('thm')[i].classList.remove('border')
+        }
+
+
+
+
+
+
+
         // i
 
 
