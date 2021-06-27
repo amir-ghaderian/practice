@@ -79,6 +79,7 @@
 
     var images = ["image/2", "image/3", "image/4", "image/5", "image/6"];
     var i = 0;
+    updateThumbBorders();
 
     function nextImages() {
 
@@ -91,7 +92,7 @@
         var tag = "<img src =" + images[i] + ".jpeg>";
 
         sildercontainer.innerHTML = tag;
-        updateThumbBorders();
+        updateThumbBorders(); // for the first time
     }
 
     function prvImage() {
@@ -144,19 +145,22 @@
         }
         // add border class to selected index
 
-        if (pic[i] == pictag[i]) {
-            bb.classList.add('border');
-        } else {
-            document.getElementsByClassName('thm')[i].classList.remove('border')
-        }
+        // if (pic[i] == pictag[i]) {
+        //     bb.classList.add('border');
+        // } else {
+        //     document.getElementsByClassName('thm')[i].classList.remove('border')
+        // }
+
+
+        // i  you didnt look ... the answer was in front of you look at ---> i
+        bb.classList.add('border');
 
 
 
 
 
 
-
-        // i
+        
 
 
     }
