@@ -60,18 +60,18 @@
 <body>
     <div id="slider">
         <div id="box">
-            <img src="image/2.jpeg" alt="img">
+            <img class="showimage" src="image/2.jpeg" alt="img">
         </div>
         <button class="prv" onclick="prvImage()">-</button>
         <button class="next" onclick="nextImages()">+</button>
     </div>
 
     <div class="thumbs">
-        <div class="thumb"><img class="thm" src="image/2.jpeg"></div>
-        <div class="thumb"><img class="thm" src="image/3.jpeg"></div>
-        <div class="thumb"><img class="thm" src="image/4.jpeg"></div>
-        <div class="thumb"><img class="thm" src="image/5.jpeg"></div>
-        <div class="thumb"><img class="thm" src="image/6.jpeg"></div>
+        <div class="thumb"><img class="thm" src="image/2.jpeg" onclick="show(this)"></div>
+        <div class="thumb"><img class="thm" src="image/3.jpeg" onclick="show(this)"></div>
+        <div class="thumb"><img class="thm" src="image/4.jpeg" onclick="show(this)"></div>
+        <div class="thumb"><img class="thm" src="image/5.jpeg" onclick="show(this)"></div>
+        <div class="thumb"><img class="thm" src="image/6.jpeg" onclick="show(this)"></div>
     </div>
 </body>
 <script>
@@ -160,9 +160,18 @@
 
 
 
-        
 
 
+
+    }
+    function show(el) {
+        var els = Array.prototype.slice.call(document.getElementsByClassName('thm'), 0);
+        var call = els.indexOf(event.currentTarget);
+        var imgtag = document.getElementsByClassName('thm')[call].getAttribute("src");
+
+        var tag = "<img class= showimage src=" + imgtag + ">;"
+        sildercontainer.innerHTML = tag;
+       
     }
 
 </script>
