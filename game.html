@@ -24,6 +24,16 @@
       border: 5px solid yellow;
       box-sizing: border-box;
     }
+    .ball2 {
+      width: 100px;
+      height: 100px;
+      border-radius: 5em;
+      background-color: blue;
+      position: absolute;
+      border: 5px solid yellow;
+      box-sizing: border-box;
+      
+    }
 
     input {
       margin: 1em;
@@ -41,37 +51,52 @@
   <p id="set"></p>
   <div class="main">
     <div class="ball" onclick="changeColor()"></div>
+    <div class="ball2"></div>
   </div>
 </body>
 <script>
   function moveTo(x, y) {
 
     var ballWidth = document.getElementsByClassName("ball")[0].clientWidth;
+    var ball2Width = document.getElementsByClassName("ball2")[0].clientWidth;
     var containerWidth = document.getElementsByClassName("main")[0].clientWidth;
     var widthPercent = (containerWidth - ballWidth) / containerWidth;
+    var widthPercent = (containerWidth - ball2Width) / containerWidth;
     document.getElementsByClassName("ball")[0].style.left = x * widthPercent + "%";
+    document.getElementsByClassName("ball2")[0].style.left = x * widthPercent + "%";
 
     var ballheight = document.getElementsByClassName("ball")[0].clientHeight;
+    var ball2height = document.getElementsByClassName("ball2")[0].clientHeight;
     var containerheight = document.getElementsByClassName("main")[0].clientHeight;
     var heightPercent = (containerheight - ballheight) / containerheight;
+    var heightPercent = (containerheight - ball2height) / containerheight;
     document.getElementsByClassName("ball")[0].style.top = y * heightPercent + "%";
+    document.getElementsByClassName("ball2")[0].style.bottom = y * heightPercent + "%";
 
   }
 
   startX = 0;
   startY = 0;
+  startP = 0;
+  startL = 0;
 
   addition = 0.9;
   directionX = 1;
   directionY = 1;
+  directionP = 1;
+  directionL = 1;
 
   currentX = 30;
   currentY = 70;
+  currentP = 20;
+  currentL = 60;
 
   setInterval(function () {
 
     currentX = currentX + (directionX * addition);
     currentY = currentY + (directionY * addition);
+    currentP = currentP + (directionP * addition);
+    currentL = currentL + (directionL * addition);
 
 
     if (currentX <= 0 || currentX >= 100) {
