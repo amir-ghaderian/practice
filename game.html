@@ -48,30 +48,44 @@
 <body>
   <input type="number" min="0" max="100" id="txt" placeholder="width" onkeyup="moveTo(x,y)">
   <input type="number" min="0" max="100" id="txt2" placeholder="height" onkeyup="random()">
+  <input type="button" onclick="createBall(23,45)" value="create">
   <p id="set"></p>
   <div class="main">
     <div class="ball" onclick="changeColor()"></div>
-    <div class="ball2"></div>
   </div>
 </body>
 <script>
-  function moveTo(x, y) {
+
+  var numberOfBalls = 0;
+
+  function createBall(startX, startY) {
+
+    // create the ball div in dom 
+    // <div class="ball-0" ></div>
+
+    // the rest
+
+
+    // numberOfBalls++ 
+  }
+
+
+  function moveTo(x, y, ballIndex) {
 
     var ballWidth = document.getElementsByClassName("ball")[0].clientWidth;
-    var ball2Width = document.getElementsByClassName("ball2")[0].clientWidth;
     var containerWidth = document.getElementsByClassName("main")[0].clientWidth;
     var widthPercent = (containerWidth - ballWidth) / containerWidth;
-    var widthPercent = (containerWidth - ball2Width) / containerWidth;
     document.getElementsByClassName("ball")[0].style.left = x * widthPercent + "%";
-    document.getElementsByClassName("ball2")[0].style.left = x * widthPercent + "%";
 
     var ballheight = document.getElementsByClassName("ball")[0].clientHeight;
-    var ball2height = document.getElementsByClassName("ball2")[0].clientHeight;
     var containerheight = document.getElementsByClassName("main")[0].clientHeight;
     var heightPercent = (containerheight - ballheight) / containerheight;
-    var heightPercent = (containerheight - ball2height) / containerheight;
+    
+    
     document.getElementsByClassName("ball")[0].style.top = y * heightPercent + "%";
-    document.getElementsByClassName("ball2")[0].style.bottom = y * heightPercent + "%";
+
+    // document.getElementsByClassName("ball-" + ballIndex)[0].style.top = y * heightPercent + "%";
+
 
   }
 
@@ -109,6 +123,8 @@
 
 
     moveTo(currentX, currentY);
+
+    // moveTo(currentX, currentY, ballIndex);
 
 
   }, 40);
