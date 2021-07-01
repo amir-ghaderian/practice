@@ -24,16 +24,7 @@
       border: 5px solid yellow;
       box-sizing: border-box;
     }
-    .ball2 {
-      width: 100px;
-      height: 100px;
-      border-radius: 5em;
-      background-color: blue;
-      position: absolute;
-      border: 5px solid yellow;
-      box-sizing: border-box;
-      
-    }
+
 
     input {
       margin: 1em;
@@ -62,11 +53,21 @@
 
     // create the ball div in dom 
     // <div class="ball-0" ></div>
-
-    // the rest
-
+    var newBall = document.createElement("div");
+    var main = document.getElementsByClassName('main')[0];
+    newBall.className = "ball";
+    main.appendChild(newBall);
 
     // numberOfBalls++ 
+    var ballNumber = main.childElementCount;
+
+    // the rest
+    var ballName = "<div class= ball" + " " + "ball-" + [ballNumber] + ">"
+
+
+
+
+    console.log(ballName);
   }
 
 
@@ -80,8 +81,8 @@
     var ballheight = document.getElementsByClassName("ball")[0].clientHeight;
     var containerheight = document.getElementsByClassName("main")[0].clientHeight;
     var heightPercent = (containerheight - ballheight) / containerheight;
-    
-    
+
+
     document.getElementsByClassName("ball")[0].style.top = y * heightPercent + "%";
 
     // document.getElementsByClassName("ball-" + ballIndex)[0].style.top = y * heightPercent + "%";
@@ -91,26 +92,22 @@
 
   startX = 0;
   startY = 0;
-  startP = 0;
-  startL = 0;
+
 
   addition = 0.9;
   directionX = 1;
   directionY = 1;
-  directionP = 1;
-  directionL = 1;
+
 
   currentX = 30;
   currentY = 70;
-  currentP = 20;
-  currentL = 60;
+
 
   setInterval(function () {
 
     currentX = currentX + (directionX * addition);
     currentY = currentY + (directionY * addition);
-    currentP = currentP + (directionP * addition);
-    currentL = currentL + (directionL * addition);
+
 
 
     if (currentX <= 0 || currentX >= 100) {
@@ -139,23 +136,23 @@
 
 
     var randomColor = allowedColors[Math.floor(Math.random() * allowedColors.length)];
-    console.log(randomColor + ' >>> ' + currentColor);
+    //console.log(randomColor + ' >>> ' + currentColor);
 
     if (randomColor == currentColor) {
-      console.log('ranj techrari ast')
+      //console.log('ranj techrari ast')
     }
 
     while (randomColor === currentColor) {
       // ye colore random jadid ijad kon beriz to randomColor    
       randomColor = allowedColors[Math.floor(Math.random() * allowedColors.length)];
-      console.log('---- new random: ' + randomColor); 
+
     }
 
-     
+
     document.getElementsByClassName("ball")[0].style.background = randomColor;
     currentColor = randomColor;
 
-    
+
 
 
 
