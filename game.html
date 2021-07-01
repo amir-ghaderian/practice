@@ -43,6 +43,8 @@
   <p id="set"></p>
   <div class="main">
     <div class="ball" onclick="changeColor()"></div>
+  
+
   </div>
 </body>
 <script>
@@ -59,15 +61,17 @@
     main.appendChild(newBall);
 
     // numberOfBalls++ 
-    var ballNumber = main.childElementCount;
+    var ballIndex = main.childElementCount;
 
-    // the rest
-    var ballName = "<div class= ball" + " " + "ball-" + [ballNumber] + ">"
+    // the rest ///chii hast ?
+    var ballName = "<div class= " + '"' + "ball" + " " + "ball-" + "[" + ballIndex + "]" + '"' + ">" + "</div>"
+    var balltag = "<div class= " + '"' + "ball" + " " + "onload=" + "moveTo(startX, startY," + "(" + ballIndex + ")"+")" + ">" + "</div>"
 
 
 
 
-    console.log(ballName);
+
+    console.log(balltag);
   }
 
 
@@ -85,7 +89,7 @@
 
     document.getElementsByClassName("ball")[0].style.top = y * heightPercent + "%";
 
-    // document.getElementsByClassName("ball-" + ballIndex)[0].style.top = y * heightPercent + "%";
+    //document.getElementsByClassName("ball-" + ballIndex)[0].style.top = y * heightPercent + "%";
 
 
   }
