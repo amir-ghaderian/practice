@@ -79,7 +79,7 @@
 
     var images = ["image/2", "image/3", "image/4", "image/5", "image/6"];
     var i = 0;
-    updateThumbBorders();
+    
 
     function nextImages() {
 
@@ -108,24 +108,7 @@
         sildercontainer.innerHTML = tag;
 
         updateThumbBorders();
-        //////
 
-
-        // var pics = ["image/2", "image/3", "image/4", "image/5", "image/6"];
-        // var tag2 = "<img src =" + pics[i] + ".jpeg>";
-        // var pic = document.getElementsByClassName('thumb')[i];
-
-        // var prvpic = document.getElementsByClassName('thumb')[i - (-1)];
-        // console.log(prvpic)
-
-        // if (pics[i] == images[i]) {
-        //     pic.classList.add('border');
-
-
-        // } if(prvpic!==null)  {
-
-        //    prvpic.classList.remove('border');///riz bug dareee
-        // }
     }
 
 
@@ -143,35 +126,30 @@
 
 
         }
-        // add border class to selected index
 
-        // if (pic[i] == pictag[i]) {
-        //     bb.classList.add('border');
-        // } else {
-        //     document.getElementsByClassName('thm')[i].classList.remove('border')
-        // }
-
-
-        // i  you didnt look ... the answer was in front of you look at ---> i
         bb.classList.add('border');
-
-
-
-
-
-
-
-
 
     }
     function show(el) {
         var els = Array.prototype.slice.call(document.getElementsByClassName('thm'), 0);
         var call = els.indexOf(event.currentTarget);
         var imgtag = document.getElementsByClassName('thm')[call].getAttribute("src");
-
-        var tag = "<img class= showimage src=" + imgtag + ">;"
+        var pic = document.getElementsByClassName("thm")[call];
+        var tag = "<img class= showimage src=" + imgtag + ">"
         sildercontainer.innerHTML = tag;
-       
+        for (call = 0; call <= 4; call++) {
+            document.getElementsByClassName("thm")[call].classList.remove('border');
+        }
+
+        if (pic.getAttribute('src') == imgtag) {
+
+            pic.classList.add('border');
+        }
+        document.getElementsByClassName("thm")[i].classList.remove('border');
+
+      //kar mikonee tooop... faghat.. ro index ke ba buttn entekhab shode add nemishe!!whay???
+
+
     }
 
 </script>
