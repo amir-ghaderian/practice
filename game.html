@@ -43,13 +43,15 @@
   <p id="set"></p>
   <div class="main">
     <div class="ball" onclick="changeColor()"></div>
-  
+    
+    
 
   </div>
 </body>
 <script>
 
   var numberOfBalls = 0;
+ 
 
   function createBall(startX, startY) {
 
@@ -65,7 +67,7 @@
 
     // the rest ///chii hast ?
     var ballName = "<div class= " + '"' + "ball" + " " + "ball-" + "[" + ballIndex + "]" + '"' + ">" + "</div>"
-    var balltag = "<div class= " + '"' + "ball" + " " + "onload=" + "moveTo(startX, startY," + "(" + ballIndex + ")"+")" + ">" + "</div>"
+    var balltag = "<div class= " + '"' + "ball" + '"' + "onload=" + '"' + "moveTo(startX, startY," + "(" + ballIndex + ")" + ")" + '"' + ">" + "</div>"
 
 
 
@@ -89,7 +91,8 @@
 
     document.getElementsByClassName("ball")[0].style.top = y * heightPercent + "%";
 
-    //document.getElementsByClassName("ball-" + ballIndex)[0].style.top = y * heightPercent + "%";
+   // document.getElementsByClassName("ball")[ballIndex].style.top = y * heightPercent + "%";
+    //document.getElementsByClassName("ball")[ballIndex].style.top = x * widthPercent + "%";
 
 
   }
@@ -126,7 +129,7 @@
     moveTo(currentX, currentY);
 
     // moveTo(currentX, currentY, ballIndex);
-
+   
 
   }, 40);
 
