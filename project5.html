@@ -67,12 +67,12 @@
     </div>
 
     <div class="thumbs">
+        
         <div class="thumb"><img class="thm" src="image/2.jpeg" onclick="show(0)"></div>
-        <div class="thumb"><img class="thm" src="image/2.jpeg" onclick="show(this)"></div>
-        <div class="thumb"><img class="thm" src="image/3.jpeg" onclick="show(this)"></div>
-        <div class="thumb"><img class="thm" src="image/4.jpeg" onclick="show(this)"></div>
-        <div class="thumb"><img class="thm" src="image/5.jpeg" onclick="show(this)"></div>
-        <div class="thumb"><img class="thm" src="image/6.jpeg" onclick="show(this)"></div>
+        <div class="thumb"><img class="thm" src="image/3.jpeg" onclick="show(1)"></div>
+        <div class="thumb"><img class="thm" src="image/4.jpeg" onclick="show(2)"></div>
+        <div class="thumb"><img class="thm" src="image/5.jpeg" onclick="show(3)"></div>
+        <div class="thumb"><img class="thm" src="image/6.jpeg" onclick="show(4)"></div>
     </div>
 </body>
 <script>
@@ -132,32 +132,16 @@
 
     }
 
-    // show(newI)
-    function show(el) {
-        var els = Array.prototype.slice.call(document.getElementsByClassName('thm'), 0);
-        var call = els.indexOf(event.currentTarget);
-        var imgtag = document.getElementsByClassName('thm')[call].getAttribute("src");
-        var pic = document.getElementsByClassName("thm")[call];
+   
+    function show(newI) {
+        i = newI;
+        var imgtag = document.getElementsByClassName('thm')[newI].getAttribute("src");
+        var pic = document.getElementsByClassName("thm")[newI];
         var tag = "<img class= showimage src=" + imgtag + ">"
         sildercontainer.innerHTML = tag;
-        for (call = 0; call <= 4; call++) {
-            document.getElementsByClassName("thm")[call].classList.remove('border');
-        }
-
-
-        // i = newI;
-
-        // updateThumbBorders()
-        if (pic.getAttribute('src') == imgtag) {
-
-            pic.classList.add('border');
-        }
-        document.getElementsByClassName("thm")[i].classList.remove('border');
-
-      //kar mikonee tooop... faghat.. ro index ke ba buttn entekhab shode add nemishe!!whay???
-
-
-    }
+        
+         updateThumbBorders()
+       }
 
 </script>
 
