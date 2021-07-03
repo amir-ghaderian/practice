@@ -67,6 +67,7 @@
     </div>
 
     <div class="thumbs">
+        <div class="thumb"><img class="thm" src="image/2.jpeg" onclick="show(0)"></div>
         <div class="thumb"><img class="thm" src="image/2.jpeg" onclick="show(this)"></div>
         <div class="thumb"><img class="thm" src="image/3.jpeg" onclick="show(this)"></div>
         <div class="thumb"><img class="thm" src="image/4.jpeg" onclick="show(this)"></div>
@@ -130,6 +131,8 @@
         bb.classList.add('border');
 
     }
+
+    // show(newI)
     function show(el) {
         var els = Array.prototype.slice.call(document.getElementsByClassName('thm'), 0);
         var call = els.indexOf(event.currentTarget);
@@ -141,6 +144,10 @@
             document.getElementsByClassName("thm")[call].classList.remove('border');
         }
 
+
+        // i = newI;
+
+        // updateThumbBorders()
         if (pic.getAttribute('src') == imgtag) {
 
             pic.classList.add('border');

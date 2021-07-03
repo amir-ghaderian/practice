@@ -41,12 +41,7 @@
   <input type="number" min="0" max="100" id="txt2" placeholder="height" onkeyup="random()">
   <input type="button" onclick="createBall(23,45)" value="create">
   <p id="set"></p>
-  <div class="main">
-    <div class="ball" onclick="changeColor()"></div>
-    
-    
-
-  </div>
+  <div class="main"></div>
 </body>
 <script>
 
@@ -59,46 +54,21 @@
     // <div class="ball-0" ></div>
     var newBall = document.createElement("div");
     var main = document.getElementsByClassName('main')[0];
-    newBall.className = "ball";
+    newBall.className = "ball ball-" + numberOfBalls;
     main.appendChild(newBall);
 
     // numberOfBalls++ 
     var ballIndex = main.childElementCount;
 
     // the rest ///chii hast ?
-    var ballName = "<div class= " + '"' + "ball" + " " + "ball-" + "[" + ballIndex + "]" + '"' + ">" + "</div>"
-    var balltag = "<div class= " + '"' + "ball" + '"' + "onload=" + '"' + "moveTo(startX, startY," + "(" + ballIndex + ")" + ")" + '"' + ">" + "</div>"
+    //var ballName = "<div class= " + '"' + "ball" + " " + "ball-" + "[" + ballIndex + "]" + '"' + ">" + "</div>"
+    // var balltag = "<div class= " + '"' + "ball" + '"' + "onload=" + '"' + "moveTo(startX, startY," + "(" + ballIndex + ")" + ")" + '"' + ">" + "</div>"
+
+    // console.log(balltag);
 
 
-
-
-
-    console.log(balltag);
-  }
-
-
-  function moveTo(x, y, ballIndex) {
-
-    var ballWidth = document.getElementsByClassName("ball")[0].clientWidth;
-    var containerWidth = document.getElementsByClassName("main")[0].clientWidth;
-    var widthPercent = (containerWidth - ballWidth) / containerWidth;
-    document.getElementsByClassName("ball")[0].style.left = x * widthPercent + "%";
-
-    var ballheight = document.getElementsByClassName("ball")[0].clientHeight;
-    var containerheight = document.getElementsByClassName("main")[0].clientHeight;
-    var heightPercent = (containerheight - ballheight) / containerheight;
-
-
-    document.getElementsByClassName("ball")[0].style.top = y * heightPercent + "%";
-
-   // document.getElementsByClassName("ball")[ballIndex].style.top = y * heightPercent + "%";
-    //document.getElementsByClassName("ball")[ballIndex].style.top = x * widthPercent + "%";
-
-
-  }
-
-  startX = 0;
-  startY = 0;
+    startX = 0;
+    startY = 0;
 
 
   addition = 0.9;
@@ -110,29 +80,56 @@
   currentY = 70;
 
 
-  setInterval(function () {
+    setInterval(function () {
 
-    currentX = currentX + (directionX * addition);
-    currentY = currentY + (directionY * addition);
-
-
-
-    if (currentX <= 0 || currentX >= 100) {
-      directionX = directionX * -1;
-    }
-
-    if (currentY <= 0 || currentY >= 100) {
-      directionY = directionY * -1;
-    }
+      currentX = currentX + (directionX * addition);
+      currentY = currentY + (directionY * addition);
 
 
-    moveTo(currentX, currentY);
+      if (currentX <= 0 || currentX >= 100) {
+        directionX = directionX * -1;
+      }
 
-    // moveTo(currentX, currentY, ballIndex);
-   
+      if (currentY <= 0 || currentY >= 100) {
+        directionY = directionY * -1;
+      }
 
-  }, 40);
 
+      moveTo(currentX, currentY, numberOfBalls );
+
+      // moveTo(currentX, currentY, ballIndex);
+    
+
+    }, 40);
+
+    numberOfBalls ++;
+
+  }
+
+
+  function moveTo(x, y, ballIndex) {
+
+    ballIndex--;
+
+    var ballWidth = document.getElementsByClassName("ball-" + ballIndex)[0].clientWidth;
+    var containerWidth = document.getElementsByClassName("main")[0].clientWidth;
+    var widthPercent = (containerWidth - ballWidth) / containerWidth;
+    document.getElementsByClassName("ball-" + ballIndex)[0].style.left = x * widthPercent + "%";
+
+    var ballheight = document.getElementsByClassName("ball-" + ballIndex)[0].clientHeight;
+    var containerheight = document.getElementsByClassName("main")[0].clientHeight;
+    var heightPercent = (containerheight - ballheight) / containerheight;
+
+
+    document.getElementsByClassName("ball-" + ballIndex)[0].style.top = y * heightPercent + "%";
+
+   // document.getElementsByClassName("ball")[ballIndex].style.top = y * heightPercent + "%";
+    //document.getElementsByClassName("ball")[ballIndex].style.top = x * widthPercent + "%";
+
+
+  }
+
+ 
 
   setInterval(changeColor, 1000);
 
