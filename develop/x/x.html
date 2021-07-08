@@ -115,6 +115,21 @@
       } else if (day2 === 7) {
         console.log("جمعه");
       }
+
+      for (let w = 0; w < 10; w++) console.log(w);
+      for (let q = 0; q < 10; q++) console.log(q * q);
+      for (let e = 0; e < 10; e += 3) console.log(e * e);
+      for (let r = 0; r <= 10; r += 2) console.log(r * r);
+
+      document.write("<table>");
+      for (let myTable0 = 1; myTable0 <= 10; myTable0++) {
+        document.write("<tr>");
+        for (let myTable2 = 1; myTable2 <= 10; myTable2++) {
+          document.write("<td>" + myTable2 * myTable0 + "</td>");
+        }
+        document.write("</tr>");
+      }
+      document.write("</table>");
     </script>
   </head>
   <body></body>
