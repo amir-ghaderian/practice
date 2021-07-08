@@ -51,23 +51,28 @@
     .border {
         border: 2px solid red;
     }
+
+    .border2 {
+        border: 2px solid black;
+    }
 </style>
 
 <body>
     <div id="slider">
         <div id="box">
-            <img src="image/2.jpeg" alt="img">
+            <img class="showimage" src="image/2.jpeg" alt="img">
         </div>
         <button class="prv" onclick="prvImage()">-</button>
         <button class="next" onclick="nextImages()">+</button>
     </div>
 
     <div class="thumbs">
-        <div class="thumb"><img class="thm" src="image/2.jpeg"></div>
-        <div class="thumb"><img class="thm" src="image/3.jpeg"></div>
-        <div class="thumb"><img class="thm" src="image/4.jpeg"></div>
-        <div class="thumb"><img class="thm" src="image/5.jpeg"></div>
-        <div class="thumb"><img class="thm" src="image/6.jpeg"></div>
+        
+        <div class="thumb"><img class="thm" src="image/2.jpeg" onclick="show(0)"></div>
+        <div class="thumb"><img class="thm" src="image/3.jpeg" onclick="show(1)"></div>
+        <div class="thumb"><img class="thm" src="image/4.jpeg" onclick="show(2)"></div>
+        <div class="thumb"><img class="thm" src="image/5.jpeg" onclick="show(3)"></div>
+        <div class="thumb"><img class="thm" src="image/6.jpeg" onclick="show(4)"></div>
     </div>
 </body>
 <script>
@@ -75,6 +80,7 @@
 
     var images = ["image/2", "image/3", "image/4", "image/5", "image/6"];
     var i = 0;
+    
 
     function nextImages() {
 
@@ -87,7 +93,9 @@
         var tag = "<img src =" + images[i] + ".jpeg>";
 
         sildercontainer.innerHTML = tag;
+        updateThumbBorders(); // for the first time
     }
+
     function prvImage() {
 
         if (i >= 1) {
@@ -100,26 +108,40 @@
 
         sildercontainer.innerHTML = tag;
 
-
-        //////
-
-
-        var pics = ["image/2", "image/3", "image/4", "image/5", "image/6"];
-        var tag2 = "<img src =" + pics[i] + ".jpeg>";
-        var pic = document.getElementsByClassName('thm')[i];
-
-        var prvpic = document.getElementsByClassName('thm')[i - 2];
-        console.log(prvpic)
-
-        if (pics[i] == images[i]) {
-            pic.classList.add('border');
-
-        }
-      
-          /// prvpic.classList.remove('border');   in nekbatoo koja bezaram
-    
+        updateThumbBorders();
 
     }
+
+
+    function updateThumbBorders() {
+
+
+        // reomove border class from all thumbs
+        var bb = document.getElementsByClassName('thm')[i];
+        var pic = bb.getAttribute('src');
+        var pictag = images[i] + ".jpeg";
+
+
+        for (let i = 0; i <= 4; i++) {
+            document.getElementsByClassName('thm')[i].classList.remove('border')
+
+
+        }
+
+        bb.classList.add('border');
+
+    }
+
+   
+    function show(newI) {
+        i = newI;
+        var imgtag = document.getElementsByClassName('thm')[newI].getAttribute("src");
+        var pic = document.getElementsByClassName("thm")[newI];
+        var tag = "<img class= showimage src=" + imgtag + ">"
+        sildercontainer.innerHTML = tag;
+        
+         updateThumbBorders()
+       }
 
 </script>
 
