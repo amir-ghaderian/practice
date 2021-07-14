@@ -149,6 +149,81 @@
         if (load2 === 8) break;
       } while (load2 <= 10);
       console.log("finish");
+
+      function castle() {
+        let castle2 = 3;
+        let castle3 = 5;
+        console.log(castle2 + castle3);
+      }
+      castle();
+
+      function castle4(a, b) {
+        let c = a * b;
+        console.log(c);
+      }
+      castle4(2, 3);
+
+      function castle6(a, b) {
+        return a + b * a;
+      }
+      let castle5 = castle6(3, 4);
+      console.log(castle5);
+
+      function getDay(day) {
+        switch (day) {
+          case 1:
+            console.log("شنبه");
+            break;
+          case 2:
+            console.log("یکشنبه");
+            break;
+          case 3:
+            console.log("دوشنبه");
+            break;
+          case 4:
+            console.log("سه شنبه");
+            break;
+          case 5:
+            console.log("چهارشنبه");
+            break;
+          case 6:
+            console.log("پنجشنبه");
+            break;
+          case 7:
+            console.log("جمعه");
+            break;
+          default:
+            console.log("enter a number");
+            break;
+        }
+      }
+      getDay();
+
+      function outer() {
+        let p = 4;
+        function inner() {
+          let s = 3;
+          console.log(p * s);
+        }
+        inner();
+        console.log(p);
+      }
+      outer();
+
+      let selectUser = ["hassan", "hossein"];
+      console.log(selectUser);
+      console.log(selectUser[2]);
+      selectUser[2] = "amirhosein";
+      console.log(selectUser[2]);
+      console.log(selectUser[0]);
+      console.log(typeof selectUser);
+      console.log(selectUser.length);
+      for (let alpha = 0; alpha < selectUser.length; alpha++) {
+        console.log(selectUser[alpha]);
+      }
+      selectUser.push("mike");
+      selectUser.push(2);
+      console.log(selectUser);
     </script>
   </head>
   <body></body>
