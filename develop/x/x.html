@@ -224,6 +224,30 @@
       selectUser.push("mike");
       selectUser.push(2);
       console.log(selectUser);
+
+      let myMoshakhasat = {
+        fName: "ida",
+        sName: "amiri",
+        age: 19,
+        alpha: function () {
+          console.log(myMoshakhasat.age);
+        },
+      };
+      myMoshakhasat.alpha();
+      console.log(myMoshakhasat);
+      myMoshakhasat.fathersName = "gholi";
+      console.log(myMoshakhasat);
+      myMoshakhasat.age = 33;
+      console.log(myMoshakhasat);
+      delete myMoshakhasat.age;
+      console.log(myMoshakhasat);
+      let alpha3 = Object.keys(myMoshakhasat);
+      console.log(alpha3);
+      if ("fName" in myMoshakhasat) {
+        console.log("first name exist");
+      }
+      let alpha4 = Object.assign({ userName: "admin" }, myMoshakhasat);
+      console.log(alpha4);
     </script>
   </head>
   <body></body>
