@@ -248,6 +248,28 @@
       }
       let alpha4 = Object.assign({ userName: "admin" }, myMoshakhasat);
       console.log(alpha4);
+
+      let person1 = { firstN: "hossein", sureN: "amini" };
+      for (let key in person1) {
+        console.log(key + ":" + person1[key]);
+      }
+
+      let person2 = [23, 45, 69, 30];
+      for (let item of person2) {
+        console.log(item);
+      }
+      let person3 = {
+        title: "js",
+        showCourse: function () {
+          console.log(this);
+        },
+      };
+      person3.showCourse();
+      function myCourse(title) {
+        this.title = title;
+        console.log(this);
+      }
+      let cc = new myCourse("javaS");
     </script>
   </head>
   <body></body>
