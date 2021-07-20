@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .port {
+    width: 25em;
+    height: 15em;
+    font-size: 2em;
+    line-height: 2em;
+  }
+</style>
+
+<body>
+
+  <button onclick="larg()"></button>
+  <input type="text" onkeydown="lastelement()" id="f1">
+
+</body>
+
+<script>
+
+  // function indexCase(word) {
+  //   var word = "   ali akbar rafsanjaniiii";
+  //   var firstblank = [word].indexOf("");
+  //   console.log(firstblank)
+  //   return word.substr(0, firstblank);
+  // }
+  // function normal(day) {
+  //   let day = ["12-05-2020"];
+  //   let newday = day.replace('-', '/');
+  //   console.log(newday);
+  //   body.innerhtml=newday;
+  // }
+
+  // function round100() {
+  //   var f1 = a / 100;
+  //   var f2 = Math.floor(Math.round(f1));
+  //   var f3 = f2 * 100;
+  //   console.log(f3);
+  // }
+  // function dice(a) {
+  //   var dip = Math.floor(Math.random(a>0) * 100 / 16);
+
+  //   console.log(dip);
+  // }
+  // var a = "hi";
+  // var b = 'salam';
+  // function nand(a, b) {
+
+  //   let and = a && b;
+  //   ///return and;
+  //   if (!and) {
+  //     console.log("هر دو پارامتر یکسان نیستند")
+  //   }else if(and){
+  //     console.log("هر دو پارامتر از یک نوع است...")
+  //   }
+
+  // }
+  // function nal(a,b) {
+  //   let and = ( true || false)||(false||false); 
+  //   console.log(and);
+  // }
+  // let languages = [];
+  // let lan1 = languages.length;
+  // languages[0] = "c";
+  // let lan2 = languages.length;
+  // languages[1] ="++";
+  // let lan3 =languages.length;
+  // console.log(languages);
+  // function lastelement(array){
+  //   array=document.getElementById("f1").value;
+
+  //   console.log(array[length]);
+
+  // }
+  function sort(unsort) {
+    let a = unsort[0];
+    let b = unsort[1];
+    let c = unsort[2];
+
+    function larg(unsort) {
+
+
+      if (a >= b && a >= c) {
+        return a;
+        a = larg(unsort);
+      }
+      if (b > a && b > c) {
+        return b;
+        b = larg(unsort);
+      }
+      if (c > a && c > b) {
+        return c;
+        c = larg(unsort);
+      }
+    }
+    function small(unsort) {
+
+      if (a <= b && a <= c) {
+        return a;
+        a = small(unsort);
+      }
+      if (b < a && b < c) {
+        return b;
+        b = small(unsort);
+
+      }
+      if (c < a && c < b) {
+        return c;
+        c = small(unsort);
+      }
+    }
+
+    function medium(unsort) {
+
+      if (a >= b && b >= c || a <= b && b <= c) {
+        return b;
+        b = medium(unsort);
+      }
+      if (b >= a && a >= c || a >= b && a <= c) {
+        return a;
+        a = medium(unsort);
+      }
+      if (a >= c && c >= b || c <= b && c >= a) {
+        return c;
+        c = medium(unsort);
+      }
+
+    }
+
+    return [small(unsort), medium(unsort), larg(unsort)];
+  }
+
+</script>
+
+</html>
