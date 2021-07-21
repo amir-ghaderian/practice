@@ -19,6 +19,7 @@
 <body>
 
   <button onclick="larg()"></button>
+  <button onclick="rotate()"></button>
   <input type="text" onkeydown="lastelement()" id="f1">
 
 </body>
@@ -135,6 +136,22 @@
     }
 
     return [small(unsort), medium(unsort), larg(unsort)];
+  }
+  function rotate(strim) {
+
+    let a = strim[0];
+    let b = strim[1];
+    let c = strim[2];
+
+    let p1 = [a].shift();
+    let p2 = [b].shift();
+    let p3 = [c].shift();
+    let lang = [];
+    let l1 = lang.push(p3);
+    let l2 = lang.push(p2);
+    let l3 = lang.push(p1);
+    return lang = [p2, p3, p1];
+
   }
 
 </script>
