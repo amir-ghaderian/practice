@@ -153,45 +153,14 @@
     return lang = [p2, p3, p1];
 
   }
-  function minmax(arr) {
-    let a = arr[0];
-    let b = arr[1];
-    let c = arr[2];
-    function max(arr) {
-      if (a > b && b > c) {
-        return a;
-        a = max(arr);
-
-      }
-      if (b > a && a > c) {
-        return b;
-        b = max(arr);
-
-      }
-      if (c > b && b > a) {
-        return c;
-        c = max(arr);
-
-      }
-    }
-    function min(arr) {
-
-      if (a < b && b < c || a < c && c < b) {
-        return a;
-        a = min(arr);
-      }
-      if (b < a && a < c || b < c && a < c) {
-        return b;
-        b = min(arr);
-      }
-      if (c < b && b < a || c < a && a < b) {
-        return c;
-        c = min(arr);
-      }
-    }
-    return [min(arr), max(arr)];
+  strim = [];
+  let A = [];
+  function add(strim, A) {
+    let len =[strim].indexOf(3);
+   let puuu= [A].push([len]);
+   return puuu;
+    
   }
-
 </script>
 
 </html>

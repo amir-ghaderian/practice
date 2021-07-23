@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var arr = [];
+    var a = arr[0];
+    var b = arr[1];
+    var c = arr[2];
+    function max(arr) {
+        var a = arr[0];
+        var b = arr[1];
+        var c = arr[2];
+        if (a >= b && b >= c) {
+            return a;
+            a = max(arr);
+
+        }
+        if (b >= a && a >= c) {
+            return b;
+            b = max(arr);
+
+        }
+        if (c >= b && b >= a) {
+            return c;
+            c = max(arr);
+
+        }
+    }
+
+
+
+
+    function min(arr) {
+        var a = arr[0];
+        var b = arr[1];
+        var c = arr[2];
+        if (a <= b && b <= c || a <= c && c <= b) {
+            return a;
+            a = min(arr);
+        }
+        if (b <= a && a <= c || b <= c && a <= c) {
+            return b;
+            b = min(arr);
+        }
+        if (c <= b && b <= a || c <= a && a <= b) {
+            return c;
+            c = min(arr);
+        }
+    }
+    function minmax(arr) {
+        var a = arr[0];
+        var b = arr[1];
+        var c = arr[2];
+        if (min(arr) == c && max(arr) == b || min(arr) == b && max(arr) == c) {
+            return [min(arr), a, max(arr)];
+        }
+        if (min(arr) == a && max(arr) == c || max(arr) == a && min(arr) == c) {
+            return [min(arr), b, max(arr)];
+        }
+        if (min(arr) == a && max(arr) == b || min(arr) == b && max(arr) == a) {
+            return [min(arr), c, max(arr)];
+        }
+
+    }
+
+</script>
+
+</html>
