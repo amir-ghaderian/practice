@@ -72,6 +72,100 @@
         }
 
     }
+    function oddOrevent(num) {
+        nums = [num];
+        let evn = num % 2;
+        if (evn == 0) {
+            arrevn = [];
+            [arreven].push(num);
+
+
+        } else if (evn !== 0) {
+            console.log("odd");
+
+        }
+
+        return arreven;
+    }
+    var nums = [];
+    function halve(nums) {
+        let len = nums.length;
+        let sli = len / 2;
+        let num1 = [];
+        if (sli % 2 == 0) {
+            let num1 = nums.slice(0, sli);
+            return num1;
+
+        }
+
+        if (sli % 2 !== 0) {
+
+
+            sli = sli + 0.5;
+            num1.push(nums[sli - 1]);
+        }
+        return num1
+
+
+    }
+    let word = [];
+    function list(word) {
+        let len1 = word[0];
+        let lastWord = word.length - 2;
+        let fin = word.length;
+
+        let sli = word.slice(len1, lastWord);
+        let joi = sli.join(",");
+        let sli2 = word.slice(lastWord, fin);
+        let joi2 = sli2.join(" and ");
+        if (fin == 0) {
+            return '';
+        }
+
+        return [joi, joi2];
+
+
+    }
+    // function flat(lusho) {
+    //     let a = lusho[0][0] + lusho[0][1] + lusho[0][2];
+    //     let b = lusho[1][0] + lusho[1][1] + lusho[1][2];
+    //     let c = lusho[2][0] + lusho[2][1] + lusho[2][2];
+    //     if (lusho[0].length === 0 && lusho[1].length === 0 && lusho[2].length === 0) {
+    //         return [];
+
+    //     }
+    //     return [a + b + c];
+    // }
+    function flat(lusho) {
+        let a = lusho[0];
+        let b = lusho[1];
+        let c = lusho[2];
+        let a1 = a.concat(b)
+        let a2 = a1.concat(c);
+        return a2;
+    }
+    function median(arrn) {
+
+        let len = arrn.length;
+        let mid = len / 2;
+        let mid1 = mid - 1;
+        let middel = (arrn[mid] + arrn[mid1]) / 2;
+        if (len % 2 === 0) {
+
+            console.log(middel);
+        } else {
+            console.log(arrn[mid - 0.5]);
+        }
+
+    }
+    function hello(arr) {
+        let b = "Hello" + ' ' + arr + "!";
+        if (arr == undefined) {
+            return "Hello world!";
+        }
+        return b;
+    }
+
 
 </script>
 

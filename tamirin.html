@@ -153,13 +153,20 @@
     return lang = [p2, p3, p1];
 
   }
-  strim = [];
-  let A = [];
+  var strim = [];
+ var A =[];
+
   function add(strim, A) {
-    let len =[strim].indexOf(3);
-   let puuu= [A].push([len]);
-   return puuu;
-    
+    if (strim.indexOf(A) === -1) {
+      let bb = strim.push(A);
+      return bb;
+    } else if (strim.indexOf(A) > -1) {
+      return strim;
+    }
+
+
+
+
   }
 </script>
 
