@@ -159,13 +159,17 @@
         return sum;
     }
     function addmax() {
-        let sum = 0;
         let max = 0;
         for (i = 0; i < arguments.length; i++) {
+
             if (max < arguments[i]) {
-                return arguments[i];
+
+                max = arguments[i];
             }
-        }///just return first..
+
+
+        }
+        return max;
     }
 
 
