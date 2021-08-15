@@ -176,13 +176,23 @@
         for (i = 0; i < arguments.length; i++) {
             let age = parseInt(arguments[i]);
 
-            if (Number.isNaN(age)==NaN) {
+            if (Number.isNaN(age) == NaN) {
                 console.log("nan");
             } else {
                 result = arguments[i];
             }
         }
         return result;
+    }
+    function huoman() {
+        for (i = 0; i < arguments.length; i++) {
+            for (j = 0; j < arguments[i].length; j++) {
+                console.log(arguments[i][j]);
+            }
+
+
+
+        }
     }
 
 
