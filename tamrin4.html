@@ -21,13 +21,16 @@
 
     }
     function add(str) {///('2+3+4') return 9
-        let input = str.split("+");
-        let first = input[0];
-        let sec = input[1];
-        let tre = input[2]
+        let sum = 0;
+        let age = str.split("+");
 
-        console.log(first + sec + tre) ///return 234
-        ///mikhastam ba in func majmoee num ha ro be dast biyaram ama michasbone be ham akhe cheraaa???
+        for (i = 0; i < age.length; i++) {
+        let p1= parseFloat(age[i]);
+            sum = sum + p1;
+
+        }
+        return sum;
+        
 
     }
 </script>
