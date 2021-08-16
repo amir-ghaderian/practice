@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function spl(date) {
+        let splitdata = date.split(",");
+        let day = splitdata[0];
+        let month = splitdata[1];
+        let year = splitdata[2];
+        return year + month + day;
+
+    }
+    function add(str) {///('2+3+4') return 9
+        let input = str.split("+");
+        let first = input[0];
+        let sec = input[1];
+        let tre = input[2]
+
+        console.log(first + sec + tre) ///return 234
+        ///mikhastam ba in func majmoee num ha ro be dast biyaram ama michasbone be ham akhe cheraaa???
+
+    }
+</script>
+
+</html>
