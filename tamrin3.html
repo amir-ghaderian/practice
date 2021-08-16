@@ -171,18 +171,18 @@
         }
         return max;
     }
-    function pars() {
-        let result = 0;
-        for (i = 0; i < arguments.length; i++) {
-            let age = parseInt(arguments[i]);
+    function pars(input) {
+        let inputprse = input;
+        for (i = 0; i < input.length; i++) {
+            let age = parseInt(inputprse);
 
-            if (Number.isNaN(age) == NaN) {
-                console.log(result)
-            } else {
-                result = arguments[i];
-            }
+            if (!Number.isNaN(age)) {
+                 return age;
+            } 
+                inputprse = inputprse.substr(1);
+            
         }
-        return result;
+        return NaN;
     }
     function houman(a) {
         let len = a.length;
