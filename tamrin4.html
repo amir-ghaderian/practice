@@ -25,14 +25,50 @@
         let age = str.split("+");
 
         for (i = 0; i < age.length; i++) {
-        let p1= parseFloat(age[i]);
+            let p1 = parseFloat(age[i]);
             sum = sum + p1;
 
         }
         return sum;
-        
+
 
     }
+    /////call function
+    function gross(net) {
+        let vat = 20;
+        let tax = net * vat / 100;
+        return net + tax;
+    }
+    function addWithVat(netX, netY) {
+        let grossX = gross(netX);
+        let grossY = gross(netY);
+        return grossX + grossY;
+    }
+    ///exercise
+    function sum(arr) {
+        let result = 0;
+        let len = arr.length;
+        for (i = 0; i < len; i++) {
+
+
+            let pars = parseFloat(arr[i]);
+            result = result + pars;
+
+
+        }
+        return result;
+    }
+    function mean(arr) {
+        let len = arr.length;
+        let p1 = sum(arr);
+        let p2 = p1 / len;
+        return p2;
+
+    }
+
+
+
+
 </script>
 
 </html>
