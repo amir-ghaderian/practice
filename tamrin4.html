@@ -51,7 +51,7 @@
         for (i = 0; i < len; i++) {
 
 
-            let pars = parseFloat(arr[i]);
+            let pars = parseInt(arr[i]);
             result = result + pars;
 
 
@@ -65,6 +65,27 @@
         return p2;
 
     }
+
+    function multi(x, y) {
+        let result = [];
+        for (i = 0; i < x; i++) {
+
+            result.push(y);
+            
+        }
+        console.log(result)
+       return sum(result);
+
+    }
+    function reverse(arr) {
+        let revarr=[];
+        let len =arr.length;
+        for(i=len;i>=0;i--){
+           revarr.push(arr[i]);        
+        }
+        return revarr;
+    }
+
 
 
 
