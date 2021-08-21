@@ -138,23 +138,21 @@
         return arr2;
     }
     function isAscendig() {
+       
 
-        let sum = 0;
         for (i = 0; i < arguments.length; i++) {
-            sum ==arguments[i];
 
-            if (sum < arguments[i]) {
+            if (arguments[i + 1] < arguments[i]) {
 
-
-                return true;
-            } if (sum > arguments[i]) {
                 return false;
+
             }
 
-
+            
 
         }
 
+        return true;
     }
 
 </script>
