@@ -164,7 +164,7 @@
     }
     function minmax(arr) {
 
-        let min = 0;
+        let min = arr[0];
 
         let max = 0;
         let len = arr.length;
@@ -174,10 +174,11 @@
             if (max < arr[i]) {
                 max = arr[i];
             }
+            if (min> arr[i]) {
+                min=arr[i];
+            }
 
-        }
-        for (j = len - 1; j >= min; j--) {
-            console.log(arr[j - 1]);
+
         }
         return [min, max];
     }
