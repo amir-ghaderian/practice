@@ -156,11 +156,11 @@
     }
     function isdscending() {
         for (i = 0; i < arguments.length; i++) {
-            if (arguments[i] > arguments[i + 1]) {
-                return true;
+            if (arguments[i + 1] > arguments[i]) {
+                return false;
             }
         }
-        return false;
+        return true;
     }
     function minmax(arr) {
 
@@ -177,7 +177,7 @@
 
         }
         for (j = len - 1; j >= min; j--) {
-           console.log(arr[j-1]);
+            console.log(arr[j - 1]);
         }
         return [min, max];
     }
