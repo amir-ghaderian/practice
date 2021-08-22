@@ -163,22 +163,25 @@
         return false;
     }
     function minmax(arr) {
-       
-       var min= Math.min.apply(null, arr);
-        
+
+        let min = 0;
+
         let max = 0;
         let len = arr.length;
+
         for (i = 0; i < len; i++) {
+
             if (max < arr[i]) {
                 max = arr[i];
-                
             }
 
-
+        }
+        for (j = len - 1; j >= min; j--) {
+           console.log(arr[j-1]);
         }
         return [min, max];
     }
-   
+
 
 </script>
 
