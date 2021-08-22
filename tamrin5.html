@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function isprime(arr) {
+        let prime = [];
+        let notPrime = [];
+        let len = arr.length;
+        for (i = 0; i < len; i++) {
+            if (arr[i] === 1) {
+                notPrime.push(arr[i]);
+            } else if (arr[i] === 2) {
+                prime.push(arr[i]);
+            } else if (arr[i] % 2 === 0) {
+                notPrime.push(arr[i]);
+            } else {
+                prime.push(arr[i]);
+
+            }
+        }
+        console.log(prime);//ro 9 sotii mideh good night
+        console.log(notPrime);
+    }
+</script>
+
+</html>
