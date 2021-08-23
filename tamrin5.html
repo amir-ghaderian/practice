@@ -29,15 +29,34 @@
     }
     function prime(arr) {
         let len = arr.length;
-        let arr2=[];
-        for(i=0;i<len;i++){
-            if (isprime(arr[i])===true) {
+        let arr2 = [];
+        for (i = 0; i < len; i++) {
+            if (isprime(arr[i])) {
                 arr2.push(arr[i]);
             }
-            
-        }
-return arr2;
 
+        }
+        return arr2;
+
+    }
+    function beforAfter(arr) {
+        let len = arr.length;
+        let result = 0;
+        let median = 0;
+        let arrBefor = [];
+        let arrAfter = [];
+        for (i = 0; i < len; i++) {
+            result = result + arr[i];
+            median = result / len;
+        }
+        for (j = 0; j < len; j++) {
+            if (arr[j] <= median) {
+                arrBefor.push(arr[j]);
+            } else {
+                arrAfter.push(arr[j]);
+            }
+        }
+        console.log(arrBefor, arrAfter);
     }
 </script>
 
