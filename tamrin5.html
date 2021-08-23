@@ -12,24 +12,32 @@
 
 </body>
 <script>
-    function isprime(arr) {
-        let prime = [];
-        let notPrime = [];
-        let len = arr.length;
-        for (i = 0; i < len; i++) {
-            if (arr[i] === 1) {
-                notPrime.push(arr[i]);
-            } else if (arr[i] === 2) {
-                prime.push(arr[i]);
-            } else if (arr[i] % 2 === 0) {
-                notPrime.push(arr[i]);
-            } else {
-                prime.push(arr[i]);
+    function isprime(n) {
+        if (n === 1) {
+            return false;
+        } else if (n === 2) {
+            return true;
+        } else {
+            for (var x = 2; x < n; x++) {
+                if (n % x === 0) {
+                    return false;
 
+                }
             }
+            return true;
         }
-        console.log(prime);//ro 9 sotii mideh good night
-        console.log(notPrime);
+    }
+    function prime(arr) {
+        let len = arr.length;
+        let arr2=[];
+        for(i=0;i<len;i++){
+            if (isprime(arr[i])===true) {
+                arr2.push(arr[i]);
+            }
+            
+        }
+return arr2;
+
     }
 </script>
 
