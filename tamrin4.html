@@ -127,14 +127,14 @@
         let len = arr.length;
         let arr2 = [];
         for (i = 0; i < len; i++) {
-            for (j = 0; j < arr[i].length; j++) {
-                if (arr[i][j] === ".") {
-                    arr2.push(arr[i]);
 
-                }
+            if (arr[i].lastIndexOf('.') > 1) {
+                arr2.push(arr[i]);
+
             }
-
         }
+
+
         return arr2;
     }
     function isAscendig() {
@@ -174,8 +174,8 @@
             if (max < arr[i]) {
                 max = arr[i];
             }
-            if (min> arr[i]) {
-                min=arr[i];
+            if (min > arr[i]) {
+                min = arr[i];
             }
 
 
