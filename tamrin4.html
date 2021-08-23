@@ -128,7 +128,7 @@
         let arr2 = [];
         for (i = 0; i < len; i++) {
 
-            if (arr[i].lastIndexOf('.') > 1) {
+            if (arr[i].lastIndexOf('.') > -1) {
                 arr2.push(arr[i]);
 
             }
@@ -168,6 +168,9 @@
 
         let max = 0;
         let len = arr.length;
+        if (len == 0) {
+            return NaN;
+        }////H case shod? ya  bishtar:))
 
         for (i = 0; i < len; i++) {
 
@@ -177,6 +180,7 @@
             if (min > arr[i]) {
                 min = arr[i];
             }
+
 
 
         }
