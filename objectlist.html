@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    .container {
+        width: 100%;
+        background-color: #eeee;
+        height: auto;
+        display: flex;
+
+    }
+
+    .rtl {
+        width: 50%;
+        height: auto;
+        background-color: pink;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+
+    .lft {
+        width: 50%;
+        height: auto;
+        background-color: powderblue;
+    }
+
+    ul li {
+        width: 100%;
+        height: auto;
+        border: 1px solid black;
+        list-style: none;
+    }
+</style>
+
+<body>
+    <h3>student list
+    </h3>
+    <form id="addform">
+        <input type="text" placeholder="add" id="add">
+        <input type="submit" class="a20">
+    </form>
+    <div class="container">
+        <div class="rtl">
+            <span>
+                <h6>Name</h6>
+            </span>
+            <ul id="name">
+                <li class="p1"></li>
+            </ul>
+
+        </div>
+        <div class="lft"></div>
+    </div>
+
+</body>
+<script>
+    var students = [{ firstName: "ali", lastName: "ghaderian", age: 34, dateBirth: "1987" }, { firstName: "amir", lastName: "ghaderian", age: 35, dateBirth: "1986" }, 
+    { firstName: "aida", lastName: "amiri", age: 20, dateBirth: "2001" }, { firstName: "houman", lastName: "ghaderian", age: 42, dateBirth: "1977" }]
+</script>
+
+</html>
