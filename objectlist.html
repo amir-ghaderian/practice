@@ -71,6 +71,18 @@
 
 </body>
 <script>
+    var form = document.getElementById("addform");
+    var itemlist = document.getElementById("name");
+    form.addEventListener("submit", addForm);
+    function addForm(e) {
+        e.preventDefault();
+        var NewItem = document.getElementById("add").value;
+        var li = document.createElement("li");
+        li.className = "p1";
+        li.appendChild(document.createTextNode(NewItem));
+        itemlist.appendChild(li);
+        itemlist.appendChild(li);
+    }
     var students = [{ firstName: "ali", lastName: "ghaderian", age: 34, dateBirth: "1987" }, { firstName: "amir", lastName: "ghaderian", age: 35, dateBirth: "1986" }, 
     { firstName: "aida", lastName: "amiri", age: 20, dateBirth: "2001" }, { firstName: "houman", lastName: "ghaderian", age: 42, dateBirth: "1977" }]
 </script>
