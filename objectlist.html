@@ -47,6 +47,10 @@
         border: 1px solid black;
         list-style: none;
     }
+
+    .ltf2 {
+        visibility: hidden;
+    }
 </style>
 
 <body>
@@ -61,19 +65,32 @@
             <span>
                 <h6>Name</h6>
             </span>
-            <ul id="name">
-                <li class="p1"></li>
+            <ul id="name" onclick="showLFT()">
+                <li class="p1">ali ghaderian</li>
             </ul>
 
         </div>
-        <div class="lft"></div>
+        <div class="lft">
+            <span>
+                <h6>detail</h6>
+            </span>
+            <ul id="detail" class="lft2">
+            </ul>
+        </div>
     </div>
 
 </body>
 <script>
+    var students = [{ firstName: "ali", lastName: "ghaderian", age: 34, dateBirth: "1987", code: "0032244455" },
+    { firstName: "amir", lastName: "ghaderian", age: 35, dateBirth: "1986", code: "0081125674" },
+    { firstName: "aida", lastName: "amiri", age: 20, dateBirth: "2001", code: "0032244455" },
+    { firstName: "houman", lastName: "ghaderian", age: 42, dateBirth: "1977", code: "0032244455" }];
+
     var form = document.getElementById("addform");
     var itemlist = document.getElementById("name");
     form.addEventListener("submit", addForm);
+
+
     function addForm(e) {
         e.preventDefault();
         var NewItem = document.getElementById("add").value;
@@ -83,8 +100,27 @@
         itemlist.appendChild(li);
         itemlist.appendChild(li);
     }
-    var students = [{ firstName: "ali", lastName: "ghaderian", age: 34, dateBirth: "1987" }, { firstName: "amir", lastName: "ghaderian", age: 35, dateBirth: "1986" }, 
-    { firstName: "aida", lastName: "amiri", age: 20, dateBirth: "2001" }, { firstName: "houman", lastName: "ghaderian", age: 42, dateBirth: "1977" }]
+
+    function showLFT() {
+
+        var divLTF = document.getElementById("detail");
+        var li = document.createElement("li");
+        divLTF.classList.remove("lft2");
+        divLTF.appendChild(li);
+        let s1 = students[0].dateBirth;
+        let s2 = students[0].age;
+        let s3 = students[0].code;
+        li.innerHTML = s1 + " / " + "کد ملی" + s3 + "  age  " + s2;
+
+
+    }
+    // for (i = 0; i < students.length; i++) {
+
+    //     if (showLFT(students[i])) {
+    //         students[i].append(li);
+    //     }
+    // }
+
 </script>
 
 </html>
