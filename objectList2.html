@@ -30,7 +30,7 @@
         height: auto;
         background-color: pink;
         display: flex;
-       
+
     }
 
 
@@ -48,101 +48,60 @@
         list-style: none;
         display: inline-block;
     }
-
-    .ltf2 {
-        visibility: hidden;
-    }
-    #name #lastName{
-        width: 50%;
-    }
 </style>
 
 <body>
-    <h3>student list
-    </h3>
-    <form id="addform">
-        <input type="text" placeholder="name" id="add">
-        <input type="submit" class="a20">
-    </form>
     <div class="container">
         <div class="rtl">
             <span>
                 <h6 style="display: contents;">Name</h6>
             </span>
             <ul id="name" onclick="showLFT()">
-              
+
             </ul>
             <ul id="lastName" onclick="showLFT()">
-                
+
             </ul>
         </div>
         <div class="lft">
             <span>
                 <h6 style="display: contents;">detail</h6>
             </span>
-            <ul id="detail" class="lft2">
+            <ul id="detail">
             </ul>
         </div>
     </div>
-
 </body>
 <script>
-    var students = [{ firstName: "ali", lastName: "ghaderian", age: 34, dateBirth: "1987", code: "0032244455" },
+    const students = [{ firstName: "ali", lastName: "ghaderian", age: 34, dateBirth: "1987", code: "0032244455" },
     { firstName: "amir", lastName: "ghaderian", age: 35, dateBirth: "1986", code: "0081125674" },
     { firstName: "aida", lastName: "amiri", age: 20, dateBirth: "2001", code: "0032244455" },
-    { firstName: "houman", lastName: "ghaderian", age: 42, dateBirth: "1977", code: "0032244455" }];
-
-    var form = document.getElementById("addform");
-    var itemlist = document.getElementById("name");
-    form.addEventListener("submit", addForm);
+    { firstName: "houman", lastName: "ghaderian", age: 42, dateBirth: "1977", code: "0032244455" },
+    { firstName: "hani", lastName: "ghaderian", age: 47, dateBirth: "1972", code: "32488488493" }];
+    
+    
     for (i = 0; i < students.length; i++) {
         var tag = document.getElementById("name");
-       
-        var li = document.createElement("li");
-        li.className = "p1";
-        tag.appendChild(li);
-       
-        li.innerHTML=students[i].firstName;
-      
-    }
-    for(j=0;j<students.length;j++){
         var tag2 = document.getElementById("lastName");
         var li = document.createElement("li");
-        tag2.appendChild(li);
-        li.innerHTML=students[j].lastName;
+        var li2 = document.createElement("li");
+        tag.appendChild(li);
+        tag2.appendChild(li2);
+        li.innerHTML = students[i].firstName;
+        li2.innerHTML = students[i].lastName;
+
     }
-
-
-    function addForm(e) {
-        e.preventDefault();
-        var NewItem = document.getElementById("add").value;
-        var li = document.createElement("li");
-        li.className = "p1";
-        li.appendChild(document.createTextNode(NewItem));
-        itemlist.appendChild(li);
-        itemlist.appendChild(li);
-    }
-
+    li.addEventListener("click", showLFT);
+    
     function showLFT() {
+        var front = document.getElementById("detail");
 
-        var divLTF = document.getElementById("detail");
         var li = document.createElement("li");
-        divLTF.classList.remove("lft2");
-        divLTF.appendChild(li);
-        let s1 = students[0].dateBirth;
-        let s2 = students[0].age;
-        let s3 = students[0].code;
-        li.innerHTML = s1 + " / " + "کد ملی" + s3 + "  age  " + s2;
+        front.appendChild(li);
+        li.innerHTML = "age" + students[0].age + " - " + "datebirth" + students[0].dateBirth + "  -" + "passserial" + students[0].code;
 
 
     }
-    // for (i = 0; i < students.length; i++) {
-
-    //     if (showLFT(students[i])) {
-    //         students[i].append(li);
-    //     }
-    // }
-
 </script>
 
 </html>
