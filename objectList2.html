@@ -48,12 +48,11 @@
         list-style: none;
         display: inline-block;
     }
-    .a1{
+
+    .a1 {
         width: 100px;
         height: 15px;
     }
-
-   
 </style>
 
 <body>
@@ -115,12 +114,20 @@
 
 
     function showLFT() {
-       console.log(students[i]);//i  now this work very frustrated but after lunch comeback powerfull.. how get value students with click 
-       
+        var select = document.getSelection().focusNode;
+        var front = document.getElementsByClassName("a1");
+        for (j = 0; j < students.length; j++) {
+           
+
+            if (select === students[j].firstName) {
+              console.log(students[j].firstName)
+            }
 
 
 
+        }
     }
+
 </script>
 
 </html>
