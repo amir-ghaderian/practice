@@ -113,16 +113,24 @@
     }
 
 
-    function showLFT() {
-        var select = document.getSelection().focusNode;//finish sharje mac
-        var front = document.getElementsByClassName("a1");
-        console.log(select)
-        for (j = 0; j < students.length; j++) {
-       console.log(students[j].firstName)
-        }
-    } 
 
+    function showLFT() {
+        var select = document.getSelection();
+
+        var front = document.getElementsByClassName("a1");
+        
+
+    }
+
+
+    function amir() {
+        let Birth = [];
+        for (j = 0; j < students.length; j++) {
+            Birth.push(students[j].dateBirth);
           
+        }
+      return Birth;
+    }
 
 </script>
 
