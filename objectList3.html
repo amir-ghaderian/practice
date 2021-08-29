@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    .container {
+        width: 100%;
+        background-color: #eeee;
+        height: auto;
+        display: flex;
+
+    }
+
+    .rtl {
+        width: 50%;
+        height: auto;
+        background-color: pink;
+        display: flex;
+
+    }
+
+
+    .lft {
+        width: 40%;
+        height: auto;
+        background-color: powderblue;
+        display: flex;
+    }
+
+    ul li {
+        width: 100%;
+        height: auto;
+        border: 1px solid black;
+        list-style: none;
+        display: inline-block;
+    }
+
+    .a1 {
+        width: 100px;
+        height: 15px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="rtl">
+            <span>
+                <h6 style="display: contents;">Name</h6>
+            </span>
+            <ul id="name" onclick="showLFT()">
+
+            </ul>
+            <ul id="lastName" onclick="showLFT()">
+
+            </ul>
+        </div>
+        <div class="lft">
+            <span>
+                <h6 style="display: contents;">detail</h6>
+            </span>
+            <ul class="detail">
+                <li class="a1">age</li>
+                <li class="a1">code</li>
+                <li class="a1">dateBirth</li>
+                <li class="a1">job</li>
+                <li class="a1"></li>
+                <li class="a1"></li>
+                <li class="a1"></li>
+                <li class="a1"></li>
+                <li class="a1"></li>
+                <li class="a1"></li>
+                <li class="a1"></li>
+                <li class="a1"></li>
+                <li class="a1"></li>
+            </ul>
+            <a onclick="showLFT(0)">TEST 0</a> <br/>
+            <a onclick="showLFT(2)">TEST 2</a> <br/>
+        </div>
+    </div>
+</body>
+<script>
+    const students = [{ firstName: "ali", lastName: "ghaderian", age: 34, dateBirth: "1987", code: "0032244455" },
+    { firstName: "amir", lastName: "ghaderian", age: 35, dateBirth: "1986", code: "0081125674" },
+    { firstName: "aida", lastName: "amiri", age: 20, dateBirth: "2001", code: "0032244455" },
+    { firstName: "houman", lastName: "ghaderian", age: 42, dateBirth: "1977", code: "0032244455" },
+    { firstName: "hani", lastName: "ghaderian", age: 47, dateBirth: "1972", code: "32488488493" }];
+
+
+    for (i = 0; i < students.length; i++) {
+        var tag = document.getElementById("name");
+        var tag2 = document.getElementById("lastName");
+        var li = document.createElement("li");
+        var li2 = document.createElement("li");
+        tag.appendChild(li);
+        tag2.appendChild(li2);
+        li.innerHTML = students[i].firstName;
+        li2.innerHTML = students[i].lastName;
+        li.setAttribute("onclick", 'showLFT(' +i+  ')');
+        li2.setAttribute("click", showLFT);
+
+    }
+
+
+
+    function showLFT(index) {
+       
+
+        console.log(students[index])
+        
+
+    }
+
+
+    function amir() {
+        let Birth = [];
+        for (j = 0; j < students.length; j++) {
+            Birth.push(students[j].dateBirth);
+          
+        }
+      return Birth;
+    }
+
+</script>
+
+</html>
