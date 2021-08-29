@@ -35,7 +35,7 @@
 
 
     .lft {
-        width: 40%;
+        width: 50%;
         height: auto;
         background-color: powderblue;
         display: flex;
@@ -49,9 +49,19 @@
         display: inline-block;
     }
 
-    .a1 {
-        width: 100px;
-        height: 15px;
+
+    .a2 {
+        width: 30em;
+        height: 1em;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    #a1 {
+        width: 30em;
+        height: 1em;
+        display: flex;
+        justify-content: space-evenly;
     }
 </style>
 
@@ -61,10 +71,10 @@
             <span>
                 <h6 style="display: contents;">Name</h6>
             </span>
-            <ul id="name" onclick="showLFT()">
-
+            <ul id="name">
+                <li style="width: 40em;height: 1em;text-align: center;">list of students</li>
             </ul>
-            <ul id="lastName" onclick="showLFT()">
+            <ul id="lastName">
 
             </ul>
         </div>
@@ -72,55 +82,52 @@
             <span>
                 <h6 style="display: contents;">detail</h6>
             </span>
-            <ul class="detail">
-                <li class="a1">age</li>
-                <li class="a1">code</li>
-                <li class="a1">dateBirth</li>
-                <li class="a1">job</li>
-                <li class="a1"></li>
-                <li class="a1"></li>
-                <li class="a1"></li>
-                <li class="a1"></li>
-                <li class="a1"></li>
-                <li class="a1"></li>
-                <li class="a1"></li>
-                <li class="a1"></li>
-                <li class="a1"></li>
+            <ul id="detail">
+                <li id="a1"><span>age</span><span>job</span><span>databirth</span><span>code</span></li>
+                
+
             </ul>
-            <a onclick="showLFT(0)">TEST 0</a> <br/>
-            <a onclick="showLFT(2)">TEST 2</a> <br/>
+            <!-- <a onclick="showLFT(0)">TEST 0</a> <br/>
+            <a onclick="showLFT(2)">TEST 2</a> <br/> -->
         </div>
     </div>
 </body>
 <script>
-    const students = [{ firstName: "ali", lastName: "ghaderian", age: 34, dateBirth: "1987", code: "0032244455" },
-    { firstName: "amir", lastName: "ghaderian", age: 35, dateBirth: "1986", code: "0081125674" },
-    { firstName: "aida", lastName: "amiri", age: 20, dateBirth: "2001", code: "0032244455" },
-    { firstName: "houman", lastName: "ghaderian", age: 42, dateBirth: "1977", code: "0032244455" },
-    { firstName: "hani", lastName: "ghaderian", age: 47, dateBirth: "1972", code: "32488488493" }];
+    const students = [{ firstName: "ali", lastName: "ghaderian", age: 34, dateBirth: "1987", code: "0032244455", job: "disiner" },
+    { firstName: "amir", lastName: "ghaderian", age: 35, dateBirth: "1986", code: "0081125674", job: "front" },
+    { firstName: "aida", lastName: "amiri", age: 20, dateBirth: "2001", code: "0032244455", job: "Airline employee" },
+    { firstName: "houman", lastName: "ghaderian", age: 42, dateBirth: "1977", code: "0032244455", job: "CEO" },
+    { firstName: "hani", lastName: "ghaderian", age: 47, dateBirth: "1972", code: "32488488493", job: "teacher" }];
 
 
     for (i = 0; i < students.length; i++) {
         var tag = document.getElementById("name");
-        var tag2 = document.getElementById("lastName");
         var li = document.createElement("li");
-        var li2 = document.createElement("li");
         tag.appendChild(li);
-        tag2.appendChild(li2);
-        li.innerHTML = students[i].firstName;
-        li2.innerHTML = students[i].lastName;
-        li.setAttribute("onclick", 'showLFT(' +i+  ')');
-        li2.setAttribute("click", showLFT);
+        li.innerHTML = students[i].firstName + "  --  " + students[i].lastName;
+        li.setAttribute("onclick", 'showLFT(' + i + ')');
+
+
 
     }
 
 
 
     function showLFT(index) {
-       
+        var select=document.getElementById("detail");
+        var frontli = document.createElement("li");
+        var span = document.createElement("span");
+        frontli.className="a2";
+        select.appendChild(frontli);
+        frontli.appendChild(span);
+        span.innerHTML = students[index].age +   "    ----    "    + students[index].job +"     ----    " + students[index].dateBirth+"  ----   "+ students[index].code;
+        //span.innerHTML=students[index].age;
 
-        console.log(students[index])
-        
+
+
+
+
+
 
     }
 
@@ -129,9 +136,9 @@
         let Birth = [];
         for (j = 0; j < students.length; j++) {
             Birth.push(students[j].dateBirth);
-          
+
         }
-      return Birth;
+        return Birth;
     }
 
 </script>
