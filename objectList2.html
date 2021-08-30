@@ -61,10 +61,10 @@
             <span>
                 <h6 style="display: contents;">Name</h6>
             </span>
-            <ul id="name" onclick="showLFT()">
+            <ul id="name">
 
             </ul>
-            <ul id="lastName" onclick="showLFT()">
+            <ul id="lastName">
 
             </ul>
         </div>
@@ -104,22 +104,24 @@
         var li = document.createElement("li");
         var li2 = document.createElement("li");
         tag.appendChild(li);
+        li.className="add";
         tag2.appendChild(li2);
         li.innerHTML = students[i].firstName;
         li2.innerHTML = students[i].lastName;
-        li.setAttribute("click", showLFT);
-        li2.setAttribute("click", showLFT);
+        li.setAttribute("onClick", showLFT());
+        li2.setAttribute("onClick", showLFT());
 
     }
 
 
 
-    function showLFT() {
-        var select = document.getSelection();
-
-        var front = document.getElementsByClassName("a1");
+    function showLFT(index) {
         
+            var select = document.getElementsByClassName("add");
 
+            var front = document.getElementsByClassName("a1");
+            console.log(select)
+      
     }
 
 
@@ -127,9 +129,9 @@
         let Birth = [];
         for (j = 0; j < students.length; j++) {
             Birth.push(students[j].dateBirth);
-          
+
         }
-      return Birth;
+        return Birth;
     }
 
 </script>
