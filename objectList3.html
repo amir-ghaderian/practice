@@ -96,6 +96,7 @@
     const students = [{ firstName: "ali", lastName: "ghaderian", age: 34, dateBirth: "1987", code: "0032244455", job: "disiner" },
     { firstName: "amir", lastName: "ghaderian", age: 35, dateBirth: "1986", code: "0081125674", job: "front" },
     { firstName: "aida", lastName: "amiri", age: 20, dateBirth: "2001", code: "0032244455", job: "Airline employee" },
+    { firstName: "xxxx", lastName: "amiri", age: 20, dateBirth: "2001", code: "0032244455", job: "Airline employee" },
     { firstName: "houman", lastName: "ghaderian", age: 42, dateBirth: "1977", code: "0032244455", job: "CEO" },
     { firstName: "hani", lastName: "ghaderian", age: 47, dateBirth: "1972", code: "32488488493", job: "teacher" }];
 
@@ -132,13 +133,41 @@
     }
 
 
-    function amir() {
+    function amir(stds) {
         let Birth = [];
-        for (j = 0; j < students.length; j++) {
-            Birth.push(students[j].dateBirth);
+        for (j = 0; j < stds.length; j++) {
+            Birth.push(stds[j].dateBirth);
 
         }
         return Birth;
+    }
+
+
+    function amir2(stds) {
+        let birth = [];
+        for (j = 0; j < stds.length; j++) {
+
+            let newYear = stds[j].dateBirth
+
+
+            let yearExist  = false;
+            for (let k = 0; k < birth.length; k++) {
+
+                if (birth[k] === newYear) {
+                    yearExist = true;
+                }
+
+            }
+
+
+
+            if (yearExist === false) {
+                birth.push(stds[j].dateBirth);
+            }
+
+
+        }
+        return birth;
     }
 
 </script>
