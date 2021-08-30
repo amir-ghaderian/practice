@@ -84,7 +84,7 @@
             </span>
             <ul id="detail">
                 <li id="a1"><span>age</span><span>job</span><span>databirth</span><span>code</span></li>
-                
+
 
             </ul>
             <!-- <a onclick="showLFT(0)">TEST 0</a> <br/>
@@ -96,9 +96,8 @@
     const students = [{ firstName: "ali", lastName: "ghaderian", age: 34, dateBirth: "1987", code: "0032244455", job: "disiner" },
     { firstName: "amir", lastName: "ghaderian", age: 35, dateBirth: "1986", code: "0081125674", job: "front" },
     { firstName: "aida", lastName: "amiri", age: 20, dateBirth: "2001", code: "0032244455", job: "Airline employee" },
-    { firstName: "xxxx", lastName: "amiri", age: 20, dateBirth: "2001", code: "0032244455", job: "Airline employee" },
     { firstName: "houman", lastName: "ghaderian", age: 42, dateBirth: "1977", code: "0032244455", job: "CEO" },
-    { firstName: "hani", lastName: "ghaderian", age: 47, dateBirth: "1972", code: "32488488493", job: "teacher" }];
+    { firstName: "hani", lastName: "ghaderian", age: 47, dateBirth: "1977", code: "32488488493", job: "teacher" }];
 
 
     for (i = 0; i < students.length; i++) {
@@ -115,14 +114,14 @@
 
 
     function showLFT(index) {
-        var select=document.getElementById("detail");
+        var select = document.getElementById("detail");
         var frontli = document.createElement("li");
         var span = document.createElement("span");
-        frontli.className="a2";
+        frontli.className = "a2";
         select.appendChild(frontli);
         frontli.appendChild(span);
-        span.innerHTML = students[index].age +   "    ----    "    + students[index].job +"     ----    " + students[index].dateBirth+"  ----   "+ students[index].code;
-        //span.innerHTML=students[index].age;
+        span.innerHTML = students[index].age + "    ----    " + students[index].job + "     ----    " + students[index].dateBirth + "  ----   " + students[index].code;
+
 
 
 
@@ -132,43 +131,42 @@
 
     }
 
-
-    function amir(stds) {
-        let Birth = [];
-        for (j = 0; j < stds.length; j++) {
-            Birth.push(stds[j].dateBirth);
-
-        }
-        return Birth;
-    }
-
-
-    function amir2(stds) {
+//////very import
+    function amir() {
         let birth = [];
-        for (j = 0; j < stds.length; j++) {
-
-            let newYear = stds[j].dateBirth
-
-
-            let yearExist  = false;
-            for (let k = 0; k < birth.length; k++) {
-
-                if (birth[k] === newYear) {
-                    yearExist = true;
-                }
-
+        for (i = 0; i < students.length; i++) {
+            let newYear = students[i].dateBirth;
+            let yearEx = false;
+            for (k = 0; k < birth.length; k++) {
+           if(birth[k]===newYear){
+               yearEx=true;
+           }
+        }
+           if(yearEx===false){
+              birth.push(newYear);
+           
             }
-
-
-
-            if (yearExist === false) {
-                birth.push(stds[j].dateBirth);
-            }
-
-
         }
         return birth;
     }
+
+
+    function dosenot(arr, num) {
+        let len = arr.length;
+        let x = false;
+        for (i = 0; i < len; i++) {
+            x = arr[i];
+            if (x === num) {
+                return true; //tekrarii dare
+            }
+
+
+
+        }
+        return false;// tekrarii nadare
+
+    }
+
 
 </script>
 
