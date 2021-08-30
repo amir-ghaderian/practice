@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //get te strin array return number array 
+    function tamrin1(arr) {
+        let len = arr.length;
+        let arr2 = [];
+        let x = false;
+        let sum = 0;
+        for (i = 0; i < len; i++) {
+            let pars = parseInt(arr[i]);
+            if (Number.isNaN(pars)) {
+                arr[i] = x;
+            } else {
+                arr2.push(arr[i])
+            }
+        }
+
+        return arr2
+    }
+</script>
+
+</html>
