@@ -37,12 +37,23 @@
 
     function tamrin2(arr) {
         let len = arr.length;
-      
+
         arr2 = [];
         for (i = 0; i < len; i++) {
             if ([i] % 2 == 0) {
                 arr2.push(arr[i]);
             }
+        }
+        return arr2;
+    }
+
+    
+    ////first parmetr set index num parametr sec
+    function tamrin3(a, b) {
+        arr2 = [];
+        let pars = parseInt(a);
+        for (j = 0; j < pars; j++) {
+            arr2.push(b) * j;
         }
         return arr2;
     }
