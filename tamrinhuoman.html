@@ -14,16 +14,27 @@
 <script>
     //get te strin array return number array 
     function tamrin1(arr) {
-        let len = arr.length;
-        let arr2 = [];
-        let x = false;
 
-        for (i = 0; i < len; i++) {
-            let pars = parseInt(arr[i]);
-            if (Number.isNaN(pars)) {
-                arr[i] = x;
-            } else {
-                arr2.push(arr[i])
+        let arr2 = [];
+
+
+        if (arr) {
+            let len = arr.length;
+        
+            let x = false;
+
+            for (i = 0; i < len; i++) {
+                let pars = parseInt(arr[i]);
+                if (Number.isNaN(pars)) {
+                    arr[i] = x;
+                } else {
+                    arr2.push(pars)
+                }
+
+
+                // if (!Number.isNaN(pars)) {
+                //     arr2.push(arr[i])
+                // } 
             }
         }
 
@@ -40,7 +51,7 @@
 
         arr2 = [];
         for (i = 0; i < len; i++) {
-            if ([i] % 2 == 0) {
+            if (i % 2 == 0) {
                 arr2.push(arr[i]);
             }
         }
@@ -53,7 +64,7 @@
         arr2 = [];
         let pars = parseInt(a);
         for (j = 0; j < pars; j++) {
-            arr2.push(b) * j;
+            arr2.push(b);
         }
         return arr2;
     }
