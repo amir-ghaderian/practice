@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fronDetail</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        
+        display: flex;
+
+    }
+
+    .sidebar {
+        width: 40%;
+        height: 100vh;
+        background-color: #eee;
+        border:1px solid black ;
+        margin-right: .3em;
+        border-radius: 1em;
+
+    }
+
+    ul li {
+        list-style: none;
+        margin: .5em;
+       cursor: pointer;
+        width: 10em;
+    }
+
+    .front {
+
+        background-color: #eee;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        border:1px solid black ;
+        border-radius: 1em;
+        padding-top: 3em;
+    }
+
+    .a1 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .a1 span {
+        line-height: 2.2em;
+    }
+
+    .a1 input {
+        width: 20em;
+        margin: 0.5em;
+
+    }
+</style>
+
+<body>
+    <div class="sidebar">
+        <ul id="name">
+            <li class="p1" style="font-weight: bolder; text-align: center;">students Name</li>
+        </ul>
+    </div>
+    <div class="front">
+        <div class="a1">
+            <span>firstName</span>
+            <span>lastName</span>
+            <span>job</span>
+            <span>year of birth</span>
+            <span>code</span>
+        </div>
+        <div class="a1">
+            <input type="text" placeholder="" id="fname" value="">
+            <input type="text" placeholder="" id="lname">
+            <input type="text" placeholder="" id="job">
+            <input type="text" placeholder="" id="dateBirth">
+            <input type="text" placeholder="" id="code">
+        </div>
+
+    </div>
+</body>
+<script>
+    const students = [{ firstName: "ali", lastName: "ghaderian", age: 34, dateBirth: "1987", code: "0032244455", job: "disiner" },
+    { firstName: "amir", lastName: "ghaderian", age: 35, dateBirth: "1986", code: "0081125674", job: "front" },
+    { firstName: "aida", lastName: "amiri", age: 20, dateBirth: "2001", code: "0032244455", job: "Airline employee" },
+    { firstName: "houman", lastName: "ghaderian", age: 42, dateBirth: "1977", code: "0032244455", job: "CEO" },
+    { firstName: "hani", lastName: "ghaderian", age: 47, dateBirth: "1977", code: "32488488493", job: "teacher" }];
+
+
+
+
+
+    for (j = 0; j < students.length; j++) {
+        var ulName = document.getElementById("name");
+        var liSet = document.createElement("li");
+        liSet.className = "p1";
+        ulName.appendChild(liSet);
+        liSet.innerHTML = students[j].firstName + " __ " + students[j].lastName;
+    
+    }
+    
+</script>
+
+</html>
