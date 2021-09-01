@@ -11,7 +11,7 @@
     body {
         margin: 0;
         padding: 0;
-        
+
         display: flex;
 
     }
@@ -20,7 +20,7 @@
         width: 40%;
         height: 100vh;
         background-color: #eee;
-        border:1px solid black ;
+        border: 1px solid black;
         margin-right: .3em;
         border-radius: 1em;
 
@@ -29,7 +29,7 @@
     ul li {
         list-style: none;
         margin: .5em;
-       cursor: pointer;
+        cursor: pointer;
         width: 10em;
     }
 
@@ -39,7 +39,7 @@
         width: 100%;
         display: flex;
         justify-content: center;
-        border:1px solid black ;
+        border: 1px solid black;
         border-radius: 1em;
         padding-top: 3em;
     }
@@ -75,12 +75,12 @@
             <span>code</span>
         </div>
         <div class="a1">
-            <input type="text" placeholder="" id="fname" value="Asghar">
-            <input type="text" placeholder="" id="lname" value="arabi">
-            <input type="text" placeholder="" id="job" value="builder">
-            <input type="text" placeholder="" id="dateBirth" value="1957">
-            <input type="text" placeholder="" id="code" value="0987654322">
-            <input type="submit" onclick="loadStudZero()">
+            <input type="text" placeholder="" id="fname" value="">
+            <input type="text" placeholder="" id="lname" value="">
+            <input type="text" placeholder="" id="job" value="">
+            <input type="text" placeholder="" id="dateBirth" value="">
+            <input type="text" placeholder="" id="code" value="">
+        
         </div>
 
     </div>
@@ -102,16 +102,17 @@
         liSet.className = "p1";
         ulName.appendChild(liSet);
         liSet.innerHTML = students[j].firstName + " __ " + students[j].lastName;
-    
+        liSet.setAttribute("onClick",'loadStud(' + j + ')')
+
     }
-    function loadStudZero() {
-        document.getElementById("fname").value=students[0].firstName;
-        document.getElementById("lname").value=students[0].lastName;
-        document.getElementById("job").value=students[0].job;
-        document.getElementById("dateBirth").value=students[0].dateBirth;
-        document.getElementById("code").value=students[0].code;
+    function loadStud(index) {
+        document.getElementById("fname").value = students[index].firstName;
+        document.getElementById("lname").value = students[index].lastName;
+        document.getElementById("job").value = students[index].job;
+        document.getElementById("dateBirth").value = students[index].dateBirth;
+        document.getElementById("code").value = students[index].code;
     }
-    
+
 </script>
 
 </html>
