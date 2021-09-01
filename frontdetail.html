@@ -80,6 +80,7 @@
             <input type="text" placeholder="" id="job" value="builder">
             <input type="text" placeholder="" id="dateBirth" value="1957">
             <input type="text" placeholder="" id="code" value="0987654322">
+            <input type="submit" onclick="loadStudZero()">
         </div>
 
     </div>
@@ -102,6 +103,13 @@
         ulName.appendChild(liSet);
         liSet.innerHTML = students[j].firstName + " __ " + students[j].lastName;
     
+    }
+    function loadStudZero() {
+        document.getElementById("fname").value=students[0].firstName;
+        document.getElementById("lname").value=students[0].lastName;
+        document.getElementById("job").value=students[0].job;
+        document.getElementById("dateBirth").value=students[0].dateBirth;
+        document.getElementById("code").value=students[0].code;
     }
     
 </script>
