@@ -58,12 +58,17 @@
         margin: 0.5em;
 
     }
+
+    .p1 {
+        border: 1px solid red;
+
+    }
 </style>
 
 <body>
     <div class="sidebar">
         <ul id="name">
-            <li class="p1" style="font-weight: bolder; text-align: center;">students Name</li>
+            <li style="font-weight: bolder; text-align: center;">students Name</li>
         </ul>
     </div>
     <div class="front">
@@ -80,7 +85,7 @@
             <input type="text" placeholder="" id="job" value="">
             <input type="text" placeholder="" id="dateBirth" value="">
             <input type="text" placeholder="" id="code" value="">
-        
+
         </div>
 
     </div>
@@ -95,22 +100,35 @@
 
 
 
-
+   
     for (j = 0; j < students.length; j++) {
         var ulName = document.getElementById("name");
         var liSet = document.createElement("li");
-        liSet.className = "p1";
+        liSet.classList = "p1";
         ulName.appendChild(liSet);
         liSet.innerHTML = students[j].firstName + " __ " + students[j].lastName;
-        liSet.setAttribute("onClick",'loadStud(' + j + ')')
-
+        liSet.setAttribute("onClick", 'loadStud(' + j + ')');
+        liSet.setAttribute("id", 'lap(' + j + ')');
     }
+
+
     function loadStud(index) {
+        for (i = 0; i < students.length; i++) {
+            var b1 = document.getElementById('lap(' + i + ')');
+            b1.classList.remove("p1");
+
+
+
+        }
+        b1.classList.add("p1");
         document.getElementById("fname").value = students[index].firstName;
         document.getElementById("lname").value = students[index].lastName;
         document.getElementById("job").value = students[index].job;
         document.getElementById("dateBirth").value = students[index].dateBirth;
         document.getElementById("code").value = students[index].code;
+
+
+
     }
 
 </script>
