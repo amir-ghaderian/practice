@@ -61,7 +61,21 @@
 
     .p1 {
         border: 1px solid red;
+        border-radius: .3em;
+        background-color: #e9f3f3;
 
+    }
+
+    #l2 {
+        width: 12em;
+        height: 1.2em;
+        background-color: white;
+        border: 1px solid black;
+    }
+
+    #les {
+        display: flex;
+        align-items: center;
     }
 </style>
 
@@ -85,17 +99,19 @@
             <input type="text" placeholder="" id="job" value="">
             <input type="text" placeholder="" id="dateBirth" value="">
             <input type="text" placeholder="" id="code" value="">
-
+            <ul id="les">
+                lesson <li id="l2"></li>
+            </ul>
         </div>
 
     </div>
 </body>
 <script>
-    const students = [{ firstName: "ali", lastName: "ghaderian", age: 34, dateBirth: "1987", code: "0032244455", job: "disiner" },
-    { firstName: "amir", lastName: "ghaderian", age: 35, dateBirth: "1986", code: "0081125674", job: "front" },
-    { firstName: "aida", lastName: "amiri", age: 20, dateBirth: "2001", code: "0032244455", job: "Airline employee" },
-    { firstName: "houman", lastName: "ghaderian", age: 42, dateBirth: "1977", code: "0032244455", job: "CEO" },
-    { firstName: "hani", lastName: "ghaderian", age: 47, dateBirth: "1977", code: "32488488493", job: "teacher" }];
+    const students = [{ firstName: "ali", lastName: "ghaderian", age: 34, dateBirth: "1987", code: "0032244455", job: "disiner", lesson: ["HTML", "CSS"] },
+    { firstName: "amir", lastName: "ghaderian", age: 35, dateBirth: "1986", code: "0081125674", job: "front", lesson: [" HTML ", " CSS ", " JS ", " GIT "] },
+    { firstName: "aida", lastName: "amiri", age: 20, dateBirth: "2001", code: "0032244455", job: "Airline employee", lesson: ["HTML", "CSS", "JS"] },
+    { firstName: "houman", lastName: "ghaderian", age: 42, dateBirth: "1977", code: "0032244455", job: "CEO", lesson: ["PHP IT"] },
+    { firstName: "hani", lastName: "ghaderian", age: 47, dateBirth: "1977", code: "32488488493", job: "teacher", lesson: ["language English"] }];
 
 
 
@@ -105,6 +121,7 @@
         var ulName = document.getElementById("name");
         var liSet = document.createElement("li");
 
+
         ulName.appendChild(liSet);
         liSet.innerHTML = students[j].firstName + " __ " + students[j].lastName;
         liSet.setAttribute("onClick", 'loadStud(' + j + ')');
@@ -113,19 +130,20 @@
 
 
     function loadStud(index) {
-         for (i = 0; i < students.length; i++) {
+        for (i = 0; i < students.length; i++) {
 
-             document.getElementById('lap' + i + ' ').classList.remove("p1");
+            document.getElementById('lap' + i + ' ').classList.remove("p1");
 
 
         }
-        
+
         document.getElementById('lap' + index + ' ').classList.add("p1");
         document.getElementById("fname").value = students[index].firstName;
         document.getElementById("lname").value = students[index].lastName;
         document.getElementById("job").value = students[index].job;
         document.getElementById("dateBirth").value = students[index].dateBirth;
         document.getElementById("code").value = students[index].code;
+        document.getElementById("l2").innerHTML = students[index].lesson;
 
 
 
