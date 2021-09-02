@@ -100,27 +100,27 @@
 
 
 
-   
+
     for (j = 0; j < students.length; j++) {
         var ulName = document.getElementById("name");
         var liSet = document.createElement("li");
-        liSet.classList = "p1";
+
         ulName.appendChild(liSet);
         liSet.innerHTML = students[j].firstName + " __ " + students[j].lastName;
         liSet.setAttribute("onClick", 'loadStud(' + j + ')');
-        liSet.setAttribute("id", 'lap(' + j + ')');
+        liSet.setAttribute("id", 'lap' + j + ' ');
     }
 
 
     function loadStud(index) {
-        for (i = 0; i < students.length; i++) {
-            var b1 = document.getElementById('lap(' + i + ')');
-            b1.classList.remove("p1");
+         for (i = 0; i < students.length; i++) {
 
+             document.getElementById('lap' + i + ' ').classList.remove("p1");
 
 
         }
-        b1.classList.add("p1");
+        
+        document.getElementById('lap' + index + ' ').classList.add("p1");
         document.getElementById("fname").value = students[index].firstName;
         document.getElementById("lname").value = students[index].lastName;
         document.getElementById("job").value = students[index].job;
