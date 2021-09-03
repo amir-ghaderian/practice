@@ -99,9 +99,7 @@
             <input type="text" placeholder="" id="job" value="">
             <input type="text" placeholder="" id="dateBirth" value="">
             <input type="text" placeholder="" id="code" value="">
-            <ul id="les">
-                lesson <li id="l2"></li>
-            </ul>
+            <div id="lesson"></div>
         </div>
 
     </div>
@@ -143,7 +141,18 @@
         document.getElementById("job").value = students[index].job;
         document.getElementById("dateBirth").value = students[index].dateBirth;
         document.getElementById("code").value = students[index].code;
-        document.getElementById("l2").innerHTML = students[index].lesson;
+
+
+        for(k=0;k<students[index].lesson.length;k++){
+
+var lesDiv = document.getElementById("lesson");
+        var tagDiv = document.createElement("div");
+        tagDiv.className="t1";
+        lesDiv.appendChild(tagDiv);
+        tagDiv.innerHTML=students[index].lesson[k];
+       
+        }
+        
 
 
 
