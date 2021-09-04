@@ -77,6 +77,11 @@
         display: flex;
         align-items: center;
     }
+
+    .t1 {
+        background-color: red;
+        margin: .5em;
+    }
 </style>
 
 <body>
@@ -105,11 +110,11 @@
     </div>
 </body>
 <script>
-    const students = [{ firstName: "ali", lastName: "ghaderian", age: 34, dateBirth: "1987", code: "0032244455", job: "disiner", lesson: ["HTML", "CSS"] },
-    { firstName: "amir", lastName: "ghaderian", age: 35, dateBirth: "1986", code: "0081125674", job: "front", lesson: [" HTML ", " CSS ", " JS ", " GIT "] },
-    { firstName: "aida", lastName: "amiri", age: 20, dateBirth: "2001", code: "0032244455", job: "Airline employee", lesson: ["HTML", "CSS", "JS"] },
-    { firstName: "houman", lastName: "ghaderian", age: 42, dateBirth: "1977", code: "0032244455", job: "CEO", lesson: ["PHP IT"] },
-    { firstName: "hani", lastName: "ghaderian", age: 47, dateBirth: "1977", code: "32488488493", job: "teacher", lesson: ["language English"] }];
+    const students = [{ firstName: "ali", lastName: "ghaderian", age: 34, dateBirth: "1987", code: "0032244455", job: "disiner", lesson: [["HTML"], ["CSS"]] },
+    { firstName: "amir", lastName: "ghaderian", age: 35, dateBirth: "1986", code: "0081125674", job: "front", lesson: [[" HTML "], [" CSS "], [" JS "], [" GIT "]] },
+    { firstName: "aida", lastName: "amiri", age: 20, dateBirth: "2001", code: "0032244455", job: "Airline employee", lesson: [["HTML"], ["CSS"], ["JS"]] },
+    { firstName: "houman", lastName: "ghaderian", age: 42, dateBirth: "1977", code: "0032244455", job: "CEO", lesson: [["PHP IT"], ["ul"]] },
+    { firstName: "hani", lastName: "ghaderian", age: 47, dateBirth: "1977", code: "32488488493", job: "teacher", lesson: [["language"], ["English"]] }];
 
 
 
@@ -128,6 +133,7 @@
 
 
     function loadStud(index) {
+
         for (i = 0; i < students.length; i++) {
 
             document.getElementById('lap' + i + ' ').classList.remove("p1");
@@ -142,21 +148,26 @@
         document.getElementById("dateBirth").value = students[index].dateBirth;
         document.getElementById("code").value = students[index].code;
 
+        var lesDiv = document.getElementById("lesson");
+        for (k = 0; k < students[index].lesson.length; k++) {
 
-        for(k=0;k<students[index].lesson.length;k++){
-
-var lesDiv = document.getElementById("lesson");
-        var tagDiv = document.createElement("div");
-        tagDiv.className="t1";
-        lesDiv.appendChild(tagDiv);
-        tagDiv.innerHTML=students[index].lesson[k];
        
+            
+                var tagDiv = document.createElement("span");
+                lesDiv.appendChild(tagDiv);
+                tagDiv.className = "t1";
+                document.getElementsByClassName("t1")[k].innerHTML=``;                
+                
+                
+                tagDiv.innerHTML = students[index].lesson[k];
+
+
+            }
         }
-        
+    
 
 
 
-    }
 
 </script>
 
