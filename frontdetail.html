@@ -13,7 +13,22 @@
         padding: 0;
 
         display: flex;
+        position: relative;
 
+    }
+
+    #module {
+        width: 100vw;
+        height: 100vh;
+        background-color: black;
+        position: absolute;
+        opacity: 55%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+        border-radius: 1em;
+        padding-top: 3em;
     }
 
     .sidebar {
@@ -47,6 +62,23 @@
     .a1 {
         display: flex;
         flex-direction: column;
+    }
+
+    .a2 {
+        display: flex;
+        background-color: whitesmoke;
+        flex-direction: column;
+        padding: 3em;
+    }
+
+    .a2 span {
+        line-height: 2.2em;
+    }
+
+    .a2 input {
+        width: 20em;
+        margin: 0.52em;
+
     }
 
     .a1 span {
@@ -84,9 +116,43 @@
         padding: 0.3em;
         border-radius: 0.5em;
     }
+
+    #close {
+        background-color:red;
+      
+        right: 1em;
+        position: absolute;
+        top: 0.5em;
+    }
+    #insert{
+      background-color: red;
+      padding: 1em;
+      position: absolute;
+      bottom: 12em;
+      width: 10em;
+      border-radius: 1em;
+    }
 </style>
 
 <body>
+    <div id="module">
+        <button id="close" onclick="closeModule()">X</button>
+        <div class="a2">
+            <span>firstName</span>
+            <span>lastName</span>
+            <span>job</span>
+            <span>year of birth</span>
+            <span>code</span>
+        </div>
+        <div class="a2">
+            <input type="text" value="">
+            <input type="text" value="">
+            <input type="text" value="">
+            <input type="text" value="">
+            <input type="text" value="">
+        </div>
+        <button id="insert">INSERT</button>
+    </div>
     <div class="sidebar">
         <ul id="name">
             <li style="font-weight: bolder; text-align: center;">students Name</li>
@@ -150,41 +216,26 @@
         document.getElementById("code").value = students[index].code;
 
         var lesDiv = document.getElementById("lesson");
-        ////////////////////////
-        ////////////////////////
-        ////////////////////////
-        ////////////////////////
-        ////////////////////////
+
         lesDiv.innerHTML = '';
-        ////////////////////////
-        ////////////////////////
-        ////////////////////////
-        ////////////////////////
-        ////////////////////////
-        ////////////////////////
-        ////////////////////////
 
         for (k = 0; k < students[index].lesson.length; k++) {
 
-       
+
             let span = document.createElement("span");
             span.className = "t1";
             span.innerHTML = students[index].lesson[k]
             lesDiv.appendChild(span);
 
-            
-            // var tagDiv = document.createElement("span");
-            // lesDiv.appendChild(tagDiv);
-            // tagDiv.className = "t1";
-            // document.getElementsByClassName("t1")[k].innerHTML=``;                
-            
-            
-            // tagDiv.innerHTML = students[index].lesson[k];
 
 
-            }
+
         }
-    
+    }
+    function closeModule(){
+    document.getElementById("module").style.display="none";        
+    }
+
 
 
 
