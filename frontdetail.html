@@ -145,15 +145,16 @@
             <span>job</span>
             <span>year of birth</span>
             <span>code</span>
+           
         </div>
         <div class="a2" style="position: relative;border-radius: 0 .5em .5em 0; " >
             <button id="close" onclick="closeModal()">X</button>
-            <input type="text" value="">
-            <input type="text" value="">
-            <input type="text" value="">
-            <input type="text" value="">
-            <input type="text" value="">
-            <button id="insert">INSERT</button>
+            <input type="text" id="fnModal" value="">
+            <input type="text" id="lnModal" value="">
+            <input type="text" id="jModal" value="">
+            <input type="number" id="ybModal" value="">
+            <input type="number" id="coModal" value="">
+            <button id="insert" onclick="addStudent()">INSERT</button>
         </div>
        
     </div>
@@ -161,6 +162,8 @@
         <ul id="name">
             <li style="font-weight: bolder; text-align: center;">students Name</li>
         </ul>
+        <button id="openModal" onclick="openModal()">add new stud</button>
+
     </div>
     <div class="front">
         <div class="a1">
@@ -238,6 +241,21 @@
     }
     function closeModal(){
     document.getElementById("modal").style.display="none";        
+    }
+    function openModal() {
+        document.getElementById("modal").style.display="";
+    }
+    function addStudent(){
+        //1:
+        // var ulName = document.getElementById("name");
+        // var liSet = document.createElement("li");
+        // ulName.appendChild(liSet);
+        // liSet.innerHTML=document.getElementById("fnModal").value +"--"+ document.getElementById("lnModal").value;
+
+//2:
+       /// students.push(firstName= document.getElementById("fnModal").value);
+   
+
     }
 
 
