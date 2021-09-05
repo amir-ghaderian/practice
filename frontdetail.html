@@ -17,7 +17,7 @@
 
     }
 
-    #module {
+    #modal {
         width: 100vw;
         height: 100vh;
         background-color: black;
@@ -27,7 +27,7 @@
         justify-content: center;
         align-items: center;
         border: 1px solid black;
-        border-radius: 1em;
+       
         padding-top: 3em;
     }
 
@@ -69,6 +69,7 @@
         background-color: whitesmoke;
         flex-direction: column;
         padding: 3em;
+       
     }
 
     .a2 span {
@@ -126,32 +127,35 @@
     }
     #insert{
       background-color: red;
-      padding: 1em;
+      padding: .5em;
+      margin-bottom: .5em;
       position: absolute;
-      bottom: 12em;
+    bottom: 0;
       width: 10em;
       border-radius: 1em;
     }
 </style>
 
 <body>
-    <div id="module">
-        <button id="close" onclick="closeModule()">X</button>
-        <div class="a2">
+    <div id="modal">
+        <div class="a2" style="border-radius: .5em 0 0 .5em ;">
+            
             <span>firstName</span>
             <span>lastName</span>
             <span>job</span>
             <span>year of birth</span>
             <span>code</span>
         </div>
-        <div class="a2">
+        <div class="a2" style="position: relative;border-radius: 0 .5em .5em 0; " >
+            <button id="close" onclick="closeModal()">X</button>
             <input type="text" value="">
             <input type="text" value="">
             <input type="text" value="">
             <input type="text" value="">
             <input type="text" value="">
+            <button id="insert">INSERT</button>
         </div>
-        <button id="insert">INSERT</button>
+       
     </div>
     <div class="sidebar">
         <ul id="name">
@@ -232,8 +236,8 @@
 
         }
     }
-    function closeModule(){
-    document.getElementById("module").style.display="none";        
+    function closeModal(){
+    document.getElementById("modal").style.display="none";        
     }
 
 
