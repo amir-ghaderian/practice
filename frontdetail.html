@@ -27,7 +27,7 @@
         justify-content: center;
         align-items: center;
         border: 1px solid black;
-       
+
         padding-top: 3em;
     }
 
@@ -69,7 +69,7 @@
         background-color: whitesmoke;
         flex-direction: column;
         padding: 3em;
-       
+
     }
 
     .a2 span {
@@ -119,35 +119,36 @@
     }
 
     #close {
-        background-color:red;
-      
+        background-color: red;
+
         right: 1em;
         position: absolute;
         top: 0.5em;
     }
-    #insert{
-      background-color: red;
-      padding: .5em;
-      margin-bottom: .5em;
-      position: absolute;
-    bottom: 0;
-      width: 10em;
-      border-radius: 1em;
+
+    #insert {
+        background-color: red;
+        padding: .5em;
+        margin-bottom: .5em;
+        position: absolute;
+        bottom: 0;
+        width: 10em;
+        border-radius: 1em;
     }
 </style>
 
 <body>
     <div id="modal">
+        <div class="center" style="display: flex;">
         <div class="a2" style="border-radius: .5em 0 0 .5em ;">
-            
             <span>firstName</span>
             <span>lastName</span>
             <span>job</span>
             <span>year of birth</span>
             <span>code</span>
-           
+
         </div>
-        <div class="a2" style="position: relative;border-radius: 0 .5em .5em 0; " >
+        <div class="a2" style="position: relative;border-radius: 0 .5em .5em 0; ">
             <button id="close" onclick="closeModal()">X</button>
             <input type="text" id="fnModal" value="">
             <input type="text" id="lnModal" value="">
@@ -156,7 +157,7 @@
             <input type="number" id="coModal" value="">
             <button id="insert" onclick="addStudent()">INSERT</button>
         </div>
-       
+    </div>
     </div>
     <div class="sidebar">
         <ul id="name">
@@ -186,7 +187,7 @@
 </body>
 <script>
 
-    const students = [{ firstName: "ali", lastName: "ghaderian", age: 34, dateBirth: "1987", code: "0032244455", job: "disiner", lesson: ["HTML", "CSS"] },
+    var students = [{ firstName: "ali", lastName: "ghaderian", age: 34, dateBirth: "1987", code: "0032244455", job: "disiner", lesson: ["HTML", "CSS"] },
     { firstName: "amir", lastName: "ghaderian", age: 35, dateBirth: "1986", code: "0081125674", job: "front", lesson: ["HTML", "CSS", "JS", "GIT"] },
     { firstName: "aida", lastName: "amiri", age: 20, dateBirth: "2001", code: "0032244455", job: "Airline employee", lesson: ["HTML", "CSS", "JS"] },
     { firstName: "houman", lastName: "ghaderian", age: 42, dateBirth: "1977", code: "0032244455", job: "CEO", lesson: ["PHP IT"] },
@@ -221,7 +222,7 @@
         document.getElementById("job").value = students[index].job;
         document.getElementById("dateBirth").value = students[index].dateBirth;
         document.getElementById("code").value = students[index].code;
-
+        
         var lesDiv = document.getElementById("lesson");
 
         lesDiv.innerHTML = '';
@@ -239,23 +240,26 @@
 
         }
     }
-    function closeModal(){
-    document.getElementById("modal").style.display="none";        
+
+
+    function addStudent() {
+        closeModal();
+        let family = document.getElementById("lnModal").value;
+        let name = document.getElementById("fnModal").value;
+        var ulName = document.getElementById("name");
+        var liSet = document.createElement("li");
+        ulName.appendChild(liSet);
+        liSet.innerHTML = name + "--" + family;
+        liSet.setAttribute("onClick", 'loadStud(' + j + ')');
+        liSet.setAttribute("id", 'lap' + j + ' ');
+
+    }
+
+    function closeModal() {
+        document.getElementById("modal").style.display = "none";
     }
     function openModal() {
-        document.getElementById("modal").style.display="";
-    }
-    function addStudent(){
-        //1:
-        // var ulName = document.getElementById("name");
-        // var liSet = document.createElement("li");
-        // ulName.appendChild(liSet);
-        // liSet.innerHTML=document.getElementById("fnModal").value +"--"+ document.getElementById("lnModal").value;
-
-//2:
-       /// students.push(firstName= document.getElementById("fnModal").value);
-   
-
+        document.getElementById("modal").style.display = "";
     }
 
 
