@@ -192,18 +192,19 @@
     { firstName: "aida", lastName: "amiri", age: 20, dateBirth: "2001", code: "0032244455", job: "Airline employee", lesson: ["HTML", "CSS", "JS"] },
     { firstName: "houman", lastName: "ghaderian", age: 42, dateBirth: "1977", code: "0032244455", job: "CEO", lesson: ["PHP IT"] },
     { firstName: "hani", lastName: "ghaderian", age: 47, dateBirth: "1977", code: "32488488493", job: "teacher", lesson: ["language English"] }];
+    loadstudents()
+    function loadstudents() {
+
+        for (j = 0; j < students.length; j++) {
+            var ulName = document.getElementById("name");
+            var liSet = document.createElement("li");
 
 
-
-    for (j = 0; j < students.length; j++) {
-        var ulName = document.getElementById("name");
-        var liSet = document.createElement("li");
-
-
-        ulName.appendChild(liSet);
-        liSet.innerHTML = students[j].firstName + " __ " + students[j].lastName;
-        liSet.setAttribute("onClick", 'loadStud(' + j + ')');
-        liSet.setAttribute("id", 'lap' + j + ' ');
+            ulName.appendChild(liSet);
+            liSet.innerHTML = students[j].firstName + " __ " + students[j].lastName;
+            liSet.setAttribute("onClick", 'loadStud(' + j + ')');
+            liSet.setAttribute("id", 'lap' + j + ' ');
+        }
     }
 
 
@@ -252,19 +253,8 @@
         let yearM = document.getElementById("ybModal").value
         let codM = document.getElementById("coModal").value;
         ///// set in li
-        var ulName = document.getElementById("name");
-        var liSet = document.createElement("li");
-        ulName.appendChild(liSet);
-        liSet.innerHTML = name + "--" + family;
-        ////vlue push to obj
-        students.push({ firstName: name });
-        students.push({ lastName: family });
-        students.push({ job: jobM });
-        students.push({ dateBirth: yearM });
-        students.push({ code: codM });
-
-
-
+        students.push({ firstName: name, lastName: family, job: jobM, dateBirth: yearM, code: codM });
+        loadstudents()
     }
 
     function closeModal() {
