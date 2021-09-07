@@ -140,24 +140,24 @@
 <body>
     <div id="modal">
         <div class="center" style="display: flex;">
-        <div class="a2" style="border-radius: .5em 0 0 .5em ;">
-            <span>firstName</span>
-            <span>lastName</span>
-            <span>job</span>
-            <span>year of birth</span>
-            <span>code</span>
+            <div class="a2" style="border-radius: .5em 0 0 .5em ;">
+                <span>firstName</span>
+                <span>lastName</span>
+                <span>job</span>
+                <span>year of birth</span>
+                <span>code</span>
 
+            </div>
+            <div class="a2" style="position: relative;border-radius: 0 .5em .5em 0; ">
+                <button id="close" onclick="closeModal()">X</button>
+                <input type="text" id="fnModal" value="">
+                <input type="text" id="lnModal" value="">
+                <input type="text" id="jModal" value="">
+                <input type="number" id="ybModal" value="">
+                <input type="number" id="coModal" value="">
+                <button id="insert" onclick="addStudent()">INSERT</button>
+            </div>
         </div>
-        <div class="a2" style="position: relative;border-radius: 0 .5em .5em 0; ">
-            <button id="close" onclick="closeModal()">X</button>
-            <input type="text" id="fnModal" value="">
-            <input type="text" id="lnModal" value="">
-            <input type="text" id="jModal" value="">
-            <input type="number" id="ybModal" value="">
-            <input type="number" id="coModal" value="">
-            <button id="insert" onclick="addStudent()">INSERT</button>
-        </div>
-    </div>
     </div>
     <div class="sidebar">
         <ul id="name">
@@ -222,7 +222,7 @@
         document.getElementById("job").value = students[index].job;
         document.getElementById("dateBirth").value = students[index].dateBirth;
         document.getElementById("code").value = students[index].code;
-        
+
         var lesDiv = document.getElementById("lesson");
 
         lesDiv.innerHTML = '';
@@ -244,14 +244,26 @@
 
     function addStudent() {
         closeModal();
+
+        //get value in modal
         let family = document.getElementById("lnModal").value;
         let name = document.getElementById("fnModal").value;
+        let jobM = document.getElementById("jModal").value;
+        let yearM = document.getElementById("ybModal").value
+        let codM = document.getElementById("coModal").value;
+        ///// set in li
         var ulName = document.getElementById("name");
         var liSet = document.createElement("li");
         ulName.appendChild(liSet);
         liSet.innerHTML = name + "--" + family;
-        liSet.setAttribute("onClick", 'loadStud(' + j + ')');
-        liSet.setAttribute("id", 'lap' + j + ' ');
+        ////vlue push to obj
+        students.push({ firstName: name });
+        students.push({ lastName: family });
+        students.push({ job: jobM });
+        students.push({ dateBirth: yearM });
+        students.push({ code: codM });
+
+
 
     }
 
