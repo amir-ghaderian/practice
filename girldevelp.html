@@ -18,13 +18,47 @@
     let age = year - birh;
     ////
 
-    function convetCelsius(input){
+    function convetCelsius(input) {
         var celsius = (32 - input) * 5 / 9;
         var faren = (input * 9) / 5 + 32;
         console.log(celsius);
     }
-    
-    
+    ////fortune
+    function tellFortune(inputs) {
+        let a = inputs[0];
+        let b = inputs[1];
+        let c = inputs[2];
+        let d = inputs[3];
+        let fortune = inputs[0] + " and " + inputs[1] + "  marrid in " + inputs[2] + "  and we have   " + inputs[3] + "   chaildren  .  "
+        console.log(fortune);
+    }
+    ////the calcuter
+    function squareNumber() {
+        let sqr = arguments[0] * arguments[0];
+        // console.log("the " + sqr + " of squaring the number " + arguments[0]);
+        return sqr;
+    }
+    function halfNumber() {
+        let half = arguments[0] / 2;
+        console.log("Half of " + arguments[0] + " is " + half);
+        return half;
+    }
+    function percentOf() {
+        let percet = (arguments[0] / arguments[1]) * 100;
+        console.log(arguments[0] + " is " + percet + "%" + " of" + arguments[1]);
+        return percet;
+    }
+    function areaOfCircle(input) {
+        let areaC = Math.PI * squareNumber(input);
+        console.log("The area of circle with radius  " + input + "  is  " + areaC);
+        return areaC;
+    }
+    function doCrazyStuff(input) {
+        var half = halfNumber(input);
+        var squr = squareNumber(half);
+        var area = areaOfCircle(squr);
+        var result = percentOf(squr, area);
+    }
 </script>
 
 </html>
