@@ -7,9 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
+<style>
+    .listitem{
+        color: red;
+    }
+</style>
 <body>
+    <h1>About Me</h1>
 
+    <ul>
+      <li>Nickname:
+        <span id="nickname"></span>
+      </li>
+      <li>Favorites:
+        <span id="favorites"></span>
+      </li>
+      <li>Hometown:
+        <span id="hometown"></span>
+      </li>
+     </ul>
 </body>
 <script>
     var toDay = new Date;
@@ -80,16 +96,40 @@
             }
         }
     }
-///reading list
-function read(){
-var book=[
-    {author:"Franz Kafka",title:"maskh"},
-    {author:"Jules Verne",title:"Twenty Thousand Leagues Under the Seas"},
-    {author:"e.fassih",title:"darkhangah"},
-    {author:"Leo Tolstoy",title:""},
-    {author:"Victor Hugo",title:""}
-]
+    ///reading list
+    
+        var books = [
+            { author: "Franz Kafka", title: "maskh", alreadyRead: false },
+            { author: "Jules Verne", title: "Twenty Thousand Leagues Under the Seas", alreadyRead: true },
+            { author: "e.fassih", title: "darkhangah", alreadyRead: false },
+            { author: "Leo Tolstoy", title: "batman" },
+            { author: "Victor Hugo", title: "don ke shuot", alreadyRead: false }
+        ];
+        for (i = 0; i < books.length; i++) {
+            var book = books[i];
+            var bookInfo = book.title + " by" + book.author;
+            if (book.alreadyRead) {
+                console.log("you read" + bookInfo);
+            } else {
+                console.log("You did not read" + bookInfo);
+            
+        }
+    }
+////About Me
+
+document.getElementsByTagName("body")[0].style.fontFamily="Arial, sans-serif";
+
+document.getElementById("nickname").innerHTML="amir ghaderian";
+document.getElementById("favorites").innerHTML="teravel";
+document.getElementById("hometown").innerHTML="sheykh abad";
+for(p=0;p<document.getElementsByTagName("li").length;p++){
+    document.getElementsByTagName("li")[p].className="listitem";
 }
+let pic= document.createElement("img");
+pic.src= 'https://upload.wikimedia.org/wikipedia/commons/a/a4/Ada_Lovelace_portrait.jpg';
+document.getElementsByTagName("body")[0].appendChild(pic);
+pic.style.width="200px"
+
 
 </script>
 
