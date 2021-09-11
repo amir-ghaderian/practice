@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        display: flex;
+    }
+    
+    ul li {
+        list-style: none;
+        
+    }
+    img{
+       width:200px;
+    }
+   
+</style>
+
+<body id="body">
+    <h1>books list</h1>
+</body>
+<script>
+    var books = [
+        { author: "Franz Kafka", title: "maskh", alreadyRead: false, cover: 'https://www.degruyter.com/document/cover/isbn/9780300195156/product' },
+        { author: "Jules Verne", title: "Twenty Thousand Leagues Under Seas", alreadyRead: true, cover: "https://m.media-amazon.com/images/I/517v4cRw-FL.jpg" },
+        { author: "e.fassih", title: "darkhangah", alreadyRead: false, cover: "https://ketabnak.com/images/covers/_3599.webp" },
+        { author: "Leo Tolstoy", title: "war and pace", alreadyRead: true, cover: "https://ketabnews.com/files/156501733183164446.jpg" },
+        { author: "sir vantes", title: "don quixote", alreadyRead: false, cover: "https://bamyk.com/wp-content/uploads/2021/08/Don_Quixote-1-225x300.jpg" }
+    ];
+    var body = document.getElementById("body");
+    for (i = 0; i < books.length; i++) {
+        var ul = document.createElement("ul");
+        var li = document.createElement("li");
+        var p = document.createElement("p");
+        ul.appendChild(li);
+        p.appendChild(ul);
+        body.appendChild(p);
+        li.innerHTML = books[i].title + "   by " + books[i].author;
+        var pic = document.createElement("img");
+        p.appendChild(pic);
+        pic.src = books[i].cover;
+        if (books[i].alreadyRead) {
+            li.style.color = "green";
+        }
+        
+    }
+
+</script>
+
+</html>
