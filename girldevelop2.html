@@ -8,18 +8,32 @@
     <title>Document</title>
 </head>
 <style>
-    body{
+    #body {
         display: flex;
+        justify-content: space-around;
     }
-    
+
+    .left {
+        width: 50%;
+        background-color: gray;
+
+    }
+
+    #rtl {
+        width: 30%;
+        height: 85vh;
+        border: 1px solid;
+        background-image: url();
+        background-size: cover;
+        border-radius: 1em;
+
+    }
+
     ul li {
         list-style: none;
-        
+        cursor: pointer;
+
     }
-    img{
-       width:200px;
-    }
-   
 </style>
 
 <body id="body">
@@ -33,24 +47,39 @@
         { author: "Leo Tolstoy", title: "war and pace", alreadyRead: true, cover: "https://ketabnews.com/files/156501733183164446.jpg" },
         { author: "sir vantes", title: "don quixote", alreadyRead: false, cover: "https://bamyk.com/wp-content/uploads/2021/08/Don_Quixote-1-225x300.jpg" }
     ];
+    document.getElementsByTagName("body")[0].style.fontFamily = "Arial, sans-serif";
     var body = document.getElementById("body");
+    var listDiv = document.createElement("div");
+    listDiv.className = "letf";
+    body.appendChild(listDiv);
+
+
     for (i = 0; i < books.length; i++) {
         var ul = document.createElement("ul");
         var li = document.createElement("li");
         var p = document.createElement("p");
+        listDiv.appendChild(p);
         ul.appendChild(li);
         p.appendChild(ul);
-        body.appendChild(p);
+        li.setAttribute('onclick', 'showImg(' + i + ')');
         li.innerHTML = books[i].title + "   by " + books[i].author;
-        var pic = document.createElement("img");
-        p.appendChild(pic);
-        pic.src = books[i].cover;
+        // var pic = document.createElement("img");
+        // p.appendChild(pic);
+        // pic.src = books[i].cover;
         if (books[i].alreadyRead) {
             li.style.color = "green";
         }
-        
-    }
 
+    }
+    var showDiv = document.createElement("div");
+    showDiv.setAttribute("id", "rtl");
+    body.appendChild(showDiv);
+    function showImg(index) {
+        let picDiv = document.getElementById("rtl");
+        let pisSrc = 'url(' + books[index].cover + ')';
+        console.log(pisSrc);
+        picDiv.style.backgroundImage = pisSrc;
+    }
 </script>
 
 </html>
