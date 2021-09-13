@@ -20,10 +20,10 @@
     #modal {
         width: 100vw;
         height: 100vh;
-        background-color:#00000080;
+        background-color: #00000080;
         position: absolute;
-        
-      display: none;
+
+        display: none;
         justify-content: center;
         align-items: center;
         border: 1px solid black;
@@ -112,7 +112,7 @@
     }
 
     .t1 {
-        background-color: red;
+    
         margin: .5em;
         padding: 0.3em;
         border-radius: 0.5em;
@@ -146,6 +146,7 @@
                 <span>job</span>
                 <span>year of birth</span>
                 <span>code</span>
+                <span>class</span>
 
             </div>
             <div class="a2" style="position: relative;border-radius: 0 .5em .5em 0; ">
@@ -155,6 +156,7 @@
                 <input type="text" id="jModal" value="">
                 <input type="number" id="ybModal" value="">
                 <input type="number" id="coModal" value="">
+                <input type="text" id="classModal" value="">
                 <button id="insert" onclick="addStudent()">INSERT</button>
             </div>
         </div>
@@ -195,7 +197,7 @@
     loadstudents()
     function loadstudents() {
         var ulName = document.getElementById("name");
-      
+
         ulName.innerHTML = "";
         for (j = 0; j < students.length; j++) {
             var liSet = document.createElement("li");
@@ -225,6 +227,7 @@
         document.getElementById("dateBirth").value = students[index].dateBirth;
         document.getElementById("code").value = students[index].code;
 
+       let colors=["red","yellow","green",'#3c3cea94',"purple"];
         var lesDiv = document.getElementById("lesson");
 
         lesDiv.innerHTML = '';
@@ -234,7 +237,8 @@
 
             let span = document.createElement("span");
             span.className = "t1";
-            span.innerHTML = students[index].lesson[k]
+            span.innerHTML = students[index].lesson[k];
+            span.style.backgroundColor=colors[k];
             lesDiv.appendChild(span);
 
 
@@ -253,8 +257,10 @@
         let jobM = document.getElementById("jModal").value;
         let yearM = document.getElementById("ybModal").value
         let codM = document.getElementById("coModal").value;
+        let classModal = document.getElementById("classModal").value;
+        
         ///// set in li
-        students.push({ firstName: name, lastName: family, job: jobM, dateBirth: yearM, code: codM });
+        students.push({ firstName: name, lastName: family, job: jobM, dateBirth: yearM, code: codM, lesson: [classModal] });
         loadstudents()
     }
 

@@ -53,14 +53,14 @@
     listDiv.className = "letf";
     body.appendChild(listDiv);
 
-
+    var ul = document.createElement("ul");
     for (i = 0; i < books.length; i++) {
-        var ul = document.createElement("ul");
+        
         var li = document.createElement("li");
         var p = document.createElement("p");
-        listDiv.appendChild(p);
-        ul.appendChild(li);
-        p.appendChild(ul);
+        listDiv.appendChild(ul);
+        ul.appendChild(p);
+        p.appendChild(li);
         li.setAttribute('onclick', 'showImg(' + i + ')');
         li.innerHTML = books[i].title + "   by " + books[i].author;
         // var pic = document.createElement("img");
