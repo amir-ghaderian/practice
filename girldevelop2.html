@@ -32,6 +32,7 @@
     ul li {
         list-style: none;
         cursor: pointer;
+        padding: 1em;
 
     }
 </style>
@@ -52,15 +53,15 @@
     var listDiv = document.createElement("div");
     listDiv.className = "letf";
     body.appendChild(listDiv);
-
-
+    var ul = document.createElement("ul");
+    listDiv.appendChild(ul);
     for (i = 0; i < books.length; i++) {
-        var ul = document.createElement("ul");
+      
         var li = document.createElement("li");
-        var p = document.createElement("p");
-        listDiv.appendChild(p);
+      
+       
         ul.appendChild(li);
-        p.appendChild(ul);
+       
         li.setAttribute('onclick', 'showImg(' + i + ')');
         li.innerHTML = books[i].title + "   by " + books[i].author;
         // var pic = document.createElement("img");
