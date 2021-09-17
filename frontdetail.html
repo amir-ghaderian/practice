@@ -139,7 +139,7 @@
 
 <body>
     <div id="modal">
-        <div class="center" style="display: flex;">
+        <div id="center" style="display: flex;">
             <div class="a2" style="border-radius: .5em 0 0 .5em ;">
                 <span>firstName</span>
                 <span>lastName</span>
@@ -156,19 +156,7 @@
                 <input type="number" id="ybModal" value="">
                 <input type="number" id="coModal" value="">
                 <form id="chek">
-                    <input type="checkbox" name="HTML" value="1">
-                    <label> HTMl</label>
-                    <input type="checkbox" name="CSS" value="2">
-                    <label> CSS</label>
-                    <input type="checkbox" name="anglar" value="4">
-                    <label> ANGULAR</label>
-                    <input type="checkbox" name="english" value="5">
-                    <label> ENGLISH</label>
-                    <input type="checkbox" name="git" value="3">
-                    <label> GIT</label>
-                    <input type="checkbox" name="js" value="6">
-                    <label> JavaScript</label>
-                    <input type="submit" id="sub" onclick="getClassTitle(event)">
+
                 </form>
                 <button id="insert" onclick="addStudent()">INSERT</button>
             </div>
@@ -212,6 +200,24 @@
         { title: 'ENGLISH', id: 5 },
         { title: 'JavaScript', id: 6 },
     ];
+    ////
+    var form = document.getElementById("chek");
+    var center = document.getElementById("center");
+    var sub = document.createElement("input");
+
+    for (r = 0; r < classes.length; r++) {
+        var input = document.createElement("input");
+        input.setAttribute("type", "checkbox");
+        form.appendChild(input);
+        center.appendChild(form);
+        input.setAttribute("id", "'" + r + "'");
+        input.setAttribute("value", "'" + classes[r].title + "'")
+
+
+    }
+    // sub.setAttribute("type", "submit");
+    // sub.setAttribute("onClick", "getClassTitle()");
+    // form.appendChild(sub);
 
     var students = [
         { firstName: "ali", lastName: "ghaderian", age: 34, dateBirth: "1987", code: "0032244455", job: "disiner", lesson: [1, 2] },
@@ -286,11 +292,12 @@
         let jobM = document.getElementById("jModal").value;
         let yearM = document.getElementById("ybModal").value
         let codM = document.getElementById("coModal").value;
+
         ///// set in li
-        if (name === "" || family === "" || jobM === "" || Number.isNaN(yearM)|| codM === "" || undefined) {
+        if (name === "" || family === "" || jobM === "" || Number.isNaN(yearM) || codM === "") {
 
             alert("enter your all input");
-           
+
 
 
             openModal();
@@ -308,23 +315,25 @@
         document.getElementById("modal").style.display = "flex";
     }
 
-    ////
-    function getClassTitle(e) {
-        event.preventDefault();
 
-       
-    var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+    function getClassTitle(inpu) {
+        
+        for (j = 0; j < classes.length; j++) {
+         
+            if (inpu == classes[j].id) {
+                 console.log(classes[j].title);
+            }
+        }
+        
 
-    for (var i = 0; i < checkboxes.length; i++) {
-        console.log(checkboxes[i].value);
-       
+
+
     }
-   
-    }
 
 
 
-    
+
+
 
 
 
