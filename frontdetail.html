@@ -155,8 +155,25 @@
                 <input type="text" id="jModal" value="">
                 <input type="number" id="ybModal" value="">
                 <input type="number" id="coModal" value="">
+                <form id="chek">
+                    <input type="checkbox" name="HTML" value="1">
+                    <label> HTMl</label>
+                    <input type="checkbox" name="CSS" value="2">
+                    <label> CSS</label>
+                    <input type="checkbox" name="anglar" value="4">
+                    <label> ANGULAR</label>
+                    <input type="checkbox" name="english" value="5">
+                    <label> ENGLISH</label>
+                    <input type="checkbox" name="git" value="3">
+                    <label> GIT</label>
+                    <input type="checkbox" name="js" value="6">
+                    <label> JavaScript</label>
+                    <input type="submit" id="sub" onclick="getClassTitle(event)">
+                </form>
                 <button id="insert" onclick="addStudent()">INSERT</button>
             </div>
+
+
         </div>
     </div>
     <div class="sidebar">
@@ -270,15 +287,15 @@
         let yearM = document.getElementById("ybModal").value
         let codM = document.getElementById("coModal").value;
         ///// set in li
-        if (name === "" || family === "" || jobM === "" || yearM === "" || codM === ""|| undefined) {
+        if (name === "" || family === "" || jobM === "" || Number.isNaN(yearM)|| codM === "" || undefined) {
 
             alert("enter your all input");
-            students.push({});
+           
 
 
             openModal();
 
-        }else{
+        } else {
             students.push({ firstName: name, lastName: family, job: jobM, dateBirth: yearM, code: codM });
             loadstudents()
         }
@@ -291,7 +308,23 @@
         document.getElementById("modal").style.display = "flex";
     }
 
+    ////
+    function getClassTitle(e) {
+        event.preventDefault();
 
+       
+    var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+
+    for (var i = 0; i < checkboxes.length; i++) {
+        console.log(checkboxes[i].value);
+       
+    }
+   
+    }
+
+
+
+    
 
 
 
