@@ -135,6 +135,11 @@
         width: 10em;
         border-radius: 1em;
     }
+
+    .inp-chek {
+        position: absolute;
+        display: flex;
+    }
 </style>
 
 <body>
@@ -207,11 +212,16 @@
 
     for (r = 0; r < classes.length; r++) {
         var input = document.createElement("input");
+        var labale = document.createTextNode(classes[r].title);
+        form.appendChild(labale);
         input.setAttribute("type", "checkbox");
         form.appendChild(input);
         center.appendChild(form);
-        input.setAttribute("name", "" +classes[r].title + "");
-        input.setAttribute("value", "'" + classes[r].id+ "'")
+        input.setAttribute("name", "" + classes[r].title + "");
+        input.setAttribute("value", "'" + classes[r].id + "'");
+        form.className = "inp-chek";
+
+
 
 
     }
@@ -316,15 +326,19 @@
     }
 
 
-    function getClassTitle(inpu) {
-        
-        for (j = 0; j < classes.length; j++) {
-         
-            if (inpu == classes[j].id) {
-                 console.log(classes[j].title);
+    function getClassTitle() {
+
+        var checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
+        for (var i = 0; i < checkboxes.length; i++) {
+            console.log(checkboxes[i].value);
+            for (j = 0; j < classes.length; j++) {
+                if (checkboxes[i].value === classes[j].id) {
+                    console.log(classes[j].title);////not compelate
+                }
             }
         }
-        
+
+
 
 
 
