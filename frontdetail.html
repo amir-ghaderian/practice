@@ -139,12 +139,23 @@
     .inp-chek {
         position: absolute;
         display: flex;
+        bottom: 4em;
+    }
+
+    .inp-chek input {
+        margin-right: 2em;
+    }
+
+    #center {
+        display: flex;
+        position: relative;
+        height: 20em;
     }
 </style>
 
 <body>
     <div id="modal">
-        <div id="center" style="display: flex;">
+        <div id="center">
             <div class="a2" style="border-radius: .5em 0 0 .5em ;">
                 <span>firstName</span>
                 <span>lastName</span>
@@ -160,12 +171,12 @@
                 <input type="text" id="jModal" value="">
                 <input type="number" id="ybModal" value="">
                 <input type="number" id="coModal" value="">
-                <form id="chek">
 
-                </form>
                 <button id="insert" onclick="addStudent()">INSERT</button>
             </div>
+            <form id="chek">
 
+            </form>
 
         </div>
     </div>
@@ -217,8 +228,8 @@
         input.setAttribute("type", "checkbox");
         form.appendChild(input);
         center.appendChild(form);
-        input.setAttribute("name", "" + classes[r].title + "");
-        input.setAttribute("value", "'" + classes[r].id + "'");
+        input.setAttribute("name", classes[r].title);
+        input.setAttribute("value", classes[r].id);
         form.className = "inp-chek";
 
 
@@ -326,17 +337,15 @@
     }
 
 
-    function getClassTitle() {
+    function getClassTitle(inpu) {
 
-        var checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
-        for (var i = 0; i < checkboxes.length; i++) {
-            console.log(checkboxes[i].value);
-            for (j = 0; j < classes.length; j++) {
-                if (checkboxes[i].value === classes[j].id) {
-                    console.log(classes[j].title);////not compelate
-                }
+        for (j = 0; j < classes.length; j++) {
+
+            if (inpu == classes[j].id) {
+                return classes[j].title;
             }
         }
+
 
 
 
@@ -346,7 +355,7 @@
 
 
 
-
+   
 
 
 
