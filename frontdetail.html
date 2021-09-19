@@ -338,22 +338,16 @@
 
 
     function getClassTitle(inpu) {
-
+        var less = [];
         for (j = 0; j < classes.length; j++) {
-
-            if (inpu == classes[j].id) {
-                return classes[j].title;
+            for (w = 0; w < inpu.length; w++) {
+                  if (inpu[w] == classes[j].id) {
+                    less.push(classes[j].title);
+                }
             }
         }
-
-
-
-
-
-
+        return less;
     }
-
-
 
    
 
