@@ -264,7 +264,7 @@
 
 
     function loadStud(index) {
-
+        studentLessonPassed()
         for (i = 0; i < students.length; i++) {
 
             document.getElementById('lap' + i + ' ').classList.remove("p1");
@@ -313,7 +313,8 @@
         let jobM = document.getElementById("jModal").value;
         let yearM = document.getElementById("ybModal").value
         let codM = document.getElementById("coModal").value;
-
+        let lessStu = studentLessonPassed();
+       
         ///// set in li
         if (name === "" || family === "" || jobM === "" || Number.isNaN(yearM) || codM === "") {
 
@@ -324,7 +325,7 @@
             openModal();
 
         } else {
-            students.push({ firstName: name, lastName: family, job: jobM, dateBirth: yearM, code: codM });
+            students.push({ firstName: name, lastName: family, job: jobM, dateBirth: yearM, code: codM, lesson: lessStu });
             loadstudents()
         }
     }
@@ -338,19 +339,30 @@
 
 
     function getClassTitle(inpu) {
-        var less = [];
         for (j = 0; j < classes.length; j++) {
-            for (w = 0; w < inpu.length; w++) {
-                  if (inpu[w] == classes[j].id) {
-                    less.push(classes[j].title);
+
+            if (inpu == classes[j].id) {
+                return classes[j].title;
+            }
+        }
+    }
+   
+    function studentLessonPassed() {
+        var pars = 0;
+        var less = [];
+        var checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
+        for (var i = 0; i < checkboxes.length; i++) {
+            pars = parseInt(checkboxes[i].value);
+            for (j = 0; j < classes.length; j++) {
+                if (pars === classes[j].id) {
+                    less.push(classes[j].id);
                 }
             }
         }
         return less;
     }
 
-   
-
+  
 
 
 
