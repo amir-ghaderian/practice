@@ -151,6 +151,12 @@
         position: relative;
         height: 20em;
     }
+
+    #lessondetail {
+        display: flex;
+        flex-direction: column;
+        padding-top: 3em;
+    }
 </style>
 
 <body>
@@ -185,7 +191,7 @@
             <li style="font-weight: bolder; text-align: center;">students Name</li>
         </ul>
         <button id="openModal" onclick="openModal()">add new stud</button>
-
+        <div id="lessName"></div>
     </div>
     <div class="front">
         <div class="a1">
@@ -201,20 +207,27 @@
             <input type="text" placeholder="" id="job" value="">
             <input type="text" placeholder="" id="dateBirth" value="">
             <input type="text" placeholder="" id="code" value="">
-            <div id="lesson"></div>
+            <div id="lesson"> </div>
+            <div id="lessondetail">
+                <input type="text" id="teacher" value="">
+                <input type="number" id="classNumber" value="">
+            </div>
         </div>
+
+
+
 
     </div>
 </body>
 <script>
 
     var classes = [
-        { title: 'HTML5', id: 1 },
-        { title: 'CSS', id: 2 },
-        { title: 'GIT', id: 3 },
-        { title: 'ANGULAR', id: 4 },
-        { title: 'ENGLISH', id: 5 },
-        { title: 'JavaScript', id: 6 },
+        { title: 'HTML5', id: 1, teacher: " mr behnam khani" },
+        { title: 'CSS', id: 2, teacher: "mr behnam khani" },
+        { title: 'GIT', id: 3, teacher: "mr houman " },
+        { title: 'ANGULAR', id: 4, teacher: "mr mosh hamedani" },
+        { title: 'ENGLISH', id: 5, teacher: "mr hormoz fassih" },
+        { title: 'JavaScript', id: 6, teacher: "mr amin rad" },
     ];
     ////
     var form = document.getElementById("chek");
@@ -247,6 +260,7 @@
         { firstName: "houman", lastName: "ghaderian", age: 42, dateBirth: "1977", code: "0032244455", job: "CEO", lesson: [5, 4] },
         { firstName: "hani", lastName: "ghaderian", age: 47, dateBirth: "1977", code: "32488488493", job: "teacher", lesson: [5] }];
     loadstudents()
+    loadLesson()
     function loadstudents() {
         var ulName = document.getElementById("name");
 
@@ -264,7 +278,7 @@
 
 
     function loadStud(index) {
-        studentLessonPassed()
+
         for (i = 0; i < students.length; i++) {
 
             document.getElementById('lap' + i + ' ').classList.remove("p1");
@@ -314,7 +328,7 @@
         let yearM = document.getElementById("ybModal").value
         let codM = document.getElementById("coModal").value;
         let lessStu = studentLessonPassed();
-       
+
         ///// set in li
         if (name === "" || family === "" || jobM === "" || Number.isNaN(yearM) || codM === "") {
 
@@ -346,7 +360,7 @@
             }
         }
     }
-   
+
     function studentLessonPassed() {
         var pars = 0;
         var less = [];
@@ -362,7 +376,25 @@
         return less;
     }
 
-  
+    ///// class leeson set sidebar
+    function loadLesson() {
+        var lessDiv = document.getElementById("lessName");
+        var leesUl = document.createElement("ul");
+        lessDiv.appendChild(leesUl);
+        for (x = 0; x < classes.length; x++) {
+            var lessLi = document.createElement("li");
+            leesUl.appendChild(lessLi);
+            lessLi.innerHTML = classes[x].title;
+            lessLi.setAttribute("onclick", 'showClassDetail(' + x + ')');
+        }
+    }
+    // show techer name and number class front input
+    function showClassDetail(index) {
+        document.getElementById("teacher").value=classes[index].teacher;
+        document.getElementById("classNumber").value=classes[index].id;
+    }
+
+
 
 
 
