@@ -93,9 +93,10 @@
     }
 
     .p1 {
-        border: 1px solid red;
+        border: 1px solid gray;
         border-radius: .3em;
-        background-color: #e9f3f3;
+        background-color:white;
+        border-radius: 0.4em;
 
     }
 
@@ -209,8 +210,8 @@
             <input type="text" placeholder="" id="code" value="">
             <div id="lesson"> </div>
             <div id="lessondetail">
-                <input type="text" id="teacher" value="">
-                <input type="number" id="classNumber" value="">
+               teacher Name <input type="text" id="teacher" value="">
+                class Number<input type="number" id="classNumber" value="">
             </div>
         </div>
 
@@ -386,12 +387,17 @@
             leesUl.appendChild(lessLi);
             lessLi.innerHTML = classes[x].title;
             lessLi.setAttribute("onclick", 'showClassDetail(' + x + ')');
+            lessLi.setAttribute("id", 'li' + x)
         }
     }
     // show techer name and number class front input
     function showClassDetail(index) {
-        document.getElementById("teacher").value=classes[index].teacher;
-        document.getElementById("classNumber").value=classes[index].id;
+        for (q = 0; q < classes.length; q++) {
+            document.getElementById("li" + q).classList.remove("p1");
+        }
+        document.getElementById("li" + index).classList.add("p1");
+        document.getElementById("teacher").value = classes[index].teacher;
+        document.getElementById("classNumber").value = classes[index].id;
     }
 
 
