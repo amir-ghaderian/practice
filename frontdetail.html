@@ -165,9 +165,15 @@
     }
 
     .inp-chek {
+        width: 230px;
         position: absolute;
-        display: flex;
         bottom: 4em;
+        right: 8em;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        font-size: .9em;
+
     }
 
     .inp-chek input {
@@ -177,7 +183,7 @@
     #center {
         display: flex;
         position: relative;
-        height: 20em;
+        height: 22em;
     }
 
     #lessondetail {
@@ -217,11 +223,10 @@
 
                 <button id="insert" onclick="addStudent()">INSERT</button>
             </div>
-            <form id="chek">
-
-            </form>
+            <div id="chek"></div>
 
         </div>
+
     </div>
     <div class="sidebar">
         <ul id="name">
@@ -271,11 +276,10 @@
     ////
     var form = document.getElementById("chek");
     var center = document.getElementById("center");
-    var sub = document.createElement("input");
-
     for (r = 0; r < classes.length; r++) {
         var input = document.createElement("input");
-        var labale = document.createTextNode(classes[r].title);
+        var labale = document.createElement("span");
+        labale.innerHTML = classes[r].title;
         form.appendChild(labale);
         input.setAttribute("type", "checkbox");
         form.appendChild(input);
@@ -453,7 +457,7 @@
         let newTeacher = document.getElementById("newTeacher").value;
         let newClassNum = document.getElementById("newClassNumber").value;
         let newLesson = document.getElementById("newLesson").value;
-        if (newTeacher === "" || newLesson === "" || newClassNum==="") {
+        if (newTeacher === "" || newLesson === "" || newClassNum === "") {
             alert("enter you all input");
             openLessonModal()
         } else {
