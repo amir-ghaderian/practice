@@ -274,6 +274,9 @@
         { title: 'JavaScript', id: 6, teacher: "mr amin rad" },
     ];
     ////
+    function loadClass() {
+        
+   
     var form = document.getElementById("chek");
     var center = document.getElementById("center");
     for (r = 0; r < classes.length; r++) {
@@ -289,7 +292,7 @@
         form.className = "inp-chek";
 
 
-
+    }
 
     }
     // sub.setAttribute("type", "submit");
@@ -304,6 +307,7 @@
         { firstName: "hani", lastName: "ghaderian", age: 47, dateBirth: "1977", code: "32488488493", job: "teacher", lesson: [5] }];
     loadstudents()
     loadLesson()
+    
     function loadstudents() {
         var ulName = document.getElementById("name");
 
@@ -321,7 +325,8 @@
 
 
     function loadStud(index) {
-
+        
+        
         for (i = 0; i < students.length; i++) {
 
             document.getElementById('lap' + i + ' ').classList.remove("p1");
@@ -345,7 +350,7 @@
         for (k = 0; k < students.length; k++) {
 
             for (p = 0; p < classes.length; p++) {
-
+                loadClass()
                 if (students[index].lesson[k] === classes[p].id) {
                     var span = document.createElement("span");
                     lesDiv.appendChild(span);
@@ -358,6 +363,7 @@
 
 
         }
+        
     }
 
 
@@ -465,6 +471,7 @@
         }
 
         loadLesson()
+        loadClass()
     }
 
 
