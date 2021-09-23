@@ -196,11 +196,11 @@
 <body>
     <div id="lessmodal">
         <div id="centermodal">
-            <button id="close" onclick="closeLessonModal()">X</button>
+            <button id="close" onclick="closeClassModal()">X</button>
             teacher name<input type="text" id="newTeacher" value="">
             class number <input type="number" id="newClassNumber" value="">
-            lesson<input type="text" id="newLesson" value="">
-            <button id="insert" onclick="addNewteacherAndLesson()">add</button>
+            className<input type="text" id="newClass" value="">
+            <button id="insert" onclick="addClass()">add</button>
         </div>
     </div>
     <div id="modal">
@@ -234,7 +234,7 @@
         </ul>
         <button id="openModal" onclick="openModal()">add new stud</button>
         <div id="lessName"></div>
-        <button onclick="openLessonModal()">add new lesson</button>
+        <button onclick="openClassModal()">add new lesson</button>
     </div>
     <div class="front">
         <div class="a1">
@@ -275,29 +275,29 @@
     ];
     ////
     function loadClass() {
-        
-   
-    var form = document.getElementById("chek");
-    var center = document.getElementById("center");
-    for (r = 0; r < classes.length; r++) {
-        var input = document.createElement("input");
-        var labale = document.createElement("span");
-        labale.innerHTML = classes[r].title;
-        form.appendChild(labale);
-        input.setAttribute("type", "checkbox");
-        form.appendChild(input);
-        center.appendChild(form);
-        input.setAttribute("name", classes[r].title);
-        input.setAttribute("value", classes[r].id);
-        form.className = "inp-chek";
 
+
+        var form = document.getElementById("chek");
+        var center = document.getElementById("center");
+
+        form.innerHTML = "";
+        for (r = 0; r < classes.length; r++) {
+            var input = document.createElement("input");
+            var labale = document.createElement("span");
+            labale.innerHTML = classes[r].title;
+            form.appendChild(labale);
+            input.setAttribute("type", "checkbox");
+            form.appendChild(input);
+            center.appendChild(form);
+            input.setAttribute("name", classes[r].title);
+            input.setAttribute("value", classes[r].id);
+            form.className = "inp-chek";
+
+
+        }
 
     }
 
-    }
-    // sub.setAttribute("type", "submit");
-    // sub.setAttribute("onClick", "getClassTitle()");
-    // form.appendChild(sub);
 
     var students = [
         { firstName: "ali", lastName: "ghaderian", age: 34, dateBirth: "1987", code: "0032244455", job: "disiner", lesson: [1, 2] },
@@ -306,8 +306,9 @@
         { firstName: "houman", lastName: "ghaderian", age: 42, dateBirth: "1977", code: "0032244455", job: "CEO", lesson: [5, 4] },
         { firstName: "hani", lastName: "ghaderian", age: 47, dateBirth: "1977", code: "32488488493", job: "teacher", lesson: [5] }];
     loadstudents()
-    loadLesson()
-    
+    loadClassSideBar()
+
+
     function loadstudents() {
         var ulName = document.getElementById("name");
 
@@ -318,15 +319,15 @@
             ulName.appendChild(liSet);
 
             liSet.innerHTML = students[j].firstName + " __ " + students[j].lastName;
-            liSet.setAttribute("onClick", 'loadStud(' + j + ')');
+            liSet.setAttribute("onClick", 'shoeDetailStudent(' + j + ')');
             liSet.setAttribute("id", 'lap' + j + ' ');
         }
     }
 
 
-    function loadStud(index) {
-        
-        
+    function shoeDetailStudent(index) {
+
+
         for (i = 0; i < students.length; i++) {
 
             document.getElementById('lap' + i + ' ').classList.remove("p1");
@@ -340,17 +341,13 @@
         document.getElementById("job").value = students[index].job;
         document.getElementById("dateBirth").value = students[index].dateBirth;
         document.getElementById("code").value = students[index].code;
-
         var lesDiv = document.getElementById("lesson");
-
-
-
         lesDiv.innerHTML = '';
 
         for (k = 0; k < students.length; k++) {
 
             for (p = 0; p < classes.length; p++) {
-                loadClass()
+
                 if (students[index].lesson[k] === classes[p].id) {
                     var span = document.createElement("span");
                     lesDiv.appendChild(span);
@@ -358,13 +355,9 @@
                     span.innerHTML = classes[p].title;
                 }
             }
-
-
-
-
         }
-        
     }
+
 
 
     function addStudent() {
@@ -380,11 +373,7 @@
 
         ///// set in li
         if (name === "" || family === "" || jobM === "" || Number.isNaN(yearM) || codM === "") {
-
             alert("enter your all input");
-
-
-
             openModal();
 
         } else {
@@ -392,29 +381,26 @@
             loadstudents()
         }
     }
+
+
     /////open and close modals
     function closeModal() {
         document.getElementById("modal").style.display = "none";
     }
     function openModal() {
         document.getElementById("modal").style.display = "flex";
+        loadClass()
     }
-    function closeLessonModal() {
+    function closeClassModal() {
         document.getElementById("lessmodal").style.display = "none";
     }
-    function openLessonModal() {
+    function openClassModal() {
         document.getElementById("lessmodal").style.display = "flex";
+
     }
 
 
-    function getClassTitle(inpu) {
-        for (j = 0; j < classes.length; j++) {
-
-            if (inpu == classes[j].id) {
-                return classes[j].title;
-            }
-        }
-    }
+    //// checkbox in modal cecked add class
 
     function studentLessonPassed() {
         var pars = 0;
@@ -429,10 +415,12 @@
             }
         }
         return less;
+
+
     }
 
     ///// class leeson set sidebar
-    function loadLesson() {
+    function loadClassSideBar() {
         var lessDiv = document.getElementById("lessName");
         lessDiv.innerHTML = "";
         for (x = 0; x < classes.length; x++) {
@@ -456,22 +444,22 @@
         document.getElementById("classNumber").value = classes[index].id;
     }
 
-    ///// add new leeson and teacher classnumber
+    ///// add new class and teacher  & classnumber
 
-    function addNewteacherAndLesson() {
-        closeLessonModal()
+    function addClass() {
+        closeClassModal()
         let newTeacher = document.getElementById("newTeacher").value;
         let newClassNum = document.getElementById("newClassNumber").value;
-        let newLesson = document.getElementById("newLesson").value;
-        if (newTeacher === "" || newLesson === "" || newClassNum === "") {
+        let newClass = document.getElementById("newClass").value;
+        if (newTeacher === "" || newClass === "" || newClassNum === "") {
             alert("enter you all input");
-            openLessonModal()
+            openClassModal()
         } else {
-            classes.push({ teacher: newTeacher, id: newClassNum, title: newLesson });
+            classes.push({ title: newClass, id: parseInt(newClassNum), teacher: newTeacher });
         }
 
-        loadLesson()
-        loadClass()
+        loadClassSideBar()
+
     }
 
 
