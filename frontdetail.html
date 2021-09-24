@@ -191,6 +191,22 @@
         flex-direction: column;
         padding-top: 3em;
     }
+
+    #listStudent {
+        position: absolute;
+        bottom: 1em;
+        background-color: white;
+        left: 3em;
+
+    }
+
+    .x {
+        width: 10em;
+        height: 10em;
+        border-radius: 1em;
+        text-align: center;
+
+    }
 </style>
 
 <body>
@@ -257,7 +273,7 @@
 
             </div>
         </div>
-
+        <p id="listStudent"></p>
 
 
 
@@ -303,7 +319,7 @@
         { firstName: "ali", lastName: "ghaderian", age: 34, dateBirth: "1987", code: "0032244455", job: "disiner", lesson: [1, 2] },
         { firstName: "amir", lastName: "ghaderian", age: 35, dateBirth: "1986", code: "0081125674", job: "front", lesson: [5, 2, 1, 3, 6] },
         { firstName: "aida", lastName: "amiri", age: 20, dateBirth: "2001", code: "0032244455", job: "Airline employee", lesson: [1, 5, 6] },
-        { firstName: "houman", lastName: "ghaderian", age: 42, dateBirth: "1977", code: "0032244455", job: "CEO", lesson: [5, 4] },
+        { firstName: "houman", lastName: "ghaderian", age: 42, dateBirth: "1977", code: "0032244455", job: "CEO", lesson: [5, 4, 3] },
         { firstName: "hani", lastName: "ghaderian", age: 47, dateBirth: "1977", code: "32488488493", job: "teacher", lesson: [5] }];
     loadstudents()
     loadClassSideBar()
@@ -319,13 +335,13 @@
             ulName.appendChild(liSet);
 
             liSet.innerHTML = students[j].firstName + " __ " + students[j].lastName;
-            liSet.setAttribute("onClick", 'shoeDetailStudent(' + j + ')');
+            liSet.setAttribute("onClick", 'showDetailStudent(' + j + ')');
             liSet.setAttribute("id", 'lap' + j + ' ');
         }
     }
 
 
-    function shoeDetailStudent(index) {
+    function showDetailStudent(index) {
 
 
         for (i = 0; i < students.length; i++) {
@@ -436,12 +452,24 @@
     }
     // show techer name and number class front input
     function showClassDetail(index) {
+        let pTag = document.getElementById("listStudent");
         for (q = 0; q < classes.length; q++) {
             document.getElementById("li" + q).classList.remove("p1");
         }
         document.getElementById("li" + index).classList.add("p1");
         document.getElementById("teacher").value = classes[index].teacher;
         document.getElementById("classNumber").value = classes[index].id;
+        pTag.innerHTML = "";
+        for (w = 0; w < students.length; w++) {
+            for (a = 0; a < students[w].lesson.length; a++) {
+                if (classes[index].id == students[w].lesson[a]) {
+                    pTag.className = "x";
+                    let lineP = document.createElement("p");
+                    pTag.appendChild(lineP);
+                    lineP.innerHTML = students[w].firstName +"  "+ students[w].lastName;
+                }
+            }
+        }
     }
 
     ///// add new class and teacher  & classnumber
