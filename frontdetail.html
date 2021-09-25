@@ -193,10 +193,9 @@
     }
 
     #listStudent {
-        position: absolute;
+
         bottom: 1em;
         background-color: white;
-        left: 3em;
 
     }
 
@@ -267,13 +266,21 @@
             <input type="text" placeholder="" id="dateBirth" value="">
             <input type="text" placeholder="" id="code" value="">
             <div id="lesson"> </div>
+            <input type="button" value="save changes to student" >
             <div id="lessondetail">
                 teacher Name <input type="text" id="teacher" value="">
                 class Number<input type="number" id="classNumber" value="">
+                capacity<input type="number" id="classCapacytyInput" value="">
+                number of students: ---- <br/>
+                is full: YES/NO <br/>
+            <input type="button" value="save changes to class" >
+
 
             </div>
+
+            <p id="listStudent"></p>
         </div>
-        <p id="listStudent"></p>
+        
 
 
 
@@ -282,12 +289,12 @@
 <script>
 
     var classes = [
-        { title: 'HTML5', id: 1, teacher: " mr behnam khani" },
-        { title: 'CSS', id: 2, teacher: "mr behnam khani" },
-        { title: 'GIT', id: 3, teacher: "mr houman " },
-        { title: 'ANGULAR', id: 4, teacher: "mr mosh hamedani" },
-        { title: 'ENGLISH', id: 5, teacher: "mr hormoz fassih" },
-        { title: 'JavaScript', id: 6, teacher: "mr amin rad" },
+        { title: 'HTML5', id: 1, teacher: " mr behnam khani", capacity: 3 },
+        { title: 'CSS', id: 2, teacher: "mr behnam khani", capacity: 2 },
+        { title: 'GIT', id: 3, teacher: "mr houman ", capacity: 12 },
+        { title: 'ANGULAR', id: 4, teacher: "mr mosh hamedani", capacity: 40 },
+        { title: 'ENGLISH', id: 5, teacher: "mr hormoz fassih", capacity: 1 },
+        { title: 'JavaScript', id: 6, teacher: "mr amin rad", capacity: 5 },
     ];
     ////
     function loadClass() {
