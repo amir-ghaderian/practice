@@ -215,6 +215,7 @@
             teacher name<input type="text" id="newTeacher" value="">
             class number <input type="number" id="newClassNumber" value="">
             className<input type="text" id="newClass" value="">
+            capacity class<input type="text" id="capacity" value="">
             <button id="insert" onclick="addClass()">add</button>
         </div>
     </div>
@@ -266,14 +267,15 @@
             <input type="text" placeholder="" id="dateBirth" value="">
             <input type="text" placeholder="" id="code" value="">
             <div id="lesson"> </div>
-            <input type="button" value="save changes to student" onclick="update()">
+            <input type="button" value="save changes to student" onclick="updateStudent()">
             <div id="lessondetail">
+                class Name <input type="text" id="className" value="">
                 teacher Name <input type="text" id="teacher" value="">
                 class Number<input type="number" id="classNumber" value="">
                 capacity<input type="number" id="classCapacytyInput" value="">
-                number of students: ---- <br />
-                is full: YES/NO <br />
-                <input type="button" value="save changes to class">
+                <div>number of students:<span id="numOfStu"></span></div><br />
+                <p>is full:</p><span id="or"></span><br />
+                <input type="button" value="save changes to class" onclick="updateClass()">
 
 
             </div>
@@ -346,7 +348,7 @@
             liSet.setAttribute("id", 'lap' + j + ' ');
         }
     }
-    var lastClick = -1;
+    var SelectedStudentIndex = -1;
 
     function showDetailStudent(index) {
 
@@ -358,7 +360,7 @@
 
 
         }
-        lastClick = index;
+        SelectedStudentIndex = index;
         document.getElementById('lap' + index + ' ').classList.add("p1");
         document.getElementById("fname").value = students[index].firstName;
         document.getElementById("lname").value = students[index].lastName;
@@ -460,45 +462,62 @@
         }
     }
     // show techer name and number class front input
+    var selectClassIndex = -1;
+
     function showClassDetail(index) {
+        var numberOfStudent = 0;
+
         let pTag = document.getElementById("listStudent");
         for (q = 0; q < classes.length; q++) {
             document.getElementById("li" + q).classList.remove("p1");
         }
         document.getElementById("li" + index).classList.add("p1");
+        selectClassIndex = index;
         document.getElementById("teacher").value = classes[index].teacher;
         document.getElementById("classNumber").value = classes[index].id;
+        document.getElementById("className").value = classes[index].title;
+        document.getElementById("classCapacytyInput").value = classes[index].capacity;
         pTag.innerHTML = "";
         for (w = 0; w < students.length; w++) {
             for (a = 0; a < students[w].lesson.length; a++) {
-                if (classes[index].id == students[w].lesson[a]) {
-                    pTag.className = "x";
-                    let lineP = document.createElement("p");
-                    pTag.appendChild(lineP);
-                    lineP.innerHTML = students[w].firstName + "  " + students[w].lastName;
+                if (students[w].lesson[a] == classes[index].id) {
+                    numberOfStudent++
+                    if (classes[index].id == students[w].lesson[a]) {
+                        pTag.className = "x";
+                        let lineP = document.createElement("p");
+                        pTag.appendChild(lineP);
+                        lineP.innerHTML = students[w].firstName + "  " + students[w].lastName;
+                        ///capacity calculating
+                    } if (((classes[index].capacity) - numberOfStudent) <= 0) {
+                        document.getElementById("or").innerHTML = "YES";
+                    } if ((classes[index].capacity - numberOfStudent) >= 0) {
+                        document.getElementById("or").innerHTML = "No";
+                    }
                 }
             }
         }
+        document.getElementById("numOfStu").innerHTML = numberOfStudent;
+
     }
 
     ///// add new class and teacher  & classnumber
-
     function addClass() {
         closeClassModal()
         let newTeacher = document.getElementById("newTeacher").value;
         let newClassNum = document.getElementById("newClassNumber").value;
         let newClass = document.getElementById("newClass").value;
+        let capacityClass = document.getElementById("capacity").value;
         if (newTeacher === "" || newClass === "" || newClassNum === "") {
             alert("enter you all input");
             openClassModal()
         } else {
-            classes.push({ title: newClass, id: parseInt(newClassNum), teacher: newTeacher });
+            classes.push({ title: newClass, id: parseInt(newClassNum), teacher: newTeacher, capacity: capacityClass });
         }
 
         loadClassSideBar()
 
     }
-    function update() {
+    function updateStudent() {
         let newname = document.getElementById("fname").value;
         let newLname = document.getElementById("lname").value;
         let newJob = document.getElementById("job").value;
@@ -506,10 +525,7 @@
         let newCod = document.getElementById("code").value;
 
         for (k = 0; k < students.length; k++) {
-            if (newname == "" || newLname == "" || newJob == "" || newBirth == "" || newCod == "") {
-                alert("enter your all input");
-            preventDefault();///inoo zadam chon nemidonestam bad az alert chi kar konam alert ghat shee .. ghatii nakon
-            } else if (students[k].id == lastClick + 1) {
+            if (students[k].id == SelectedStudentIndex + 1) {
                 students[k].firstName = newname;
                 students[k].lastName = newLname;
                 students[k].job = newJob;
@@ -517,12 +533,28 @@
                 students[k].code = newCod;
                 loadstudents()
 
+            } else if (newname == "" || newLname == "" || newJob == "" || newBirth == "" || newCod == "") {
+                alert("enter your all input");
             }
+
+
         }
 
-
-
-
+    }
+    function updateClass() {
+        let newClassName = document.getElementById("className").value;
+        let newTeacherName = document.getElementById("teacher").value;
+        let newClassNumber = document.getElementById("classNumber").value;
+        let newcapacity = document.getElementById("classCapacytyInput").value;
+        for (n = 0; n < classes.length; n++) {
+            if (classes[n].id == selectClassIndex + 1) {
+                classes[n].title = newClassName;
+                classes[n].teacher = newTeacherName;
+                classes[n].id = newClassNumber;
+                classes[n].capacity = newcapacity;
+                loadClassSideBar();
+            }
+        }
     }
 
 
