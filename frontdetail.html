@@ -200,10 +200,14 @@
     }
 
     .x {
-        width: 10em;
-        height: 10em;
+        width: 15em;
+       
         border-radius: 1em;
         text-align: center;
+
+    }
+    .x1{
+        border: 1px solid black;
 
     }
 </style>
@@ -251,6 +255,8 @@
         <button id="openModal" onclick="openModal()">add new stud</button>
         <div id="lessName"></div>
         <button onclick="openClassModal()">add new lesson</button>
+        <p id="listStudent"></p>
+        
     </div>
     <div class="front">
         <div class="a1">
@@ -276,11 +282,11 @@
                 <div>number of students:<span id="numOfStu"></span></div><br />
                 <p>is full:</p><span id="or"></span><br />
                 <input type="button" value="save changes to class" onclick="updateClass()">
-
+                
 
             </div>
 
-            <p id="listStudent"></p>
+            
         </div>
 
 
@@ -486,18 +492,22 @@
                         pTag.className = "x";
                         let lineP = document.createElement("p");
                         pTag.appendChild(lineP);
-                        lineP.innerHTML = students[w].firstName + "  " + students[w].lastName;
-                        ///capacity calculating
-                    } if (((classes[index].capacity) - numberOfStudent) <= 0) {
-                        document.getElementById("or").innerHTML = "YES";
-                    } if ((classes[index].capacity - numberOfStudent) >= 0) {
-                        document.getElementById("or").innerHTML = "No";
+                        lineP.className="x1";
+                        lineP.innerHTML = students[w].firstName + "  " + students[w].lastName +" ---- "+students[w].code;
+
                     }
                 }
             }
+            ///capacity calculating
+        }
+        let pars = parseInt(classes[index].capacity);
+        if ((pars - numberOfStudent) <= 0) {
+            document.getElementById("or").innerHTML = "YES";
+        
+        } else if ((pars - numberOfStudent) >= 0) {
+            document.getElementById("or").innerHTML = "No";
         }
         document.getElementById("numOfStu").innerHTML = numberOfStudent;
-
     }
 
     ///// add new class and teacher  & classnumber
@@ -553,6 +563,7 @@
                 classes[n].id = newClassNumber;
                 classes[n].capacity = newcapacity;
                 loadClassSideBar();
+                
             }
         }
     }
