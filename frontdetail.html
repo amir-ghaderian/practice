@@ -252,7 +252,7 @@
         <ul id="name">
             <li style="font-weight: bolder; text-align: center;">students Name</li>
         </ul>
-        <button id="openModal" onclick="openModal()">add new stud</button>
+        <button id="openModal" onclick="openModal()">add new student</button>
         <div id="lessName"></div>
         <button onclick="openClassModal()">add new lesson</button>
         <p id="listStudent"></p>
@@ -542,6 +542,7 @@
                 students[k].dateBirth = newBirth;
                 students[k].code = newCod;
                 loadstudents();
+                document.getElementById('lap' + k + ' ').classList.add("p1");
                 
 
             } else if (newname == "" || newLname == "" || newJob == "" || newBirth == "" || newCod == "") {
@@ -564,8 +565,10 @@
                 classes[n].id = newClassNumber;
                 classes[n].capacity = newcapacity;
                 loadClassSideBar();
+                document.getElementById("li" + n).classList.add("p1");
                 
-                
+            }else if(newClassName==""||newTeacherName==""||newClassNumber==""||newcapacity==""){
+                alert("enter your all input");
             }
         }
     }
