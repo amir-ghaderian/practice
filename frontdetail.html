@@ -196,6 +196,7 @@
         display: none;
         bottom: 1em;
         background-color: white;
+        position: relative;
 
     }
 
@@ -215,6 +216,13 @@
     #btn {
         display: none;
         margin-left: 1em;
+    }
+
+    #closeList {
+        background-color: red;
+        position: absolute;
+        top: 0;
+        right: 0;
     }
 </style>
 
@@ -262,7 +270,10 @@
         <div id="lessName"></div>
         <button onclick="openClassModal()">add new lesson</button>
         <button id="btn" onclick="document.getElementById('listStudent').style.display='block';">V</button>
-        <p id="listStudent"></p>
+        <div id="listStudent">
+
+        </div>
+
 
 
     </div>
@@ -507,10 +518,17 @@
                         lineP.className = "x1";
                         lineP.innerHTML = students[w].firstName + "  " + students[w].lastName + " ---- " + students[w].code;
 
+
                     }
                 }
             }
-        }
+        }////set buttn close list student
+        let closeBtn = document.createElement("button");
+        pTag.appendChild(closeBtn);
+        closeBtn.setAttribute("id", "closeList");
+        closeBtn.innerHTML = "x";
+        closeBtn.setAttribute("onClick","document.getElementById('listStudent').style.display='none';")
+
         let pars = parseInt(classes[index].capacity);
         if ((pars - numberOfStudent) <= 0) {
             document.getElementById("or").innerHTML = "YES";
@@ -520,7 +538,7 @@
         }
         document.getElementById("numOfStu").innerHTML = numberOfStudent;
     }
-   
+
     ///// add new class and teacher  & classnumber
     function addClass() {
         closeClassModal()
