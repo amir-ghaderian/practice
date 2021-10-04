@@ -9,20 +9,30 @@
     <title>Document</title>
 </head>
 
-<body>
-    <div class="flex justify-around">
+<body class="container mx-auto">
+    <div class="flex justify-around border-red-500 rounded-b-md bg-green-100 m-12">
         <ul id="list-disc space-y-2">
 
         </ul>
 
 
-        <div class="flex-col 	">
-            <div class="flex-row w-96 text-center "> <span>firstName</span><input class="px-14 w-64 italic" type="text" placeholder="" id="fname" value=""></div>
-            <div class="flex-row w-96 text-center"> <span> lastName</span><input class="px-14 w-64  italic" type="text" placeholder="" id="lname" value=""></div>
-            <div class="flex-row w-96 text-center"> <span>job</span><input class="px-24 w-64 italic" type="text" placeholder="" id="job" value=""></div>
-            <div class="flex-row w-96 text-center"> <span>year of birth</span><input class="px-14 w-64 italic"type="text" placeholder="" id="dateBirth" value="">
-            <div class="flex-row w-96 text-center"> <span> code</span> <input class="px-14 w-64 italic"type="text" placeholder="" id="code" value=""></div>
+        <div class="flex flex-col justify-between">
+            <div class="w-96 text-right "> <span>firstName</span></div>
+            <div class="w-96 text-right"> <span> lastName</span></div>
+            <div class="w-96 text-right"> <span>job</span></div>
+            <div class="w-96 text-right"> <span>year of birth</span></div>
+            <div class="w-96 text-right"> <span> code</span></div>
         </div>
+
+
+        <div class="flex-col 	">
+            <div class="w-96 text-left"> <input class="p1 w-full rounded-lg border-2  border-gray-800 m-1" type="text" placeholder="" id="fname" value=""></div>
+            <div class="w-96 text-left"> <input class="p1 w-full rounded-lg border-2  border-gray-800 m-1" type="text" placeholder="" id="lname" value=""></div>
+            <div class="w-96 text-left"> <input class="p1 w-full rounded-lg border-2  border-gray-800 m-1" type="text" placeholder="" id="job" value=""></div>
+            <div class="w-96 text-left"> <input class="p1 w-full rounded-lg border-2  border-gray-800 m-1" type="text" placeholder="" id="dateBirth" value="">
+            <div class="w-96 text-left"> <input class="p1 w-full rounded-lg border-2  border-gray-800 m-1" type="text" placeholder="" id="code" value=""></div>
+        </div>
+
     </div>
 </body>
 <script>
