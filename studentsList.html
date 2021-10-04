@@ -10,8 +10,8 @@
 </head>
 
 <body class="container mx-auto">
-    <div class="flex justify-around border-red-500 rounded-b-md bg-green-100 m-12">
-        <ul id="list-disc space-y-2">
+    <div class="flex justify-around border-red-500 rounded-b-md bg-green-100 mx-4 m-8 p-2 rounded-2xl">
+        <ul id="list-disc space-y-1">
 
         </ul>
 
@@ -26,14 +26,42 @@
 
 
         <div class="flex-col 	">
-            <div class="w-96 text-left"> <input class="p1 w-full rounded-lg border-2  border-gray-800 m-1" type="text" placeholder="" id="fname" value=""></div>
-            <div class="w-96 text-left"> <input class="p1 w-full rounded-lg border-2  border-gray-800 m-1" type="text" placeholder="" id="lname" value=""></div>
-            <div class="w-96 text-left"> <input class="p1 w-full rounded-lg border-2  border-gray-800 m-1" type="text" placeholder="" id="job" value=""></div>
-            <div class="w-96 text-left"> <input class="p1 w-full rounded-lg border-2  border-gray-800 m-1" type="text" placeholder="" id="dateBirth" value="">
-            <div class="w-96 text-left"> <input class="p1 w-full rounded-lg border-2  border-gray-800 m-1" type="text" placeholder="" id="code" value=""></div>
-        </div>
+            <div class="w-96 text-left"> <input class="p1 w-full rounded-lg border-2  border-gray-800 m-1" type="text"
+                    placeholder="" id="fname" value=""></div>
+            <div class="w-96 text-left"> <input class="p1 w-full rounded-lg border-2  border-gray-800 m-1" type="text"
+                    placeholder="" id="lname" value=""></div>
+            <div class="w-96 text-left"> <input class="p1 w-full rounded-lg border-2  border-gray-800 m-1" type="text"
+                    placeholder="" id="job" value=""></div>
+            <div class="w-96 text-left"> <input class="p1 w-full rounded-lg border-2  border-gray-800 m-1" type="text"
+                    placeholder="" id="dateBirth" value="">
+                <div class="w-96 text-left"> <input class="p1 w-full rounded-lg border-2  border-gray-800 m-1"
+                        type="text" placeholder="" id="code" value=""></div>
+            </div>
 
+        </div>
+   
     </div>
+   <div class="flex justify-end"><button class="bg-green-200 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50 p-4 rounded-2xl active:bg-green-700 ... ">save</button></div> 
+
+    <div class="flex justify-around border-red-500 rounded-b-md bg-blue-300 mx-4 m-8 p-4 rounded-2xl">
+        <ul id="list-disc">
+
+        </ul>
+        <div class="flex-col ">
+            <div class="w-96 text-right py-1.5"><span>class Name </span> </div>
+            <div class="w-96 text-right py-1.5"><span> teacher Name </span></div>
+            <div class="w-96 text-right py-1.5"> <span>class Number</span></div>
+            <div class="w-96 text-right py-1.5"><span>capacity</span></div>
+        </div>
+        <div class="flex-col ">
+            <div class="w-96 text-left"><input class="p1 w-96 rounded-lg border-2  border-gray-800 m-1" type="text" id="className" value=""></div>
+            <div class="w-96 text-left"><input class="p1 w-96 rounded-lg border-2  border-gray-800 m-1" type="text" id="teacher" value=""></div>
+            <div class="w-96 text-left"><input class="p1 w-96 rounded-lg border-2  border-gray-800 m-1" type="number" id="classNumber" value=""></div>
+            <div class="w-96 text-left"><input class="p1 w-96 rounded-lg border-2  border-gray-800 m-1" type="number" id="classCapacytyInput" value=""></div>
+        </div>
+    </div>
+    <div class="flex justify-end"><button class="bg-blue-300 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50 p-4 rounded-2xl ... ">save</button></div>
+
 </body>
 <script>
 
@@ -43,9 +71,19 @@
         { firstName: "aida", lastName: "amiri", age: 20, dateBirth: "2001", code: "0032244455", job: "Airline employee", lesson: [1, 5, 66], id: 3 },
         { firstName: "houman", lastName: "ghaderian", age: 42, dateBirth: "1977", code: "0032244455", job: "CEO", lesson: [5, 46, 3], id: 25 },
         { firstName: "hani", lastName: "ghaderian", age: 47, dateBirth: "1977", code: "32488488493", job: "teacher", lesson: [5], id: 2 }];
-
+    var classes = [
+        { title: 'HTML5', id: 1, teacher: " mr behnam khani", capacity: 3 },
+        { title: 'CSS', id: 24, teacher: "mr behnam khani", capacity: 2 },
+        { title: 'GIT', id: 3, teacher: "mr houman ", capacity: 12 },
+        { title: 'ANGULAR', id: 46, teacher: "mr mosh hamedani", capacity: 40 },
+        { title: 'ENGLISH', id: 5, teacher: "mr hormoz fassih", capacity: 1 },
+        { title: 'JavaScript', id: 66, teacher: "mr amin rad", capacity: 5 },
+    ];
+    loadstudents()
+    loadClassSideBar()
+    ///load student and set li list 
     function loadstudents() {
-        var ulName = document.getElementById("list-disc space-y-2");
+        var ulName = document.getElementById("list-disc space-y-1");
 
         ulName.innerHTML = "";
         for (j = 0; j < students.length; j++) {
@@ -53,29 +91,55 @@
 
             ulName.appendChild(liSet);
 
-            liSet.innerHTML = students[j].firstName + " __ " + students[j].lastName;
-            liSet.setAttribute("class", "flex items-start cursor-pointer");
+            liSet.innerHTML = students[j].firstName + "_" + students[j].lastName;
+            liSet.setAttribute("class", "flex items-start cursor-pointer hover:bg-green-400 rounded-2xl ");
             liSet.setAttribute("onClick", 'showDetailStudent(' + j + ')');
             liSet.setAttribute("id", 'lap' + j + ' ');
         }
     }
-    loadstudents()
 
 
+    ////occlick in li list student show detail in front inputs
     function showDetailStudent(index) {
         for (i = 0; i < students.length; i++) {
 
-            document.getElementById('lap' + i + ' ').classList.remove("p1");
+            document.getElementById('lap' + i + ' ').classList.remove("bg-red-200");
 
 
         }
         SelectedStudentIndex = students[index].id;
-        document.getElementById('lap' + index + ' ').classList.add("p1");
+        document.getElementById('lap' + index + ' ').classList.add("bg-red-200");
         document.getElementById("fname").value = students[index].firstName;
         document.getElementById("lname").value = students[index].lastName;
         document.getElementById("job").value = students[index].job;
         document.getElementById("dateBirth").value = students[index].dateBirth;
         document.getElementById("code").value = students[index].code;
+    }
+    ////load classes and set li list 
+    function loadClassSideBar() {
+        var classesUl = document.getElementById("list-disc");
+        classesUl.innerHTML = "";
+        for (x = 0; x < classes.length; x++) {
+            var classLi = document.createElement("li");
+            classesUl.appendChild(classLi);
+            classLi.innerHTML = classes[x].title;
+            classLi.setAttribute("class","flex items-start cursor-pointer hover:bg-blue-200 rounded-2xl");
+            classLi.setAttribute("onclick", 'showClassDetail(' + x + ')');
+            classLi.setAttribute("id", 'li' + x)
+        }
+    }
+    ///oclick in classes li show detail
+    function showClassDetail(index) {
+        let pTag = document.getElementById("listStudent");
+        for (q = 0; q < classes.length; q++) {
+            document.getElementById("li" + q).classList.remove("bg-gray-100");
+        }
+        document.getElementById("li" + index).classList.add("bg-gray-100");
+        selectClassIndex = classes[index].id;
+        document.getElementById("teacher").value = classes[index].teacher;
+        document.getElementById("classNumber").value = classes[index].id;
+        document.getElementById("className").value = classes[index].title;
+        document.getElementById("classCapacytyInput").value = classes[index].capacity;
     }
 </script>
 
