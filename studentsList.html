@@ -8,8 +8,52 @@
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <title>Document</title>
 </head>
+<style>
+    body {
+        position: relative;
+        padding: 0;
+        margin: 0;
+    }
+
+    #modal {
+        width: 100%;
+        height: 100%;
+        display: none;
+        justify-content: center;
+        position: absolute;
+        background-color: #000000ab;
+        align-items: center;
+        border-radius: 1em;
+        font-weight: bolder;
+    }
+
+    #btnAdd {
+        display: flex;
+    }
+</style>
 
 <body class="container mx-auto">
+    <div id="modal">
+        <button onclick="closeModal()"
+            class="bg-red-400 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-gray-200 focus:ring-opacity-50 p-1 rounded-2xl active:bg-green-700 absolute top-1 right-2 ... ">X</button>
+        <button onclick="addStudent()"
+            class="transition duration-500 ease-in-out bg-green-100 hover:bg-green-200 transform hover:-translate-y-1 hover:scale-110 p-4 rounded-2xl absolute bottom-1 left-2 w-32 ">add</button>
+
+        <div class="flex flex-col justify-center">
+            <span class="m-1">firstName</span>
+            <span class="m-1">lastName</span>
+            <span class="m-1">job</span>
+            <span class="m-1">year of birth</span>
+            <span class="m-1">code</span>
+        </div>
+        <div class="flex flex-col ">
+            <div class="m-1"><input type="text" id="fnModal" value="" class="w-96 rounded-xl "></div>
+            <div class="m-1"><input type="text" id="lnModal" value="" class="w-96 rounded-xl"></div>
+            <div class="m-1"><input type="text" id="jModal" value="" class="w-96 rounded-xl"></div>
+            <div class="m-1"> <input type="number" id="ybModal" value="" class="w-96 rounded-xl"></div>
+            <div class="m-1"><input type="number" id="coModal" value="" class="w-96 rounded-xl"></div>
+        </div>
+    </div>
     <div class="flex justify-around border-red-500 rounded-b-md bg-green-100 mx-4 m-8 p-2 rounded-2xl">
         <ul id="list-disc space-y-1">
 
@@ -39,9 +83,15 @@
             </div>
 
         </div>
-   
+
     </div>
-   <div class="flex justify-end"><button class="bg-green-200 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50 p-4 rounded-2xl active:bg-green-700 ... ">save</button></div> 
+    <button id="btnAdd" onclick="openModal()"
+        class="transition duration-500 ease-in-out bg-green-100 hover:bg-green-200 transform hover:-translate-y-1 hover:scale-110 p-4 rounded-2xl  ...">
+        add student
+    </button>
+    <div class="flex justify-end"><button
+            class="bg-green-200 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50 p-4 rounded-2xl active:bg-green-700 ... ">save</button>
+    </div>
 
     <div class="flex justify-around border-red-500 rounded-b-md bg-blue-300 mx-4 m-8 p-4 rounded-2xl">
         <ul id="list-disc">
@@ -54,13 +104,23 @@
             <div class="w-96 text-right py-1.5"><span>capacity</span></div>
         </div>
         <div class="flex-col ">
-            <div class="w-96 text-left"><input class="p1 w-96 rounded-lg border-2  border-gray-800 m-1" type="text" id="className" value=""></div>
-            <div class="w-96 text-left"><input class="p1 w-96 rounded-lg border-2  border-gray-800 m-1" type="text" id="teacher" value=""></div>
-            <div class="w-96 text-left"><input class="p1 w-96 rounded-lg border-2  border-gray-800 m-1" type="number" id="classNumber" value=""></div>
-            <div class="w-96 text-left"><input class="p1 w-96 rounded-lg border-2  border-gray-800 m-1" type="number" id="classCapacytyInput" value=""></div>
+            <div class="w-96 text-left"><input class="p1 w-96 rounded-lg border-2  border-gray-800 m-1" type="text"
+                    id="className" value=""></div>
+            <div class="w-96 text-left"><input class="p1 w-96 rounded-lg border-2  border-gray-800 m-1" type="text"
+                    id="teacher" value=""></div>
+            <div class="w-96 text-left"><input class="p1 w-96 rounded-lg border-2  border-gray-800 m-1" type="number"
+                    id="classNumber" value=""></div>
+            <div class="w-96 text-left"><input class="p1 w-96 rounded-lg border-2  border-gray-800 m-1" type="number"
+                    id="classCapacytyInput" value=""></div>
         </div>
     </div>
-    <div class="flex justify-end"><button class="bg-blue-300 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50 p-4 rounded-2xl ... ">save</button></div>
+    <button id="btnAddClass"
+        class="transition duration-500 ease-in-out bg-blue-300 hover:bg-gray-200 transform hover:-translate-y-1 hover:scale-110 p-4 rounded-2xl ...">
+        add new class
+    </button>
+    <div class="flex justify-end"><button
+            class="bg-blue-300 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50 p-4 rounded-2xl ... ">save</button>
+    </div>
 
 </body>
 <script>
@@ -123,7 +183,7 @@
             var classLi = document.createElement("li");
             classesUl.appendChild(classLi);
             classLi.innerHTML = classes[x].title;
-            classLi.setAttribute("class","flex items-start cursor-pointer hover:bg-blue-200 rounded-2xl");
+            classLi.setAttribute("class", "flex items-start cursor-pointer hover:bg-blue-200 rounded-2xl");
             classLi.setAttribute("onclick", 'showClassDetail(' + x + ')');
             classLi.setAttribute("id", 'li' + x)
         }
@@ -140,6 +200,46 @@
         document.getElementById("classNumber").value = classes[index].id;
         document.getElementById("className").value = classes[index].title;
         document.getElementById("classCapacytyInput").value = classes[index].capacity;
+    }
+    ////
+    ///
+    ////modal
+    ////
+    ///
+    function openModal() {
+        document.getElementById("modal").style.display = "flex";
+        document.getElementById("btnAdd").style.display = "none";
+        document.getElementById("btnAddClass").style.display = "none";
+
+    }
+    function closeModal() {
+        document.getElementById("modal").style.display = "none";
+        document.getElementById("btnAdd").style.display = "flex";
+        document.getElementById("btnAddClass").style.display = "flex";
+    }
+
+    ////add new student
+    function addStudent() {
+        closeModal();
+
+
+        //get value in modal
+        let family = document.getElementById("lnModal").value;
+        let name = document.getElementById("fnModal").value;
+        let jobM = document.getElementById("jModal").value;
+        let yearM = document.getElementById("ybModal").value
+        let codM = document.getElementById("coModal").value;
+        //let lessStu = studentLessonPassed();
+
+        ///// set in li
+        if (name === "" || family === "" || jobM === "" || Number.isNaN(yearM) || codM === "") {
+            alert("enter your all input");
+            openModal();
+
+        } else {
+            students.push({ firstName: name, lastName: family, job: jobM, dateBirth: yearM, code: codM, });
+            loadstudents()
+        }
     }
 </script>
 
