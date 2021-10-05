@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="ali"></p>
+
+    <h4 id="mean"></h4>
+
+    <p id="true"></p>
+
+    <p id="catch"></p>
+
+    <p id="mix"></p>
+
+    <p id="change"></p>
+
+    <script>
+      document.getElementById("ali").innerText = fun1();
+      function fun1() {
+        console.log("hello");
+      }
+      function mac() {
+        console.log("man");
+      }
+      mac();
+
+      document.getElementById("mean").innerText = cart("moon");
+      function cart(firstName) {
+        console.log("look at" + " the " + firstName);
+      }
+
+      document.getElementById("true").innerText = mirror("ida", 20);
+      document.getElementById("catch").innerText = mirror("hassan", 46);
+
+      function mirror(myName, myAge) {
+        console.log(myName + " " + "has" + " " + myAge + " " + "years old");
+      }
+      function fun5() {
+        document.getElementById("mix").innerText = "hiii";
+      }
+      fun5();
+
+      function mastter(xx, yy) {
+        document.getElementById("change").innerText = xx * yy;
+      }
+      mastter(4, 3);
+    </script>
+</body>
+</html>

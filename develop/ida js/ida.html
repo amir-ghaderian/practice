@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class person {
+          constructor() {
+            this.name = "ida";
+            this.family = "amiri";
+            this.age = 20;
+          }
+        }
+        var mark = new person();
+        console.log(mark);
+        console.log(mark.name);
+  
+        var mark2 = new person();
+        console.log(mark2);
+        console.log(mark2.name);
+  
+        class student {
+          constructor(n, f, a) {
+            this.name = n;
+            this.family = f;
+            this.age = a;
+          }
+          fun1() {
+            console.log("hello");
+          }
+          fun2(firstName) {
+            console.log("hello" + " " + firstName);
+          }
+          fun3() {
+            console.log("salam" + " " + this.name);
+          }
+        }
+        var stud1 = new student("ali", "qaderi", 35);
+        console.log(stud1);
+        stud1.fun2("sara");
+        stud1.fun3();
+  
+        var stud2 = new student("ahmad", "ahmadii", 66);
+        console.log(stud2);
+        stud2.fun1();
+        stud2.fun2("hosein");
+        stud2.fun3();
+      </script>
+  
+</body>
+</html>

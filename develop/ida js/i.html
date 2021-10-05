@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let names = ["hassan", "hossein", "ali", "ahmad"];
+        console.log(names.length);
+        console.log(names[2]);
+  
+        for (let i = 0; i < names.length; i++) {
+          console.log(names[i]);
+        }
+        for (let item of names) {
+          console.log(item);
+        }
+  
+        var personList = [
+          { name: "ahmad", family: "rezaii", age: 45 },
+          { name: "sara", family: "abbasi", age: 12 },
+        ];
+        for (var item of personList) {
+          console.log(item);
+          for (var i in item) {
+            console.log(i + " : " + item[i]);
+          }
+        }
+      </script>
+</body>
+</html>

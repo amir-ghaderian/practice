@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class person {
+          constructor(n, f, a) {
+            this.name = n;
+            this.family = f;
+            this.age = a;
+          }
+          fun1() {
+            console.log("hello");
+          }
+          fun2(firstName) {
+            console.log("hello" + " " + firstName);
+          }
+          fun3() {
+            console.log("salam" + " " + this.name);
+          }
+        }
+  
+        class student extends person {
+          constructor() {
+            super("amir", "qaderian", 37);
+            this.studentsCode = 10;
+          }
+        }
+  
+        class teacher {
+          constructor() {
+            this.teachersCode = 1000;
+          }
+        }
+  
+        var per1 = new person("ida", "amiri", 20);
+        var per2 = new student();
+        var per3 = new teacher();
+        console.log(per1);
+        console.log(per2);
+        console.log(per3);
+        console.log(per2.name);
+      </script>
+  
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    number: <input type="text" id="mine1" />
+    <div
+      style="width: 60; height: 20; background-color: yellow"
+      onclick="print()"
+    >
+      بین 1 تا 20 عدد بزن
+    </div>
+    number: <input type="text" id="line1" />
+    <div style="width: 60; height: 20; background-color: pink" onclick="show()">
+      1 / 12 / 8
+    </div>
+    <script>
+      function print() {
+        let chance = Number(document.getElementById("mine1").value);
+        if (chance < 10 && chance >= 0) {
+          alert("failed");
+        } else if (chance > 10 && chance <= 15) {
+          alert("not bad");
+        } else if (chance > 15 && chance <= 20) {
+          alert("passed");
+        } else {
+          alert("congrat ridi");
+        }
+      }
+
+      function show() {
+        let fine = Number(document.getElementById("line1").value);
+        switch (fine) {
+          case 8:
+            alert("switch 8");
+          case 12:
+            alert("switch 12");
+            break;
+          case 1:
+            alert("switch 1");
+            break;
+          default:
+            alert("error");
+        }
+      }
+    </script>
+</body>
+</html>
