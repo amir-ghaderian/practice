@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<style>
+    #border{
+        background-color: red;
+    }
+</style>
+<body class="container mx-auto">
+    <div id="magzin" class="grid grid-flow-col grid-cols-3 grid-rows-2 gap-1" onclick="rotate()">
+        <div id="pic1" class=" w-64 h-80"></div>
+        <div id="pic2" class=" w-64 h-80"></div>
+        <div id="pic3" class=" w-64 h-80"></div>
+        <div id="pic4" class="w-64 h-80"></div>
+        <div id="pic5" class="w-64 h-80"></div>
+        <div id="pic6" class="w-64 h-80"></div>
+        <div id="pic7" class="w-64 h-80"></div>
+        <div id="pic8" class="w-64 h-80"></div>
+        <div id="pic9" class="w-64 h-80"></div>
+        <div id="pic10" class="w-64 h-80"></div>
+
+
+    </div>
+
+</body>
+<script>
+    function rotate() {
+  
+        var album = document.getElementById("magzin");
+        for (i = 0; i < 10; i++) {
+           let tag= document.getElementById("pic" + i).setAttribute("id","border");
+    
+
+}
+
+    }
+</script>
+
+</html>
