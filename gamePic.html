@@ -9,13 +9,13 @@
     <title>Document</title>
 </head>
 <style>
-    #border{
+    .border{
         background-color: red;
     }
 </style>
 <body class="container mx-auto">
-    <div id="magzin" class="grid grid-flow-col grid-cols-3 grid-rows-2 gap-1" onclick="rotate()">
-        <div id="pic1" class=" w-64 h-80"></div>
+    <div id="magzin" class="grid grid-flow-col grid-cols-3 grid-rows-2 gap-1">
+        <div id="pic1" class=" w-64 h-80"  onclick="tileClick(1)"></div>
         <div id="pic2" class=" w-64 h-80"></div>
         <div id="pic3" class=" w-64 h-80"></div>
         <div id="pic4" class="w-64 h-80"></div>
@@ -29,17 +29,36 @@
 
     </div>
 
+    <a onclick="allBorder()">ALLL</a>
+
 </body>
 <script>
-    function rotate() {
+    function tileClick(i) {
+
+        let tag= document.getElementById("pic" + i);
+        tag.classList.add("border");
   
-        var album = document.getElementById("magzin");
-        for (i = 0; i < 10; i++) {
-           let tag= document.getElementById("pic" + i).setAttribute("id","border");
-    
+        // var album = document.getElementById("magzin");
+        // for (i = 1; i <= 10; i++) {
 
-}
+        //    // console.log(document.getElementById("pic" + i)); 
+        //    // console.log("pic" + i);
+           
+        //    tag.classList.add("border");
 
+
+
+        // }
+
+
+
+    }
+
+    function allBorder() {
+        for (let i = 1; i <= 10; i++) {
+            let tag= document.getElementById("pic" + i);
+            tag.classList.add("border");       
+        }
     }
 </script>
 
