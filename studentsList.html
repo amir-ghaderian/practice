@@ -24,7 +24,6 @@
         position: absolute;
         background-color: #000000ab;
         align-items: center;
-        border-radius: 1em;
         font-weight: bolder;
     }
 
@@ -33,6 +32,10 @@
     #btnAdd,
     #btnAddClass {
         display: flex;
+    }
+    #listStudent, #or,#capaityParent ,#list,#numStudent{
+        display: none;
+        
     }
 </style>
 
@@ -147,6 +150,9 @@
                 <div class="w-96 text-right py-1.5"><span> teacher Name </span></div>
                 <div class="w-96 text-right py-1.5"> <span>class Number</span></div>
                 <div class="w-96 text-right py-1.5"><span>capacity</span></div>
+              <div id="list" class="w-full "><button onclick='document.getElementById("listStudent").style.display="flex" ' class="transition duration-500 ease-in-out bg-blue-200 hover:bg-gray-200 transform hover:translate-y-1 hover:scale-110 p-2 rounded-2xl h-12  ... ">
+                    List student
+                 </button></div> 
             </div>
             <div class="flex-col ">
                 <div class="w-96 text-left"><input class="p1 w-96 rounded-lg border-2  border-gray-800 m-1" type="text"
@@ -157,16 +163,25 @@
                         type="number" id="classNumber" value=""></div>
                 <div class="w-96 text-left"><input class="p1 w-96 rounded-lg border-2  border-gray-800 m-1"
                         type="number" id="classCapacytyInput" value=""></div>
+        <div id="numStudent"  class="w-24 bg-gray-100  border-2 border-gray-800 rounded-lg transform hover:translate-y-1 "> </div>
+        
+         <div id="capaityParent" class="bg-blue-200 flex  w-40 m-1 rounded-lg">capacity <div id="or"  class="bg-red-300 p1  flex w-24 text-right rounded-lg "></div></div>
+       
+        </div>
+         
             </div>
+            <div class="flex justify-end"><button
+                class="bg-blue-300 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50 p-4 rounded-2xl ... ">save</button>
+        </div>
         </div>
         <button id="btnAddClass" onclick="openClassModal()"
             class="transition duration-500 ease-in-out bg-blue-300 hover:bg-gray-200 transform hover:-translate-y-1 hover:scale-110 p-4 rounded-2xl ...">
             add new class
         </button>
-        <div class="flex justify-end"><button
-                class="bg-blue-300 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50 p-4 rounded-2xl ... ">save</button>
-        </div>
-
+        
+    </div>
+        <div id="listStudent" class="bg-gray-200 flex flex-col w-46 rounded-lg items-center" ></div>
+        
 </body>
 <script>
 
@@ -235,17 +250,56 @@
     }
     ///oclick in classes li show detail
     function showClassDetail(index) {
+    var numberOfStudent = 0;
+
         let pTag = document.getElementById("listStudent");
         for (q = 0; q < classes.length; q++) {
             document.getElementById("li" + q).classList.remove("bg-gray-100");
         }
         document.getElementById("li" + index).classList.add("bg-gray-100");
+        document.getElementById("or").style.display="flex";
+        document.getElementById("list").style.display="flex";
+        document.getElementById("numStudent").style.display="flex";
+        document.getElementById("capaityParent").style.display="flex";
         selectClassIndex = classes[index].id;
         document.getElementById("teacher").value = classes[index].teacher;
         document.getElementById("classNumber").value = classes[index].id;
         document.getElementById("className").value = classes[index].title;
         document.getElementById("classCapacytyInput").value = classes[index].capacity;
+       pTag.innerHTML = "";
+        for (w = 0; w < students.length; w++) {
+            for (a = 0; a < students[w].lesson.length; a++) {
+                if (students[w].lesson[a] == classes[index].id) {
+                    numberOfStudent++
+                }
+                 if (classes[index].id == students[w].lesson[a]) {
+                    let list=document.getElementById("list");
+                pTag.classList.add("flex")
+                 let lineP = document.createElement("p");
+                pTag.appendChild(lineP);
+             
+                lineP.innerHTML = students[w].firstName + "  " + students[w].lastName + " ---- " + students[w].code;
+
+
+                }
+
+            }
+        }
+        let pars = parseInt(classes[index].capacity);
+        if ((pars - numberOfStudent) <= 0) {
+            document.getElementById("or").innerHTML = "FULL";
+            document.getElementById("or").style.backgroundColor="red"
+
+        } else if ((pars - numberOfStudent) >= 0) {
+            document.getElementById("or").style.backgroundColor="green";
+            document.getElementById("or").innerHTML = "No Full";
+        }
+        
+        document.getElementById("numStudent").innerHTML = numberOfStudent;
+
     }
+
+
     ////
     ///
     ////modal
@@ -271,6 +325,7 @@
         document.getElementById("modal-class").style.display = "flex";
         document.getElementById("btnAddClass").style.display = "none";
         document.getElementById("btnAdd").style.display = "none";
+        
 
     }
 
@@ -316,10 +371,7 @@
         }
 
         loadClassSideBar()
-        newClass == "";
-        newClassNum == "";
-        newTeacher == "";
-        capacityClass == "";
+
     }
 </script>
 
