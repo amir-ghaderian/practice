@@ -9,22 +9,24 @@
     <title>Document</title>
 </head>
 <style>
-    .border{
+    .border {
+        background-image:url();
         background-color: red;
     }
 </style>
+
 <body class="container mx-auto">
     <div id="magzin" class="grid grid-flow-col grid-cols-3 grid-rows-2 gap-1">
-        <div id="pic0" class=" w-64 h-80 bg-cover"  onclick="tileClick(1)"></div>
-        <div id="pic1" class=" w-64 h-80 bg-cover"></div>
-        <div id="pic2" class=" w-64 h-80 bg-cover"></div>
-        <div id="pic3" class="w-64 h-80 bg-cover"></div>
-        <div id="pic4" class="w-64 h-80 bg-cover"></div>
-        <div id="pic5" class="w-64 h-80 bg-cover"></div>
-        <div id="pic6" class="w-64 h-80 bg-cover"></div>
-        <div id="pic7" class="w-64 h-80 bg-cover"></div>
-        <div id="pic8" class="w-64 h-80 bg-cover"></div>
-        <div id="pic9" class="w-64 h-80 bg-cover"></div>
+        <div id="pic0" class=" w-64 h-80 bg-cover bg-red-200" onclick="tileClick(0)"></div>
+        <div id="pic1" class=" w-64 h-80 bg-cover bg-red-200" onclick="tileClick(1)"></div>
+        <div id="pic2" class=" w-64 h-80 bg-cover bg-red-200"></div>
+        <div id="pic3" class="w-64 h-80 bg-cover bg-red-200"></div>
+        <div id="pic4" class="w-64 h-80 bg-cover bg-red-200"></div>
+        <div id="pic5" class="w-64 h-80 bg-cover bg-red-200"></div>
+        <div id="pic6" class="w-64 h-80 bg-cover bg-red-200"></div>
+        <div id="pic7" class="w-64 h-80 bg-cover bg-red-200"></div>
+        <div id="pic8" class="w-64 h-80 bg-cover bg-red-200"></div>
+        <div id="pic9" class="w-64 h-80 bg-cover bg-red-200"></div>
 
 
     </div>
@@ -33,37 +35,38 @@
 
 </body>
 <script>
-     var images=["image/1","image/2","image/3","image/4","image/5","image/6","image/7","image/8","image/9","image/10"];
+    var images = ["image/1", "image/2", "image/3", "image/4", "image/5", "image/6", "image/7", "image/8", "image/9", "image/10"];
 
     function tileClick(i) {
-        let tag= document.getElementById("pic" + i);
-        tag.classList.add("border");
+        let tag = document.getElementById("pic" + i);
   
-        // var album = document.getElementById("magzin");
-        // for (i = 1; i <= 10; i++) {
-
-        //    // console.log(document.getElementById("pic" + i)); 
-        //    // console.log("pic" + i);
-           
-        //    tag.classList.add("border");
-
-
-
-        // }
-
+     tag.style.backgroundImage="url('image/"+i+".jpeg')";
 
 
     }
 
     function allBorder() {
-        for (let i = 0; i <images.length; i++) {
-            let tag= document.getElementById("pic" + i);
-             
-                
-                tag.style.backgroundImage="url("+images[i]+".jpeg)";
-                 
+        for (let i = 0; i < images.length; i++) {
+            var tag = document.getElementById("pic" + i);
+
+
+            tag.style.backgroundImage = "url(" + images[i] + ".jpeg)";
+
         }
+        setTimeout(rimo ,3000);
+        
+        
+       
     }
+    function rimo() {
+        for (p = 0; p < images.length; p++) {
+            var tag2 = document.getElementById("pic" + p);
+            tag2.removeAttribute("style","backgroundImage");
+           
+        }
+           
+    }
+    
 </script>
 
 </html>
