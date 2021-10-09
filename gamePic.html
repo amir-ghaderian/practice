@@ -15,16 +15,16 @@
 </style>
 <body class="container mx-auto">
     <div id="magzin" class="grid grid-flow-col grid-cols-3 grid-rows-2 gap-1">
-        <div id="pic1" class=" w-64 h-80"  onclick="tileClick(1)"></div>
-        <div id="pic2" class=" w-64 h-80"></div>
-        <div id="pic3" class=" w-64 h-80" style="background-image: url(/image/2.jpeg);"></div>
-        <div id="pic4" class="w-64 h-80"></div>
-        <div id="pic5" class="w-64 h-80"></div>
-        <div id="pic6" class="w-64 h-80"></div>
-        <div id="pic7" class="w-64 h-80"></div>
-        <div id="pic8" class="w-64 h-80"></div>
-        <div id="pic9" class="w-64 h-80"></div>
-        <div id="pic10" class="w-64 h-80"></div>
+        <div id="pic0" class=" w-64 h-80 bg-cover"  onclick="tileClick(1)"></div>
+        <div id="pic1" class=" w-64 h-80 bg-cover"></div>
+        <div id="pic2" class=" w-64 h-80 bg-cover"></div>
+        <div id="pic3" class="w-64 h-80 bg-cover"></div>
+        <div id="pic4" class="w-64 h-80 bg-cover"></div>
+        <div id="pic5" class="w-64 h-80 bg-cover"></div>
+        <div id="pic6" class="w-64 h-80 bg-cover"></div>
+        <div id="pic7" class="w-64 h-80 bg-cover"></div>
+        <div id="pic8" class="w-64 h-80 bg-cover"></div>
+        <div id="pic9" class="w-64 h-80 bg-cover"></div>
 
 
     </div>
@@ -33,7 +33,7 @@
 
 </body>
 <script>
-     var images=["/image/1","/image/2","/image/3","/image/4","/image/5","/image/6","/image/7","/image/8","/image/9","/image/10"];
+     var images=["image/1","image/2","image/3","image/4","image/5","image/6","image/7","image/8","image/9","image/10"];
 
     function tileClick(i) {
         let tag= document.getElementById("pic" + i);
@@ -56,12 +56,12 @@
     }
 
     function allBorder() {
-        for (let i = 1; i <=10; i++) {
+        for (let i = 0; i <images.length; i++) {
             let tag= document.getElementById("pic" + i);
-              for(p=0;p<images.length;p++){
+             
                 
-                  tag.style.backgroundImage=URL(images[p]+".jpeg");
-              }   
+                tag.style.backgroundImage="url("+images[i]+".jpeg)";
+                 
         }
     }
 </script>
