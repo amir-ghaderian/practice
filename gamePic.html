@@ -36,15 +36,19 @@
 </body>
 <script>
     var images = ["image/0", "image/1", "image/2", "image/3", "image/4", "image/5", "image/6", "image/7", "image/8", "image/9"];
-    var lastSelected = 0;
+    var selected = 0;
+    var clicked=0;
+    
     function tileClick(i) {
-      
-        let tag = document.getElementById("pic" + i);
 
+        let tag = document.getElementById("pic" + i);
         tag.style.backgroundImage = "url('image/" + i + ".jpeg')";
+        
+       selected=tag;
+   
         setTimeout(rimo, 1500);
-        ///hey boss ,,,how get last clicked?....
-        console.log()
+
+
     }
 
     function allBorder() {
@@ -60,13 +64,15 @@
 
 
     }
+    var nextSelected = 0;
     function rimo() {
         for (p = 0; p < images.length; p++) {
             var tag2 = document.getElementById("pic" + p);
             tag2.removeAttribute("style", "backgroundImage");
-
+        
         }
-
+        console.log(selected);
+    
     }
 
 </script>
