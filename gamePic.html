@@ -17,9 +17,9 @@
 
 <body class="container mx-auto">
     <div id="magzin" class="grid grid-flow-col grid-cols-3 grid-rows-2 gap-1">
-        <div id="pic0" class=" w-64 h-80 bg-cover bg-red-200" onclick="tileClick(0)"></div>
-        <div id="pic1" class=" w-64 h-80 bg-cover bg-red-200" onclick="tileClick(1)"></div>
-        <div id="pic2" class=" w-64 h-80 bg-cover bg-red-200 " onclick="tileClick(2)"></div>
+        <div id="pic0" class="w-64 h-80 bg-cover bg-red-200" onclick="tileClick(0)"></div>
+        <div id="pic1" class="w-64 h-80 bg-cover bg-red-200" onclick="tileClick(1)"></div>
+        <div id="pic2" class="w-64 h-80 bg-cover bg-red-200" onclick="tileClick(2)"></div>
         <div id="pic3" class="w-64 h-80 bg-cover bg-red-200" onclick="tileClick(3)"></div>
         <div id="pic4" class="w-64 h-80 bg-cover bg-red-200" onclick="tileClick(4)"></div>
         <div id="pic5" class="w-64 h-80 bg-cover bg-red-200" onclick="tileClick(5)"></div>
@@ -37,15 +37,15 @@
 <script>
     var images = ["image/0", "image/1", "image/2", "image/3", "image/4", "image/5", "image/6", "image/7", "image/8", "image/9"];
     var selected = 0;
-    var clicked=0;
-    
+    var clicked = 0;
+
     function tileClick(i) {
 
         let tag = document.getElementById("pic" + i);
         tag.style.backgroundImage = "url('image/" + i + ".jpeg')";
-        
-       selected=tag;
-   
+
+        selected += 1;
+
         setTimeout(rimo, 1500);
 
 
@@ -69,10 +69,14 @@
         for (p = 0; p < images.length; p++) {
             var tag2 = document.getElementById("pic" + p);
             tag2.removeAttribute("style", "backgroundImage");
-        
+
         }
-        console.log(selected);
-    
+        if (selected % 2 == 0) {
+            console.log("even");
+        } else {
+            console.log("odd");
+        }
+
     }
 
 </script>
