@@ -52,65 +52,64 @@
 
         <div class="flex bg-blue-100  p-8 rounded-xl">
             <div class="flex flex-col justify-center">
-                <span class=" p-1 m-0.5">teacher name</span>
-                <span class=" p-1 m-0.5">class number</span>
-                <span class="p-1 m-0.5"> class name</span>
-                <span class="  p-1 m-0.5">capacity class</span>
+                <span class=" p-2 m-0.5">teacher name</span>
+                <span class=" p-2 m-0.5">class number</span>
+                <span class="p-2 m-0.5"> class name</span>
+                <span class="  p-2 m-0.5">capacity class</span>
             </div>
             <div class="flex flex-col ">
-                <div class=" p-1 m-0.5"><input class="w-96 rounded-xl placeholder-gray-500 md:placeholder-gray-500"
+                <div class=" p-1 m-0.5"><input placeholder="" class="w-96 rounded-xl border-4 border-gray-100 placeholder-gray-500 md:placeholder-gray-500"
                         type="text" id="newTeacher" value=""></div>
-                <div class=" p-1 m-0.5"> <input class="w-96 rounded-xl placeholder-gray-500 md:placeholder-gray-500"
+                <div class=" p-1 m-0.5"> <input placeholder="" class="w-96 rounded-xl border-4 border-gray-100 placeholder-gray-500 md:placeholder-gray-500"
                         type="number" id="newClassNumber" value=""></div>
-                <div class=" p-1 m-0.5"> <input class="w-96 rounded-xl placeholder-gray-500 md:placeholder-gray-500"
+                <div class=" p-1 m-0.5"> <input placeholder="" class="w-96 rounded-xl border-4 border-gray-100 placeholder-gray-500 md:placeholder-gray-500"
                         type="text" id="newClass" value=""></div>
-                <div class=" p-1 m-0.5"> <input class="w-96 rounded-xl placeholder-gray-500 md:placeholder-gray-500"
+                <div class=" p-1 m-0.5"> <input placeholder="" class="w-96 rounded-xl border-4 border-gray-100 placeholder-gray-500 md:placeholder-gray-500"
                         type="text" id="capacity" value=""></div>
             </div>
             <button onclick="addClass()"
-            class="transition duration-500 ease-in-out bg-gray-100 hover:bg-blue-200 transform hover:-translate-y-1 hover:scale-110 p-4 rounded-2xl ">add</button>
+                class="transition duration-500 ease-in-out bg-gray-100 hover:bg-blue-200 transform hover:-translate-y-1 hover:scale-110 p-2 rounded-2xl border-4 border-indigo-500 border-opacity-50">add</button>
         </div>
     </div>
     <div id="modal">
         <button onclick="closeModal()"
             class="bg-red-400 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-gray-200 focus:ring-opacity-50 p-1 rounded-2xl active:bg-green-700 absolute top-1 right-2 ... ">X</button>
-        studentLessonPassed()
-        <button onclick="addStudent() "
-            class="transition duration-500 ease-in-out bg-red-300 hover:bg-red-400 transform hover:-translate-y-1 hover:scale-110 p-4 rounded-2xl absolute bottom-16 right-26 w-32 ">add</button>
-            <div class="flex bg-blue-100  p-8 rounded-xl">
-        <div class="flex flex-col justify-center">
-            <span class="m-1  p-1">firstName</span>
-            <span class="m-1  p-1">lastName</span>
-            <span class="m-1  p-1">job</span>
-            <span class="m-1  p-1">year of birth</span>
-            <span class="m-1  p-1">code</span>
-        </div>
-        <div class="flex flex-col ">
-            <div class="m-1"><input type="text" id="fnModal" value="" placeholder="name"
-                    class="w-96 rounded-xl   p-1"></div>
-            <div class="m-1"><input type="text" id="lnModal" value="" placeholder="lastname"
-                    class="w-96 rounded-xl  p-1"></div>
-            <div class="m-1"><input type="text" id="jModal" value="" placeholder="job" class="w-96 rounded-xl  p-1">
-            </div>
-            <div class="m-1"> <input type="number" id="ybModal" placeholder="birthday" value=""
-                    class="w-96 rounded-xl p-1 "></div>
-            <div class="m-1"><input type="number" id="coModal" value="" placeholder="cod" class="w-96 rounded-xl  p-1">
-            </div>
-        </div>
-        <div class="flex">
-            <div class="flex flex-col">
-                <div class="m-1 "><span>HTML</span><input type="checkbox" value="1"></div>
-                <div class="m-1 "><span>CSS</span><input type="checkbox" value="24"></div>
-                <div class="m-1 "><span>Git</span><input type="checkbox" value="3"></div>
-            </div>
-            <div class="flex flex-col">
-                <div class="m-1 "><span>JavaScript</span><input type="checkbox" value="66"></div>
-                <div class="m-1 "><span>ANGULAR</span><input type="checkbox" value="46"></div>
-                <div class="m-1 "><span>English</span><input type="checkbox" value="5"></div>
-            </div>
-        </div>
-        </div>
        
+       
+            <div id="center" class="flex flex-col bg-blue-100  p-8 rounded-xl relative">
+    
+                <div class="flex">
+                <div class="flex flex-col justify-center">
+                    <span class="m-1  p-2">firstName</span>
+                    <span class="m-1  p-2">lastName</span>
+                    <span class="m-1  p-2">job</span>
+                    <span class="m-1  p-2">year of birth</span>
+                    <span class="m-1  p-2">code</span>
+                </div>
+                <div class="flex flex-col ">
+                    <div class="m-1"><input type="text" id="fnModal" value="" placeholder="name"
+                            class="w-96 rounded-xl border-4 border-gray-100 p-1"></div>
+                    <div class="m-1"><input type="text" id="lnModal" value="" placeholder="lastname"
+                            class="w-96 rounded-xl border-4 border-gray-100 p-1"></div>
+                    <div class="m-1"><input type="text" id="jModal" value="" placeholder="job"
+                            class="w-96 rounded-xl border-4 border-gray-100 p-1">
+                    </div>
+                    <div class="m-1"> <input type="number" id="ybModal" placeholder="birthday" value=""
+                            class="w-96 rounded-xl border-4 border-gray-100 p-1 "></div>
+                    <div class="m-1"><input type="number" id="coModal" value="" placeholder="cod"
+                            class="w-96 rounded-xl border-4 border-gray-101  p-1">
+
+                    </div>
+                </div>
+
+                </div>
+                <div id="checkboxing"></div>
+                <button onclick="addStudent() "
+                class="transition duration-500 ease-in-out bg-blue-300 hover:bg-red-400 transform hover:-translate-y-1 hover:scale-110  p-2 rounded-2xl w-16  absolute right-2 bottom-1 ">add</button>
+           
+            </div>
+            
+        
     </div>
     <div class="container mx-auto">
 
@@ -147,6 +146,8 @@
                     class="bg-blue-100 hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-opacity-50 p-4 rounded-2xl active:bg-green-700 ... ">save</button>
             </div>
         </div>
+        <div id="lessons" class="ml-32"></div>
+        
         <button id="btnAdd" onclick="openModal()"
             class="transition duration-500 ease-in-out bg-blue-200 hover:bg-blue-400 transform hover:-translate-y-1 hover:scale-110 p-4 rounded-2xl  ...">
             add student
@@ -253,6 +254,24 @@
         document.getElementById("job").value = students[index].job;
         document.getElementById("dateBirth").value = students[index].dateBirth;
         document.getElementById("code").value = students[index].code;
+        var lessonDiv = document.getElementById("lessons");
+        lessonDiv.innerHTML = '';
+
+        for (k = 0; k < students.length; k++) {
+
+            for (p = 0; p < classes.length; p++) {
+
+                if (students[index].lesson[k] === classes[p].id) {
+                    var span = document.createElement("span");
+                    lessonDiv.appendChild(span);
+                    span.setAttribute("class","bg-red-200 p-1 rounded-2xl m-1")
+                    span.innerHTML = classes[p].title;
+                }
+            }
+        }
+
+    
+
     }
     ////load classes and set li list 
     function loadClassSideBar() {
@@ -316,6 +335,33 @@
         document.getElementById("num").innerHTML = numberOfStudent;
 
     }
+    ////
+    ///load leesons in modal 
+    ///
+    function loadClassCheckBox() {
+
+
+        var form = document.getElementById("checkboxing");
+        var center = document.getElementById("center");
+
+        form.innerHTML = "";
+        for (r = 0; r < classes.length; r++) {
+            var input = document.createElement("input");
+            var labale = document.createElement("span");
+            labale.innerHTML = classes[r].title;
+            form.appendChild(labale);
+            input.setAttribute("type", "checkbox");
+            form.appendChild(input);
+            center.appendChild(form);
+            input.setAttribute("name", classes[r].title);
+            input.setAttribute("value", classes[r].id);
+            form.setAttribute("class","w-48")
+            input.setAttribute("class","p-5 m-1")
+
+
+        }
+
+    }
     ///chek student lesson pass
     function studentLessonPassed() {
         var pars = 0;
@@ -344,17 +390,23 @@
         document.getElementById("modal").style.display = "flex";
         document.getElementById("btnAdd").style.display = "none";
         document.getElementById("btnAddClass").style.display = "none";
+        loadClassCheckBox()
 
     }
     function closeModal() {
         document.getElementById("modal").style.display = "none";
         document.getElementById("btnAdd").style.display = "flex";
         document.getElementById("btnAddClass").style.display = "flex";
+        
     }
     function closeClassModal() {
         document.getElementById("modal-class").style.display = "none";
         document.getElementById("btnAddClass").style.display = "flex";
         document.getElementById("btnAdd").style.display = "flex";
+        // document.getElementById("newTeacher").innerText="";
+        // document.getElementById("newClassNumber").innerHTML="";
+        // document.getElementById("newClass").innerHTML="";
+        // document.getElementById("capacity").innerHTML="";
     }
     function openClassModal() {
         document.getElementById("modal-class").style.display = "flex";
