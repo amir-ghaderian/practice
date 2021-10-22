@@ -151,7 +151,7 @@
         
         <button id="btnAdd" onclick="openModal()"
             class="transition duration-500 ease-in-out bg-blue-200 hover:bg-blue-400 transform hover:-translate-y-1 hover:scale-110 p-4 rounded-2xl  ...">
-            add student
+            add new student
         </button>
         <div class="flex justify-around border-red-500 rounded-b-md bg-blue-200 mx-4 m-8 p-4 rounded-2xl">
             <ul id="list-disc">
@@ -183,7 +183,7 @@
                         type="number" id="classCapacytyInput" value=""></div>
 
                 <div id="capaityParent" class="bg-blue-200 flex  w-40  rounded-lg">capacity <div id="or"
-                        class="bg-red-300  text-gray-100 flex justify-center rounded-l-none rounded-lg "
+                        class="bg-red-300  text-gray-100 flex justify-center ml-2  rounded-xl "
                         style="width: 6.2rem;"></div>
                 </div>
 
@@ -192,6 +192,7 @@
                     class="bg-blue-100 hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50   p-4 rounded-2xl ... ">save</button>
             </div>
         </div>
+        <div id="listStudent" class="bg-gray-200 flex ml-24 w-46 rounded-lg items-center"></div>
 
         <button id="btnAddClass" onclick="openClassModal()"
             class="transition duration-500 ease-in-out bg-blue-200 hover:bg-blue-400 transform hover:-translate-y-1 hover:scale-110 p-4 rounded-2xl ...">
@@ -201,7 +202,6 @@
 
 
     </div>
-    <div id="listStudent" class="bg-gray-200 flex flex-col w-46 rounded-lg items-center"></div>
 
 </body>
 <script>
@@ -311,9 +311,10 @@
                 if (classes[index].id == students[w].lesson[a]) {
                     let list = document.getElementById("list");
                     pTag.classList.add("flex")
-                    let lineP = document.createElement("p");
+                    let lineP = document.createElement("span");
                     pTag.appendChild(lineP);
-                    lineP.innerHTML = students[w].firstName + "  " + students[w].lastName + " ---- " + students[w].code;
+                    lineP.setAttribute("class","bg-red-200 cursor-pointer hover:bg-gray-200 rounded-2xl p-1 m-1");
+                    lineP.innerHTML = students[w].firstName + "  " + students[w].lastName;
 
 
                 }
