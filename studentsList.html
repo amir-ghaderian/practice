@@ -153,9 +153,9 @@
             </div>
         </div>
         <div class="flex justify-center">
-            <div id="pic" class="bg-red-100 w-24 h-24  rounded-xl bg-cover"></div>
+           
         </div>
-
+        <div id="pic" class="bg-red-100 w-24 h-24  rounded-xl bg-cover"></div>
         <div id="lessons" class="ml-32"></div>
 
         <button id="btnAdd" onclick="openModal()"
@@ -277,10 +277,10 @@
                     lessonDiv.appendChild(span);
                     span.setAttribute("class", "bg-red-200 p-1 rounded-2xl m-1")
                     span.innerHTML = classes[p].title;
-                    document.getElementById("pic").style.display="flex";
-                    document.getElementById("pic").style.backgroundImage="url('image/" + students[index].picProfile + "')";
+                    document.getElementById("pic").style.display = "flex";
+                    document.getElementById("pic").style.backgroundImage = "url('image/" + students[index].picProfile + "')";
                 }
-               
+
             }
         }
 
@@ -301,8 +301,10 @@
         }
     }
     ///onclick in classes li show detail
+    var numberOfStudent = 0;
+    var lessonsFullCapacity = [];
     function showClassDetail(index) {
-        var numberOfStudent = 0;
+
 
         let pTag = document.getElementById("listStudent");
         for (q = 0; q < classes.length; q++) {
@@ -340,16 +342,27 @@
         let pars = parseInt(classes[index].capacity);
         if ((pars - numberOfStudent) <= 0) {
             document.getElementById("or").innerHTML = "FULL";
-            document.getElementById("or").style.backgroundColor = "red"
+            document.getElementById("or").style.backgroundColor = "red";
+
+
 
         } else if ((pars - numberOfStudent) >= 0) {
             document.getElementById("or").style.backgroundColor = "green";
             document.getElementById("or").innerHTML = "No Full";
         }
-
+       
         document.getElementById("num").innerHTML = numberOfStudent;
+        /////capacity full is disable
+        for (s = 0; s < classes.length; s++) {
+            if (classes[s].capacity - numberOfStudent <= 0) {
+                lessonsFullCapacity.push(classes[s].title);
+
+            }
+
+        }
 
     }
+
     ////
     ///load leesons in modal 
     ///
@@ -368,10 +381,15 @@
             input.setAttribute("type", "checkbox");
             form.appendChild(input);
             center.appendChild(form);
-            input.setAttribute("name", classes[r].title);
+            input.setAttribute("id", classes[r].title);
             input.setAttribute("value", classes[r].id);
             form.setAttribute("class", "w-48")
             input.setAttribute("class", "p-5 m-1")
+            for (p = 0; p < lessonsFullCapacity.length; p++) {
+                if (lessonsFullCapacity[p] == classes[r].title) {
+                    document.getElementById(classes[r].title).disabled = true;
+                }
+            }
 
 
         }
