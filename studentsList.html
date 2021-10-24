@@ -353,6 +353,7 @@
        
         document.getElementById("num").innerHTML = numberOfStudent;
         /////capacity full is disable
+        console.log('assigning lessonsFullCapacity')
         for (s = 0; s < classes.length; s++) {
             if (classes[s].capacity - numberOfStudent <= 0) {
                 lessonsFullCapacity.push(classes[s].title);
@@ -385,9 +386,12 @@
             input.setAttribute("value", classes[r].id);
             form.setAttribute("class", "w-48")
             input.setAttribute("class", "p-5 m-1")
+            console.log('lessonsFullCapacity length: ' + lessonsFullCapacity.length)
             for (p = 0; p < lessonsFullCapacity.length; p++) {
+                console.log(lessonsFullCapacity[p] +' == '+ classes[r].title)
                 if (lessonsFullCapacity[p] == classes[r].title) {
                     document.getElementById(classes[r].title).disabled = true;
+                    console.log(document.getElementById(classes[r].title).disabled);
                 }
             }
 
