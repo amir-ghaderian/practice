@@ -153,7 +153,7 @@
             </div>
         </div>
         <div class="flex justify-center">
-           
+
         </div>
         <div id="pic" class="bg-red-100 w-24 h-24  rounded-xl bg-cover"></div>
         <div id="lessons" class="ml-32"></div>
@@ -223,15 +223,16 @@
         { firstName: "houman", lastName: "ghaderian", age: 42, dateBirth: "1977", code: "0032244455", job: "CEO", lesson: [5, 46, 3], id: 25, picProfile: "ASD.PNG" },
         { firstName: "hani", lastName: "ghaderian", age: 47, dateBirth: "1977", code: "32488488493", job: "teacher", lesson: [5], id: 2, picProfile: "3.jpeg" }];
     var classes = [
-        { title: 'HTML5', id: 1, teacher: " mr behnam khani", capacity: 3 },
-        { title: 'CSS', id: 24, teacher: "mr behnam khani", capacity: 2 },
-        { title: 'GIT', id: 3, teacher: "mr houman ", capacity: 12 },
-        { title: 'ANGULAR', id: 46, teacher: "mr mosh hamedani", capacity: 40 },
-        { title: 'ENGLISH', id: 5, teacher: "mr hormoz fassih", capacity: 1 },
-        { title: 'JavaScript', id: 66, teacher: "mr amin rad", capacity: 5 },
+        { title: 'HTML5', id: 1, teacher: " mr behnam khani", capacity: 3, numberOfStudents: 0 },
+        { title: 'CSS', id: 24, teacher: "mr behnam khani", capacity: 2, numberOfStudents: 0 },
+        { title: 'GIT', id: 3, teacher: "mr houman ", capacity: 12, numberOfStudents: 0 },
+        { title: 'ANGULAR', id: 46, teacher: "mr mosh hamedani", capacity: 40, numberOfStudents: 0 },
+        { title: 'ENGLISH', id: 5, teacher: "mr hormoz fassih", capacity: 1, numberOfStudents: 0 },
+        { title: 'JavaScript', id: 66, teacher: "mr amin rad", capacity: 3, numberOfStudents: 0 },
     ];
     loadstudents()
     loadClassSideBar()
+    calculatingCapacity()
     ///load student and set li list 
     function loadstudents() {
         var ulName = document.getElementById("list-disc space-y-1");
@@ -275,7 +276,7 @@
                 if (students[index].lesson[k] === classes[p].id) {
                     var span = document.createElement("span");
                     lessonDiv.appendChild(span);
-                    span.setAttribute("class", "bg-red-200 p-1 rounded-2xl m-1")
+                    span.setAttribute("class", "bg-blue-200 p-1 rounded-2xl m-1")
                     span.innerHTML = classes[p].title;
                     document.getElementById("pic").style.display = "flex";
                     document.getElementById("pic").style.backgroundImage = "url('image/" + students[index].picProfile + "')";
@@ -302,9 +303,9 @@
     }
     ///onclick in classes li show detail
     var numberOfStudent = 0;
+
     var lessonsFullCapacity = [];
     function showClassDetail(index) {
-
 
         let pTag = document.getElementById("listStudent");
         for (q = 0; q < classes.length; q++) {
@@ -321,6 +322,7 @@
         document.getElementById("className").value = classes[index].title;
         document.getElementById("classCapacytyInput").value = classes[index].capacity;
         pTag.innerHTML = "";
+        numberOfStudent = 0;
         for (w = 0; w < students.length; w++) {
             for (a = 0; a <= students[w].lesson.length; a++) {
                 if (classes[index].id == students[w].lesson[a]) {
@@ -328,12 +330,13 @@
                     pTag.classList.add("flex")
                     let lineP = document.createElement("span");
                     pTag.appendChild(lineP);
-                    lineP.setAttribute("class", "bg-red-200 cursor-pointer hover:bg-gray-200 rounded-2xl p-1 m-1");
+                    lineP.setAttribute("class", "bg-blue-200 cursor-pointer hover:bg-gray-200 rounded-2xl p-1 m-1");
                     lineP.innerHTML = students[w].firstName + "  " + students[w].lastName;
 
 
                 }
                 if (students[w].lesson[a] == classes[index].id) {
+
                     numberOfStudent++
                 }
 
@@ -350,17 +353,10 @@
             document.getElementById("or").style.backgroundColor = "green";
             document.getElementById("or").innerHTML = "No Full";
         }
-       
+
         document.getElementById("num").innerHTML = numberOfStudent;
-        /////capacity full is disable
-        console.log('assigning lessonsFullCapacity')
-        for (s = 0; s < classes.length; s++) {
-            if (classes[s].capacity - numberOfStudent <= 0) {
-                lessonsFullCapacity.push(classes[s].title);
-
-            }
-
-        }
+        
+        
 
     }
 
@@ -386,19 +382,19 @@
             input.setAttribute("value", classes[r].id);
             form.setAttribute("class", "w-48")
             input.setAttribute("class", "p-5 m-1")
-            console.log('lessonsFullCapacity length: ' + lessonsFullCapacity.length)
-            for (p = 0; p < lessonsFullCapacity.length; p++) {
-                console.log(lessonsFullCapacity[p] +' == '+ classes[r].title)
-                if (lessonsFullCapacity[p] == classes[r].title) {
-                    document.getElementById(classes[r].title).disabled = true;
-                    console.log(document.getElementById(classes[r].title).disabled);
-                }
-            }
-
-
         }
 
+            for (j = 0; j < classes.length; j++) {
+                if (classes[j].capacity - classes[j].numberOfStudents <= 0) {
+                    document.getElementById(classes[j].title).disabled = true;
+                
+            }
+        }
+
+
     }
+
+
     ///chek student lesson pass
     function studentLessonPassed() {
         var pars = 0;
@@ -427,6 +423,11 @@
         document.getElementById("modal").style.display = "flex";
         document.getElementById("btnAdd").style.display = "none";
         document.getElementById("btnAddClass").style.display = "none";
+        document.getElementById("fnModal").value="";
+        document.getElementById("lnModal").value="";
+        document.getElementById("jModal").value="";
+        document.getElementById("ybModal").value="";
+        document.getElementById("coModal").value="";
         loadClassCheckBox()
 
     }
@@ -440,15 +441,16 @@
         document.getElementById("modal-class").style.display = "none";
         document.getElementById("btnAddClass").style.display = "flex";
         document.getElementById("btnAdd").style.display = "flex";
-        // document.getElementById("newTeacher").innerText="";
-        // document.getElementById("newClassNumber").innerHTML="";
-        // document.getElementById("newClass").innerHTML="";
-        // document.getElementById("capacity").innerHTML="";
+       
     }
     function openClassModal() {
         document.getElementById("modal-class").style.display = "flex";
         document.getElementById("btnAddClass").style.display = "none";
         document.getElementById("btnAdd").style.display = "none";
+        document.getElementById("newTeacher").value="";
+        document.getElementById("newClassNumber").value="";
+        document.getElementById("newClass").value="";
+        document.getElementById("capacity").value="";
 
 
     }
@@ -545,6 +547,18 @@
             }
         }
     }
+    function calculatingCapacity() {
+        for (let r = 0; r < students.length; r++) {
+            for (let v = 0; v < students[r].lesson.length; v++) {
+                for (let w = 0; w < classes.length; w++) {
+                    if (students[r].lesson[v] === classes[w].id) {
+                        classes[w].numberOfStudents++;
+                    }
+                }
+            }
+        }
+    }
+    ///;D
 </script>
 
 </html>
