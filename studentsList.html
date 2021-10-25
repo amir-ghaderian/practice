@@ -119,7 +119,7 @@
     </div>
     <div class="container mx-auto">
 
-        <div class=" flex justify-around border-red-500 rounded-b-md bg-blue-200  mx-4 m-8 p-2 rounded-2xl ...">
+        <div class=" flex justify-around border-red-500 rounded-b-md bg-blue-200  mx-4 m-8 p-2 rounded-2xl relative...">
             <ul id="list-disc space-y-1">
 
             </ul>
@@ -131,10 +131,12 @@
                 <div class="w-96 text-right"> <span>job</span></div>
                 <div class="w-96 text-right"> <span>year of birth</span></div>
                 <div class="w-96 text-right"> <span> code</span></div>
-            </div>
-
+             </div>
+            
+             <div id="pic" class="bg-red-100 w-24 h-24  rounded-xl bg-cover absolute top-6 left-96"></div>
 
             <div class="flex-col 	">
+
                 <div class="w-96 text-left"> <input class="p1 w-full rounded-lg border-2  border-gray-800 m-1"
                         type="text" placeholder="" id="fname" value=""></div>
                 <div class="w-96 text-left"> <input class="p1 w-full rounded-lg border-2  border-gray-800 m-1"
@@ -155,7 +157,6 @@
         <div class="flex justify-center">
 
         </div>
-        <div id="pic" class="bg-red-100 w-24 h-24  rounded-xl bg-cover"></div>
         <div id="lessons" class="ml-32"></div>
 
         <button id="btnAdd" onclick="openModal()"
@@ -225,10 +226,10 @@
     var classes = [
         { title: 'HTML5', id: 1, teacher: " mr behnam khani", capacity: 3, numberOfStudents: 0 },
         { title: 'CSS', id: 24, teacher: "mr behnam khani", capacity: 2, numberOfStudents: 0 },
-        { title: 'GIT', id: 3, teacher: "mr houman ", capacity: 12, numberOfStudents: 0 },
+        { title: 'GIT', id: 3, teacher: "mr houman ", capacity: 5, numberOfStudents: 0 },
         { title: 'ANGULAR', id: 46, teacher: "mr mosh hamedani", capacity: 40, numberOfStudents: 0 },
         { title: 'ENGLISH', id: 5, teacher: "mr hormoz fassih", capacity: 1, numberOfStudents: 0 },
-        { title: 'JavaScript', id: 66, teacher: "mr amin rad", capacity: 3, numberOfStudents: 0 },
+        { title: 'JavaScript', id: 66, teacher: "mr amin rad", capacity: 5, numberOfStudents: 0 },
     ];
     loadstudents()
     loadClassSideBar()
@@ -405,6 +406,7 @@
             for (j = 0; j < classes.length; j++) {
                 if (pars === classes[j].id) {
                     less.push(classes[j].id);
+                    classes[j].numberOfStudents++
                 }
             }
         }
@@ -467,7 +469,7 @@
         let yearM = document.getElementById("ybModal").value
         let codM = document.getElementById("coModal").value;
         let lessStu = studentLessonPassed();
-
+    
         ///// set in li
         if (name === "" || family === "" || jobM === "" || Number.isNaN(yearM) || codM === "") {
             alert("enter your all input");
