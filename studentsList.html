@@ -131,9 +131,9 @@
                 <div class="w-96 text-right"> <span>job</span></div>
                 <div class="w-96 text-right"> <span>year of birth</span></div>
                 <div class="w-96 text-right"> <span> code</span></div>
-             </div>
-            
-             <div id="pic" class="bg-red-100 w-24 h-24  rounded-xl bg-cover absolute top-6 left-96"></div>
+            </div>
+
+            <div id="pic" class="bg-red-100 w-24 h-24  rounded-xl bg-cover absolute top-6 left-96"></div>
 
             <div class="flex-col 	">
 
@@ -356,8 +356,8 @@
         }
 
         document.getElementById("num").innerHTML = numberOfStudent;
-        
-        
+
+
 
     }
 
@@ -385,10 +385,10 @@
             input.setAttribute("class", "p-5 m-1")
         }
 
-            for (j = 0; j < classes.length; j++) {
-                if (classes[j].capacity - classes[j].numberOfStudents <= 0) {
-                    document.getElementById(classes[j].title).disabled = true;
-                
+        for (j = 0; j < classes.length; j++) {
+            if (classes[j].capacity - classes[j].numberOfStudents <= 0) {
+                document.getElementById(classes[j].title).disabled = true;
+
             }
         }
 
@@ -425,11 +425,11 @@
         document.getElementById("modal").style.display = "flex";
         document.getElementById("btnAdd").style.display = "none";
         document.getElementById("btnAddClass").style.display = "none";
-        document.getElementById("fnModal").value="";
-        document.getElementById("lnModal").value="";
-        document.getElementById("jModal").value="";
-        document.getElementById("ybModal").value="";
-        document.getElementById("coModal").value="";
+        document.getElementById("fnModal").value = "";
+        document.getElementById("lnModal").value = "";
+        document.getElementById("jModal").value = "";
+        document.getElementById("ybModal").value = "";
+        document.getElementById("coModal").value = "";
         loadClassCheckBox()
 
     }
@@ -443,16 +443,16 @@
         document.getElementById("modal-class").style.display = "none";
         document.getElementById("btnAddClass").style.display = "flex";
         document.getElementById("btnAdd").style.display = "flex";
-       
+
     }
     function openClassModal() {
         document.getElementById("modal-class").style.display = "flex";
         document.getElementById("btnAddClass").style.display = "none";
         document.getElementById("btnAdd").style.display = "none";
-        document.getElementById("newTeacher").value="";
-        document.getElementById("newClassNumber").value="";
-        document.getElementById("newClass").value="";
-        document.getElementById("capacity").value="";
+        document.getElementById("newTeacher").value = "";
+        document.getElementById("newClassNumber").value = "";
+        document.getElementById("newClass").value = "";
+        document.getElementById("capacity").value = "";
 
 
     }
@@ -469,7 +469,7 @@
         let yearM = document.getElementById("ybModal").value
         let codM = document.getElementById("coModal").value;
         let lessStu = studentLessonPassed();
-    
+
         ///// set in li
         if (name === "" || family === "" || jobM === "" || Number.isNaN(yearM) || codM === "") {
             alert("enter your all input");
@@ -561,6 +561,11 @@
         }
     }
     ///;D
+
+    function random(arr) {
+       var item = arr[Math.floor(Math.random()*arr.length)];
+       return item;
+    }
 </script>
 
 </html>
