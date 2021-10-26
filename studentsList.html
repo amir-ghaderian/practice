@@ -30,7 +30,7 @@
 
 
 
-    #btnAdd,
+    #btnAdd,#list
     #btnAddClass {
         display: flex;
     }
@@ -176,11 +176,7 @@
                     <div id="num" class="bg-blue-100 p-1 rounded-lg"></div>
                 </div>
 
-                <div id="list" class="w-full "><button
-                        onclick='document.getElementById("listStudent").style.display="flex" '
-                        class="transition duration-500 ease-in-out bg-blue-100 hover:bg-gray-200 transform hover:translate-y-1 hover:scale-110 p-2 rounded-2xl h-12  ... ">
-                        List student
-                    </button></div>
+                
             </div>
             <div class="flex-col ">
                 <div class="w-96 text-left"><input class="p1 w-96 rounded-lg border-2  border-gray-800 m-1" type="text"
@@ -203,6 +199,11 @@
             </div>
 
         </div>
+        <div id="list" class="w-full "><button
+            onclick='document.getElementById("listStudent").style.display="flex" '
+            class="transition duration-500 ease-in-out bg-blue-100 hover:bg-gray-200 transform hover:translate-y-1 hover:scale-110 p-2 rounded-2xl h-12  ... ">
+            List student
+        </button></div>
         <div id="listStudent" class="bg-gray-200 flex ml-24 w-46 rounded-lg items-center"></div>
 
         <button id="btnAddClass" onclick="openClassModal()"
@@ -303,7 +304,7 @@
         }
     }
     ///onclick in classes li show detail
-    var numberOfStudent = 0;
+  
 
     var lessonsFullCapacity = [];
     function showClassDetail(index) {
@@ -323,7 +324,7 @@
         document.getElementById("className").value = classes[index].title;
         document.getElementById("classCapacytyInput").value = classes[index].capacity;
         pTag.innerHTML = "";
-        numberOfStudent = 0;
+       
         for (w = 0; w < students.length; w++) {
             for (a = 0; a <= students[w].lesson.length; a++) {
                 if (classes[index].id == students[w].lesson[a]) {
@@ -336,26 +337,23 @@
 
 
                 }
-                if (students[w].lesson[a] == classes[index].id) {
-
-                    numberOfStudent++
-                }
+               
 
             }
         }
         let pars = parseInt(classes[index].capacity);
-        if ((pars - numberOfStudent) <= 0) {
+        if ((pars - classes[index].numberOfStudents) <= 0) {
             document.getElementById("or").innerHTML = "FULL";
             document.getElementById("or").style.backgroundColor = "red";
 
 
 
-        } else if ((pars - numberOfStudent) >= 0) {
+        } else if ((pars - classes[index].numberOfStudents) >= 0) {
             document.getElementById("or").style.backgroundColor = "green";
             document.getElementById("or").innerHTML = "No Full";
         }
 
-        document.getElementById("num").innerHTML = numberOfStudent;
+        document.getElementById("num").innerHTML =classes[index].numberOfStudents;
 
 
 
@@ -425,6 +423,8 @@
         document.getElementById("modal").style.display = "flex";
         document.getElementById("btnAdd").style.display = "none";
         document.getElementById("btnAddClass").style.display = "none";
+        document.getElementById("list").style.display = "none";
+        document.getElementById("pic").style.display = "none";
         document.getElementById("fnModal").value = "";
         document.getElementById("lnModal").value = "";
         document.getElementById("jModal").value = "";
@@ -449,6 +449,8 @@
         document.getElementById("modal-class").style.display = "flex";
         document.getElementById("btnAddClass").style.display = "none";
         document.getElementById("btnAdd").style.display = "none";
+        document.getElementById("list").style.display = "none";
+        document.getElementById("pic").style.display = "none";
         document.getElementById("newTeacher").value = "";
         document.getElementById("newClassNumber").value = "";
         document.getElementById("newClass").value = "";
