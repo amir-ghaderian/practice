@@ -134,7 +134,7 @@
                 <div class="w-96 text-right"> <span> code</span></div>
             </div>
 
-            <div id="pic" class="bg-red-100 w-24 h-24  rounded-xl bg-cover absolute top-6 left-96"></div>
+            <div id="pic" class="bg-red-100 w-24 h-24  rounded-xl bg-cover absolute left-1/3"></div>
 
             <div class="flex-col 	">
 
@@ -253,8 +253,8 @@
     }
 
 
-    ////occlick in li list student show detail in front inputs
-    var SelectedStudentIndex=0;
+    ////onclick in li list student show detail in front inputs
+    var SelectedStudentIndex = 0;
     function showDetailStudent(index) {
         for (i = 0; i < students.length; i++) {
 
@@ -269,26 +269,26 @@
         document.getElementById("job").value = students[index].job;
         document.getElementById("dateBirth").value = students[index].dateBirth;
         document.getElementById("code").value = students[index].code;
-        var lessonDiv = document.getElementById("lessons");
-        lessonDiv.innerHTML = '';
+        // var lessonDiv = document.getElementById("lessons");
+        // lessonDiv.innerHTML = '';
 
-         for (k = 0; k < students.length; k++) {
+        // for (k = 0; k < students.length; k++) {
 
-             for (p = 0; p < classes.length; p++) {
+        //     for (p = 0; p < classes.length; p++) {
 
-                 if (students[index].lesson[k] === classes[p].id) {
-                     var span = document.createElement("span");
-                     lessonDiv.appendChild(span);
-                     span.setAttribute("class", "bg-blue-200 p-1 rounded-2xl m-1")
-                     span.innerHTML = classes[p].title;
-                     document.getElementById("pic").style.display = "flex";
-                     document.getElementById("pic").style.backgroundImage = "url('image/" + students[index].picProfile + "')";
-                 }
+        //         if (students[index].lesson[k] === classes[p].id) {
+        //             var span = document.createElement("span");
+        //             lessonDiv.appendChild(span);
+        //             span.setAttribute("class", "bg-blue-200 p-1 rounded-2xl m-1")
+        //             span.innerHTML = classes[p].title;
+        //             document.getElementById("pic").style.display = "flex";
+        //             document.getElementById("pic").style.backgroundImage = "url('image/" + students[index].picProfile + "')";
+        //         }
 
-             }
-         }
+        //     }
+        // }
 
-       
+          renderingStudent()
 
     }
     ////load classes and set li list 
@@ -324,7 +324,7 @@
         document.getElementById("classNumber").value = classes[index].id;
         document.getElementById("className").value = classes[index].title;
         document.getElementById("classCapacytyInput").value = classes[index].capacity;
-        didi()
+        renderingClass()
 
     }
 
@@ -444,7 +444,8 @@
         } else {
             students.push({ firstName: name, lastName: family, job: jobM, dateBirth: yearM, code: codM, lesson: lessStu });
             loadstudents()
-            didi()
+            renderingClass()
+
         }
     }
     ////
@@ -452,7 +453,7 @@
     ///add class
     function addClass() {
 
-     let plus=0;
+        let plus = 0;
 
         closeClassModal()
         let newTeacher = document.getElementById("newTeacher").value;
@@ -464,8 +465,8 @@
 
             openClassModal()
         } else {
-            classes.push({ title: newClass, id: parseInt(newClassNum), teacher: newTeacher, capacity: capacityClass, numberOfStudents:plus++ });
-            didi()
+            classes.push({ title: newClass, id: parseInt(newClassNum), teacher: newTeacher, capacity: capacityClass, numberOfStudents: plus++ });
+            renderingClass()
         }
 
         loadClassSideBar()
@@ -487,9 +488,13 @@
                 students[k].job = newJob;
                 students[k].dateBirth = newBirth;
                 students[k].code = newCod;
+               
+                //document.getElementById("lap"+k).classList.add("bg-red-200");   When activated, this line gives an error, but it works and does not allow it to complete all its function ???
+               
+              
                 loadstudents();
-                didi()
-                document.getElementById('lap' + k + ' ').classList.add("bg-red-200");
+                renderingStudent();
+            
 
 
             } else if (newname == "" || newLname == "" || newJob == "" || newBirth == "" || newCod == "") {
@@ -498,7 +503,8 @@
 
 
         }
-
+        renderingClass();
+        
     }
     ///update and edit class
     function updateClass() {
@@ -513,7 +519,8 @@
                 classes[n].id = newClassNumber;
                 classes[n].capacity = newcapacity;
                 loadClassSideBar();
-                didi()
+                renderingClass()
+                renderingStudent()
                 document.getElementById("li" + n).classList.add("bg-red-200");
 
             } else if (newClassName == "" || newTeacherName == "" || newClassNumber == "" || newcapacity == "") {
@@ -538,8 +545,8 @@
         var item = arr[Math.floor(Math.random() * arr.length)];
         return item;
     }
-    function didi() {
-       let pTag=document.getElementById("listStudent");
+    function renderingClass() {
+        let pTag = document.getElementById("listStudent");
 
         for (k = 0; k < classes.length; k++) {
             if (selectClassIndex == classes[k].id) {
@@ -557,10 +564,10 @@
 
             }
         }
-       pTag.innerHTML="";
+        pTag.innerHTML = "";
         for (b = 0; b < students.length; b++) {
             for (c = 0; c < students[b].lesson.length; c++) {
-                if (selectClassIndex==students[b].lesson[c]) {
+                if (selectClassIndex == students[b].lesson[c]) {
                     let list = document.getElementById("list");
                     pTag.classList.add("flex")
                     let lineP = document.createElement("span");
@@ -570,8 +577,48 @@
                 }
             }
         }
-       
+
     }
+    function renderingStudent() {
+        var lessonsStudent = [];
+        var lessonDiv = document.getElementById("lessons");
+       
+        for (d = 0; d < students.length; d++) {
+            if (SelectedStudentIndex == students[d].id) {
+                ///add image for student
+                document.getElementById("pic").style.backgroundImage = "url('image/" + students[d].picProfile + "')";
+                ///update index with lessons id
+                lessonsStudent = students[d].lesson;
+               
+            }
+        }
+        lessonDiv.innerHTML = '';
+
+        for (w = 0; w < classes.length; w++) {
+            for (s = 0; s < lessonsStudent.length; s++) {
+                ////find lessons id  students
+                if (classes[w].id == lessonsStudent[s]) {
+                    var span = document.createElement("span");
+                    lessonDiv.appendChild(span);
+                    span.setAttribute("class", "bg-blue-200 p-1 rounded-2xl m-1")
+                    span.innerHTML = classes[w].title;
+                    document.getElementById("pic").style.display = "flex";
+                
+                }
+            }
+        }
+    }
+
+
+    ////
+    function reverse(str) {
+        let reversed = "";
+        for (i = str.length - 1; i >= 0; i--) {
+            reversed += str[i];
+        }
+        return reversed;
+    }
+
 </script>
 
 </html>
