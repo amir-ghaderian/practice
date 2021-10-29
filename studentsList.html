@@ -248,7 +248,7 @@
             liSet.innerHTML = students[j].firstName + "_" + students[j].lastName;
             liSet.setAttribute("class", "flex items-start cursor-pointer hover:bg-gray-200 rounded-2xl ");
             liSet.setAttribute("onClick", 'showDetailStudent(' + j + ')');
-            liSet.setAttribute("id", 'lap' + j + ' ');
+            liSet.setAttribute("id", 'lap' + j);
         }
     }
 
@@ -258,36 +258,18 @@
     function showDetailStudent(index) {
         for (i = 0; i < students.length; i++) {
 
-            document.getElementById('lap' + i + ' ').classList.remove("bg-red-200");
+            document.getElementById("lap"+ i).classList.remove("bg-red-200");
 
 
         }
         SelectedStudentIndex = students[index].id;
-        document.getElementById('lap' + index + ' ').classList.add("bg-red-200");
+        document.getElementById('lap'+index).classList.add("bg-red-200");
         document.getElementById("fname").value = students[index].firstName;
         document.getElementById("lname").value = students[index].lastName;
         document.getElementById("job").value = students[index].job;
         document.getElementById("dateBirth").value = students[index].dateBirth;
         document.getElementById("code").value = students[index].code;
-        // var lessonDiv = document.getElementById("lessons");
-        // lessonDiv.innerHTML = '';
-
-        // for (k = 0; k < students.length; k++) {
-
-        //     for (p = 0; p < classes.length; p++) {
-
-        //         if (students[index].lesson[k] === classes[p].id) {
-        //             var span = document.createElement("span");
-        //             lessonDiv.appendChild(span);
-        //             span.setAttribute("class", "bg-blue-200 p-1 rounded-2xl m-1")
-        //             span.innerHTML = classes[p].title;
-        //             document.getElementById("pic").style.display = "flex";
-        //             document.getElementById("pic").style.backgroundImage = "url('image/" + students[index].picProfile + "')";
-        //         }
-
-        //     }
-        // }
-
+        
           renderingStudent()
 
     }
@@ -428,6 +410,7 @@
         closeModal();
 
 
+
         //get value in modal
         let family = document.getElementById("lnModal").value;
         let name = document.getElementById("fnModal").value;
@@ -435,6 +418,7 @@
         let yearM = document.getElementById("ybModal").value
         let codM = document.getElementById("coModal").value;
         let lessStu = studentLessonPassed();
+        let newIdStudent=getUniqueId();
 
         ///// set in li
         if (name === "" || family === "" || jobM === "" || Number.isNaN(yearM) || codM === "") {
@@ -442,7 +426,7 @@
             openModal();
 
         } else {
-            students.push({ firstName: name, lastName: family, job: jobM, dateBirth: yearM, code: codM, lesson: lessStu });
+            students.push({ firstName: name, lastName: family, job: jobM, dateBirth: yearM, code: codM, lesson: lessStu ,id:newIdStudent});
             loadstudents()
             renderingClass()
 
@@ -488,10 +472,10 @@
                 students[k].job = newJob;
                 students[k].dateBirth = newBirth;
                 students[k].code = newCod;
+         
+                document.getElementById('lap'+k).classList.add("bg-red-200");
                
-                //document.getElementById("lap"+k).classList.add("bg-red-200");   When activated, this line gives an error, but it works and does not allow it to complete all its function ???
-               
-              
+                renderingClass();
                 loadstudents();
                 renderingStudent();
             
@@ -501,9 +485,10 @@
                 alert("enter your all input");
             }
 
-
+        
+            
         }
-        renderingClass();
+        
         
     }
     ///update and edit class
@@ -541,10 +526,6 @@
     }
     ///;D
 
-    function random(arr) {
-        var item = arr[Math.floor(Math.random() * arr.length)];
-        return item;
-    }
     function renderingClass() {
         let pTag = document.getElementById("listStudent");
 
@@ -619,6 +600,21 @@
         return reversed;
     }
 
+
+
+    function random() {
+       let item= Math.floor(Math.random() * 101)
+        return item;
+    }
+    function getUniqueId(){
+       let num=random();
+       for(j=0;j<students.length;j++){
+           if(students[j].id !== num){
+                return num;
+           }
+       }
+    } 
+   
 </script>
 
 </html>
