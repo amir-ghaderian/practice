@@ -609,6 +609,8 @@
     function getUniqueId(){
        let num=random();
        for(j=0;j<students.length;j++){
+
+            console.log('checking if student['+ j +'].id  is same as new id');
            if(students[j].id !== num){
                 return num;
            }
