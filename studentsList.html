@@ -258,19 +258,19 @@
     function showDetailStudent(index) {
         for (i = 0; i < students.length; i++) {
 
-            document.getElementById("lap"+ i).classList.remove("bg-red-200");
+            document.getElementById("lap" + i).classList.remove("bg-red-200");
 
 
         }
         SelectedStudentIndex = students[index].id;
-        document.getElementById('lap'+index).classList.add("bg-red-200");
+        document.getElementById('lap' + index).classList.add("bg-red-200");
         document.getElementById("fname").value = students[index].firstName;
         document.getElementById("lname").value = students[index].lastName;
         document.getElementById("job").value = students[index].job;
         document.getElementById("dateBirth").value = students[index].dateBirth;
         document.getElementById("code").value = students[index].code;
-        
-          renderingStudent()
+
+        renderingStudent()
 
     }
     ////load classes and set li list 
@@ -418,7 +418,7 @@
         let yearM = document.getElementById("ybModal").value
         let codM = document.getElementById("coModal").value;
         let lessStu = studentLessonPassed();
-        let newIdStudent=getUniqueId();
+        let newIdStudent = getUniqueId();
 
         ///// set in li
         if (name === "" || family === "" || jobM === "" || Number.isNaN(yearM) || codM === "") {
@@ -426,9 +426,9 @@
             openModal();
 
         } else {
-            students.push({ firstName: name, lastName: family, job: jobM, dateBirth: yearM, code: codM, lesson: lessStu ,id:newIdStudent});
+            students.push({ firstName: name, lastName: family, job: jobM, dateBirth: yearM, code: codM, lesson: lessStu, id: newIdStudent });
             loadstudents()
-            renderingClass()
+            renderingStudent()
 
         }
     }
@@ -472,24 +472,23 @@
                 students[k].job = newJob;
                 students[k].dateBirth = newBirth;
                 students[k].code = newCod;
-         
-                document.getElementById('lap'+k).classList.add("bg-red-200");
-               
-                renderingClass();
-                loadstudents();
-                renderingStudent();
-            
+
+                document.getElementById('lap' + k).classList.add("bg-red-200");
+             
+
+
 
 
             } else if (newname == "" || newLname == "" || newJob == "" || newBirth == "" || newCod == "") {
                 alert("enter your all input");
             }
 
-        
-            
+            loadstudents();
+            renderingStudent();
+
         }
-        
-        
+
+
     }
     ///update and edit class
     function updateClass() {
@@ -504,14 +503,15 @@
                 classes[n].id = newClassNumber;
                 classes[n].capacity = newcapacity;
                 loadClassSideBar();
-                renderingClass()
-                renderingStudent()
+
                 document.getElementById("li" + n).classList.add("bg-red-200");
 
             } else if (newClassName == "" || newTeacherName == "" || newClassNumber == "" || newcapacity == "") {
                 alert("enter your all input");
             }
         }
+        renderingClass()
+      
     }
     function calculatingCapacity() {
         for (let r = 0; r < students.length; r++) {
@@ -558,19 +558,19 @@
                 }
             }
         }
-
+    loadstudents()
     }
     function renderingStudent() {
         var lessonsStudent = [];
         var lessonDiv = document.getElementById("lessons");
-       
+
         for (d = 0; d < students.length; d++) {
             if (SelectedStudentIndex == students[d].id) {
                 ///add image for student
                 document.getElementById("pic").style.backgroundImage = "url('image/" + students[d].picProfile + "')";
                 ///update index with lessons id
                 lessonsStudent = students[d].lesson;
-               
+
             }
         }
         lessonDiv.innerHTML = '';
@@ -584,10 +584,11 @@
                     span.setAttribute("class", "bg-blue-200 p-1 rounded-2xl m-1")
                     span.innerHTML = classes[w].title;
                     document.getElementById("pic").style.display = "flex";
-                
+
                 }
             }
         }
+        loadClassSideBar()
     }
 
 
@@ -603,20 +604,21 @@
 
 
     function random() {
-       let item= Math.floor(Math.random() * 101)
+        let item = Math.floor(Math.random() * 101)
         return item;
     }
-    function getUniqueId(){
-       let num=random();
-       for(j=0;j<students.length;j++){
+    function getUniqueId() {
+        let newNum = random();
+        let studentsId = 0;
+        for (j = 0; j < students.length; j++) {
+            studentsId = students[j].id;
+            if (num !== studentsId) {
+                return newNum;
+            }
 
-            console.log('checking if student['+ j +'].id  is same as new id');
-           if(students[j].id !== num){
-                return num;
-           }
-       }
-    } 
-   
+        }
+    }
+
 </script>
 
 </html>
