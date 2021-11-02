@@ -121,7 +121,7 @@
     <div class="container mx-auto">
 
         <div class=" flex justify-around border-red-500 rounded-b-md bg-blue-200  mx-4 m-8 p-2 rounded-2xl relative...">
-            <ul id="list-disc space-y-1">
+            <ul id="nameStudent" class="flex flex-col">
 
             </ul>
 
@@ -237,7 +237,7 @@
     calculatingCapacity()
     ///load student and set li list 
     function loadstudents() {
-        var ulName = document.getElementById("list-disc space-y-1");
+        var ulName = document.getElementById("nameStudent");
 
         ulName.innerHTML = "";
         for (j = 0; j < students.length; j++) {
@@ -245,11 +245,14 @@
 
             ulName.appendChild(liSet);
 
-            liSet.innerHTML = students[j].firstName + "_" + students[j].lastName;
+            liSet.innerHTML = students[j].firstName + " " + students[j].lastName;
+
+
             liSet.setAttribute("class", "flex items-start cursor-pointer hover:bg-gray-200 rounded-2xl ");
             liSet.setAttribute("onClick", 'showDetailStudent(' + j + ')');
             liSet.setAttribute("id", 'lap' + j);
-            selectedTagIndex=j;
+
+
         }
     }
 
@@ -261,12 +264,13 @@
         for (i = 0; i < students.length; i++) {
 
             document.getElementById("lap" + i).classList.remove("bg-red-200");
-
+          
 
         }
         SelectedStudentIndex = students[index].id;
         document.getElementById('lap' + index).classList.add("bg-red-200");
         selectedTagIndex = index;
+
         document.getElementById("fname").value = students[index].firstName;
         document.getElementById("lname").value = students[index].lastName;
         document.getElementById("job").value = students[index].job;
@@ -291,7 +295,8 @@
     }
     ///onclick in classes li show detail
 
-    var selectClassIndex = 0;
+    var selectIndexId = 0;
+    var selectedClassIndex = 0;
     var lessonsFullCapacity = [];
     function showClassDetail(index) {
 
@@ -304,7 +309,8 @@
         document.getElementById("list").style.display = "flex";
         document.getElementById("numStudent").style.display = "flex";
         document.getElementById("capaityParent").style.display = "flex";
-        selectClassIndex = classes[index].id;
+        selectIndexId = classes[index].id;
+        selectedClassIndex = index;
         document.getElementById("teacher").value = classes[index].teacher;
         document.getElementById("classNumber").value = classes[index].id;
         document.getElementById("className").value = classes[index].title;
@@ -422,7 +428,7 @@
         let codM = document.getElementById("coModal").value;
         let lessStu = studentLessonPassed();
         let newIdStudent = getUniqueId();
-
+        
         ///// set in li
         if (name === "" || family === "" || jobM === "" || Number.isNaN(yearM) || codM === "") {
             alert("enter your all input");
@@ -430,10 +436,12 @@
 
         } else {
             students.push({ firstName: name, lastName: family, job: jobM, dateBirth: yearM, code: codM, lesson: lessStu, id: newIdStudent });
-        
-            console.log(selectedTagIndex)
+
+           
             loadstudents()
             renderingStudent()
+            renderingClass()
+          
 
         }
 
@@ -443,7 +451,7 @@
     ///add class
     function addClass() {
 
-        let plus = 0;
+        
 
         closeClassModal()
         let newTeacher = document.getElementById("newTeacher").value;
@@ -493,10 +501,12 @@
 
         }
 
-        document.getElementById("lap" + selectedTagIndex).classList.add("bg-red-200");
+
         loadstudents();
         renderingStudent();
-        renderingClass()
+        renderingClass();
+        document.getElementById("lap" + selectedTagIndex).classList.add("bg-red-200");
+
     }
     ///update and edit class
     function updateClass() {
@@ -505,21 +515,22 @@
         let newClassNumber = document.getElementById("classNumber").value;
         let newcapacity = document.getElementById("classCapacytyInput").value;
         for (n = 0; n < classes.length; n++) {
-            if (classes[n].id == selectClassIndex) {
+            if (classes[n].id == selectIndexId) {
                 classes[n].title = newClassName;
                 classes[n].teacher = newTeacherName;
                 classes[n].id = newClassNumber;
                 classes[n].capacity = newcapacity;
                 loadClassSideBar();
 
-                document.getElementById("li" + n).classList.add("bg-red-200");
+
 
             } else if (newClassName == "" || newTeacherName == "" || newClassNumber == "" || newcapacity == "") {
                 alert("enter your all input");
             }
         }
         renderingClass()
-
+        renderingStudent()
+        document.getElementById("li" + selectedClassIndex).classList.add("bg-red-200");
     }
     function calculatingCapacity() {
         for (let r = 0; r < students.length; r++) {
@@ -538,7 +549,7 @@
         let pTag = document.getElementById("listStudent");
 
         for (k = 0; k < classes.length; k++) {
-            if (selectClassIndex == classes[k].id) {
+            if (selectIndexId == classes[k].id) {
                 let result = classes[k].capacity - classes[k].numberOfStudents;
                 if (result <= 0) {
                     document.getElementById("or").innerHTML = "FULL";
@@ -556,7 +567,7 @@
         pTag.innerHTML = "";
         for (b = 0; b < students.length; b++) {
             for (c = 0; c < students[b].lesson.length; c++) {
-                if (selectClassIndex == students[b].lesson[c]) {
+                if (selectIndexId == students[b].lesson[c]) {
                     let list = document.getElementById("list");
                     pTag.classList.add("flex")
                     let lineP = document.createElement("span");
