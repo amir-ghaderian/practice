@@ -249,12 +249,14 @@
             liSet.setAttribute("class", "flex items-start cursor-pointer hover:bg-gray-200 rounded-2xl ");
             liSet.setAttribute("onClick", 'showDetailStudent(' + j + ')');
             liSet.setAttribute("id", 'lap' + j);
+            selectedTagIndex=j;
         }
     }
 
 
     ////onclick in li list student show detail in front inputs
     var SelectedStudentIndex = 0;
+    var selectedTagIndex = 0;
     function showDetailStudent(index) {
         for (i = 0; i < students.length; i++) {
 
@@ -264,6 +266,7 @@
         }
         SelectedStudentIndex = students[index].id;
         document.getElementById('lap' + index).classList.add("bg-red-200");
+        selectedTagIndex = index;
         document.getElementById("fname").value = students[index].firstName;
         document.getElementById("lname").value = students[index].lastName;
         document.getElementById("job").value = students[index].job;
@@ -427,10 +430,13 @@
 
         } else {
             students.push({ firstName: name, lastName: family, job: jobM, dateBirth: yearM, code: codM, lesson: lessStu, id: newIdStudent });
+        
+            console.log(selectedTagIndex)
             loadstudents()
             renderingStudent()
 
         }
+
     }
     ////
     ////
@@ -466,6 +472,7 @@
         let newCod = document.getElementById("code").value;
 
         for (k = 0; k < students.length; k++) {
+
             if (students[k].id == SelectedStudentIndex) {
                 students[k].firstName = newname;
                 students[k].lastName = newLname;
@@ -473,7 +480,6 @@
                 students[k].dateBirth = newBirth;
                 students[k].code = newCod;
 
-                document.getElementById('lap' + k).classList.add("bg-red-200");
 
 
 
@@ -483,12 +489,14 @@
                 alert("enter your all input");
             }
 
-            loadstudents();
-            renderingStudent();
+
 
         }
 
-
+        document.getElementById("lap" + selectedTagIndex).classList.add("bg-red-200");
+        loadstudents();
+        renderingStudent();
+        renderingClass()
     }
     ///update and edit class
     function updateClass() {
@@ -588,6 +596,8 @@
                 }
             }
         }
+
+        document.getElementById("lap" + selectedTagIndex).classList.add("bg-red-200");
         loadClassSideBar()
     }
 
@@ -611,7 +621,7 @@
 
     ///
 
-    
+
     function isUnique(arr, num) {
         let len = arr.length;
         let isUniq = true;
@@ -630,10 +640,10 @@
         }
         let num = random()
         while (!isUnique(existStudent, num)) {
-            num++
+            num = random()
 
         }
-       
+
         return num;
 
 
