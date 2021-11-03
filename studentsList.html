@@ -261,14 +261,9 @@
     var SelectedStudentIndex = 0;
     var selectedTagIndex = 0;
     function showDetailStudent(index) {
-        for (i = 0; i < students.length; i++) {
-
-            document.getElementById("lap" + i).classList.remove("bg-red-200");
-          
-
-        }
+       
         SelectedStudentIndex = students[index].id;
-        document.getElementById('lap' + index).classList.add("bg-red-200");
+       
         selectedTagIndex = index;
 
         document.getElementById("fname").value = students[index].firstName;
@@ -436,15 +431,14 @@
 
         } else {
             students.push({ firstName: name, lastName: family, job: jobM, dateBirth: yearM, code: codM, lesson: lessStu, id: newIdStudent });
-
-           
-            loadstudents()
-            renderingStudent()
-            renderingClass()
+            selectedTagIndex=students.length - 1;
+            showDetailStudent(selectedTagIndex);
           
-
+           
+          
+            document.getElementById("lap"+selectedTagIndex).classList.add("bg-red-200");
         }
-
+        
     }
     ////
     ////
@@ -452,7 +446,7 @@
     function addClass() {
 
         
-
+        let plus=0;
         closeClassModal()
         let newTeacher = document.getElementById("newTeacher").value;
         let newClassNum = document.getElementById("newClassNumber").value;
@@ -464,9 +458,9 @@
             openClassModal()
         } else {
             classes.push({ title: newClass, id: parseInt(newClassNum), teacher: newTeacher, capacity: capacityClass, numberOfStudents: plus++ });
-            renderingClass()
+            
         }
-
+       
         loadClassSideBar()
 
 
@@ -569,7 +563,7 @@
             for (c = 0; c < students[b].lesson.length; c++) {
                 if (selectIndexId == students[b].lesson[c]) {
                     let list = document.getElementById("list");
-                    pTag.classList.add("flex")
+                    pTag.classList.add("flex");
                     let lineP = document.createElement("span");
                     pTag.appendChild(lineP);
                     lineP.setAttribute("class", "bg-blue-200 cursor-pointer hover:bg-gray-200 rounded-2xl p-1 m-1");
@@ -580,10 +574,13 @@
         loadstudents()
     }
     function renderingStudent() {
+        loadstudents()
         var lessonsStudent = [];
         var lessonDiv = document.getElementById("lessons");
 
         for (d = 0; d < students.length; d++) {
+            document.getElementById("lap"+d).classList.remove("bg-red-200");
+
             if (SelectedStudentIndex == students[d].id) {
                 ///add image for student
                 document.getElementById("pic").style.backgroundImage = "url('image/" + students[d].picProfile + "')";
@@ -607,7 +604,7 @@
                 }
             }
         }
-
+        
         document.getElementById("lap" + selectedTagIndex).classList.add("bg-red-200");
         loadClassSideBar()
     }
