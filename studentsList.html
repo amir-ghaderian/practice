@@ -457,7 +457,7 @@
 
             openClassModal()
         } else {
-            classes.push({ title: newClass, id: parseInt(newClassNum), teacher: newTeacher, capacity: capacityClass, numberOfStudents: plus++ });
+            classes.push({ title: newClass, id:getUniqueIdForClass(), teacher: newTeacher, capacity: capacityClass, numberOfStudents: plus++ });
             
         }
        
@@ -655,6 +655,17 @@
         return num;
 
 
+    }
+    function getUniqueIdForClass(){
+        let existClass=[];
+        for(k=0;k<classes.length;k++){
+         existClass.push(classes[k].id);
+        }
+        let numId=random()
+        while (!isUnique(existClass,numId)) {
+            numId=random()
+        }
+        return numId;
     }
 
 </script>
