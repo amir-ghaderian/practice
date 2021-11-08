@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .pic {
+
+        width: 250px;
+        height: 300px;
+        margin: 1em;
+        background-size: cover;
+        background-position: center;
+ 
+
+    }
+
+    .container {
+
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        height: 100vh;
+        max-width: 90%;
+        justify-content: center;
+
+    }
+
+    img {
+        width: 245px;
+        height: 295px;
+     
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="pic" id="p0" onclick="tileClick(0)"><img id="a0"   src="image/0.jpeg" alt=""></div>
+        <div class="pic" id="p1" onclick="tileClick(1)"><img id="a1"   src="image/1.jpeg" alt=""></div>
+        <div class="pic" id="p2" onclick="tileClick(2)"><img id="a2"   src="image/2.jpeg" alt=""></div>
+        <div class="pic" id="p3" onclick="tileClick(3)"><img id="a3"   src="image/3.jpeg" alt=""></div>
+        <div class="pic" id="p4" onclick="tileClick(4)"><img id="a4"   src="image/4.jpeg" alt=""></div>
+        <div class="pic" id="p5" onclick="tileClick(5)"><img id="a5"   src="image/5.jpeg" alt=""></div>
+        <div class="pic" id="p6" onclick="tileClick(6)"><img id="a6"   src="image/6.jpeg" alt=""></div>
+        <div class="pic" id="p7" onclick="tileClick(7)"><img id="a7"   src="image/7.jpeg" alt=""></div>
+    </div>
+    <button id="start" onclick="setBackGrundImage()">START</button>
+</body>
+<script>
+    var images = ["image/0", "image/1", "image/2", "image/3", "image/4", "image/5", "image/6", "image/7"];
+
+    function setBackGrundImage() {
+        for (i = 0; i < images.length; i++) {
+
+            document.getElementById("a"+i).src= "image/1 .jpeg";
+
+        }
+    }
+    function removeBackGrundImage() {
+        for (i = 0; i < images.length; i++) {
+
+            document.getElementById("a"+i).src="image/"+i+".jpeg";
+        }
+    }
+    function tileClick(i) {
+
+        let tag = document.getElementById("a"+ i);
+        tag.src = "image/"+i+".jpeg";
+
+        
+
+
+    }
+</script>
+
+</html>
