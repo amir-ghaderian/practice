@@ -15,7 +15,9 @@
         margin: 1em;
         background-size: cover;
         background-position: center;
- 
+        z-index: 0;
+        border: 3px solid pink;
+
 
     }
 
@@ -30,49 +32,67 @@
 
     }
 
-    img {
+    .a{
+        display: none;
         width: 245px;
         height: 295px;
-     
+        background-color: pink;
     }
 </style>
 
 <body>
     <div class="container">
-        <div class="pic" id="p0" onclick="tileClick(0)"><img id="a0"   src="image/0.jpeg" alt=""></div>
-        <div class="pic" id="p1" onclick="tileClick(1)"><img id="a1"   src="image/1.jpeg" alt=""></div>
-        <div class="pic" id="p2" onclick="tileClick(2)"><img id="a2"   src="image/2.jpeg" alt=""></div>
-        <div class="pic" id="p3" onclick="tileClick(3)"><img id="a3"   src="image/3.jpeg" alt=""></div>
-        <div class="pic" id="p4" onclick="tileClick(4)"><img id="a4"   src="image/4.jpeg" alt=""></div>
-        <div class="pic" id="p5" onclick="tileClick(5)"><img id="a5"   src="image/5.jpeg" alt=""></div>
-        <div class="pic" id="p6" onclick="tileClick(6)"><img id="a6"   src="image/6.jpeg" alt=""></div>
-        <div class="pic" id="p7" onclick="tileClick(7)"><img id="a7"   src="image/7.jpeg" alt=""></div>
+        <div class="pic" id="p0" onclick="tileClick(0)">
+            <div id="front0" class="a" ></div>
+        </div>
+        <div class="pic" id="p1" onclick="tileClick(1)">
+            <div id="front1" class="a"></div>
+        </div>
+        <div class="pic" id="p2" onclick="tileClick(2)">
+            <div id="front2" class="a"></div>
+        </div>
+        <div class="pic" id="p3" onclick="tileClick(3)">
+            <div id="front3" class="a"></div>
+        </div>
+        <div class="pic" id="p4" onclick="tileClick(4)">
+            <div id="front4" class="a"></div>
+        </div>
+        <div class="pic" id="p5" onclick="tileClick(5)">
+            <div id="front5" class="a"></div>
+        </div>
+        <div class="pic" id="p6" onclick="tileClick(6)">
+            <div id="front6" class="a"></div>
+        </div>
+        <div class="pic" id="p7" onclick="tileClick(7)">
+            <div id="front7" class="a"></div>
+        </div>
     </div>
     <button id="start" onclick="setBackGrundImage()">START</button>
 </body>
 <script>
-    var images = ["image/0", "image/1", "image/2", "image/3", "image/4", "image/5", "image/6", "image/7"];
+    var images = ["image/0", "image/1", "image/2", "image/3", "image/0", "image/1", "image/2", "image/3"];
 
     function setBackGrundImage() {
         for (i = 0; i < images.length; i++) {
 
-            document.getElementById("a"+i).src= "image/1 .jpeg";
+            document.getElementById("p" + i).style.backgroundImage = "url("+images[i]+".jpeg)";
 
         }
     }
-    function removeBackGrundImage() {
+    function coverBackGrundImage() {
         for (i = 0; i < images.length; i++) {
 
-            document.getElementById("a"+i).src="image/"+i+".jpeg";
+            document.getElementById("front" + i ).style.display="flex";
         }
     }
+    var arrSelected=[];
     function tileClick(i) {
 
-        let tag = document.getElementById("a"+ i);
-        tag.src = "image/"+i+".jpeg";
+        let tag = document.getElementById("front" + i);
+        tag.style.display="none";
+      let src=  document.getElementById("p"+i);
 
-        
-
+console.log(src)
 
     }
 </script>
