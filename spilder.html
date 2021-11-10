@@ -21,18 +21,18 @@
 
     }
 
-    .container {
+    #container {
 
         width: 100%;
-        display: flex;
+        display: none;
         flex-wrap: wrap;
         height: 100vh;
         max-width: 90%;
         justify-content: center;
-
+        
     }
 
-    .a{
+    .a {
         display: none;
         width: 245px;
         height: 295px;
@@ -41,9 +41,9 @@
 </style>
 
 <body>
-    <div class="container">
+    <div id="container">
         <div class="pic" id="p0" onclick="tileClick(0)">
-            <div id="front0" class="a" ></div>
+            <div id="front0" class="a"></div>
         </div>
         <div class="pic" id="p1" onclick="tileClick(1)">
             <div id="front1" class="a"></div>
@@ -67,32 +67,52 @@
             <div id="front7" class="a"></div>
         </div>
     </div>
-    <button id="start" onclick="setBackGrundImage()">START</button>
+    <button id="show" onclick="setBackGrundImage()">first Show</button>
+    <br>
+    <button id="start" onclick="coverBackGrundImage()">Start</button>
 </body>
 <script>
     var images = ["image/0", "image/1", "image/2", "image/3", "image/0", "image/1", "image/2", "image/3"];
 
     function setBackGrundImage() {
+        document.getElementById("container").style.display="flex";
         for (i = 0; i < images.length; i++) {
 
-            document.getElementById("p" + i).style.backgroundImage = "url("+images[i]+".jpeg)";
+            document.getElementById("p" + i).style.backgroundImage = "url(" + images[i] + ".jpeg)";
 
         }
     }
     function coverBackGrundImage() {
         for (i = 0; i < images.length; i++) {
 
-            document.getElementById("front" + i ).style.display="flex";
+            document.getElementById("front" + i).style.display = "flex";
         }
     }
-    var arrSelected=[];
+    var arrSelected = [];
+    var selected = 0;
     function tileClick(i) {
 
         let tag = document.getElementById("front" + i);
-        tag.style.display="none";
-      let src=  document.getElementById("p"+i);
-
-console.log(src)
+        tag.style.display = "none";
+        let src = document.getElementById("p" + i).style.backgroundImage;
+        arrSelected.push(src);
+        selected += 1;
+       
+        
+        sameDeleted()
+    }
+    function sameDeleted() {
+        if (selected % 2 == 0) {
+           console.log("even click")
+        }
+        if (selected % 2 !== 0) {
+           console.log("odd click")
+            
+        }
+        //for (l = 0; l < images.length; l++) {
+          //  let place = document.getElementById("p" + l);
+           // console.log(place)
+        //}
 
     }
 </script>
