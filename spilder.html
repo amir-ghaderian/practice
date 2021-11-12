@@ -42,93 +42,98 @@
 
 <body>
     <div id="container">
-        <div class="pic" id="p0" onclick="tileClick(0)">
-            <div id="front0" class="a"></div>
+        <div class="pic" id="p0">
+            <div id="front0" class="a" onclick="newTileClick(0)"></div>
         </div>
-        <div class="pic" id="p1" onclick="tileClick(1)">
-            <div id="front1" class="a"></div>
+        <div class="pic" id="p1">
+            <div id="front1" class="a" onclick="newTileClick(1)"></div>
         </div>
-        <div class="pic" id="p2" onclick="tileClick(2)">
-            <div id="front2" class="a"></div>
+        <div class="pic" id="p2">
+            <div id="front2" class="a" onclick="newTileClick(2)"></div>
         </div>
-        <div class="pic" id="p3" onclick="tileClick(3)">
-            <div id="front3" class="a"></div>
+        <div class="pic" id="p3">
+            <div id="front3" class="a" onclick="newTileClick(3)"></div>
         </div>
-        <div class="pic" id="p4" onclick="tileClick(4)">
-            <div id="front4" class="a"></div>
+        <div class="pic" id="p4">
+            <div id="front4" class="a" onclick="newTileClick(4)"></div>
         </div>
-        <div class="pic" id="p5" onclick="tileClick(5)">
-            <div id="front5" class="a"></div>
+        <div class="pic" id="p5">
+            <div id="front5" class="a" onclick="newTileClick(5)"></div>
         </div>
-        <div class="pic" id="p6" onclick="tileClick(6)">
-            <div id="front6" class="a"></div>
+        <div class="pic" id="p6">
+            <div id="front6" class="a" onclick="newTileClick(6)"></div>
         </div>
-        <div class="pic" id="p7" onclick="tileClick(7)">
-            <div id="front7" class="a"></div>
+        <div class="pic" id="p7">
+            <div id="front7" class="a" onclick="newTileClick(7)"></div>
         </div>
     </div>
-    <button id="show" onclick="showAllTiles()">first Show</button>
-    <br>
-    <button id="start" onclick="hideAllTiles()">Start</button>
+    <button id="show" onclick="showAllTiles()">Start</button>
+
+
 </body>
 <script>
     var images = ["image/0", "image/1", "image/2", "image/3", "image/0", "image/1", "image/2", "image/3"];
 
-  
 
-    // can you do the same with imageCodes instead of images?
-    // var images = ["image/0", "image/1", "image/2", "image/3", "image/0", "image/1", "image/2", "image/3"];
+
+
     var imageCodes = [0, 1, 2, 3, 0, 1, 2, 3];
 
     var clickedCodes = [];
     for (c = 0; c < imageCodes.length; c++) {
         document.getElementById("front" + c).innerHTML = imageCodes[c];
         document.getElementById("p" + c).setAttribute("onclick", "showTile(" + c + ')')
-        //document.getElementById("front" + c).setAttribute("class","a(" + c + ')')
 
     }
     /// how I would create functions 
     function showTile(id) {
         document.getElementById("front" + id).style.display = "none";
-        setTimeout(hideAllTiles,2000)
-         hideTile(id)
+        setTimeout(hideAllTiles, 2000)
+        let note = document.getElementById("front" + id).innerHTML;
+       
+        return note;
+       
     }
 
     function hideTile(id) {
-      clickedCodes.push(document.getElementById("front" + id).innerHTML);
-      
-       
+        document.getElementById("front" + id).style.display = "flex";
+    
+
+
+
     }
 
     function showAllTiles() {
         // showTile for all ids
+
         document.getElementById("container").style.display = "flex";
         for (i = 0; i < images.length; i++) {
-
             document.getElementById("p" + i).style.backgroundImage = "url(" + images[i] + ".jpeg)";
+            showTile(i)
+
 
         }
     }
 
     function hideAllTiles() {
         // hideTile for all ids
+
         for (h = 0; h < imageCodes.length; h++) {
-           
-            document.getElementById("front" + h).style.display = "flex";
+            hideTile(h);
+
         }
     }
 
 
     function newTileClick(i) {
+       
+            clickedCodes.push(showTile(i))
+          
+           }
+       
+    
 
-        clickedCodes.push( /* last clicked code */)
 
-        // do show tile or hide tile...
-    }
-
-    function clear() {
-        
-    }
 </script>
 
 </html>
