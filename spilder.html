@@ -88,16 +88,16 @@
     /// how I would create functions 
     function showTile(id) {
         document.getElementById("front" + id).style.display = "none";
-        setTimeout(hideAllTiles, 2000)
-        let note = document.getElementById("front" + id).innerHTML;
-       
-        return note;
-       
+
+
+
+
+
     }
 
     function hideTile(id) {
         document.getElementById("front" + id).style.display = "flex";
-    
+
 
 
 
@@ -113,6 +113,7 @@
 
 
         }
+        setTimeout(hideAllTiles, 2000)
     }
 
     function hideAllTiles() {
@@ -126,12 +127,33 @@
 
 
     function newTileClick(i) {
-       
-            clickedCodes.push(showTile(i))
-          
-           }
-       
-    
+
+        let len = clickedCodes.length;
+        clickedCodes.push(imageCodes[i]);
+        if (len >= 1) {
+
+
+
+            let clicked;
+            let lastClicked = clickedCodes[len - 1];
+            for (z = 0; z < clickedCodes.length; z++) {
+                clicked = clickedCodes[z];
+
+            } if (lastClicked !== clicked) {
+                hideAllTiles()
+            }
+            if (lastClicked == clicked) {
+                for (v = 0; v < imageCodes.length; v++) {
+                    if (document.getElementById("front" + v).innerHTML == clicked) {
+
+                        document.getElementById("p" + v).style.display = "none";
+                    }
+
+                }
+            }
+
+        }
+    }
 
 
 </script>
