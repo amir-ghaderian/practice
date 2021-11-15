@@ -81,14 +81,16 @@
 
     var clickedCodes = [];
     for (c = 0; c < imageCodes.length; c++) {
-        document.getElementById("p" + c).setAttribute("onclick", "showTile(" + c + ')')
-        document.getElementById("front" + c).setAttribute("onclick", "newTileClick(" + c + ")");
+        document.getElementById("p" + c).setAttribute("onclick", "newTileClick(" + c + ')')
+        document.getElementById("front" + c).setAttribute("onclick", "showTile(" + c + ")");
 
 
     }
     /// how I would create functions 
 
     function showTile(id) {
+        
+
         document.getElementById("front" + id).style.display = "none";
 
 
@@ -128,12 +130,15 @@
     }
 
     var clicked = 0;
-    var firstClicked;
+    var firstClicked, firstIndex, secondIndex;
+
     function newTileClick(i) {
         clicked += 1;
+
+
         if (clicked % 2 !== 0) {
             firstClicked = document.getElementById("p" + i).style.backgroundImage;
-
+            firstIndex = i;
             console.log('first');
         }
 
@@ -142,12 +147,19 @@
             console.log('second');
             let secend;
             secend = document.getElementById("p" + i).style.backgroundImage;
+            secondIndex = i;
+           /// let goz1=imageCodes[i]; ba ina kharab mishod....
+
 
             if (firstClicked == secend) {
                 console.log('correct')
-            } else if (firstClicked !== secend) {
+            ///let goz2=imageCodes[i];
+
+            
+            } if (firstClicked !== secend) {
                 console.log('wrong')
-                hideTile(i);
+                hideTile(firstIndex);
+                hideTile(secondIndex);
                 clicked = 0;
             }
 
