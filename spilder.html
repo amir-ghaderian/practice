@@ -72,7 +72,7 @@
 
 </body>
 <script>
-    var images = ["image/0", "image/1", "image/2", "image/3", "image/0", "image/1", "image/2", "image/3"];
+    //  var images = ["image/0", "image/1", "image/2", "image/3", "image/0", "image/1", "image/2", "image/3"];
 
 
 
@@ -82,7 +82,7 @@
     var clickedCodes = [];
     for (c = 0; c < imageCodes.length; c++) {
         document.getElementById("p" + c).setAttribute("onclick", "showTile(" + c + ')')
-        document.getElementById("front" + c).setAttribute("onclick", "newTileClick(" + imageCodes[c] + ")");
+        document.getElementById("front" + c).setAttribute("onclick", "newTileClick(" + c + ")");
 
 
     }
@@ -109,8 +109,8 @@
         // showTile for all ids
 
         document.getElementById("container").style.display = "flex";
-        for (i = 0; i < images.length; i++) {
-            document.getElementById("p" + i).style.backgroundImage = "url(" + images[i] + ".jpeg)";
+        for (i = 0; i < imageCodes.length; i++) {
+            document.getElementById("p" + i).style.backgroundImage = "url(image/" + imageCodes[i] + ".jpeg)";
             showTile(i);
 
 
@@ -127,70 +127,31 @@
         }
     }
 
-
-    // function newTileClick(i) {
-
-    //     let len = clickedCodes.length;
-    //     clickedCodes.push(imageCodes[i]);
-    //     if (len >= 1) {
-
-
-
-    //         let clicked;
-    //         let lastClicked = clickedCodes[len - 1];
-    //         for (z = 0; z < clickedCodes.length; z++) {
-    //             clicked = clickedCodes[z];
-
-    //         } if (lastClicked !== clicked) {
-    //             hideAllTiles()
-    //         }
-    //         if (lastClicked == clicked) {
-    //             for (v = 0; v < imageCodes.length; v++) {
-    //                 if (document.getElementById("front" + v).innerHTML == clicked) {
-
-    //                     document.getElementById("p" + v).style.display = "none";
-    //                 }
-
-    //             }
-    //         }
-
-    //     }
-    // }
     var clicked = 0;
-
+    var firstClicked;
     function newTileClick(i) {
         clicked += 1;
-        clickedCodes.push(i);
-        let len = clickedCodes.length;
-        if (len > 1) {
-
-            for (f = 0; f < clickedCodes.length; f++) {
-                let codeImg = clickedCodes[f];
-                let lastClicked = clickedCodes[len - 1]
-                if (clicked % 2 == 0) {
+        if (clicked % 2 !== 0) {
+            firstClicked = document.getElementById("p" + i).style.backgroundImage;
 
 
+        }
 
-                    if (lastClicked !== codeImg) {
-                        hideAllTiles() 
+        if (clicked % 2 == 0) {
+            let secend;
+            secend = document.getElementById("p" + i).style.backgroundImage;
 
-                    } if (lastClicked == codeImg) {
-                        hideTile(i)
-                    }
-                }
+            if (firstClicked == secend) {
+
+            } else if (firstClicked !== secend) {
+
+                hideTile(i);
                 clicked = 0;
             }
 
-
-
-
-           
         }
 
-       
-
     }
-
 
 </script>
 
