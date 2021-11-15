@@ -43,28 +43,28 @@
 <body>
     <div id="container">
         <div class="pic" id="p0">
-            <div id="front0" class="a" onclick="newTileClick(0)"></div>
+            <div id="front0" class="a"></div>
         </div>
         <div class="pic" id="p1">
-            <div id="front1" class="a" onclick="newTileClick(1)"></div>
+            <div id="front1" class="a"></div>
         </div>
         <div class="pic" id="p2">
-            <div id="front2" class="a" onclick="newTileClick(2)"></div>
+            <div id="front2" class="a"></div>
         </div>
         <div class="pic" id="p3">
-            <div id="front3" class="a" onclick="newTileClick(3)"></div>
+            <div id="front3" class="a"></div>
         </div>
         <div class="pic" id="p4">
-            <div id="front4" class="a" onclick="newTileClick(4)"></div>
+            <div id="front4" class="a"></div>
         </div>
         <div class="pic" id="p5">
-            <div id="front5" class="a" onclick="newTileClick(5)"></div>
+            <div id="front5" class="a"></div>
         </div>
         <div class="pic" id="p6">
-            <div id="front6" class="a" onclick="newTileClick(6)"></div>
+            <div id="front6" class="a"></div>
         </div>
         <div class="pic" id="p7">
-            <div id="front7" class="a" onclick="newTileClick(7)"></div>
+            <div id="front7" class="a"></div>
         </div>
     </div>
     <button id="show" onclick="showAllTiles()">Start</button>
@@ -81,8 +81,9 @@
 
     var clickedCodes = [];
     for (c = 0; c < imageCodes.length; c++) {
-        document.getElementById("front" + c).innerHTML = imageCodes[c];
         document.getElementById("p" + c).setAttribute("onclick", "showTile(" + c + ')')
+        document.getElementById("front" + c).setAttribute("onclick", "newTileClick(" + imageCodes[c] + ")");
+
 
     }
     /// how I would create functions 
@@ -110,7 +111,7 @@
         document.getElementById("container").style.display = "flex";
         for (i = 0; i < images.length; i++) {
             document.getElementById("p" + i).style.backgroundImage = "url(" + images[i] + ".jpeg)";
-            showTile(i)
+            showTile(i);
 
 
         }
@@ -156,32 +157,37 @@
     //     }
     // }
     var clicked = 0;
-    var codeImg = 0;
+
     function newTileClick(i) {
         clicked += 1;
+        clickedCodes.push(i);
+        let len = clickedCodes.length;
+        if (len > 1) {
 
-        if (clicked % 2 !== 0) {
-            console.log("first");
-            codeImg = document.getElementById("front" + i).innerHTML;
+            for (f = 0; f < clickedCodes.length; f++) {
+                let codeImg = clickedCodes[f];
+                let lastClicked = clickedCodes[len - 1]
+                if (clicked % 2 == 0) {
 
 
-        }
-        if (clicked % 2 == 0) {
-            console.log("secend");
-            var codeImgSecend = document.getElementById("front" + i).innerHTML;
-           
-           
-            if (codeImg == codeImgSecend) {
-                console.log("same")
 
+                    if (lastClicked !== codeImg) {
+                        hideAllTiles() 
+
+                    } if (lastClicked == codeImg) {
+                        hideTile(i)
+                    }
+                }
+                clicked = 0;
             }
 
-            clicked = 0;
+
+
+
+           
         }
 
-
-
-
+       
 
     }
 
