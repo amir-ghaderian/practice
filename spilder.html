@@ -134,17 +134,19 @@
         if (clicked % 2 !== 0) {
             firstClicked = document.getElementById("p" + i).style.backgroundImage;
 
-
+            console.log('first');
         }
 
         if (clicked % 2 == 0) {
+
+            console.log('second');
             let secend;
             secend = document.getElementById("p" + i).style.backgroundImage;
 
             if (firstClicked == secend) {
-
+                console.log('correct')
             } else if (firstClicked !== secend) {
-
+                console.log('wrong')
                 hideTile(i);
                 clicked = 0;
             }
