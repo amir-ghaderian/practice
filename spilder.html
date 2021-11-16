@@ -41,29 +41,86 @@
 </style>
 
 <body>
+    <div…
+[22:21, 11/16/2021] amir ghaderiyan: <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/d2d35f7979.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<style>
+    .pic {
+
+        width: 250px;
+        height: 300px;
+        margin: 1em;
+        background-size: cover;
+        background-position: center;
+        z-index: 0;
+        border: 3px solid pink;
+
+
+    }
+
+    #container {
+
+        width: 100%;
+        display: none;
+        flex-wrap: wrap;
+        height: 100vh;
+        max-width: 90%;
+        justify-content: center;
+
+    }
+
+    .a {
+        display: none;
+        width: 245px;
+        height: 295px;
+        background-color: pink;
+    }
+
+    .tik {
+        font-size: 14em;
+        z-index: 1;
+        color: green;
+    }
+
+    .arrow {
+        font-size: 14em;
+        z-index: 1;
+        color: red;
+    }
+</style>
+
+<body>
     <div id="container">
-        <div class="pic" id="p0">
+        <div class="pic" id="p0"><i id="i0"></i>
             <div id="front0" class="a"></div>
         </div>
-        <div class="pic" id="p1">
+        <div class="pic" id="p1"><i id="i1"></i>
             <div id="front1" class="a"></div>
         </div>
-        <div class="pic" id="p2">
+        <div class="pic" id="p2"><i id="i2"></i>
             <div id="front2" class="a"></div>
         </div>
-        <div class="pic" id="p3">
+        <div class="pic" id="p3"><i id="i3"></i>
             <div id="front3" class="a"></div>
         </div>
-        <div class="pic" id="p4">
+        <div class="pic" id="p4"><i id="i4"></i>
             <div id="front4" class="a"></div>
         </div>
-        <div class="pic" id="p5">
+        <div class="pic" id="p5"><i id="i5"></i>
             <div id="front5" class="a"></div>
         </div>
-        <div class="pic" id="p6">
+        <div class="pic" id="p6"><i id="i6"></i>
             <div id="front6" class="a"></div>
         </div>
-        <div class="pic" id="p7">
+        <div class="pic" id="p7"><i id="i7"></i>
             <div id="front7" class="a"></div>
         </div>
     </div>
@@ -89,13 +146,13 @@
     /// how I would create functions 
 
     function showTile(i) {
-        
+
 
         document.getElementById("front" + i).style.display = "none";
 
 
 
-   
+
 
     }
 
@@ -130,7 +187,7 @@
     }
 
     var clicked = 0;
-    var firstClicked, firstIndex, secondIndex;
+    var firstClicked, firstIndex, secondIndex, myVar;
 
     function newTileClick(i) {
         clicked += 1;
@@ -138,12 +195,12 @@
         if (clicked % 2 !== 0) {
             firstClicked = imageCodes[i];
             firstIndex = i;
-            console.log('first');
+            /// console.log('first');
         }
 
         if (clicked % 2 == 0) {
 
-            console.log('second');
+            /// console.log('second');
             let secend;
             secend = imageCodes[i];
             secondIndex = i;
@@ -151,20 +208,41 @@
 
             if (firstClicked == secend) {
                 console.log('correct')
-               
-            
-            }else{
+                clickedCodes.push(imageCodes[i], imageCodes[i]);
+                if (imageCodes.length == clickedCodes.length) {
+                    alert("Mission Complate")
+                }
+                tik(secondIndex)
+                tik(firstIndex)
+            } else {
                 console.log('wrong')
-                setTimeout(function(){ hideTile(secondIndex); hideTile(firstIndex)}, 1000);
-                
-              
+               /// setTimeout(function () { arrow(secondIndex); arrow(firstIndex) }, 10);
+
+
                
+                setTimeout(function () { hideTile(secondIndex); hideTile(firstIndex) }, 1000);
+               
+
+
+
             }
             clicked = 0;
         }
 
     }
+    function tik(i) {
+        document.getElementById("i" + i).className = "fas fa-check";
+        document.getElementById("i" + i).classList.add("tik");
 
+
+    }
+    function arrow(i) {
+        document.getElementById("i" + i).className = "fas fa-times";
+        document.getElementById("i" + i).classList.add("arrow");
+
+       
+    }
+   
 </script>
 
 </html>
