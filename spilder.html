@@ -88,19 +88,19 @@
     }
     /// how I would create functions 
 
-    function showTile(id) {
+    function showTile(i) {
         
 
-        document.getElementById("front" + id).style.display = "none";
+        document.getElementById("front" + i).style.display = "none";
 
 
 
-
+   
 
     }
 
-    function hideTile(id) {
-        document.getElementById("front" + id).style.display = "flex";
+    function hideTile(i) {
+        document.getElementById("front" + i).style.display = "flex";
 
 
 
@@ -135,9 +135,7 @@
     function newTileClick(i) {
         clicked += 1;
 
-
         if (clicked % 2 !== 0) {
-            // firstClicked = document.getElementById("p" + i).style.backgroundImage;
             firstClicked = imageCodes[i];
             firstIndex = i;
             console.log('first');
@@ -147,24 +145,22 @@
 
             console.log('second');
             let secend;
-            // secend = document.getElementById("p" + i).style.backgroundImage;
             secend = imageCodes[i];
             secondIndex = i;
-           /// let goz1=imageCodes[i]; ba ina kharab mishod....
 
 
             if (firstClicked == secend) {
                 console.log('correct')
-            ///let goz2=imageCodes[i];
-
+               
             
-            } if (firstClicked !== secend) {
+            }else{
                 console.log('wrong')
-                hideTile(firstIndex);
-                hideTile(secondIndex);
-                clicked = 0;
+                setTimeout(function(){ hideTile(secondIndex); hideTile(firstIndex)}, 1000);
+                
+              
+               
             }
-
+            clicked = 0;
         }
 
     }
