@@ -64,6 +64,16 @@
                         <option value="50" class="py-1">50</option>
 
                     </select>
+                    <select id="days" class=" border bg-white rounded px-3 py-2 outline-none">
+                        <option value="Mon" class="py-1">Mon</option>
+                        <option value="Sun" class="py-1">Sun</option>
+                        <option value="Sat" class="py-1">Sat</option>
+                        <option value="Tue" class="py-1">Tue</option>
+                        <option value="Wed" class="py-1">Wed</option>
+                        <option value="Thu" class="py-1">Thu</option>
+                        <option value="Fri" class="py-1">Fri</option>
+
+                    </select>
                 </div>
                 <button onclick="pushTask() "
                     class="transition duration-500 ease-in-out bg-blue-300 hover:bg-red-400 transform hover:-translate-y-1 hover:scale-110  p-2 rounded-2xl w-16  absolute right-2 bottom-1 ">add</button>
@@ -76,12 +86,13 @@
             <div class="font-bold py-4 w-full h-16 bg-black rounded-t-2xl text-white text-center text-2xl font-serif">
                 to
                 do</div>
-            <i class="fas fa-plus green-100 text-2xl py-4" onclick="openModal()"></i>
+            <i class="fas fa-plus green-100 text-2xl py-4 transition duration-500 ease-in-out   transform hover:-translate-y-1 hover:scale-110" onclick="openModal()"></i>
             <ul id="tasks"></ul>
         </div>
         <div class="w-2/6 bg-green-100 m-1 rounded-2xl">
             <div class=" font-bold py-4 w-full h-16 bg-black rounded-t-2xl text-white text-center text-2xl font-serif">
                 in progress</div>
+            <ul id="progress"></ul>
         </div>
         <div class="w-2/6 bg-gray-100 m-1 rounded-2xl">
             <div class=" font-bold py-4 w-full h-16 bg-black rounded-t-2xl text-white text-center text-2xl font-serif">
@@ -92,15 +103,46 @@
 </body>
 <script>
     var listOfTask = [
-        { task: "carwash", time: "2,30" },
-        { task: "shoping", time: "1,40" }
+        { task: "carwash", time: "2 : 30", day: "Sat" },
+        { task: "shoping", time: "1 : 40", day: "Wen" }
     ]
 
-
-    ///
     loadTaskToList()
+    ///
 
+    function loadTaskToList() {
+        let ul = document.getElementById("tasks");
+        ul.innerHTML = "";
+        for (i = 0; i < listOfTask.length; i++) {
+            let li = document.createElement("li");
+            ul.appendChild(li);
+            li.className = "w-full text-center text-2xl  border-2 border-gray-300 rounded-xl relative bg-white pl-16 transition duration-500  bg-gray-100 hover:bg-blue-200 transform hover:-translate-y-1 hover:scale-110";
+            li.innerHTML = listOfTask[i].task + " " + listOfTask[i].time;
+            let tikBtn = document.createElement("i")
+            let redX = document.createElement("i");
 
+            let spanDay = document.createElement("span");
+            li.appendChild(redX);
+            li.appendChild(spanDay);
+            li.appendChild(tikBtn);
+            spanDay.innerHTML = listOfTask[i].day;
+            redX.className = "fas fa-times text-red-300 text-2xl absolute right-8 top-1"
+            spanDay.className = "absolute inset-y-0 left-0 font-serif font-bold bg-gray-100 w-16 rounded-l-3xl "
+            tikBtn.className = "fas fa-check tik text-green-300 text-2xl ml-8";
+            tikBtn.setAttribute("onclick", "inProgress(" + i + ")");
+            li.setAttribute("id", "p" + i);
+            redX.setAttribute("onclick", "clearTask(" + i + ")");
+
+        }
+    }
+
+    function inProgress(i) {
+        let ulProgress = document.getElementById("progress");
+        ulProgress.appendChild(document.getElementById("p" + i))
+    }
+    function clearTask(i) {
+        document.getElementById("p" + i).style.display = "none";
+    }
     ////modal
     function openModal() {
         document.getElementById("modal").style.display = "flex";
@@ -111,39 +153,37 @@
 
 
     ////
+
     function pushTime() {
 
         var e = document.getElementById("hour");
         var huorUser = e.value;
         var m = document.getElementById("minut");
         var minUser = m.value;
-        var periodOfTime = huorUser + "," + minUser;
+
+        var periodOfTime = huorUser + " : " + minUser;
         return periodOfTime;
     }
-
-
-    var ul;
+    function daysTask() {
+        var m = document.getElementById("days");
+        var dayUser = m.value;
+        return dayUser;
+    }
     function pushTask() {
         closeModal()
         let newTask = document.getElementById("newTask").value;
-        // let newTime=pushTime();
-        listOfTask.push({ task: newTask, time: pushTime() });
+        let newTime = pushTime();
+        let newTaskDay = daysTask()
+        if (newTask == "") {
+            alert("enter your all input");
+
+        } else {
+            listOfTask.push({ task: newTask, time: newTime, day: newTaskDay });
+        }
+
         loadTaskToList()
 
-    }
-    function loadTaskToList() {
-        ul = document.getElementById("tasks");
-        for (i = 0; i < listOfTask.length; i++) {
-            let li = document.createElement("li");
-            ul.appendChild(li);
-            li.className = "w-full text-center text-2xl font-serif border-2 border-gray-300 rounded-xl ";
-            li.innerHTML = listOfTask[i].task + " " + listOfTask[i].time;
-            let tikBtn = document.createElement("i")
-            li.appendChild(tikBtn);
-            tikBtn.className = "fas fa-check tik text-green-300 text-2xl ml-8";
-            tikBtn.setAttribute("onclick", "inProgress()");
 
-        }
     }
 
 
