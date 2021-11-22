@@ -31,28 +31,53 @@
             <div class="flex">
                 <div class="flex flex-col justify-center">
                     <span class="m-1  p-2">task</span>
-                    <span class="m-1  p-2">how time</span>
-                </div>
 
-                <div class="flex flex-col ">
-                    <div class="m-1"><input type="text" id="newTask" value="" placeholder=""
-                            class="w-96 rounded-xl border-4 border-gray-100 p-1"></div>
-                    <div class="m-1"><input type="text" id="rimainderTime" value="" placeholder=""
-                            class="w-96 rounded-xl border-4 border-gray-100 p-1"></div>
-                    <button onclick="closeModal()"
-                        class="bg-red-400 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-gray-200 focus:ring-opacity-50 p-1 rounded-2xl active:bg-green-700 absolute top-1 right-2 ... ">X</button>
+
+                    <div class="flex flex-col ">
+                        <div class="m-1"><input type="text" id="newTask" value="" placeholder=""
+                                class="w-96 rounded-xl border-4 border-gray-100 p-1"></div>
+
+                        <button onclick="closeModal()"
+                            class="bg-red-400 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-gray-200 focus:ring-opacity-50 p-1 rounded-2xl active:bg-green-700 absolute top-1 right-2 ... ">X</button>
+                    </div>
+
                 </div>
+                <div>
+                    <select id="hour" class=" border bg-white rounded px-3 py-2 outline-none">
+                        <option value="1" class="py-1">1</option>
+                        <option value="2" class="py-1">2</option>
+                        <option value="3" class="py-1">3</option>
+                        <option value="4" class="py-1">4</option>
+                        <option value="5" class="py-1">5</option>
+                        <option value="6" class="py-1">6</option>
+                        <option value="7" class="py-1">7</option>
+                        <option value="8" class="py-1">8</option>
+                        <option value="9" class="py-1">9</option>
+                        <option value="10" class="py-1">10</option>
+                        <option value="11" class="py-1">11</option>
+                    </select>
+                    <select id="minut" class=" border bg-white rounded px-3 py-2 outline-none">
+                        <option value="10" class="py-1">10</option>
+                        <option value="20" class="py-1">20</option>
+                        <option value="30" class="py-1">30</option>
+                        <option value="40" class="py-1">40</option>
+                        <option value="50" class="py-1">50</option>
+
+                    </select>
+                </div>
+                <button onclick="pushTask() "
+                    class="transition duration-500 ease-in-out bg-blue-300 hover:bg-red-400 transform hover:-translate-y-1 hover:scale-110  p-2 rounded-2xl w-16  absolute right-2 bottom-1 ">add</button>
             </div>
-            <button onclick="addTask() "
-                class="transition duration-500 ease-in-out bg-blue-300 hover:bg-red-400 transform hover:-translate-y-1 hover:scale-110  p-2 rounded-2xl w-16  absolute right-2 bottom-1 ">add</button>
         </div>
     </div>
     <div class="md:container md:mx-auto bg-blue-100 h-screen flex rounded-2xl">
 
         <div class="w-2/6 bg-red-100 m-1 rounded-2xl">
-            <div class="font-bold py-4 w-full h-16 bg-black rounded-t-2xl text-white text-center text-2xl font-serif">to
+            <div class="font-bold py-4 w-full h-16 bg-black rounded-t-2xl text-white text-center text-2xl font-serif">
+                to
                 do</div>
-            <i class="fas fa-plus green-100 text-2xl py-4" onclick="openModal()"></i><ul id="tasks"></ul>
+            <i class="fas fa-plus green-100 text-2xl py-4" onclick="openModal()"></i>
+            <ul id="tasks"></ul>
         </div>
         <div class="w-2/6 bg-green-100 m-1 rounded-2xl">
             <div class=" font-bold py-4 w-full h-16 bg-black rounded-t-2xl text-white text-center text-2xl font-serif">
@@ -66,6 +91,15 @@
 
 </body>
 <script>
+    var listOfTask = [
+        { task: "carwash", time: "2,30" },
+        { task: "shoping", time: "1,40" }
+    ]
+
+
+    ///
+    loadTaskToList()
+
 
     ////modal
     function openModal() {
@@ -77,25 +111,41 @@
 
 
     ////
-    function addTask() {
-        let ul = document.getElementById("tasks");
+    function pushTime() {
+
+        var e = document.getElementById("hour");
+        var huorUser = e.value;
+        var m = document.getElementById("minut");
+        var minUser = m.value;
+        var periodOfTime = huorUser + "," + minUser;
+        return periodOfTime;
+    }
 
 
-        closeModal();
-        let inputTime = document.getElementById("rimainderTime").value;
-        let inputTask = document.getElementById("newTask").value;
-        let li = document.createElement("li");
-        ul.appendChild(li);
-        li.className = "w-full text-center text-2xl font-serif border-2 border-gray-300 rounded-xl ";
-        li.innerHTML = "to do   " + inputTask + "  at   " + inputTime;
-         let tikBtn= document.createElement("i")
-       li.appendChild(tikBtn);
-       tikBtn.className="fas fa-check tik text-green-300 text-2xl ml-8";
-       tikBtn.setAttribute("onclick","inProgress")
+    var ul;
+    function pushTask() {
+        closeModal()
+        let newTask = document.getElementById("newTask").value;
+        // let newTime=pushTime();
+        listOfTask.push({ task: newTask, time: pushTime() });
+        loadTaskToList()
+
     }
-    function inProgress() {
-        
+    function loadTaskToList() {
+        ul = document.getElementById("tasks");
+        for (i = 0; i < listOfTask.length; i++) {
+            let li = document.createElement("li");
+            ul.appendChild(li);
+            li.className = "w-full text-center text-2xl font-serif border-2 border-gray-300 rounded-xl ";
+            li.innerHTML = listOfTask[i].task + " " + listOfTask[i].time;
+            let tikBtn = document.createElement("i")
+            li.appendChild(tikBtn);
+            tikBtn.className = "fas fa-check tik text-green-300 text-2xl ml-8";
+            tikBtn.setAttribute("onclick", "inProgress()");
+
+        }
     }
+
 
 </script>
 
