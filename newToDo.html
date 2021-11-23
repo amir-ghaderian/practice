@@ -74,37 +74,51 @@
                         <option value="Fri" class="py-1">Fri</option>
 
                     </select>
+                    <select id="status" class=" border bg-white rounded px-3 py-2 outline-none">
+                        <option value="Todo" class="py-1">Todo</option>
+                        <option value="inProgress" class="py-1">inProgress</option>
+                        <option value="done" class="py-1">done</option>
+                    </select>
                 </div>
                 <button onclick="pushTask() "
                     class="transition duration-500 ease-in-out bg-blue-300 hover:bg-red-400 transform hover:-translate-y-1 hover:scale-110  p-2 rounded-2xl w-16  absolute right-2 bottom-1 ">add</button>
             </div>
         </div>
     </div>
-    <div class="md:container md:mx-auto bg-blue-100 h-screen flex rounded-2xl">
+    <div class="md:container md:mx-auto  h-screen flex rounded-2xl">
 
         <div class="w-2/6 bg-red-100 m-1 rounded-2xl">
             <div class="font-bold py-4 w-full h-16 bg-black rounded-t-2xl text-white text-center text-2xl font-serif">
                 to
                 do</div>
-            <i class="fas fa-plus green-100 text-2xl py-4 transition duration-500 ease-in-out   transform hover:-translate-y-1 hover:scale-110" onclick="openModal()"></i>
+            <div class="flex justify-center"><i class="fas fa-plus green-100 text-2xl py-4 place-content-center transition duration-500 ease-in-out   transform hover:-translate-y-1 hover:scale-110" onclick="openModal()"></i></div>
             <ul id="tasks"></ul>
-        </div>
-        <div class="w-2/6 bg-green-100 m-1 rounded-2xl">
-            <div class=" font-bold py-4 w-full h-16 bg-black rounded-t-2xl text-white text-center text-2xl font-serif">
-                in progress</div>
-            <ul id="progress"></ul>
         </div>
         <div class="w-2/6 bg-gray-100 m-1 rounded-2xl">
             <div class=" font-bold py-4 w-full h-16 bg-black rounded-t-2xl text-white text-center text-2xl font-serif">
+                in progress</div>
+            <div class="flex justify-center"><i class="fas fa-marker green-100 text-2xl py-4 place-content-center transition duration-500 ease-in-out   transform hover:-translate-y-1 hover:scale-110" onclick="openModal()"></i></div>
+           
+            <ul id="progress"></ul>
+        </div>
+        <div class="w-2/6 bg-green-100 m-1 rounded-2xl">
+            <div class=" font-bold py-4 w-full h-16 bg-black rounded-t-2xl text-white text-center text-2xl font-serif">
                 done</div>
+            <div class="flex justify-center"><i class="fas fa-sync green-100 text-2xl py-4 place-content-center transition duration-500 ease-in-out   transform hover:-translate-y-1 hover:scale-110" onclick="openModal()"></i></div>
+
+                <ul id="done"></ul>
         </div>
     </div>
 
 </body>
 <script>
     var listOfTask = [
-        { task: "carwash", time: "2 : 30", day: "Sat" },
-        { task: "shoping", time: "1 : 40", day: "Wen" }
+        { task: "carwash", time: "2 : 30", day: "Sat" ,statusTask:"Todo"},
+        { task: "shoping", time: "1 : 40", day: "Wen" ,statusTask:"inProgress"},
+        { task: "resturant", time: "2 : 30", day: "Sun" ,statusTask:"done"},
+        { task: "Hiking", time: "4 : 30", day: "Fri" ,statusTask:"Todo"},
+        { task: "banking", time: "1 : 40", day: "Tue" ,statusTask:"inProgress"},
+        { task: "Real Estate", time: "1 : 30", day: "Mon" ,statusTask:"done"},
     ]
 
     loadTaskToList()
@@ -112,23 +126,34 @@
 
     function loadTaskToList() {
         let ul = document.getElementById("tasks");
+        let ulProgress = document.getElementById("progress");
+        let ulDone=document.getElementById("done");
         ul.innerHTML = "";
+        ulDone.innerHTML="";
+        ulProgress.innerHTML="";
         for (i = 0; i < listOfTask.length; i++) {
             let li = document.createElement("li");
-            ul.appendChild(li);
-            li.className = "w-full text-center text-2xl  border-2 border-gray-300 rounded-xl relative bg-white pl-16 transition duration-500  bg-gray-100 hover:bg-blue-200 transform hover:-translate-y-1 hover:scale-110";
+          
+         
+            if(listOfTask[i].statusTask=="Todo"){
+                ul.appendChild(li);
+            }else if(listOfTask[i].statusTask=="inProgress"){
+                ulProgress.appendChild(li);
+            }else if(listOfTask[i].statusTask=="done"){
+                ulDone.appendChild(li);
+            }
+            li.className = "w-full text-center text-2xl  border-2 border-gray-300 rounded-xl relative bg-white pl-16 ";
             li.innerHTML = listOfTask[i].task + " " + listOfTask[i].time;
             let tikBtn = document.createElement("i")
             let redX = document.createElement("i");
-
             let spanDay = document.createElement("span");
             li.appendChild(redX);
             li.appendChild(spanDay);
             li.appendChild(tikBtn);
             spanDay.innerHTML = listOfTask[i].day;
-            redX.className = "fas fa-times text-red-300 text-2xl absolute right-8 top-1"
-            spanDay.className = "absolute inset-y-0 left-0 font-serif font-bold bg-gray-100 w-16 rounded-l-3xl "
-            tikBtn.className = "fas fa-check tik text-green-300 text-2xl ml-8";
+            redX.className = "fas fa-times text-red-300 text-2xl absolute right-8 top-1 transition duration-500  transform hover:-translate-y-1 hover:scale-110"
+            spanDay.className = "absolute inset-y-0 left-0 font-serif font-bold bg-blue-200 w-16 rounded-l-xl "
+            tikBtn.className = "fas fa-check tik text-green-300 text-2xl ml-8 transition duration-500  b transform hover:-translate-y-1 hover:scale-110";
             tikBtn.setAttribute("onclick", "inProgress(" + i + ")");
             li.setAttribute("id", "p" + i);
             redX.setAttribute("onclick", "clearTask(" + i + ")");
@@ -138,6 +163,7 @@
 
     function inProgress(i) {
         let ulProgress = document.getElementById("progress");
+
         ulProgress.appendChild(document.getElementById("p" + i))
     }
     function clearTask(i) {
@@ -149,6 +175,7 @@
     }
     function closeModal() {
         document.getElementById("modal").style.display = "none";
+
     }
 
 
@@ -169,16 +196,22 @@
         var dayUser = m.value;
         return dayUser;
     }
+    function getStatusTask(){
+        var m = document.getElementById("status");
+        var statusUser = m.value;
+        return statusUser;
+    }
     function pushTask() {
         closeModal()
         let newTask = document.getElementById("newTask").value;
         let newTime = pushTime();
         let newTaskDay = daysTask()
+        let statusTask=getStatusTask()
         if (newTask == "") {
             alert("enter your all input");
 
         } else {
-            listOfTask.push({ task: newTask, time: newTime, day: newTaskDay });
+            listOfTask.push({ task: newTask, time: newTime, day: newTaskDay ,statusTask:statusTask});
         }
 
         loadTaskToList()

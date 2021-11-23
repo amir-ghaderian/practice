@@ -52,10 +52,24 @@
         z-index: 1;
         color: red;
     }
+    #timer{
+        display: none;
+      font-size: 2em;
+    }
+    .soti{
+        color: red;
+    }
 </style>
 
 <body>
+   
     <div id="container">
+        <div id="timer">
+            <div id="sec"></div>
+            
+           
+           
+        </div>
         <div class="pic" id="p0"><i id="i0"></i>
             <div id="front0" class="a"></div>
         </div>
@@ -123,7 +137,6 @@
 
     function showAllTiles() {
         // showTile for all ids
-
         document.getElementById("container").style.display = "flex";
         for (i = 0; i < imageCodes.length; i++) {
             document.getElementById("p" + i).style.backgroundImage = "url(image/" + imageCodes[i] + ".jpeg)";
@@ -132,6 +145,8 @@
 
         }
         setTimeout(hideAllTiles, 2000)
+        restTimer()
+
     }
 
     function hideAllTiles() {
@@ -174,6 +189,7 @@
                 if (imageCodes.length == clickedCodes.length) {
                     alert("Mission accomplished")
                     start();
+                    clearInterval(myInterVAL)
 
                 }
                 tik(secondIndex)
@@ -206,11 +222,14 @@
     function redX(i) {
         document.getElementById("i" + i).className = "fas fa-times";
         document.getElementById("i" + i).classList.add("arrow");
-
+        second=second-5;
+        document.getElementById("sec").classList.add("soti")
 
     }
     function hideRedX(i) {
         document.getElementById("i" + i).removeAttribute("class");
+        document.getElementById("sec").classList.remove("soti")
+
     }
 
 
@@ -245,6 +264,33 @@
 
     }
 
+
+
+
+    var second = 60;
+   
+   
+    var myInterVAL = setInterval(function () {
+        document.getElementById("sec").innerHTML = second;
+        
+       
+        second--;
+        if (second == -1) {
+          
+            alert("you lose")
+            second=0;
+
+        }
+       
+        
+    }, 1000); 
+
+    function restTimer() {
+        document.getElementById("timer").style.display="flex";
+        second = 60;
+      
+       
+    }
 
 </script>
 
