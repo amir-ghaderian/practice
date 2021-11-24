@@ -87,38 +87,44 @@
     </div>
     <div class="md:container md:mx-auto  h-screen flex rounded-2xl">
 
-        <div class="w-2/6 bg-red-100 m-1 rounded-2xl">
+        <div class="w-2/6 bg-red-100 m-1 rounded-2xl ">
             <div class="font-bold py-4 w-full h-16 bg-black rounded-t-2xl text-white text-center text-2xl font-serif">
                 to
                 do</div>
-            <div class="flex justify-center"><i class="fas fa-plus green-100 text-2xl py-4 place-content-center transition duration-500 ease-in-out   transform hover:-translate-y-1 hover:scale-110" onclick="openModal()"></i></div>
+            <div class="flex justify-center"><i
+                    class="fas fa-plus green-100 text-2xl py-4 place-content-center transition duration-500 ease-in-out   transform hover:-translate-y-1 hover:scale-110"
+                    onclick="openModal()"></i></div>
             <ul id="tasks"></ul>
         </div>
         <div class="w-2/6 bg-gray-100 m-1 rounded-2xl">
             <div class=" font-bold py-4 w-full h-16 bg-black rounded-t-2xl text-white text-center text-2xl font-serif">
                 in progress</div>
-            <div class="flex justify-center"><i class="fas fa-marker green-100 text-2xl py-4 place-content-center transition duration-500 ease-in-out   transform hover:-translate-y-1 hover:scale-110" onclick="openModal()"></i></div>
-           
+            <div class="flex justify-center"><i
+                    class="fas fa-marker green-100 text-2xl py-4 place-content-center transition duration-500 ease-in-out   transform hover:-translate-y-1 hover:scale-110"
+                    onclick="openModal()"></i></div>
+
             <ul id="progress"></ul>
         </div>
         <div class="w-2/6 bg-green-100 m-1 rounded-2xl">
             <div class=" font-bold py-4 w-full h-16 bg-black rounded-t-2xl text-white text-center text-2xl font-serif">
                 done</div>
-            <div class="flex justify-center"><i class="fas fa-sync green-100 text-2xl py-4 place-content-center transition duration-500 ease-in-out   transform hover:-translate-y-1 hover:scale-110" onclick="openModal()"></i></div>
+            <div class="flex justify-center"><i
+                    class="fas fa-sync green-100 text-2xl py-4 place-content-center transition duration-500 ease-in-out   transform hover:-translate-y-1 hover:scale-110"
+                    onclick="openModal()"></i></div>
 
-                <ul id="done"></ul>
+            <ul id="done"></ul>
         </div>
     </div>
 
 </body>
 <script>
     var listOfTask = [
-        { task: "carwash", time: "2 : 30", day: "Sat" ,statusTask:"Todo"},
-        { task: "shoping", time: "1 : 40", day: "Wen" ,statusTask:"inProgress"},
-        { task: "resturant", time: "2 : 30", day: "Sun" ,statusTask:"done"},
-        { task: "Hiking", time: "4 : 30", day: "Fri" ,statusTask:"Todo"},
-        { task: "banking", time: "1 : 40", day: "Tue" ,statusTask:"inProgress"},
-        { task: "Real Estate", time: "1 : 30", day: "Mon" ,statusTask:"done"},
+        { task: "carwash", time: "2 : 30", day: "Sat", statusTask: "Todo" },
+        { task: "shoping", time: "1 : 40", day: "Wen", statusTask: "inProgress" },
+        { task: "resturant", time: "2 : 30", day: "Sun", statusTask: "done" },
+        { task: "Hiking", time: "4 : 30", day: "Fri", statusTask: "Todo" },
+        { task: "banking", time: "1 : 40", day: "Tue", statusTask: "inProgress" },
+        { task: "Real Estate", time: "1 : 30", day: "Mon", statusTask: "done" },
     ]
 
     loadTaskToList()
@@ -127,22 +133,22 @@
     function loadTaskToList() {
         let ul = document.getElementById("tasks");
         let ulProgress = document.getElementById("progress");
-        let ulDone=document.getElementById("done");
+        let ulDone = document.getElementById("done");
         ul.innerHTML = "";
-        ulDone.innerHTML="";
-        ulProgress.innerHTML="";
+        ulDone.innerHTML = "";
+        ulProgress.innerHTML = "";
         for (i = 0; i < listOfTask.length; i++) {
             let li = document.createElement("li");
-          
-         
-            if(listOfTask[i].statusTask=="Todo"){
+
+
+            if (listOfTask[i].statusTask == "Todo") {
                 ul.appendChild(li);
-            }else if(listOfTask[i].statusTask=="inProgress"){
+            } else if (listOfTask[i].statusTask == "inProgress") {
                 ulProgress.appendChild(li);
-            }else if(listOfTask[i].statusTask=="done"){
+            } else if (listOfTask[i].statusTask == "done") {
                 ulDone.appendChild(li);
             }
-            li.className = "w-full text-center text-2xl  border-2 border-gray-300 rounded-xl relative bg-white pl-16 ";
+            li.className = "w-96 text-center text-2xl  border-2 border-gray-300 rounded-xl relative bg-white pl-16  ml-4";
             li.innerHTML = listOfTask[i].task + " " + listOfTask[i].time;
             let tikBtn = document.createElement("i")
             let redX = document.createElement("i");
@@ -151,11 +157,30 @@
             li.appendChild(spanDay);
             li.appendChild(tikBtn);
             spanDay.innerHTML = listOfTask[i].day;
-            redX.className = "fas fa-times text-red-300 text-2xl absolute right-8 top-1 transition duration-500  transform hover:-translate-y-1 hover:scale-110"
+            redX.className = "fas fa-times text-red-300 text-2xl absolute right-6 top-1 transition duration-500  transform hover:-translate-y-1 hover:scale-110"
             spanDay.className = "absolute inset-y-0 left-0 font-serif font-bold bg-blue-200 w-16 rounded-l-xl "
             tikBtn.className = "fas fa-check tik text-green-300 text-2xl ml-8 transition duration-500  b transform hover:-translate-y-1 hover:scale-110";
             tikBtn.setAttribute("onclick", "inProgress(" + i + ")");
             li.setAttribute("id", "p" + i);
+            li.onmousedown = function (event) {
+                li.style.position = "absolute";
+                li.style.zIndex = 1;
+                document.body.append(li);
+                function moveAt(pageX, pageY) {
+                    li.style.left = pageX - li.offsetWidth / 2 + "px";
+                    li.style.top = pageY - li.offsetHeight / 2 + "px";
+                }
+                moveAt(event.pageX, event.pageY);
+                function onMouseMove(event) {
+                    moveAt(event.pageX,event.pageY);
+                }
+                li.addEventListener("mousemove",onMouseMove);
+                li.onmouseup= function () {
+                    li.removeEventListener("mousemove",onMouseMove);
+                    li.onmouseup=null;
+                }
+
+            }
             redX.setAttribute("onclick", "clearTask(" + i + ")");
 
         }
@@ -163,7 +188,6 @@
 
     function inProgress(i) {
         let ulProgress = document.getElementById("progress");
-
         ulProgress.appendChild(document.getElementById("p" + i))
     }
     function clearTask(i) {
@@ -196,7 +220,7 @@
         var dayUser = m.value;
         return dayUser;
     }
-    function getStatusTask(){
+    function getStatusTask() {
         var m = document.getElementById("status");
         var statusUser = m.value;
         return statusUser;
@@ -206,18 +230,19 @@
         let newTask = document.getElementById("newTask").value;
         let newTime = pushTime();
         let newTaskDay = daysTask()
-        let statusTask=getStatusTask()
+        let statusTask = getStatusTask()
         if (newTask == "") {
             alert("enter your all input");
 
         } else {
-            listOfTask.push({ task: newTask, time: newTime, day: newTaskDay ,statusTask:statusTask});
+            listOfTask.push({ task: newTask, time: newTime, day: newTaskDay, statusTask: statusTask });
         }
 
         loadTaskToList()
 
 
     }
+
 
 
 </script>
