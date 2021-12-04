@@ -116,7 +116,20 @@
 
         }
     }
+    var second = 100;
+    function asd() {
+        document.getElementById("sec").innerHTML = second;
 
+
+        second--;
+        if (second <= -1) {
+
+            alert("you lose")
+            second = 0;
+
+        }
+    }
+    var myInterVAL;
     function showAllTiles() {
 
         for (i = 0; i < imageCodes.length; i++) {
@@ -126,8 +139,13 @@
 
         }
         setTimeout(hideAllTiles, 2000)
-        restTimer()
+        myInterVAL = setInterval(asd, 1000);
+
+
+
     }
+
+
     var clicked = 0;
     var firstClicked, firstIndex, secondIndex, myVar;
     function newTileClick(i) {
@@ -156,13 +174,21 @@
                 console.log('correct')
                 clickedCodes.push(imageCodes[i], imageCodes[i]);
                 if (imageCodes.length == clickedCodes.length) {
-                    alert("Mission accomplished")
-                    start();
-                    clearInterval(myInterVAL)
 
+                    start()
+
+                    clearInterval(myInterVAL);
+                    alert("you win")
                 }
+
                 tik(secondIndex)
+
                 tik(firstIndex)
+                document.getElementById("p" + secondIndex).removeAttribute("onclick");
+                document.getElementById("p" + firstIndex).removeAttribute("onclick");
+
+
+                
             } else {
                 console.log('wrong')
                 setTimeout(function () { redX(secondIndex); redX(firstIndex) }, 100);
@@ -201,27 +227,14 @@
 
     }
 
-    var second = 60;
 
 
-    var myInterVAL = setInterval(function () {
-        document.getElementById("sec").innerHTML = second;
 
 
-        second--;
-        if (second == -1) {
-
-            alert("you lose")
-            second = 0;
-
-        }
-
-
-    }, 1000);
 
     function restTimer() {
         document.getElementById("timer").style.display = "flex";
-        second = 60;
+        second = 100;
 
 
     }
