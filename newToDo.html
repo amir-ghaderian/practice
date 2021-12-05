@@ -85,7 +85,7 @@
             </div>
         </div>
     </div>
-    <div class="md:container md:mx-auto  h-screen flex rounded-2xl">
+    <div id="container" class="md:container md:mx-auto  h-screen flex rounded-2xl">
 
         <div class="w-2/6 bg-red-100 m-1 rounded-2xl ">
             <div class="font-bold py-4 w-full h-16 bg-black rounded-t-2xl text-white text-center text-2xl font-serif">
@@ -165,19 +165,20 @@
             li.onmousedown = function (event) {
                 li.style.position = "absolute";
                 li.style.zIndex = 1;
-                document.body.append(li);
+                let container = document.getElementById("container");
+                container.append(li);
                 function moveAt(pageX, pageY) {
                     li.style.left = pageX - li.offsetWidth / 2 + "px";
                     li.style.top = pageY - li.offsetHeight / 2 + "px";
                 }
                 moveAt(event.pageX, event.pageY);
                 function onMouseMove(event) {
-                    moveAt(event.pageX,event.pageY);
+                    moveAt(event.pageX, event.pageY);
                 }
-                li.addEventListener("mousemove",onMouseMove);
-                li.onmouseup= function () {
-                    li.removeEventListener("mousemove",onMouseMove);
-                    li.onmouseup=null;
+                li.addEventListener("mousemove", onMouseMove);
+                li.onmouseup = function () {
+                    li.removeEventListener("mousemove", onMouseMove);
+                    li.onmouseup = null;
                 }
 
             }
@@ -243,7 +244,22 @@
 
     }
 
+    //
+    function getStatusList(arrObj) {
+        let len = arrObj.length;
+        let statusList = [];
+        let done=[];
+        for (l = 0; l < len; l++) {
+            
+            if (statusList. indexOf(arrObj[l].status) === -1 && arrObj[l].status !== '') {
+                statusList.push(arrObj[l].status);
+            }
+            
+        }
+       console.log(statusList)
 
+
+    }
 
 </script>
 
