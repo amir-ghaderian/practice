@@ -248,15 +248,28 @@
     function getStatusList(arrObj) {
         let len = arrObj.length;
         let statusList = [];
-        let done=[];
+        let done = [{}];
+        let done2 = [{}];
+        let a,b;
         for (l = 0; l < len; l++) {
-            
-            if (statusList. indexOf(arrObj[l].status) === -1 && arrObj[l].status !== '') {
-                statusList.push(arrObj[l].status);
+           
+                if (statusList.indexOf(arrObj[l].status) === -1 && arrObj[l].status !== '') {
+                    statusList.push(arrObj[l].status);
+                }
+                
+                 
+               a= statusList[0];/////nashod :(
+               b= statusList[1];
+                if (a == arrObj[l].status) {
+                    done.push({ name: arrObj[l].name })
+                }
+                if (b == arrObj[l].status) {
+                    done2.push({ name: arrObj[l].name })
+                }
             }
-            
-        }
-       console.log(statusList)
+        
+        console.log(done);
+        console.log(done2);
 
 
     }
