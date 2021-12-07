@@ -245,31 +245,36 @@
     }
 
     //
+
     function getStatusList(arrObj) {
         let len = arrObj.length;
         let statusList = [];
-        let done = [{}];
-        let done2 = [{}];
-        let a,b;
+        let done = [];
+
+
+
         for (l = 0; l < len; l++) {
-           
-                if (statusList.indexOf(arrObj[l].status) === -1 && arrObj[l].status !== '') {
-                    statusList.push(arrObj[l].status);
-                }
-                
-                 
-               a= statusList[0];/////nashod :(
-               b= statusList[1];
-                if (a == arrObj[l].status) {
-                    done.push({ name: arrObj[l].name })
-                }
-                if (b == arrObj[l].status) {
-                    done2.push({ name: arrObj[l].name })
+
+            if (statusList.indexOf(arrObj[l].status) === -1 && arrObj[l].status !== '') {
+                statusList.push(arrObj[l].status);
+            }
+
+        }
+        for (i = 0; i < statusList.length; i++) {
+            for (s = 0; s < len; s++) {
+                if (statusList[i] == arrObj[s].status) {
+                    done.push(arrObj[s].name);
+                } else{
+                    statusList[i]=false;
                 }
             }
-        
+        }
+
         console.log(done);
-        console.log(done2);
+
+
+
+
 
 
     }
