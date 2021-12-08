@@ -119,12 +119,12 @@
 </body>
 <script>
     var listOfTask = [
-        { task: "carwash", time: "2 : 30", day: "Sat", statusTask: "Todo" },
-        { task: "shoping", time: "1 : 40", day: "Wen", statusTask: "inProgress" },
-        { task: "resturant", time: "2 : 30", day: "Sun", statusTask: "done" },
-        { task: "Hiking", time: "4 : 30", day: "Fri", statusTask: "Todo" },
-        { task: "banking", time: "1 : 40", day: "Tue", statusTask: "inProgress" },
-        { task: "Real Estate", time: "1 : 30", day: "Mon", statusTask: "done" },
+        { task: "carwash", time: "2 : 30", day: "Sat", status: "Todo" },
+        { task: "shoping", time: "1 : 40", day: "Wen", status: "inProgress" },
+        { task: "resturant", time: "2 : 30", day: "Sun", status: "done" },
+        { task: "Hiking", time: "4 : 30", day: "Fri", status: "Todo" },
+        { task: "banking", time: "1 : 40", day: "Tue", status: "inProgress" },
+        { task: "Real Estate", time: "1 : 30", day: "Mon", status: "done" },
     ]
 
     loadTaskToList()
@@ -141,11 +141,11 @@
             let li = document.createElement("li");
 
 
-            if (listOfTask[i].statusTask == "Todo") {
+            if (listOfTask[i].status == "Todo") {
                 ul.appendChild(li);
-            } else if (listOfTask[i].statusTask == "inProgress") {
+            } else if (listOfTask[i].status == "inProgress") {
                 ulProgress.appendChild(li);
-            } else if (listOfTask[i].statusTask == "done") {
+            } else if (listOfTask[i].status == "done") {
                 ulDone.appendChild(li);
             }
             li.className = "w-96 text-center text-2xl  border-2 border-gray-300 rounded-xl relative bg-white pl-16  ml-4";
@@ -236,7 +236,7 @@
             alert("enter your all input");
 
         } else {
-            listOfTask.push({ task: newTask, time: newTime, day: newTaskDay, statusTask: statusTask });
+            listOfTask.push({ task: newTask, time: newTime, day: newTaskDay, status: statusTask });
         }
 
         loadTaskToList()
