@@ -273,38 +273,34 @@
 
     //
 
-    function getStatusList(arrObj) {
-        let len = arrObj.length;
+    function getStatusList() {
+        let len = listOfTask.length;
         let statusList = [];
         let done = [];
-
+        var list = [];
+        let stat;
 
 
         for (l = 0; l < len; l++) {
 
-            if (statusList.indexOf(arrObj[l].status) === -1 && arrObj[l].status !== '') {
-                statusList.push(arrObj[l].status);
+            if (statusList.indexOf(listOfTask[l].status) === -1 && listOfTask[l].status !== '') {
+                statusList.push(listOfTask[l].status);
             }
 
         }
         for (i = 0; i < statusList.length; i++) {
-            for (s = 0; s < len; s++) {
-                if (statusList[i] == arrObj[s].status) {
-                    done.push(arrObj[s].name);
-                } else{
-                    statusList[i]=false;
+
+            done.push({ status: statusList[i], list });
+            for (c = 0; c < listOfTask.length; c++) {
+                if (done[i].status == listOfTask[c].status) {
+                    done[i].list = listOfTask[c].task;
                 }
             }
+
+            }
+            console.log(done);
+
         }
-
-        console.log(done);
-
-
-
-
-
-
-    }
 
 </script>
 
