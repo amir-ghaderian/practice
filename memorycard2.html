@@ -42,40 +42,40 @@
     <div id="sec" class="animate-ping absolute inline-flex ml-4 rounded-full bg-purple-400 opacity-75"></div>
     <div class="container mx-auto max-h-full flex flex-wrap">
         <div id="p0" class="w-44 h-64 m-4 bg-red-100 bg-cover "><i id="i0"></i>
-            <div id="front0" class="w-44 h-64  bg-blue-100"></div>
+            <div id="front0" class="w-44 h-64  bg-blue-100 bg-cover"style="background-image:url('image/1 (2).jpeg')"></div>
         </div>
         <div id="p1" class="w-44 h-64 m-4 bg-red-100 bg-cover"><i id="i1"></i>
-            <div id="front1" class="w-44 h-64  bg-blue-100"></div>
+            <div id="front1" class="w-44 h-64  bg-blue-100 bg-cover"style="background-image:url('image/1 (2).jpeg')""></div>
         </div>
         <div id="p2" class="w-44 h-64 m-4 bg-red-100 bg-cover"><i id="i2"></i>
-            <div id="front2" class="w-44 h-64   bg-blue-100"></div>
+            <div id="front2" class="w-44 h-64   bg-blue-100 bg-cover"style="background-image:url('image/1 (2).jpeg')""></div>
         </div>
         <div id="p3" class="w-44 h-64 m-4 bg-red-100 bg-cover"><i id="i3"></i>
-            <div id="front3" class="w-44 h-64  bg-blue-100"></div>
+            <div id="front3" class="w-44 h-64  bg-blue-100 bg-cover"style="background-image:url('image/1 (2).jpeg')""></div>
         </div>
         <div id="p4" class="w-44 h-64 m-4 bg-red-100 bg-cover"><i id="i4"></i>
-            <div id="front4" class="w-44 h-64  bg-blue-100"></div>
+            <div id="front4" class="w-44 h-64  bg-blue-100 bg-cover"style="background-image:url('image/1 (2).jpeg')""></div>
         </div>
         <div id="p5" class="w-44 h-64 m-4 bg-red-100 bg-cover"><i id="i5"></i>
-            <div id="front5" class="w-44 h-64  bg-blue-100"></div>
+            <div id="front5" class="w-44 h-64  bg-blue-100 bg-cover"style="background-image:url('image/1 (2).jpeg')""></div>
         </div>
         <div id="p6" class="w-44 h-64 m-4 bg-red-100 bg-cover"><i id="i6"></i>
-            <div id="front6" class="w-44 h-64  bg-blue-100"></div>
+            <div id="front6" class="w-44 h-64  bg-blue-100 bg-cover"style="background-image:url('image/1 (2).jpeg')""></div>
         </div>
         <div id="p7" class="w-44 h-64 m-4 bg-red-100 bg-cover"><i id="i7"></i>
-            <div id="front7" class="w-44 h-64  bg-blue-100"></div>
+            <div id="front7" class="w-44 h-64  bg-blue-100 bg-cover"style="background-image:url('image/1 (2).jpeg')""></div>
         </div>
         <div id="p8" class="w-44 h-64 m-4 bg-red-100 bg-cover"><i id="i8"></i>
-            <div id="front8" class="w-44 h-64  bg-blue-100"></div>
+            <div id="front8" class="w-44 h-64  bg-blue-100 bg-cover"style="background-image:url('image/1 (2).jpeg')""></div>
         </div>
         <div id="p9" class="w-44 h-64 m-4 bg-red-100 bg-cover"><i id="i9"></i>
-            <div id="front9" class="w-44 h-64  bg-blue-100"></div>
+            <div id="front9" class="w-44 h-64  bg-blue-100 bg-cover"style="background-image:url('image/1 (2).jpeg')""></div>
         </div>
         <div id="p10" class="w-44 h-64 m-4 bg-red-100 bg-cover"><i id="i10"></i>
-            <div id="front10" class="w-44 h-64  bg-blue-100"></div>
+            <div id="front10" class="w-44 h-64  bg-blue-100 bg-cover"style="background-image:url('image/1 (2).jpeg')""></div>
         </div>
         <div id="p11" class="w-44 h-64 m-4 bg-red-100 bg-cover"><i id="i11"></i>
-            <div id="front11" class="w-44 h-64  bg-blue-100"></div>
+            <div id="front11" class="w-44 h-64  bg-blue-100 bg-cover"style="background-image:url('image/1 (2).jpeg')""></div>
         </div>
     </div>
 </body>
@@ -123,10 +123,17 @@
 
         second--;
         if (second <= -1) {
+           
 
-            alert("you lose")
-            second = 0;
+            confirm("you Lose!! do you want play game??");
+            clearInterval(myInterVAL);
+            
+            window.location.reload();
+            
 
+            
+
+           
         }
     }
     var myInterVAL;
@@ -194,11 +201,11 @@
                 setTimeout(function () { redX(secondIndex); redX(firstIndex) }, 100);
 
 
-                setTimeout(function () { hideRedX(secondIndex); hideRedX(firstIndex) }, 1000);
+                setTimeout(function () { hideRedX(secondIndex); hideRedX(firstIndex) }, 700);
 
 
 
-                setTimeout(function () { hideTile(secondIndex); hideTile(firstIndex) }, 1000);
+                setTimeout(function () { hideTile(secondIndex); hideTile(firstIndex) }, 700);
 
 
 
@@ -209,13 +216,13 @@
 
     }
     function tik(i) {
-        document.getElementById("i" + i).className = "fas fa-check";
+        document.getElementById("i" + i).className = "fas fa-check animate-bounce w-6 h-6";
         document.getElementById("i" + i).classList.add("tik");
 
 
     }
     function redX(i) {
-        document.getElementById("i" + i).className = "fas fa-times";
+        document.getElementById("i" + i).className = "fas fa-times animate-bounce w-6 h-6";
         document.getElementById("i" + i).classList.add("arrow");
         second = second - 5;
         document.getElementById("sec").classList.add("soti")
