@@ -290,15 +290,25 @@
         }
         for (i = 0; i < statusList.length; i++) {
 
-            done.push({ status: statusList[i], list });
+            
+
+            var statusTasks = [];
             for (c = 0; c < listOfTask.length; c++) {
-                if (done[i].status == listOfTask[c].status) {
-                    done[i].list = listOfTask[c].task;
+                if (statusList[i] == listOfTask[c].status) {
+
+                    // done[i].list = listOfTask[c].task;
+                    // done[i].list.push(listOfTask[c]) ;
+                    statusTasks.push(listOfTask[c])
+
                 }
             }
 
+            done.push({ status: statusList[i], list: statusTasks });
+
             }
             console.log(done);
+
+            return done;
 
         }
 
