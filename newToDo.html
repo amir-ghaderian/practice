@@ -156,34 +156,36 @@
 
     loadTaskToList()
     ///
-
+var listDone;
     function loadTaskToList() {
+        listDone=getStatusList();
         let ul = document.getElementById("tasks");
         let ulProgress = document.getElementById("progress");
         let ulDone = document.getElementById("done");
         ul.innerHTML = "";
         ulDone.innerHTML = "";
         ulProgress.innerHTML = "";
-        for (i = 0; i < listOfTask.length; i++) {
+        for (i = 0; i < listDone.length; i++) {
+            for(s=0;s<listDone[i].list.length;s++){
             let li = document.createElement("li");
 
 
-            if (listOfTask[i].status == "Todo") {
+            if (listDone[i].status == "Todo") {
                 ul.appendChild(li);
-            } else if (listOfTask[i].status == "inProgress") {
+            } else if (listDone[i].status == "inProgress") {
                 ulProgress.appendChild(li);
-            } else if (listOfTask[i].status == "done") {
+            } else if (listDone[i].status == "done") {
                 ulDone.appendChild(li);
             }
             li.className = "w-96 text-center text-2xl  border-2 border-gray-300 rounded-xl relative bg-white pl-16  ml-4";
-            li.innerHTML = listOfTask[i].task + " " + listOfTask[i].time;
+            li.innerHTML = listDone[i].list[s].task + " " + listDone[i].list[s].time;
             let tikBtn = document.createElement("i")
             let redX = document.createElement("i");
             let spanDay = document.createElement("span");
             li.appendChild(redX);
             li.appendChild(spanDay);
             li.appendChild(tikBtn);
-            spanDay.innerHTML = listOfTask[i].day;
+            spanDay.innerHTML = listDone[i].list[s].day;
             redX.className = "fas fa-times text-red-300 text-2xl absolute right-6 top-1 transition duration-500  transform hover:-translate-y-1 hover:scale-110"
             spanDay.className = "absolute inset-y-0 left-0 font-serif font-bold bg-blue-200 w-16 rounded-l-xl "
             tikBtn.className = "fas fa-check tik text-green-300 text-2xl ml-8 transition duration-500  b transform hover:-translate-y-1 hover:scale-110";
@@ -213,7 +215,7 @@
 
         }
     }
-
+    }
     function inProgress(i) {
         let ulProgress = document.getElementById("progress");
         ulProgress.appendChild(document.getElementById("p" + i))
@@ -289,20 +291,13 @@
 
         }
         for (i = 0; i < statusList.length; i++) {
-
-            
-
             var statusTasks = [];
             for (c = 0; c < listOfTask.length; c++) {
                 if (statusList[i] == listOfTask[c].status) {
-
-                    // done[i].list = listOfTask[c].task;
-                    // done[i].list.push(listOfTask[c]) ;
                     statusTasks.push(listOfTask[c])
 
                 }
             }
-
             done.push({ status: statusList[i], list: statusTasks });
 
             }
