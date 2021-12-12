@@ -93,7 +93,7 @@
                 do</div>
             <div class="flex justify-center"><i
                     class="fas fa-plus green-100 text-2xl py-4 place-content-center transition duration-500 ease-in-out   transform hover:-translate-y-1 hover:scale-110"
-                    onclick="openModal()"></i></div>
+                    onclick="openModal(1)"></i></div>
             <ul id="tasks"></ul>
         </div>
         <div class="w-2/6 bg-gray-100 m-1 rounded-2xl">
@@ -101,7 +101,7 @@
                 in progress</div>
             <div class="flex justify-center"><i
                     class="fas fa-marker green-100 text-2xl py-4 place-content-center transition duration-500 ease-in-out   transform hover:-translate-y-1 hover:scale-110"
-                    onclick="openModal()"></i></div>
+                    onclick="openModal(2)"></i></div>
 
             <ul id="progress"></ul>
         </div>
@@ -110,7 +110,7 @@
                 done</div>
             <div class="flex justify-center"><i
                     class="fas fa-sync green-100 text-2xl py-4 place-content-center transition duration-500 ease-in-out   transform hover:-translate-y-1 hover:scale-110"
-                    onclick="openModal()"></i></div>
+                    onclick="openModal(3)"></i></div>
 
             <ul id="done"></ul>
         </div>
@@ -156,9 +156,9 @@
 
     loadTaskToList()
     ///
-var listDone;
+    var listDone;
     function loadTaskToList() {
-        listDone=getStatusList();
+        listDone = getStatusList();
         let ul = document.getElementById("tasks");
         let ulProgress = document.getElementById("progress");
         let ulDone = document.getElementById("done");
@@ -166,55 +166,55 @@ var listDone;
         ulDone.innerHTML = "";
         ulProgress.innerHTML = "";
         for (i = 0; i < listDone.length; i++) {
-            for(s=0;s<listDone[i].list.length;s++){
-            let li = document.createElement("li");
+            for (s = 0; s < listDone[i].list.length; s++) {
+                let li = document.createElement("li");
 
 
-            if (listDone[i].status == "Todo") {
-                ul.appendChild(li);
-            } else if (listDone[i].status == "inProgress") {
-                ulProgress.appendChild(li);
-            } else if (listDone[i].status == "done") {
-                ulDone.appendChild(li);
-            }
-            li.className = "w-96 text-center text-2xl  border-2 border-gray-300 rounded-xl relative bg-white pl-16  ml-4";
-            li.innerHTML = listDone[i].list[s].task + " " + listDone[i].list[s].time;
-            let tikBtn = document.createElement("i")
-            let redX = document.createElement("i");
-            let spanDay = document.createElement("span");
-            li.appendChild(redX);
-            li.appendChild(spanDay);
-            li.appendChild(tikBtn);
-            spanDay.innerHTML = listDone[i].list[s].day;
-            redX.className = "fas fa-times text-red-300 text-2xl absolute right-6 top-1 transition duration-500  transform hover:-translate-y-1 hover:scale-110"
-            spanDay.className = "absolute inset-y-0 left-0 font-serif font-bold bg-blue-200 w-16 rounded-l-xl "
-            tikBtn.className = "fas fa-check tik text-green-300 text-2xl ml-8 transition duration-500  b transform hover:-translate-y-1 hover:scale-110";
-            tikBtn.setAttribute("onclick", "inProgress(" + i + ")");
-            li.setAttribute("id", "p" + i);
-            li.onmousedown = function (event) {
-                li.style.position = "absolute";
-                li.style.zIndex = 1;
-                let container = document.getElementById("container");
-                container.append(li);
-                function moveAt(pageX, pageY) {
-                    li.style.left = pageX - li.offsetWidth / 2 + "px";
-                    li.style.top = pageY - li.offsetHeight / 2 + "px";
+                if (listDone[i].status == "Todo") {
+                    ul.appendChild(li);
+                   
+                } else if (listDone[i].status == "inProgress") {
+                    ulProgress.appendChild(li);
+                } else if (listDone[i].status == "done") {
+                    ulDone.appendChild(li);
                 }
-                moveAt(event.pageX, event.pageY);
-                function onMouseMove(event) {
+                li.className = "max-w-xl text-center text-2xl  border-2 border-gray-300 rounded-xl relative bg-white pl-16  ml-4";
+                li.innerHTML = listDone[i].list[s].task + " " + listDone[i].list[s].time;
+                let tikBtn = document.createElement("i")
+                let redX = document.createElement("i");
+                let spanDay = document.createElement("span");
+                li.appendChild(redX);
+                li.appendChild(spanDay);
+                li.appendChild(tikBtn);
+                spanDay.innerHTML = listDone[i].list[s].day;
+                redX.className = "fas fa-times text-red-300 text-2xl absolute right-6 top-1 transition duration-500  transform hover:-translate-y-1 hover:scale-110"
+                spanDay.className = "absolute inset-y-0 left-0 font-serif font-bold bg-blue-200 w-16 rounded-l-xl "
+                tikBtn.className = "fas fa-check tik text-green-300 text-2xl ml-8 transition duration-500  b transform hover:-translate-y-1 hover:scale-110";
+                tikBtn.setAttribute("onclick", "inProgress(" + i + ")");
+                li.setAttribute("id", "p" + i);
+                li.onmousedown = function (event) {
+                    li.style.position = "absolute";
+                    let container = document.getElementById("container");
+                    container.append(li);
+                    function moveAt(pageX, pageY) {
+                        li.style.left = pageX - li.offsetWidth / 2 + "px";
+                        li.style.top = pageY - li.offsetHeight / 2 + "px";
+                    }
                     moveAt(event.pageX, event.pageY);
+                    function onMouseMove(event) {
+                        moveAt(event.pageX, event.pageY);
+                    }
+                    li.addEventListener("mousemove", onMouseMove);
+                    li.onmouseup = function () {
+                        li.removeEventListener("mousemove", onMouseMove);
+                        li.onmouseup = null;
+                    }
+
                 }
-                li.addEventListener("mousemove", onMouseMove);
-                li.onmouseup = function () {
-                    li.removeEventListener("mousemove", onMouseMove);
-                    li.onmouseup = null;
-                }
+                redX.setAttribute("onclick", "clearTask(" + i + ")");
 
             }
-            redX.setAttribute("onclick", "clearTask(" + i + ")");
-
         }
-    }
     }
     function inProgress(i) {
         let ulProgress = document.getElementById("progress");
@@ -224,8 +224,17 @@ var listDone;
         document.getElementById("p" + i).style.display = "none";
     }
     ////modal
-    function openModal() {
+    function openModal(i) {
         document.getElementById("modal").style.display = "flex";
+        if(i==1){
+            document.getElementById("status").value="Todo";
+        }
+        if(i==2){
+            document.getElementById("status").value="inProgress";
+        }
+        if(i==3){
+            document.getElementById("status").value="Todo";
+        }
     }
     function closeModal() {
         document.getElementById("modal").style.display = "none";
@@ -300,12 +309,20 @@ var listDone;
             }
             done.push({ status: statusList[i], list: statusTasks });
 
-            }
-            console.log(done);
-
-            return done;
-
         }
+        console.log(done);
+
+        return done;
+
+    }
+    /////arrow function
+    var toDo = listOfTask.map(function (listOfTask) {
+        return listOfTask.task;
+    })
+    var time = listOfTask.map((listOfTask) => listOfTask.time);
+    console.log(time)
+
+    
 
 </script>
 
