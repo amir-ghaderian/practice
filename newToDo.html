@@ -94,7 +94,7 @@
             <div class="flex justify-center"><i
                     class="fas fa-plus green-100 text-2xl py-4 place-content-center transition duration-500 ease-in-out   transform hover:-translate-y-1 hover:scale-110"
                     onclick="openModal(1)"></i></div>
-            <ul id="tasks"></ul>
+            <ul id="tasks" class="w-full h-full"></ul>
         </div>
         <div class="w-2/6 bg-gray-100 m-1 rounded-2xl">
             <div class=" font-bold py-4 w-full h-16 bg-black rounded-t-2xl text-white text-center text-2xl font-serif">
@@ -103,7 +103,7 @@
                     class="fas fa-marker green-100 text-2xl py-4 place-content-center transition duration-500 ease-in-out   transform hover:-translate-y-1 hover:scale-110"
                     onclick="openModal(2)"></i></div>
 
-            <ul id="progress"></ul>
+            <ul id="progress" class="w-full h-full"></ul>
         </div>
         <div class="w-2/6 bg-green-100 m-1 rounded-2xl">
             <div class=" font-bold py-4 w-full h-16 bg-black rounded-t-2xl text-white text-center text-2xl font-serif">
@@ -112,7 +112,7 @@
                     class="fas fa-sync green-100 text-2xl py-4 place-content-center transition duration-500 ease-in-out   transform hover:-translate-y-1 hover:scale-110"
                     onclick="openModal(3)"></i></div>
 
-            <ul id="done"></ul>
+            <ul id="done" class="w-full h-full"></ul>
         </div>
     </div>
 
@@ -166,56 +166,86 @@
         ulDone.innerHTML = "";
         ulProgress.innerHTML = "";
         for (i = 0; i < listDone.length; i++) {
-            for (s = 0; s < listDone[i].list.length; s++) {
-                let li = document.createElement("li");
 
+
+
+            for (s = 0; s < listDone[i].list.length; s++) {
+
+                let li = document.createElement("li");
+                let spanDay = document.createElement("span");
+                li.className = " max-w-xl text-center text-2xl  border-2 border-gray-300 rounded-xl relative bg-white pl-16 ";
+                li.innerHTML = listDone[i].list[s].task;
+                li.appendChild(spanDay);
+                //spanDay.innerHTML = listDone[i].list[s].day;
+                spanDay.className = "absolute inset-y-0 left-0 font-serif font-bold bg-blue-200 w-16 rounded-l-xl ";
+                li.setAttribute("onmousedown", "taskMoveMouse()");
 
                 if (listDone[i].status == "Todo") {
                     ul.appendChild(li);
-                   
-                } else if (listDone[i].status == "inProgress") {
+
+                } if (listDone[i].status == "inProgress") {
                     ulProgress.appendChild(li);
-                } else if (listDone[i].status == "done") {
+                } if (listDone[i].status == "done") {
                     ulDone.appendChild(li);
                 }
-                li.className = "max-w-xl text-center text-2xl  border-2 border-gray-300 rounded-xl relative bg-white pl-16 ";
-                li.innerHTML = listDone[i].list[s].task + " " + listDone[i].list[s].time;
-                let tikBtn = document.createElement("i")
-                let redX = document.createElement("i");
-                let spanDay = document.createElement("span");
-                li.appendChild(redX);
-                li.appendChild(spanDay);
-                li.appendChild(tikBtn);
-                spanDay.innerHTML = listDone[i].list[s].day;
-                redX.className = "fas fa-times text-red-300 text-2xl absolute right-6 top-1 transition duration-500  transform hover:-translate-y-1 hover:scale-110"
-                spanDay.className = "absolute inset-y-0 left-0 font-serif font-bold bg-blue-200 w-16 rounded-l-xl "
-                tikBtn.className = "fas fa-check tik text-green-300 text-2xl ml-8 transition duration-500  b transform hover:-translate-y-1 hover:scale-110";
-                tikBtn.setAttribute("onclick", "inProgress(" + i + ")");
-                li.setAttribute("id", "p" + i);
-                li.onmousedown = function (event) {
-                    li.style.position = "absolute";
-                    let container = document.getElementById("container");
-                    container.append(li);
-                    function moveAt(pageX, pageY) {
-                        li.style.left = pageX - li.offsetWidth / 2 + "px";
-                        li.style.top = pageY - li.offsetHeight / 2 + "px";
-                    }
-                    moveAt(event.pageX, event.pageY);
-                    function onMouseMove(event) {
-                        moveAt(event.pageX, event.pageY);
-                    }
-                    li.addEventListener("mousemove", onMouseMove);
-                    li.onmouseup = function () {
-                        li.removeEventListener("mousemove", onMouseMove);
-                        li.onmouseup = null;
-                    }
-
-                }
-                redX.setAttribute("onclick", "clearTask(" + i + ")");
 
             }
         }
     }
+
+
+    function taskMoveMouse() {
+
+        let li = event.target;
+        let liValue = li.innerText;
+        let ul = document.getElementById("tasks");
+        li.style.position = "absolute";
+
+        function moveAt(pageX, pageY) {
+            li.style.left = pageX - li.offsetWidth / 2 + "px";
+            li.style.top = pageY - li.offsetHeight / 2 + "px";
+        }
+        moveAt(event.pageX, event.pageY);
+        function onMouseMove(event) {
+            moveAt(event.pageX, event.pageY);
+        }
+        li.addEventListener("mousemove", onMouseMove);
+        li.onmouseup = function (event) {
+
+           
+            li.removeEventListener("mousemove", onMouseMove);
+            let liSelect = document.elementFromPoint(event.screenX, event.screenY);
+
+            console.log(liSelect)
+            for (q = 0; q < listOfTask.length; q++) {
+                if (liSelect == document.getElementById("tasks")) {
+                    if (listOfTask[q].task == liValue) {
+                        listOfTask[q].status = "Todo";
+                        
+                    }
+
+                } if (liSelect == document.getElementById("progress")) {
+                    if (listOfTask[q].task == liValue) {
+                        listOfTask[q].status = "inProgress";
+                       
+                    }
+                } if (liSelect == document.getElementById("done")) {
+                    if (listOfTask[q].task == liValue) {
+                        listOfTask[q].status = "done";
+                        
+                    }
+                }
+
+
+                loadTaskToList()
+            }
+        }
+
+
+
+    }
+
+
     function inProgress(i) {
         let ulProgress = document.getElementById("progress");
         ulProgress.appendChild(document.getElementById("p" + i))
@@ -225,19 +255,22 @@
     }
     ////modal
     function openModal(i) {
+        document.getElementById("newTask").value = "";
         document.getElementById("modal").style.display = "flex";
-        if(i==1){
-            document.getElementById("status").value="Todo";
+        if (i == 1) {
+            document.getElementById("status").value = "Todo";
         }
-        if(i==2){
-            document.getElementById("status").value="inProgress";
+        if (i == 2) {
+            document.getElementById("status").value = "inProgress";
         }
-        if(i==3){
-            document.getElementById("status").value="Todo";
+        if (i == 3) {
+            document.getElementById("status").value = "done";
         }
     }
     function closeModal() {
         document.getElementById("modal").style.display = "none";
+
+
 
     }
 
@@ -310,7 +343,7 @@
             done.push({ status: statusList[i], list: statusTasks });
 
         }
-        console.log(done);
+
 
         return done;
 
@@ -320,9 +353,7 @@
         return listOfTask.task;
     })
     var time = listOfTask.map((listOfTask) => listOfTask.time);
-    console.log(time)
 
-    
 
 </script>
 
