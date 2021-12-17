@@ -94,7 +94,7 @@
             <div class="flex justify-center"><i
                     class="fas fa-plus green-100 text-2xl py-4 place-content-center transition duration-500 ease-in-out   transform hover:-translate-y-1 hover:scale-110"
                     onclick="openModal(1)"></i></div>
-            <ul id="tasks" class="w-full h-full"></ul>
+            <ul id="tasks" class="w-full h-full flex flex-col items-center"></ul>
         </div>
         <div class="w-2/6 bg-gray-100 m-1 rounded-2xl">
             <div class=" font-bold py-4 w-full h-16 bg-black rounded-t-2xl text-white text-center text-2xl font-serif">
@@ -103,7 +103,7 @@
                     class="fas fa-marker green-100 text-2xl py-4 place-content-center transition duration-500 ease-in-out   transform hover:-translate-y-1 hover:scale-110"
                     onclick="openModal(2)"></i></div>
 
-            <ul id="progress" class="w-full h-full"></ul>
+            <ul id="progress" class="w-full h-full flex flex-col items-center"></ul>
         </div>
         <div class="w-2/6 bg-green-100 m-1 rounded-2xl">
             <div class=" font-bold py-4 w-full h-16 bg-black rounded-t-2xl text-white text-center text-2xl font-serif">
@@ -112,7 +112,7 @@
                     class="fas fa-sync green-100 text-2xl py-4 place-content-center transition duration-500 ease-in-out   transform hover:-translate-y-1 hover:scale-110"
                     onclick="openModal(3)"></i></div>
 
-            <ul id="done" class="w-full h-full"></ul>
+            <ul id="done" class="w-full h-full flex flex-col items-center"></ul>
         </div>
     </div>
 
@@ -173,10 +173,10 @@
 
                 let li = document.createElement("li");
                 let spanDay = document.createElement("span");
-                li.className = " max-w-xl text-center text-2xl  border-2 border-gray-300 rounded-xl relative bg-white pl-16 ";
+                li.className = " w-80 max-w-lg  text-center text-2xl  border-2 border-gray-300 rounded-xl relative bg-white  ";
                 li.innerHTML = listDone[i].list[s].task;
                 li.appendChild(spanDay);
-                //spanDay.innerHTML = listDone[i].list[s].day;
+                ///spanDay.innerText = listDone[i].list[s].day;
                 spanDay.className = "absolute inset-y-0 left-0 font-serif font-bold bg-blue-200 w-16 rounded-l-xl ";
                 li.setAttribute("onmousedown", "taskMoveMouse()");
 
@@ -200,10 +200,13 @@
         let liValue = li.innerText;
         let ul = document.getElementById("tasks");
         li.style.position = "absolute";
+        li.style.zIndex="1";
+        
 
         function moveAt(pageX, pageY) {
             li.style.left = pageX - li.offsetWidth / 2 + "px";
             li.style.top = pageY - li.offsetHeight / 2 + "px";
+            
         }
         moveAt(event.pageX, event.pageY);
         function onMouseMove(event) {
