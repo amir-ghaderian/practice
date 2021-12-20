@@ -119,12 +119,12 @@
 </body>
 <script>
     var listOfTask = [
-        { task: "carwash", time: "2 : 30", day: "Sat", status: "Todo" },
-        { task: "shoping", time: "1 : 40", day: "Wen", status: "inProgress" },
-        { task: "resturant", time: "2 : 30", day: "Sun", status: "done" },
-        { task: "Hiking", time: "4 : 30", day: "Fri", status: "Todo" },
-        { task: "banking", time: "1 : 40", day: "Tue", status: "inProgress" },
-        { task: "Real Estate", time: "1 : 30", day: "Mon", status: "done" },
+        { task: "carwash", time: "2 : 30", day: "Sat", status: "Todo", id: 3 },
+        { task: "shoping", time: "1 : 40", day: "Wen", status: "inProgress", id: 4 },
+        { task: "resturant", time: "2 : 30", day: "Sun", status: "done", id: 1 },
+        { task: "Hiking", time: "4 : 30", day: "Fri", status: "Todo", id: 5 },
+        { task: "banking", time: "1 : 40", day: "Tue", status: "inProgress", id: 6 },
+        { task: "Real Estate", time: "1 : 30", day: "Mon", status: "done", id: 8 },
     ]
 
 
@@ -166,20 +166,23 @@
         ulDone.innerHTML = "";
         ulProgress.innerHTML = "";
         for (i = 0; i < listDone.length; i++) {
-
-
-
             for (s = 0; s < listDone[i].list.length; s++) {
 
                 let li = document.createElement("li");
                 let spanDay = document.createElement("span");
-                li.className = " w-80 max-w-lg  text-center text-2xl  border-2 border-gray-300 rounded-xl relative bg-white  ";
-                li.innerHTML = listDone[i].list[s].task;
-                li.appendChild(spanDay);
-                ///spanDay.innerText = listDone[i].list[s].day;
-                spanDay.className = "absolute inset-y-0 left-0 font-serif font-bold bg-blue-200 w-16 rounded-l-xl ";
-                li.setAttribute("onmousedown", "taskMoveMouse()");
+                let spanTime = document.createElement("span");
+                li.className = " w-80 max-w-lg  text-center text-2xl flex justify-between border-2 border-gray-300 rounded-xl relative bg-white  ";
+                spanDay.className = "font-serif font-bold bg-blue-200  rounded-l-xl  ";
+                spanTime.className = "font-serif font-bold bg-green-200  rounded-l-xl  ";
+                li.innerText = listDone[i].list[s].task;
+                li.appendChild(spanTime);
 
+                li.appendChild(spanDay);
+                spanTime.innerHTML = listDone[i].list[s].time;
+
+                spanDay.innerText = listDone[i].list[s].day;
+                li.setAttribute("onmousedown", "taskMoveMouse()");
+                li.setAttribute("id", listDone[i].list[s].id)
                 if (listDone[i].status == "Todo") {
                     ul.appendChild(li);
 
@@ -190,6 +193,8 @@
                 }
 
             }
+
+
         }
     }
 
@@ -197,16 +202,16 @@
     function taskMoveMouse() {
 
         let li = event.target;
-        let liValue = li.innerText;
+        let liValue = li.id;
         let ul = document.getElementById("tasks");
         li.style.position = "absolute";
-        li.style.zIndex="1";
-        
+        li.style.zIndex = "1";
+
 
         function moveAt(pageX, pageY) {
             li.style.left = pageX - li.offsetWidth / 2 + "px";
             li.style.top = pageY - li.offsetHeight / 2 + "px";
-            
+
         }
         moveAt(event.pageX, event.pageY);
         function onMouseMove(event) {
@@ -215,27 +220,30 @@
         li.addEventListener("mousemove", onMouseMove);
         li.onmouseup = function (event) {
 
-           
+
             li.removeEventListener("mousemove", onMouseMove);
             let liSelect = document.elementFromPoint(event.screenX, event.screenY);
 
-            console.log(liSelect)
+
             for (q = 0; q < listOfTask.length; q++) {
+                console.log(listOfTask[q].id)
+
+
                 if (liSelect == document.getElementById("tasks")) {
-                    if (listOfTask[q].task == liValue) {
+                    if (listOfTask[q].id == liValue) {
                         listOfTask[q].status = "Todo";
-                        
+
                     }
 
                 } if (liSelect == document.getElementById("progress")) {
-                    if (listOfTask[q].task == liValue) {
+                    if (listOfTask[q].id == liValue) {
                         listOfTask[q].status = "inProgress";
-                       
+
                     }
                 } if (liSelect == document.getElementById("done")) {
-                    if (listOfTask[q].task == liValue) {
+                    if (listOfTask[q].id == liValue) {
                         listOfTask[q].status = "done";
-                        
+
                     }
                 }
 
@@ -306,11 +314,12 @@
         let newTime = pushTime();
         let newTaskDay = daysTask()
         let statusTask = getStatusTask()
+        let newId = getUniqueId();
         if (newTask == "") {
             alert("enter your all input");
 
         } else {
-            listOfTask.push({ task: newTask, time: newTime, day: newTaskDay, status: statusTask });
+            listOfTask.push({ task: newTask, time: newTime, day: newTaskDay, status: statusTask, id: newId });
         }
 
         loadTaskToList()
@@ -357,7 +366,37 @@
     })
     var time = listOfTask.map((listOfTask) => listOfTask.time);
 
+    ///
+    function random() {
+        let item = Math.floor(Math.random() * 101)
+        return item;
+    }
 
+    function isUnique(arr, num) {
+        let len = arr.length;
+        let isUniq = true;
+        for (i = 0; i < len; i++) {
+            if (arr[i] == num) {
+                isUniq = false;
+            }
+        }
+        return isUniq;
+    }
+    function getUniqueId() {
+        let existTask = [];
+        for (j = 0; j < listOfTask.length; j++) {
+            existTask.push(listOfTask[j].id);
+        }
+        let num = random()
+        while (!isUnique(existTask, num)) {
+            num = random()
+
+        }
+
+        return num;
+
+
+    }
 </script>
 
 </html>
