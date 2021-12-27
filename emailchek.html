@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container mx-auto flex justify-center">
+        <input class="border-2 border-rose-500 " type="text" id="email" placeholder="email" value="">
+     <input type="submit" onclick="checkEmail()">
+     <br>
+     <input  class="border-2 border-rose-500 "  type="number"  id="phoneNumber" placeholder="phoneNumber"  value="">
+     <input type="submit" onclick="checkPhoneNumber()">
+
+    </div>
+    <p class=""></p>
+</body>
+<script>
+
+    function checkEmail() {
+        let email = document.getElementById("email").value;
+   
+        let regexEmail =/[a-z 0-9]+@+[a-z 0-9]/;
+        if (email.match(regexEmail)) {
+            console.log(true)
+
+        } else {
+            console.log(false)
+        }
+    }
+    function checkPhoneNumber() {
+        let phoneNumber = document.getElementById("phoneNumber").value;  
+        let regexPhoneNumber=/[0][9]/d;
+        if (phoneNumber.match(regexPhoneNumber)) {
+            console.log(true)
+
+        } else {
+            console.log(false)
+        }
+    }
+    
+
+</script>
+
+</html>
