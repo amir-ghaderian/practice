@@ -14,7 +14,7 @@
         <input class="border-2 border-rose-500 " type="text" id="email" placeholder="email" value="">
      <input type="submit" onclick="checkEmail()">
      <br>
-     <input  class="border-2 border-rose-500 "  type="number"  id="phoneNumber" placeholder="phoneNumber"  value="">
+     <input  class="border-2 border-rose-500 "  type="text"  id="phoneNumber" placeholder="phoneNumber"  value="">
      <input type="submit" onclick="checkPhoneNumber()">
 
     </div>
@@ -35,7 +35,7 @@
     }
     function checkPhoneNumber() {
         let phoneNumber = document.getElementById("phoneNumber").value;  
-        let regexPhoneNumber=/[0][9]/d;
+        let regexPhoneNumber=/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
         if (phoneNumber.match(regexPhoneNumber)) {
             console.log(true)
 
