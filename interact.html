@@ -68,18 +68,12 @@
         <div id="inner-dropzone" class="dropzone">#inner-dropzone</div>
     </div>
 </body>
-<script type="module">
-    import interact from 
-    'https://cdn.interactjs.io/v1.10.11/interactjs/index.js'
+ 
+<link rel="stylesheet" href="https://unpkg.com/interactjs@1.10.11/dist/interact.min.js">
+
+  
+
     
-    interact('.item').draggable({
-      listeners: {
-        move (event) {
-          console.log(event.pageX,
-                      event.pageY)
-        }
-      }
-    })
     </script>
 
 <script src="inter.js"></script>
