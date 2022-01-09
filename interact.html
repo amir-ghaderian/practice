@@ -59,7 +59,7 @@
 </head>
 
 <body>
-    <div id="no-drop" class="drag-drop"> #no-drop </div>
+    <div id="no-drop" class="drag-drop item"> #no-drop </div>
 
     <div id="yes-drop" class="drag-drop"> #yes-drop </div>
 
@@ -70,25 +70,33 @@
 </body>
  <script src="https://unpkg.com/interactjs@1.10.11/dist/interact.min.js"></script>
 
- 
-   
-  
 
     
 
 
 <script>
-     import interact from 
-    'https://unpkg.com/interactjs@1.10.11/dist/interact.min.js'
+   
+
+   // you must make sure all scripts are loaded before calling them
+   // your error was: interact is undefined
+   // if you type interact on console it shows up as function
+   // this means when you used it it wasnt still loaded...
+   // hope you can fix the rest 
+   document.addEventListener("DOMContentLoaded", function(){
     
-    interact('.item').draggable({
-      listeners: {
-        move (event) {
-          console.log(event.pageX,
-                      event.pageY)
+        interact('.item').draggable({
+        listeners: {
+            move (event) {
+            console.log(event.pageX,
+                        event.pageY)
+            }
         }
-      }
-    })
+        })
+
+
+    });
+    
+    
   
     interact('.dropzone').dropzone({
     // only accept elements matching this CSS selector
