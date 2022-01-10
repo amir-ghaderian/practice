@@ -22,6 +22,7 @@
             border: 3px solid gray;
             border-radius: 50%;
             position: relative;
+            font-size: 1.5rem;
 
 
         }
@@ -33,6 +34,18 @@
             text-align: center;
             transform: rotate(var(--rotation));
 
+        }
+        .circel::after{
+            content: "";
+            position:absolute;
+            background-color: black;
+            width: 15px;
+            height: 15px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            border-radius: 50%;
+            z-index: 11;
         }
         .circel .number1{--rotation :30deg}
         .circel .number2{--rotation :60deg}
@@ -47,13 +60,32 @@
         .circel .number11{--rotation :330deg}
         .circel .number12{--rotation :360deg}
         .circel .hand{
+            --rotation:0;
             position: absolute;
             bottom: 50%;
             left: 50%;
-            width: 10px;
+            height: 40%;
+            border-top-left-radius:10px ;
+            border-top-right-radius: 10px;
+            border: 1px solid white;
+            z-index: 10;
+            background-color: black;
+            transform: translateX(-50%)rotate(calc(var(--rotation)*1deg));
+        }
+        .circel .hand.second{
+            width: 3px;
+            height: 45%;
+            background-color: tomato;
+        }
+        .circel .hand.minuts{
+            width: 7px;
             height: 40%;
             background-color: black;
-            transform: translateX(-50%)rotate(var(--rotation)*1deg);
+        }
+        .circel .hand.hours{
+            width: 10px;
+            height: 35%;
+            background-color:black;
         }
     </style>
 </head>
@@ -63,7 +95,7 @@
         <div class="circel">
             <div class="hand hours"></div>
             <div class="hand minuts"></div>
-            <div class="hand secund"></div>
+            <div class="hand second"></div>
             <div class="number number1">1</div>
             <div class="number number2">2</div>
             <div class="number number3">3</div>
