@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     .displayClock{
+        margin: 0 auto;
+         width: 80%;
+         height: 50vh;
+         background-color:rgb(150, 23, 23)
+     } 
+     #numberDisplay{
+         display: grid;
+         grid-template-columns: 14% 14% 8% 14% 14% 8% 14% 14% 8%;
+         background-color: gray;
+         font-size: 2em;
+         border: 3px dotted black;
+     }
+     #number{
+         border: 3px dotted black;
+         padding: 10px;
+     }
+     .dispA{
+         width: 100px;
+         height: 0px;
+         border-left:30px solid transparent ;
+         border-right: 30px solid transparent;
+         border-top:30px solid red ;
+     }
+     .dispF{
+         width: 10px;
+         height:140px ;
+         border-top:30px solid transparent ;
+         border-bottom:15px solid transparent ;
+         border-left:30px solid red ;
+         margin-top: -28px;
+     }
+     .dispB{
+         width: 10px;
+         height:140px ;
+         border-top:30px solid transparent ;
+         border-bottom:30px solid transparent ;
+         border-right:30px solid red ;
+         margin-top: -185px;
+         margin-left: 120px;
+     }
+     .dispG1{
+         width:100px ;
+         height:0px ;
+         border-left: 30px solid transparent;
+         border-right: 30px solid transparent;
+         border-bottom: 15px solid red;
+         margin-top: -13px;
+     }
+     .dispG2{
+         width:100px ;
+         height:0px ;
+         border-left: 30px solid transparent;
+         border-right: 30px solid transparent;
+         border-top: 15px solid red;
+       
+     }
+     .dispE{
+        width:10px ;
+         height:140px ;
+         border-left: 15px solid transparent;
+         border-right: 30px solid transparent;
+         border-bottom: 30px solid red;
+         margin-top: -13px; 
+     }
+    </style>
+</head>
+<body>
+    <div class="displayClock">
+        <div id="numberDisplay">
+            <div id="number">
+                <div class="dispA"></div>
+                <div class="dispF"></div>
+                <div class="dispB"></div>
+                <div class="dispG1"></div>
+                <div class="dispG2"></div>
+                <div class="dispE"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
