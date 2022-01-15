@@ -210,11 +210,54 @@
     <div id="time"></div>
 </body>
 <script>
-    window.onload=function (){
+    window.onload = function () {
+        loadElementDisp();
+        loadElementA_G(elementDisp[5])
+        console.log(elementDispA_G)
+        console.log(elementDisp)
         timeClock();
     }
+    let d_0 = [1, 1, 1, 1, 1, 1, 0, 0];
+    let d_1 = [0, 1, 1, 0, 0, 0, 0, 0];
+    let d_2 = [1, 1, 0, 1, 1, 0, 1, 1];
+    let d_3 = [1, 1, 1, 1, 0, 0, 1, 1];
+    let d_4 = [0, 1, 1, 0, 0, 0, 1, 1];
+    let d_5 = [1, 0, 1, 1, 0, 1, 1, 1];
+    let d_6 = [1, 0, 1, 1, 1, 1, 1, 1];
+    let d_7 = [1, 1, 1, 0, 0, 0, 0, 0];
+    let d_8 = [1, 1, 1, 1, 1, 1, 1, 1];
+    let d_9 = [1, 1, 1, 1, 0, 1, 1, 1];
+
+    let numberDisp = [d_0, d_1, d_2, d_3, d_4, d_5, d_6, d_7, d_8, d_9];
+    let elementDispA_G = [];
+    let elementDisp = [];
+
+    function loadElementDisp() {
+        var numberDisplay=document.getElementById("numberDisplay");
+        elementDisp.push(numberDisplay.children[0]);
+        elementDisp.push(numberDisplay.children[1]);
+        elementDisp.push(numberDisplay.children[3]);
+        elementDisp.push(numberDisplay.children[4]);
+        elementDisp.push(numberDisplay.children[6]);
+        elementDisp.push(numberDisplay.children[7]);
+    }
+    function loadElementA_G(number) {
+        var element=number.children;
+        elementDispA_G=[];
+        elementDispA_G.push(element[0]);///A
+        elementDispA_G.push(element[2]);///B
+        elementDispA_G.push(element[6]);///C
+        elementDispA_G.push(element[7]);///D
+        elementDispA_G.push(element[5]);///E
+        elementDispA_G.push(element[1]);///F
+        elementDispA_G.push(element[3]);///G1
+        elementDispA_G.push(element[4]);///G2
+    }
+
+
+
     function timeClock() {
-        var clock=setInterval(getTime,1000);
+        var clock = setInterval(getTime, 1000);
     }
     function getTime() {
         var time = document.getElementById("time");
@@ -225,8 +268,8 @@
         h = h < 10 ? '0' + h : h;
         m = m < 10 ? '0' + m : m;
         s = s < 10 ? '0' + s : s;
-        var timeDisp=h+":"+m+":"+s;
-        time.innerHTML=timeDisp;
+        var timeDisp = h + ":" + m + ":" + s;
+        time.innerHTML = timeDisp;
     }
 </script>
 
