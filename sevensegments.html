@@ -212,16 +212,15 @@
 <script>
     window.onload = function () {
         loadElementDisp();
-        loadElementA_G(elementDisp[5])
-        console.log(elementDispA_G)
-        console.log(elementDisp)
         timeClock();
+       // loadElementA_G(elementDisp[0])
+       // displayNumber(numberDisp[4])
     }
     let d_0 = [1, 1, 1, 1, 1, 1, 0, 0];
     let d_1 = [0, 1, 1, 0, 0, 0, 0, 0];
     let d_2 = [1, 1, 0, 1, 1, 0, 1, 1];
     let d_3 = [1, 1, 1, 1, 0, 0, 1, 1];
-    let d_4 = [0, 1, 1, 0, 0, 0, 1, 1];
+    let d_4 = [0, 1, 1, 0, 0, 1, 1, 1];
     let d_5 = [1, 0, 1, 1, 0, 1, 1, 1];
     let d_6 = [1, 0, 1, 1, 1, 1, 1, 1];
     let d_7 = [1, 1, 1, 0, 0, 0, 0, 0];
@@ -233,7 +232,7 @@
     let elementDisp = [];
 
     function loadElementDisp() {
-        var numberDisplay=document.getElementById("numberDisplay");
+        var numberDisplay = document.getElementById("numberDisplay");
         elementDisp.push(numberDisplay.children[0]);
         elementDisp.push(numberDisplay.children[1]);
         elementDisp.push(numberDisplay.children[3]);
@@ -242,8 +241,8 @@
         elementDisp.push(numberDisplay.children[7]);
     }
     function loadElementA_G(number) {
-        var element=number.children;
-        elementDispA_G=[];
+        var element = number.children;
+        elementDispA_G = [];
         elementDispA_G.push(element[0]);///A
         elementDispA_G.push(element[2]);///B
         elementDispA_G.push(element[6]);///C
@@ -253,6 +252,49 @@
         elementDispA_G.push(element[3]);///G1
         elementDispA_G.push(element[4]);///G2
     }
+
+
+
+    function displayNumber(d_number) {
+        for (i = 0; i < elementDispA_G.length; i++) {
+            if (d_number[i] == 1){
+                colorDisp(i,elementDispA_G[i],"#545076")
+            }
+        }
+    }
+
+
+
+    function colorDisp(number, element, color) {
+        switch (number) {
+            case 0:
+                element.style.borderTopColor = color;
+                break;
+            case 1:
+                element.style.borderRightColor = color;
+                break;
+            case 2:
+                element.style.borderRightColor = color;
+                break;
+            case 3:
+                element.style.borderBottomColor = color;
+                break;
+            case 4:
+                element.style.borderLeftColor = color;
+                break;
+            case 5:
+                element.style.borderLeftColor = color;
+                break;
+            case 6:
+                element.style.borderBottomColor = color;
+                break;
+            case 7:
+                element.style.borderTopColor = color;
+                break;
+        }
+    }
+
+
 
 
 
