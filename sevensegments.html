@@ -213,8 +213,7 @@
     window.onload = function () {
         loadElementDisp();
         timeClock();
-       // loadElementA_G(elementDisp[0])
-       // displayNumber(numberDisp[4])
+
     }
     let d_0 = [1, 1, 1, 1, 1, 1, 0, 0];
     let d_1 = [0, 1, 1, 0, 0, 0, 0, 0];
@@ -257,8 +256,8 @@
 
     function displayNumber(d_number) {
         for (i = 0; i < elementDispA_G.length; i++) {
-            if (d_number[i] == 1){
-                colorDisp(i,elementDispA_G[i],"#545076")
+            if (d_number[i] == 1) {
+                colorDisp(i, elementDispA_G[i], "#545076")
             }
         }
     }
@@ -298,9 +297,54 @@
 
 
 
+
+    function showTimeDisplay() {
+        var d = new Date();
+        var h = d.getHours();
+        var m = d.getMinutes();
+        var s = d.getSeconds();
+        h = h < 10 ? '0' + h : h;
+        m = m < 10 ? '0' + m : m;
+        s = s < 10 ? '0' + s : s;
+        h = h.toString();
+        m = m.toString();
+        s = s.toString();
+        ////h
+        loadElementA_G(elementDisp[0])
+        var value = h[0];//h
+        displayNumber(numberDisp[value])
+        loadElementA_G(elementDisp[1])
+        var value = h[1];//h
+        displayNumber(numberDisp[value])
+        ///h
+        ///
+        ////m
+        loadElementA_G(elementDisp[2])
+        var value = m[0];//m
+        displayNumber(numberDisp[value])
+        loadElementA_G(elementDisp[3])
+        var value = m[1];//m
+        displayNumber(numberDisp[value])
+        ////m
+        /////
+        ///s
+        loadElementA_G(elementDisp[4])
+        var value = s[0];//s
+        displayNumber(numberDisp[value])
+        loadElementA_G(elementDisp[5])
+        var value = s[1];//s
+        displayNumber(numberDisp[value])
+        ///s
+    }
+ 
+
     function timeClock() {
         var clock = setInterval(getTime, 1000);
+        var clock1 = setInterval(showTimeDisplay, 1000)
     }
+
+
+
     function getTime() {
         var time = document.getElementById("time");
         var d = new Date();
