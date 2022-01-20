@@ -311,32 +311,45 @@
         s = s.toString();
         ////h
         loadElementA_G(elementDisp[0])
+        clearDisplay()
         var value = h[0];//h
         displayNumber(numberDisp[value])
         loadElementA_G(elementDisp[1])
+        clearDisplay()
         var value = h[1];//h
         displayNumber(numberDisp[value])
         ///h
         ///
         ////m
         loadElementA_G(elementDisp[2])
+        clearDisplay()
         var value = m[0];//m
         displayNumber(numberDisp[value])
         loadElementA_G(elementDisp[3])
+        clearDisplay()
         var value = m[1];//m
         displayNumber(numberDisp[value])
         ////m
         /////
         ///s
         loadElementA_G(elementDisp[4])
+        clearDisplay()
         var value = s[0];//s
         displayNumber(numberDisp[value])
         loadElementA_G(elementDisp[5])
+        clearDisplay()
         var value = s[1];//s
         displayNumber(numberDisp[value])
         ///s
     }
- 
+    function clearDisplay() {
+        var i = 0;
+        elementDispA_G.forEach(element => {
+            colorDisp(i, element, '#a19898');
+            i++
+        });
+    }
+
 
     function timeClock() {
         var clock = setInterval(getTime, 1000);
