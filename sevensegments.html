@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .displayClock {
+            margin: 0 auto;
+            width: 80%;
+            height: 50vh;
+            background-color: rgb(150, 23, 23)
+        }
+
+        #numberDisplay {
+            display: grid;
+            grid-template-columns: 15% 15% 5% 15% 15% 5% 15% 15%;
+            background-color: gray;
+            font-size: 2em;
+            border: 3px dotted black;
+        }
+
+        #number {
+            border: 3px dotted black;
+            padding: 10px;
+        }
+
+        .dispA {
+            width: 100px;
+            height: 0px;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-top: 30px solid #a19898;
+        }
+
+        .dispF {
+            width: 10px;
+            height: 140px;
+            border-top: 30px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 30px solid #a19898;
+            margin-top: -28px;
+        }
+
+        .dispB {
+            width: 10px;
+            height: 140px;
+            border-top: 30px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-right: 30px solid #a19898;
+            margin-top: -185px;
+            margin-left: 120px;
+        }
+
+        .dispG1 {
+            width: 100px;
+            height: 0px;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-bottom: 15px solid #a19898;
+            margin-top: -13px;
+        }
+
+        .dispG2 {
+            width: 100px;
+            height: 0px;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-top: 15px solid #a19898;
+
+        }
+
+        .dispE {
+            width: 10px;
+            height: 140px;
+            border-top: 15px solid transparent;
+            border-bottom: 30px solid transparent;
+            border-left: 30px solid #a19898;
+            margin-top: -13px;
+        }
+
+        .dispC {
+            width: 10px;
+            height: 140px;
+            border-top: 15px solid transparent;
+            border-bottom: 30px solid transparent;
+            border-right: 30px solid #a19898;
+            margin-top: -185px;
+            margin-left: 120px;
+
+        }
+
+        .dispD {
+            width: 100px;
+            height: 0px;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-bottom: 30px solid #a19898;
+            margin-top: -28px;
+        }
+
+        .dot {
+            display: inline-block;
+        }
+
+        .dotA {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: #a19898;
+            margin-top: 140px;
+        }
+
+        .dotB {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: #a19898;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="displayClock">
+        <div id="numberDisplay">
+            <div id="number">
+                <div class="dispA"></div>
+                <div class="dispF"></div>
+                <div class="dispB"></div>
+                <div class="dispG1"></div>
+                <div class="dispG2"></div>
+                <div class="dispE"></div>
+                <div class="dispC"></div>
+                <div class="dispD"></div>
+
+            </div>
+            <div id="number">
+                <div class="dispA"></div>
+                <div class="dispF"></div>
+                <div class="dispB"></div>
+                <div class="dispG1"></div>
+                <div class="dispG2"></div>
+                <div class="dispE"></div>
+                <div class="dispC"></div>
+                <div class="dispD"></div>
+
+            </div>
+            <div id="number">
+                <div class="dot">
+                    <div class="dotA"></div>
+                    <div class="dotB"></div>
+                </div>
+            </div>
+            <div id="number">
+                <div class="dispA"></div>
+                <div class="dispF"></div>
+                <div class="dispB"></div>
+                <div class="dispG1"></div>
+                <div class="dispG2"></div>
+                <div class="dispE"></div>
+                <div class="dispC"></div>
+                <div class="dispD"></div>
+
+            </div>
+            <div id="number">
+                <div class="dispA"></div>
+                <div class="dispF"></div>
+                <div class="dispB"></div>
+                <div class="dispG1"></div>
+                <div class="dispG2"></div>
+                <div class="dispE"></div>
+                <div class="dispC"></div>
+                <div class="dispD"></div>
+
+            </div>
+            <div id="number">
+                <div class="dot">
+                    <div class="dotA"></div>
+                    <div class="dotB"></div>
+                </div>
+            </div>
+            <div id="number">
+                <div class="dispA"></div>
+                <div class="dispF"></div>
+                <div class="dispB"></div>
+                <div class="dispG1"></div>
+                <div class="dispG2"></div>
+                <div class="dispE"></div>
+                <div class="dispC"></div>
+                <div class="dispD"></div>
+
+            </div>
+            <div id="number">
+                <div class="dispA"></div>
+                <div class="dispF"></div>
+                <div class="dispB"></div>
+                <div class="dispG1"></div>
+                <div class="dispG2"></div>
+                <div class="dispE"></div>
+                <div class="dispC"></div>
+                <div class="dispD"></div>
+
+            </div>
+        </div>
+
+    </div>
+    <div id="time"></div>
+</body>
+<script>
+    window.onload = function () {
+        loadElementDisp();
+        timeClock();
+
+    }
+    let d_0 = [1, 1, 1, 1, 1, 1, 0, 0];
+    let d_1 = [0, 1, 1, 0, 0, 0, 0, 0];
+    let d_2 = [1, 1, 0, 1, 1, 0, 1, 1];
+    let d_3 = [1, 1, 1, 1, 0, 0, 1, 1];
+    let d_4 = [0, 1, 1, 0, 0, 1, 1, 1];
+    let d_5 = [1, 0, 1, 1, 0, 1, 1, 1];
+    let d_6 = [1, 0, 1, 1, 1, 1, 1, 1];
+    let d_7 = [1, 1, 1, 0, 0, 0, 0, 0];
+    let d_8 = [1, 1, 1, 1, 1, 1, 1, 1];
+    let d_9 = [1, 1, 1, 1, 0, 1, 1, 1];
+
+    let numberDisp = [d_0, d_1, d_2, d_3, d_4, d_5, d_6, d_7, d_8, d_9];
+    let elementDispA_G = [];
+    let elementDisp = [];
+
+    function loadElementDisp() {
+        var numberDisplay = document.getElementById("numberDisplay");
+        elementDisp.push(numberDisplay.children[0]);
+        elementDisp.push(numberDisplay.children[1]);
+        elementDisp.push(numberDisplay.children[3]);
+        elementDisp.push(numberDisplay.children[4]);
+        elementDisp.push(numberDisplay.children[6]);
+        elementDisp.push(numberDisplay.children[7]);
+    }
+    function loadElementA_G(number) {
+        var element = number.children;
+        elementDispA_G = [];
+        elementDispA_G.push(element[0]);///A
+        elementDispA_G.push(element[2]);///B
+        elementDispA_G.push(element[6]);///C
+        elementDispA_G.push(element[7]);///D
+        elementDispA_G.push(element[5]);///E
+        elementDispA_G.push(element[1]);///F
+        elementDispA_G.push(element[3]);///G1
+        elementDispA_G.push(element[4]);///G2
+    }
+
+
+
+    function displayNumber(d_number) {
+        for (i = 0; i < elementDispA_G.length; i++) {
+            if (d_number[i] == 1) {
+                colorDisp(i, elementDispA_G[i], "#545076")
+            }
+        }
+    }
+
+
+
+    function colorDisp(number, element, color) {
+        switch (number) {
+            case 0:
+                element.style.borderTopColor = color;
+                break;
+            case 1:
+                element.style.borderRightColor = color;
+                break;
+            case 2:
+                element.style.borderRightColor = color;
+                break;
+            case 3:
+                element.style.borderBottomColor = color;
+                break;
+            case 4:
+                element.style.borderLeftColor = color;
+                break;
+            case 5:
+                element.style.borderLeftColor = color;
+                break;
+            case 6:
+                element.style.borderBottomColor = color;
+                break;
+            case 7:
+                element.style.borderTopColor = color;
+                break;
+        }
+    }
+
+
+
+
+
+
+    function showTimeDisplay() {
+        var d = new Date();
+        var h = d.getHours();
+        var m = d.getMinutes();
+        var s = d.getSeconds();
+        h = h < 10 ? '0' + h : h;
+        m = m < 10 ? '0' + m : m;
+        s = s < 10 ? '0' + s : s;
+        h = h.toString();
+        m = m.toString();
+        s = s.toString();
+        ////h
+        loadElementA_G(elementDisp[0])
+        clearDisplay()
+        var value = h[0];//h
+        displayNumber(numberDisp[value])
+        loadElementA_G(elementDisp[1])
+        clearDisplay()
+        var value = h[1];//h
+        displayNumber(numberDisp[value])
+        ///h
+        ///
+        ////m
+        loadElementA_G(elementDisp[2])
+        clearDisplay()
+        var value = m[0];//m
+        displayNumber(numberDisp[value])
+        loadElementA_G(elementDisp[3])
+        clearDisplay()
+        var value = m[1];//m
+        displayNumber(numberDisp[value])
+        ////m
+        /////
+        ///s
+        loadElementA_G(elementDisp[4])
+        clearDisplay()
+        var value = s[0];//s
+        displayNumber(numberDisp[value])
+        loadElementA_G(elementDisp[5])
+        clearDisplay()
+        var value = s[1];//s
+        displayNumber(numberDisp[value])
+        ///s
+    }
+    function clearDisplay() {
+        var i = 0;
+        elementDispA_G.forEach(element => {
+            colorDisp(i, element, '#a19898');
+            i++
+        });
+    }
+
+
+    function timeClock() {
+        var clock = setInterval(getTime, 1000);
+        var clock1 = setInterval(showTimeDisplay, 1000)
+    }
+
+
+
+    function getTime() {
+        var time = document.getElementById("time");
+        var d = new Date();
+        var h = d.getHours();
+        var m = d.getMinutes();
+        var s = d.getSeconds();
+        h = h < 10 ? '0' + h : h;
+        m = m < 10 ? '0' + m : m;
+        s = s < 10 ? '0' + s : s;
+        var timeDisp = h + ":" + m + ":" + s;
+        time.innerHTML = timeDisp;
+    }
+</script>
+
+</html>

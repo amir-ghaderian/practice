@@ -31,6 +31,33 @@
         padding-top: 3em;
     }
 
+    #lessmodal {
+        width: 100vw;
+        height: 100vh;
+        background-color: #00000080;
+        position: absolute;
+
+        display: none;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+
+        padding-top: 3em;
+    }
+
+    #centermodal {
+        display: flex;
+        flex-direction: column;
+        background-color: #eee;
+        width: 20em;
+        height: 20em;
+        justify-content: flex-start;
+        padding: 2em;
+        border-radius: 1em;
+        position: relative;
+    }
+
+
     .sidebar {
         width: 40%;
         height: 100vh;
@@ -93,9 +120,10 @@
     }
 
     .p1 {
-        border: 1px solid red;
+        border: 1px solid gray;
         border-radius: .3em;
-        background-color: #e9f3f3;
+        background-color: white;
+        border-radius: 0.4em;
 
     }
 
@@ -135,11 +163,82 @@
         width: 10em;
         border-radius: 1em;
     }
+
+    .inp-chek {
+        width: 230px;
+        position: absolute;
+        bottom: 4em;
+        right: 8em;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        font-size: .9em;
+
+    }
+
+    .inp-chek input {
+        margin-right: 2em;
+    }
+
+    #center {
+        display: flex;
+        position: relative;
+        height: 22em;
+    }
+
+    #lessondetail {
+        display: flex;
+        flex-direction: column;
+        padding-top: 3em;
+    }
+
+    #listStudent {
+        display: none;
+        bottom: 1em;
+        background-color: white;
+        position: relative;
+
+    }
+
+    .x {
+        width: 15em;
+
+        border-radius: 1em;
+        text-align: center;
+
+    }
+
+    .x1 {
+        border: 1px solid black;
+
+    }
+
+    #btn {
+        display: none;
+        margin-left: 1em;
+    }
+
+    #closeList {
+        background-color: red;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
 </style>
 
 <body>
+    <div id="lessmodal">
+        <div id="centermodal">
+            <button id="close" onclick="closeClassModal()">X</button>
+            teacher name<input type="text" id="newTeacher" value="">
+            class number <input type="number" id="newClassNumber" value="">
+            className<input type="text" id="newClass" value="">
+            capacity class<input type="text" id="capacity" value="">
+            <button id="insert" onclick="addClass()">add</button>
+        </div>
+    </div>
     <div id="modal">
-        <div class="center" style="display: flex;">
+        <div id="center">
             <div class="a2" style="border-radius: .5em 0 0 .5em ;">
                 <span>firstName</span>
                 <span>lastName</span>
@@ -156,16 +255,29 @@
                 <input type="text" id="jModal" value="">
                 <input type="number" id="ybModal" value="">
                 <input type="number" id="coModal" value="">
+
                 <input type="text" id="classModal" value="">
+
                 <button id="insert" onclick="addStudent()">INSERT</button>
             </div>
+            <div id="chek"></div>
+
         </div>
+
     </div>
     <div class="sidebar">
         <ul id="name">
             <li style="font-weight: bolder; text-align: center;">students Name</li>
         </ul>
-        <button id="openModal" onclick="openModal()">add new stud</button>
+        <button id="openModal" onclick="openModal()">add new student</button>
+        <div id="lessName"></div>
+        <button onclick="openClassModal()">add new lesson</button>
+        <button id="btn" onclick="document.getElementById('listStudent').style.display='block';">V</button>
+        <div id="listStudent">
+
+        </div>
+
+
 
     </div>
     <div class="front">
@@ -182,28 +294,74 @@
             <input type="text" placeholder="" id="job" value="">
             <input type="text" placeholder="" id="dateBirth" value="">
             <input type="text" placeholder="" id="code" value="">
-            <div id="lesson"></div>
+            <div id="lesson"> </div>
+            <input type="button" value="save changes to student" onclick="updateStudent()">
+            <div id="lessondetail">
+                class Name <input type="text" id="className" value="">
+                teacher Name <input type="text" id="teacher" value="">
+                class Number<input type="number" id="classNumber" value="">
+                capacity<input type="number" id="classCapacytyInput" value="">
+                <div>number of students:<span id="numOfStu"></span></div><br />
+                <div>is full:<span id="or"></span></div><br />
+                <input type="button" value="save changes to class" onclick="updateClass()">
+
+
+            </div>
+
+
         </div>
+
+
+
 
     </div>
 </body>
 <script>
 
     var classes = [
-        {title: 'HTML5',   id: 1 },
-        {title: 'CSS',     id: 2 },
-        {title: 'GIT',     id: 3 },
-        {title: 'ANGULAR', id: 4 },
-        {title: 'ENGLISH', id: 5 }
+        { title: 'HTML5', id: 1, teacher: " mr behnam khani", capacity: 3 },
+        { title: 'CSS', id: 24, teacher: "mr behnam khani", capacity: 2 },
+        { title: 'GIT', id: 3, teacher: "mr houman ", capacity: 12 },
+        { title: 'ANGULAR', id: 46, teacher: "mr mosh hamedani", capacity: 40 },
+        { title: 'ENGLISH', id: 5, teacher: "mr hormoz fassih", capacity: 1 },
+        { title: 'JavaScript', id: 66, teacher: "mr amin rad", capacity: 5 },
     ];
+    ////
+    function loadClass() {
+
+
+        var form = document.getElementById("chek");
+        var center = document.getElementById("center");
+
+        form.innerHTML = "";
+        for (r = 0; r < classes.length; r++) {
+            var input = document.createElement("input");
+            var labale = document.createElement("span");
+            labale.innerHTML = classes[r].title;
+            form.appendChild(labale);
+            input.setAttribute("type", "checkbox");
+            form.appendChild(input);
+            center.appendChild(form);
+            input.setAttribute("name", classes[r].title);
+            input.setAttribute("value", classes[r].id);
+            form.className = "inp-chek";
+
+
+        }
+
+    }
+
 
     var students = [
-    { firstName: "ali", lastName: "ghaderian", age: 34, dateBirth: "1987", code: "0032244455", job: "disiner", lesson: [1, 2] },
-    { firstName: "amir", lastName: "ghaderian", age: 35, dateBirth: "1986", code: "0081125674", job: "front", lesson: [5, 2, 1, 3] },
-    { firstName: "aida", lastName: "amiri", age: 20, dateBirth: "2001", code: "0032244455", job: "Airline employee", lesson: [1, 5] },
-    { firstName: "houman", lastName: "ghaderian", age: 42, dateBirth: "1977", code: "0032244455", job: "CEO", lesson: [5, 4] },
-    { firstName: "hani", lastName: "ghaderian", age: 47, dateBirth: "1977", code: "32488488493", job: "teacher", lesson: [5] }];
+        { firstName: "ali", lastName: "ghaderian", age: 34, dateBirth: "1987", code: "0032244455", job: "disiner", lesson: [1, 24], id: 12 },
+        { firstName: "amir", lastName: "ghaderian", age: 35, dateBirth: "1986", code: "0081125674", job: "front", lesson: [5, 24, 1, 3, 66], id: 4 },
+        { firstName: "aida", lastName: "amiri", age: 20, dateBirth: "2001", code: "0032244455", job: "Airline employee", lesson: [1, 5, 66], id: 3 },
+        { firstName: "houman", lastName: "ghaderian", age: 42, dateBirth: "1977", code: "0032244455", job: "CEO", lesson: [5, 46, 3], id: 25 },
+        { firstName: "hani", lastName: "ghaderian", age: 47, dateBirth: "1977", code: "32488488493", job: "teacher", lesson: [5], id: 2 }];
     loadstudents()
+    loadClassSideBar()
+
+
     function loadstudents() {
         var ulName = document.getElementById("name");
 
@@ -214,13 +372,15 @@
             ulName.appendChild(liSet);
 
             liSet.innerHTML = students[j].firstName + " __ " + students[j].lastName;
-            liSet.setAttribute("onClick", 'loadStud(' + j + ')');
+            liSet.setAttribute("onClick", 'showDetailStudent(' + j + ')');
             liSet.setAttribute("id", 'lap' + j + ' ');
         }
     }
+    var SelectedStudentIndex = -1;
+
+    function showDetailStudent(index) {
 
 
-    function loadStud(index) {
 
         for (i = 0; i < students.length; i++) {
 
@@ -228,7 +388,7 @@
 
 
         }
-
+        SelectedStudentIndex = students[index].id;
         document.getElementById('lap' + index + ' ').classList.add("p1");
         document.getElementById("fname").value = students[index].firstName;
         document.getElementById("lname").value = students[index].lastName;
@@ -236,10 +396,12 @@
         document.getElementById("dateBirth").value = students[index].dateBirth;
         document.getElementById("code").value = students[index].code;
 
-       let colors=["red","yellow","green",'#3c3cea94',"purple"];
-        var lesDiv = document.getElementById("lesson");
 
+       let colors=["red","yellow","green",'#3c3cea94',"purple"];
+
+        var lesDiv = document.getElementById("lesson");
         lesDiv.innerHTML = '';
+
 
         for (k = 0; k < students[index].lesson.length; k++) {
 
@@ -253,8 +415,19 @@
 
 
 
+            for (p = 0; p < classes.length; p++) {
+
+                if (students[index].lesson[k] === classes[p].id) {
+                    var span = document.createElement("span");
+                    lesDiv.appendChild(span);
+                    span.className = "t1";
+                    span.innerHTML = classes[p].title;
+                }
+            }
         }
+
     }
+
 
 
     function addStudent() {
@@ -266,22 +439,188 @@
         let jobM = document.getElementById("jModal").value;
         let yearM = document.getElementById("ybModal").value
         let codM = document.getElementById("coModal").value;
-        let classModal = document.getElementById("classModal").value;
-        
+
+        let lessStu = studentLessonPassed();
+
         ///// set in li
-        students.push({ firstName: name, lastName: family, job: jobM, dateBirth: yearM, code: codM, lesson: [classModal] });
-        loadstudents()
+        if (name === "" || family === "" || jobM === "" || Number.isNaN(yearM) || codM === "") {
+            alert("enter your all input");
+            openModal();
+
+        } else {
+            students.push({ firstName: name, lastName: family, job: jobM, dateBirth: yearM, code: codM, lesson: lessStu, id: students.length + 1 });
+            loadstudents()
+        }
+
     }
 
+
+    /////open and close modals
     function closeModal() {
         document.getElementById("modal").style.display = "none";
     }
     function openModal() {
         document.getElementById("modal").style.display = "flex";
+        loadClass()
+    }
+    function closeClassModal() {
+        document.getElementById("lessmodal").style.display = "none";
+    }
+    function openClassModal() {
+        document.getElementById("lessmodal").style.display = "flex";
+
     }
 
 
+    //// checkbox in modal cecked add class
 
+    function studentLessonPassed() {
+        var pars = 0;
+        var less = [];
+        var checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
+        for (var i = 0; i < checkboxes.length; i++) {
+            pars = parseInt(checkboxes[i].value);
+            for (j = 0; j < classes.length; j++) {
+                if (pars === classes[j].id) {
+                    less.push(classes[j].id);
+                }
+            }
+        }
+        return less;
+
+
+    }
+
+    ///// class leeson set sidebar
+    function loadClassSideBar() {
+        var lessDiv = document.getElementById("lessName");
+        lessDiv.innerHTML = "";
+        for (x = 0; x < classes.length; x++) {
+
+            var leesUl = document.createElement("ul");
+            lessDiv.appendChild(leesUl);
+            var lessLi = document.createElement("li");
+            leesUl.appendChild(lessLi);
+            lessLi.innerHTML = classes[x].title;
+            lessLi.setAttribute("onclick", 'showClassDetail(' + x + ')');
+            lessLi.setAttribute("id", 'li' + x)
+        }
+    }
+    // show techer name and number class front input
+    var selectClassIndex = -1;
+
+    function showClassDetail(index) {
+        var numberOfStudent = 0;
+
+        let pTag = document.getElementById("listStudent");
+        for (q = 0; q < classes.length; q++) {
+            document.getElementById("li" + q).classList.remove("p1");
+        }
+        document.getElementById("li" + index).classList.add("p1");
+        selectClassIndex = classes[index].id;
+        document.getElementById("teacher").value = classes[index].teacher;
+        document.getElementById("classNumber").value = classes[index].id;
+        document.getElementById("className").value = classes[index].title;
+        document.getElementById("classCapacytyInput").value = classes[index].capacity;
+        document.getElementById("btn").style.display = "inline-block";
+
+        ///capacity calculating
+
+        pTag.innerHTML = "";
+        for (w = 0; w < students.length; w++) {
+            for (a = 0; a < students[w].lesson.length; a++) {
+                if (students[w].lesson[a] == classes[index].id) {
+                    numberOfStudent++
+                    if (classes[index].id == students[w].lesson[a]) {
+                        pTag.className = "x";
+                        let lineP = document.createElement("p");
+                        pTag.appendChild(lineP);
+                        lineP.className = "x1";
+                        lineP.innerHTML = students[w].firstName + "  " + students[w].lastName + " ---- " + students[w].code;
+
+
+                    }
+                }
+            }
+        }////set buttn close list student
+        let closeBtn = document.createElement("button");
+        pTag.appendChild(closeBtn);
+        closeBtn.setAttribute("id", "closeList");
+        closeBtn.innerHTML = "x";
+        closeBtn.setAttribute("onClick","document.getElementById('listStudent').style.display='none';")
+
+        let pars = parseInt(classes[index].capacity);
+        if ((pars - numberOfStudent) <= 0) {
+            document.getElementById("or").innerHTML = "YES";
+
+        } else if ((pars - numberOfStudent) >= 0) {
+            document.getElementById("or").innerHTML = "No";
+        }
+        document.getElementById("numOfStu").innerHTML = numberOfStudent;
+    }
+
+    ///// add new class and teacher  & classnumber
+    function addClass() {
+        closeClassModal()
+        let newTeacher = document.getElementById("newTeacher").value;
+        let newClassNum = document.getElementById("newClassNumber").value;
+        let newClass = document.getElementById("newClass").value;
+        let capacityClass = document.getElementById("capacity").value;
+        if (newTeacher === "" || newClass === "" || newClassNum === "") {
+            alert("enter you all input");
+            openClassModal()
+        } else {
+            classes.push({ title: newClass, id: parseInt(newClassNum), teacher: newTeacher, capacity: capacityClass });
+        }
+
+        loadClassSideBar()
+
+    }
+    function updateStudent() {
+        let newname = document.getElementById("fname").value;
+        let newLname = document.getElementById("lname").value;
+        let newJob = document.getElementById("job").value;
+        let newBirth = document.getElementById("dateBirth").value;
+        let newCod = document.getElementById("code").value;
+
+        for (k = 0; k < students.length; k++) {
+            if (students[k].id == SelectedStudentIndex) {
+                students[k].firstName = newname;
+                students[k].lastName = newLname;
+                students[k].job = newJob;
+                students[k].dateBirth = newBirth;
+                students[k].code = newCod;
+                loadstudents();
+                document.getElementById('lap' + k + ' ').classList.add("p1");
+
+
+            } else if (newname == "" || newLname == "" || newJob == "" || newBirth == "" || newCod == "") {
+                alert("enter your all input");
+            }
+
+
+        }
+
+    }
+    function updateClass() {
+        let newClassName = document.getElementById("className").value;
+        let newTeacherName = document.getElementById("teacher").value;
+        let newClassNumber = document.getElementById("classNumber").value;
+        let newcapacity = document.getElementById("classCapacytyInput").value;
+        for (n = 0; n < classes.length; n++) {
+            if (classes[n].id == selectClassIndex) {
+                classes[n].title = newClassName;
+                classes[n].teacher = newTeacherName;
+                classes[n].id = newClassNumber;
+                classes[n].capacity = newcapacity;
+                loadClassSideBar();
+                document.getElementById("li" + n).classList.add("p1");
+
+            } else if (newClassName == "" || newTeacherName == "" || newClassNumber == "" || newcapacity == "") {
+                alert("enter your all input");
+            }
+        }
+    }
 
 
 </script>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Document</title>
+<style>
+    .p1{
+       background-image: url('/image/1\ \(1\).jpeg');
+       background-position: center;
+       background-size: cover;
+    }
+</style>
+</head>
+
+<body class="container mx-auto">
+    <div id="magzin" class="grid grid-flow-col grid-cols-3 grid-rows-2 gap-1">
+        <div id="pic0" class=" w-64 h-80 bg-cover" onclick="tileClick(0)"></div>
+        <div id="pic1" class=" w-64 h-80 bg-cover" onclick="tileClick(1)"></div>
+        <div id="pic2" class=" w-64 h-80 bg-cover" onclick="tileClick(2)"></div>
+        <div id="pic3" class=" w-64 h-80 bg-cover" onclick="tileClick(3)"></div>
+        <div id="pic4" class=" w-64 h-80 bg-cover" onclick="tileClick(4)"></div>
+        <div id="pic5" class=" w-64 h-80 bg-cover" onclick="tileClick(5)"></div>
+        <div id="pic6" class=" w-64 h-80 bg-cover" onclick="tileClick(6)"></div>
+        <div id="pic7" class=" w-64 h-80 bg-cover" onclick="tileClick(7)"></div>
+        <div id="pic8" class=" w-64 h-80 bg-cover" onclick="tileClick(8)"></div>
+        <div id="pic9" class=" w-64 h-80 bg-cover" onclick="tileClick(9)"></div>
+    </div>
+    <a onclick="allBorder()">ALLL</a>
+</body>
+<script>
+
+    var images = ["image/0", "image/1", "image/2", "image/3", "image/4", "image/1", "image/2", "image/3", "image/4", "image/0"];
+    for (i = 0; i <images.length; i++){
+       
+        document.getElementById("pic"+i).style.backgroundImage="url("+images[i] + ".jpeg)";
+    }
+    function allBorder() {
+        for (let i = 0; i <= 9; i++) {
+            var tag = document.getElementById("pic" + i);
+
+
+            tag.classList.add("bg-contain"); 
+
+        }
+
+    }
+    function tileClick(i) {
+
+    let tag = document.getElementById("pic" + i);
+    tag.style.backgroundImage="none";
+
+
+
+
+}
+</script>
+
+</html>

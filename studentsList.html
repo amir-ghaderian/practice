@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<style>
+    body {
+
+        position: relative;
+        padding: 0;
+        margin: 0;
+    }
+
+    #modal,
+    #modal-class {
+        width: 100%;
+        height: 100vh;
+        display: none;
+        justify-content: center;
+        position: absolute;
+        background-color: #000000ab;
+        align-items: center;
+        font-weight: bolder;
+        z-index: 1;
+    }
+
+
+
+    #btnAdd,
+    #list #btnAddClass {
+        display: flex;
+    }
+
+    #listStudent,
+    #or,
+    #capaityParent,
+    #list,
+    #numStudent,
+    #pic {
+        display: none;
+
+    }
+</style>
+
+<body class="bg-gray-200">
+    <div id="modal-class">
+
+        <div class="flex bg-blue-100  p-8 rounded-xl relative ">
+            <button onclick="closeClassModal()"
+                class="bg-red-400 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-gray-200 focus:ring-opacity-50 p-1   active:bg-green-700 absolute top-1 right-2 rounded-2xl  ... ">X</button>
+
+            <div class="flex flex-col justify-center">
+                <span class=" p-2 m-0.5">teacher name</span>
+                <span class=" p-2 m-0.5">class number</span>
+                <span class="p-2 m-0.5"> class name</span>
+                <span class="  p-2 m-0.5">capacity class</span>
+            </div>
+            <div class="flex flex-col ">
+                <div class=" p-1 m-0.5"><input placeholder=""
+                        class="w-96 rounded-xl border-4 border-gray-100 placeholder-gray-500 md:placeholder-gray-500"
+                        type="text" id="newTeacher" value=""></div>
+                <div class=" p-1 m-0.5"> <input placeholder=""
+                        class="w-96 rounded-xl border-4 border-gray-100 placeholder-gray-500 md:placeholder-gray-500"
+                        type="number" id="newClassNumber" value=""></div>
+                <div class=" p-1 m-0.5"> <input placeholder=""
+                        class="w-96 rounded-xl border-4 border-gray-100 placeholder-gray-500 md:placeholder-gray-500"
+                        type="text" id="newClass" value=""></div>
+                <div class=" p-1 m-0.5"> <input placeholder=""
+                        class="w-96 rounded-xl border-4 border-gray-100 placeholder-gray-500 md:placeholder-gray-500"
+                        type="text" id="capacity" value=""></div>
+            </div>
+            <button onclick="addClass()"
+                class="transition duration-500 ease-in-out bg-gray-100 hover:bg-blue-200 transform hover:-translate-y-1 hover:scale-110 p-2 rounded-2xl border-4 border-indigo-500 border-opacity-50">add</button>
+        </div>
+    </div>
+    <div id="modal">
+
+
+        <div id="center" class="flex flex-col bg-blue-100  p-8 rounded-xl relative">
+            <button onclick="closeModal()"
+                class="bg-red-400 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-gray-200 focus:ring-opacity-50 p-1 rounded-2xl active:bg-green-700 absolute top-1 right-2 ... ">X</button>
+
+            <div class="flex">
+                <div class="flex flex-col justify-center">
+                    <span class="m-1  p-2">firstName</span>
+                    <span class="m-1  p-2">lastName</span>
+                    <span class="m-1  p-2">job</span>
+                    <span class="m-1  p-2">year of birth</span>
+                    <span class="m-1  p-2">code</span>
+                </div>
+                <div class="flex flex-col ">
+                    <div class="m-1"><input type="text" id="fnModal" value="" placeholder="name"
+                            class="w-96 rounded-xl border-4 border-gray-100 p-1"></div>
+                    <div class="m-1"><input type="text" id="lnModal" value="" placeholder="lastname"
+                            class="w-96 rounded-xl border-4 border-gray-100 p-1"></div>
+                    <div class="m-1"><input type="text" id="jModal" value="" placeholder="job"
+                            class="w-96 rounded-xl border-4 border-gray-100 p-1">
+                    </div>
+                    <div class="m-1"> <input type="number" id="ybModal" placeholder="birthday" value=""
+                            class="w-96 rounded-xl border-4 border-gray-100 p-1 "></div>
+                    <div class="m-1"><input type="number" id="coModal" value="" placeholder="cod"
+                            class="w-96 rounded-xl border-4 border-gray-101  p-1">
+
+                    </div>
+                </div>
+
+            </div>
+            <div id="checkboxing"></div>
+            <button onclick="addStudent() "
+                class="transition duration-500 ease-in-out bg-blue-300 hover:bg-red-400 transform hover:-translate-y-1 hover:scale-110  p-2 rounded-2xl w-16  absolute right-2 bottom-1 ">add</button>
+
+        </div>
+
+
+    </div>
+    <div class="container mx-auto">
+
+        <div class=" flex justify-around border-red-500 rounded-b-md bg-blue-200  mx-4 m-8 p-2 rounded-2xl relative...">
+            <ul id="nameStudent" class="flex flex-col">
+
+            </ul>
+
+
+            <div class="flex flex-col justify-between">
+                <div class="w-96 text-right "> <span>firstName</span></div>
+                <div class="w-96 text-right"> <span> lastName</span></div>
+                <div class="w-96 text-right"> <span>job</span></div>
+                <div class="w-96 text-right"> <span>year of birth</span></div>
+                <div class="w-96 text-right"> <span> code</span></div>
+            </div>
+
+            <div id="pic" class="bg-red-100 w-24 h-24  rounded-xl bg-cover absolute left-1/3"></div>
+
+            <div class="flex-col 	">
+
+                <div class="w-96 text-left"> <input class="p1 w-full rounded-lg border-2  border-gray-800 m-1"
+                        type="text" placeholder="" id="fname" value=""></div>
+                <div class="w-96 text-left"> <input class="p1 w-full rounded-lg border-2  border-gray-800 m-1"
+                        type="text" placeholder="" id="lname" value=""></div>
+                <div class="w-96 text-left"> <input class="p1 w-full rounded-lg border-2  border-gray-800 m-1"
+                        type="text" placeholder="" id="job" value=""></div>
+                <div class="w-96 text-left"> <input class="p1 w-full rounded-lg border-2  border-gray-800 m-1"
+                        type="text" placeholder="" id="dateBirth" value=""></div>
+                <div class="w-96 text-left"> <input class="p1 w-full rounded-lg border-2  border-gray-800 m-1"
+                        type="text" placeholder="" id="code" value=""></div>
+
+
+            </div>
+            <div class="flex justify-end"><button onclick="updateStudent()"
+                    class="bg-blue-100 hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-opacity-50 p-4 rounded-2xl active:bg-green-700 ... ">save</button>
+            </div>
+        </div>
+        <div class="flex justify-center">
+
+        </div>
+        <div id="lessons" class="ml-32"></div>
+
+        <button id="btnAdd" onclick="openModal()"
+            class="transition duration-500 ease-in-out bg-blue-200 hover:bg-blue-400 transform hover:-translate-y-1 hover:scale-110 p-4 rounded-2xl ">
+            add new student
+        </button>
+        <div class="flex justify-around border-red-500 rounded-b-md bg-blue-200 mx-4 m-8 p-4 rounded-2xl">
+            <ul id="list-disc">
+
+            </ul>
+            <div class="flex-col ">
+                <div class="w-96 text-right py-1.5"><span>class Name </span> </div>
+                <div class="w-96 text-right py-1.5"><span> teacher Name </span></div>
+                <div class="w-96 text-right py-1.5"> <span>class Number</span></div>
+                <div class="w-96 text-right py-1.5"><span>capacity</span></div>
+                <div id="numStudent" class="flex text-left "> <span>student number</span>
+                    <div id="num" class="bg-blue-100 p-1 rounded-lg"></div>
+                </div>
+
+
+            </div>
+            <div class="flex-col ">
+                <div class="w-96 text-left"><input class="p1 w-96 rounded-lg border-2  border-gray-800 m-1" type="text"
+                        id="className" value=""></div>
+                <div class="w-96 text-left"><input class="p1 w-96 rounded-lg border-2  border-gray-800 m-1" type="text"
+                        id="teacher" value=""></div>
+                <div class="w-96 text-left"><input class="p1 w-96 rounded-lg border-2  border-gray-800 m-1"
+                        type="number" id="classNumber" value=""></div>
+                <div class="w-96 text-left"><input class="p1 w-96 rounded-lg border-2  border-gray-800 m-1"
+                        type="number" id="classCapacytyInput" value=""></div>
+
+                <div id="capaityParent" class="bg-blue-200 flex  w-40  rounded-lg">capacity <div id="or"
+                        class="bg-red-300  text-gray-100 flex justify-center ml-2  rounded-xl " style="width: 6.2rem;">
+                    </div>
+                </div>
+
+            </div>
+            <div class="flex justify-end"><button onclick="updateClass()"
+                    class="bg-blue-100 hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50   p-4 rounded-2xl ... ">save</button>
+            </div>
+
+        </div>
+        <div id="list" class="w-full "><button onclick='document.getElementById("listStudent").style.display="flex" '
+                class="transition duration-500 ease-in-out bg-blue-100 hover:bg-gray-200 transform hover:translate-y-1 hover:scale-110 p-2 rounded-2xl h-12  ... ">
+                List student
+            </button></div>
+        <div id="listStudent" class="bg-gray-200 flex ml-24 w-46 rounded-lg items-center"></div>
+
+        <button id="btnAddClass" onclick="openClassModal()"
+            class="transition duration-500 ease-in-out bg-blue-200 hover:bg-blue-400 transform hover:-translate-y-1 hover:scale-110 p-4 rounded-2xl ...">
+            add new class
+        </button>
+    </div>
+
+
+    </div>
+
+</body>
+<script>
+
+    var students = [
+        { firstName: "ali", lastName: "ghaderian", age: 34, dateBirth: "1987", code: "0032244455", job: "designer", lesson: [1, 24], id: 11, picProfile: "ASDF.JPG" },
+        { firstName: "amir", lastName: "ghaderian", age: 35, dateBirth: "1986", code: "0081125674", job: "front", lesson: [5, 24, 1, 3, 66], id: 4, picProfile: "1.jpeg" },
+        { firstName: "aida", lastName: "amiri", age: 20, dateBirth: "2001", code: "0032244455", job: "Airline employee", lesson: [1, 5, 66], id: 31, picProfile: "2.jpeg" },
+        { firstName: "houman", lastName: "ghaderian", age: 42, dateBirth: "1977", code: "0032244455", job: "CEO", lesson: [5, 46, 3], id: 5, picProfile: "ASD.PNG" },
+        { firstName: "hani", lastName: "ghaderian", age: 47, dateBirth: "1977", code: "32488488493", job: "teacher", lesson: [5], id: 22, picProfile: "3.jpeg" }];
+    var classes = [
+        { title: 'HTML5', id: 1, teacher: " mr behnam khani", capacity: 3, numberOfStudents: 0 },
+        { title: 'CSS', id: 24, teacher: "mr behnam khani", capacity: 2, numberOfStudents: 0 },
+        { title: 'GIT', id: 3, teacher: "mr houman ", capacity: 5, numberOfStudents: 0 },
+        { title: 'ANGULAR', id: 46, teacher: "mr mosh hamedani", capacity: 40, numberOfStudents: 0 },
+        { title: 'ENGLISH', id: 5, teacher: "mr hormoz fassih", capacity: 5, numberOfStudents: 0 },
+        { title: 'JavaScript', id: 66, teacher: "mr amin rad", capacity: 3, numberOfStudents: 0 },
+    ];
+    loadstudents()
+    loadClassSideBar()
+    calculatingCapacity()
+    ///load student and set li list 
+    function loadstudents() {
+        var ulName = document.getElementById("nameStudent");
+
+        ulName.innerHTML = "";
+        for (j = 0; j < students.length; j++) {
+            var liSet = document.createElement("li");
+
+            ulName.appendChild(liSet);
+
+            liSet.innerHTML = students[j].firstName + " " + students[j].lastName;
+
+
+            liSet.setAttribute("class", "flex items-start cursor-pointer hover:bg-gray-200 rounded-2xl ");
+            liSet.setAttribute("onClick", 'showDetailStudent(' + j + ')');
+            liSet.setAttribute("id", 'lap' + j);
+
+
+        }
+    }
+
+
+    ////onclick in li list student show detail in front inputs
+    var SelectedStudentIndex = 0;
+    var selectedTagIndex = 0;
+    function showDetailStudent(index) {
+       
+        SelectedStudentIndex = students[index].id;
+       
+        selectedTagIndex = index;
+
+        document.getElementById("fname").value = students[index].firstName;
+        document.getElementById("lname").value = students[index].lastName;
+        document.getElementById("job").value = students[index].job;
+        document.getElementById("dateBirth").value = students[index].dateBirth;
+        document.getElementById("code").value = students[index].code;
+
+        renderingStudent()
+
+    }
+    ////load classes and set li list 
+    function loadClassSideBar() {
+        var classesUl = document.getElementById("list-disc");
+        classesUl.innerHTML = "";
+        for (x = 0; x < classes.length; x++) {
+            var classLi = document.createElement("li");
+            classesUl.appendChild(classLi);
+            classLi.innerHTML = classes[x].title;
+            classLi.setAttribute("class", "flex items-start cursor-pointer hover:bg-gray-200 rounded-2xl");
+            classLi.setAttribute("onclick", 'showClassDetail(' + x + ')');
+            classLi.setAttribute("id", 'li' + x)
+        }
+    }
+    ///onclick in classes li show detail
+
+    var selectIndexId = 0;
+    var selectedClassIndex = 0;
+    var lessonsFullCapacity = [];
+    function showClassDetail(index) {
+
+
+        for (q = 0; q < classes.length; q++) {
+            document.getElementById("li" + q).classList.remove("bg-red-200");
+        }
+        document.getElementById("li" + index).classList.add("bg-red-200");
+        document.getElementById("or").style.display = "flex";
+        document.getElementById("list").style.display = "flex";
+        document.getElementById("numStudent").style.display = "flex";
+        document.getElementById("capaityParent").style.display = "flex";
+        selectIndexId = classes[index].id;
+        selectedClassIndex = index;
+        document.getElementById("teacher").value = classes[index].teacher;
+        document.getElementById("classNumber").value = classes[index].id;
+        document.getElementById("className").value = classes[index].title;
+        document.getElementById("classCapacytyInput").value = classes[index].capacity;
+        renderingClass()
+
+    }
+
+
+
+    ////
+    ///load leesons in modal 
+    ///
+    function loadClassCheckBox() {
+
+
+        var form = document.getElementById("checkboxing");
+        var center = document.getElementById("center");
+
+        form.innerHTML = "";
+        for (r = 0; r < classes.length; r++) {
+            var input = document.createElement("input");
+            var labale = document.createElement("span");
+            labale.innerHTML = classes[r].title;
+            form.appendChild(labale);
+            input.setAttribute("type", "checkbox");
+            form.appendChild(input);
+            center.appendChild(form);
+            input.setAttribute("id", classes[r].title);
+            input.setAttribute("value", classes[r].id);
+            form.setAttribute("class", "w-48")
+            input.setAttribute("class", "p-5 m-1")
+        }
+
+        for (j = 0; j < classes.length; j++) {
+            if (classes[j].capacity - classes[j].numberOfStudents <= 0) {
+                document.getElementById(classes[j].title).disabled = true;
+
+            }
+        }
+
+
+    }
+
+
+    ///chek student lesson pass
+    function studentLessonPassed() {
+        var pars = 0;
+        var less = [];
+        var checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
+        for (var i = 0; i < checkboxes.length; i++) {
+            pars = parseInt(checkboxes[i].value);
+            for (j = 0; j < classes.length; j++) {
+                if (pars === classes[j].id) {
+                    less.push(classes[j].id);
+                    classes[j].numberOfStudents++
+                }
+            }
+        }
+        return less;
+
+
+
+    }
+
+    ////
+    ///
+    ////modal
+    ////
+    ///
+    function openModal() {
+        document.getElementById("modal").style.display = "flex";
+
+        document.getElementById("pic").style.display = "none";
+        document.getElementById("fnModal").value = "";
+        document.getElementById("lnModal").value = "";
+        document.getElementById("jModal").value = "";
+        document.getElementById("ybModal").value = "";
+        document.getElementById("coModal").value = "";
+        loadClassCheckBox()
+
+    }
+    function closeModal() {
+        document.getElementById("modal").style.display = "none";
+
+    }
+    function closeClassModal() {
+        document.getElementById("modal-class").style.display = "none";
+
+
+    }
+    function openClassModal() {
+        document.getElementById("modal-class").style.display = "flex";
+
+        document.getElementById("pic").style.display = "none";
+        document.getElementById("newTeacher").value = "";
+        document.getElementById("newClassNumber").value = "";
+        document.getElementById("newClass").value = "";
+        document.getElementById("capacity").value = "";
+
+
+    }
+
+    ////add new student
+    function addStudent() {
+        closeModal();
+
+
+
+        //get value in modal
+        let family = document.getElementById("lnModal").value;
+        let name = document.getElementById("fnModal").value;
+        let jobM = document.getElementById("jModal").value;
+        let yearM = document.getElementById("ybModal").value
+        let codM = document.getElementById("coModal").value;
+        let lessStu = studentLessonPassed();
+        let newIdStudent = getUniqueId();
+        
+        ///// set in li
+        if (name === "" || family === "" || jobM === "" || Number.isNaN(yearM) || codM === "") {
+            alert("enter your all input");
+            openModal();
+
+        } else {
+            students.push({ firstName: name, lastName: family, job: jobM, dateBirth: yearM, code: codM, lesson: lessStu, id: newIdStudent });
+            selectedTagIndex=students.length - 1;
+            showDetailStudent(selectedTagIndex);
+          
+           
+          
+            document.getElementById("lap"+selectedTagIndex).classList.add("bg-red-200");
+        }
+        
+    }
+    ////
+    ////
+    ///add class
+    function addClass() {
+
+        
+        let plus=0;
+        closeClassModal()
+        let newTeacher = document.getElementById("newTeacher").value;
+        let newClassNum = document.getElementById("newClassNumber").value;
+        let newClass = document.getElementById("newClass").value;
+        let capacityClass = document.getElementById("capacity").value;
+        if (newTeacher === "" || newClass === "" || newClassNum === "") {
+            alert("enter you all input");
+
+            openClassModal()
+        } else {
+            classes.push({ title: newClass, id:getUniqueIdForClass(), teacher: newTeacher, capacity: capacityClass, numberOfStudents: plus++ });
+            
+        }
+       
+        loadClassSideBar()
+
+
+    }
+    ////update and edit students
+    function updateStudent() {
+        let newname = document.getElementById("fname").value;
+        let newLname = document.getElementById("lname").value;
+        let newJob = document.getElementById("job").value;
+        let newBirth = document.getElementById("dateBirth").value;
+        let newCod = document.getElementById("code").value;
+
+        for (k = 0; k < students.length; k++) {
+
+            if (students[k].id == SelectedStudentIndex) {
+                students[k].firstName = newname;
+                students[k].lastName = newLname;
+                students[k].job = newJob;
+                students[k].dateBirth = newBirth;
+                students[k].code = newCod;
+
+
+
+
+
+
+            } else if (newname == "" || newLname == "" || newJob == "" || newBirth == "" || newCod == "") {
+                alert("enter your all input");
+            }
+
+
+
+        }
+
+
+        loadstudents();
+        renderingStudent();
+        renderingClass();
+        document.getElementById("lap" + selectedTagIndex).classList.add("bg-red-200");
+
+    }
+    ///update and edit class
+    function updateClass() {
+        let newClassName = document.getElementById("className").value;
+        let newTeacherName = document.getElementById("teacher").value;
+        let newClassNumber = document.getElementById("classNumber").value;
+        let newcapacity = document.getElementById("classCapacytyInput").value;
+        for (n = 0; n < classes.length; n++) {
+            if (classes[n].id == selectIndexId) {
+                classes[n].title = newClassName;
+                classes[n].teacher = newTeacherName;
+                classes[n].id = newClassNumber;
+                classes[n].capacity = newcapacity;
+                loadClassSideBar();
+
+
+
+            } else if (newClassName == "" || newTeacherName == "" || newClassNumber == "" || newcapacity == "") {
+                alert("enter your all input");
+            }
+        }
+        renderingClass()
+        renderingStudent()
+        document.getElementById("li" + selectedClassIndex).classList.add("bg-red-200");
+    }
+    function calculatingCapacity() {
+        for (let r = 0; r < students.length; r++) {
+            for (let v = 0; v < students[r].lesson.length; v++) {
+                for (let w = 0; w < classes.length; w++) {
+                    if (students[r].lesson[v] === classes[w].id) {
+                        classes[w].numberOfStudents++;
+                    }
+                }
+            }
+        }
+    }
+    ///;D
+
+    function renderingClass() {
+        let pTag = document.getElementById("listStudent");
+
+        for (k = 0; k < classes.length; k++) {
+            if (selectIndexId == classes[k].id) {
+                let result = classes[k].capacity - classes[k].numberOfStudents;
+                if (result <= 0) {
+                    document.getElementById("or").innerHTML = "FULL";
+                    document.getElementById("or").style.backgroundColor = "red";
+                } else if (result >= 0) {
+                    document.getElementById("or").style.backgroundColor = "green";
+                    document.getElementById("or").innerHTML = "No Full";
+                }
+
+                document.getElementById("num").innerHTML = classes[k].numberOfStudents;
+
+
+            }
+        }
+        pTag.innerHTML = "";
+        for (b = 0; b < students.length; b++) {
+            for (c = 0; c < students[b].lesson.length; c++) {
+                if (selectIndexId == students[b].lesson[c]) {
+                    let list = document.getElementById("list");
+                    pTag.classList.add("flex");
+                    let lineP = document.createElement("span");
+                    pTag.appendChild(lineP);
+                    lineP.setAttribute("class", "bg-blue-200 cursor-pointer hover:bg-gray-200 rounded-2xl p-1 m-1");
+                    lineP.innerHTML = students[b].firstName + "  " + students[b].lastName;
+                }
+            }
+        }
+        loadstudents()
+    }
+    function renderingStudent() {
+        loadstudents()
+        var lessonsStudent = [];
+        var lessonDiv = document.getElementById("lessons");
+
+        for (d = 0; d < students.length; d++) {
+            document.getElementById("lap"+d).classList.remove("bg-red-200");
+
+            if (SelectedStudentIndex == students[d].id) {
+                ///add image for student
+                document.getElementById("pic").style.backgroundImage = "url('image/" + students[d].picProfile + "')";
+                ///update index with lessons id
+                lessonsStudent = students[d].lesson;
+
+            }
+        }
+        lessonDiv.innerHTML = '';
+
+        for (w = 0; w < classes.length; w++) {
+            for (s = 0; s < lessonsStudent.length; s++) {
+                ////find lessons id  students
+                if (classes[w].id == lessonsStudent[s]) {
+                    var span = document.createElement("span");
+                    lessonDiv.appendChild(span);
+                    span.setAttribute("class", "bg-blue-200 p-1 rounded-2xl m-1")
+                    span.innerHTML = classes[w].title;
+                    document.getElementById("pic").style.display = "flex";
+
+                }
+            }
+        }
+        
+        document.getElementById("lap" + selectedTagIndex).classList.add("bg-red-200");
+        loadClassSideBar()
+    }
+
+
+    ////
+    function reverse(str) {
+        let reversed = "";
+        for (i = str.length - 1; i >= 0; i--) {
+            reversed += str[i];
+        }
+        return reversed;
+    }
+
+
+
+    function random() {
+        let item = Math.floor(Math.random() * 101)
+        return item;
+    }
+
+
+    ///
+
+
+    function isUnique(arr, num) {
+        let len = arr.length;
+        let isUniq = true;
+        for (i = 0; i < len; i++) {
+            if (arr[i] == num) {
+                isUniq = false;
+            }
+        }
+        return isUniq;
+    }
+
+    function getUniqueId() {
+        let existStudent = [];
+        for (j = 0; j < students.length; j++) {
+            existStudent.push(students[j].id);
+        }
+        let num = random()
+        while (!isUnique(existStudent, num)) {
+            num = random()
+
+        }
+
+        return num;
+
+
+    }
+    function getUniqueIdForClass(){
+        let existClass=[];
+        for(k=0;k<classes.length;k++){
+         existClass.push(classes[k].id);
+        }
+        let numId=random()
+        while (!isUnique(existClass,numId)) {
+            numId=random()
+        }
+        return numId;
+    }
+
+</script>
+
+</html>
