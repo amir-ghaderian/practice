@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let person1 = { name: "ida", family: "amiri", age: 20, height: 176 };
+        let person2 = { name: "elham", family: "qaderian", age: 47, height: 173 };
+        console.log(person1.family);
+        console.log(person2.height);
+        person2.birthplace = "IRAN";
+        console.log(person2);
+        delete person1.family;
+        console.log(person1);
+  
+        for (let item in person2) {
+          console.log(item + " : " + person2[item]);
+        }
+      </script>
+</body>
+</html>

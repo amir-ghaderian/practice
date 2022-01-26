@@ -140,7 +140,7 @@
     }
 
     .t1 {
-        background-color: red;
+    
         margin: .5em;
         padding: 0.3em;
         border-radius: 0.5em;
@@ -245,6 +245,7 @@
                 <span>job</span>
                 <span>year of birth</span>
                 <span>code</span>
+                <span>class</span>
 
             </div>
             <div class="a2" style="position: relative;border-radius: 0 .5em .5em 0; ">
@@ -254,6 +255,8 @@
                 <input type="text" id="jModal" value="">
                 <input type="number" id="ybModal" value="">
                 <input type="number" id="coModal" value="">
+
+                <input type="text" id="classModal" value="">
 
                 <button id="insert" onclick="addStudent()">INSERT</button>
             </div>
@@ -392,10 +395,25 @@
         document.getElementById("job").value = students[index].job;
         document.getElementById("dateBirth").value = students[index].dateBirth;
         document.getElementById("code").value = students[index].code;
+
+
+       let colors=["red","yellow","green",'#3c3cea94',"purple"];
+
         var lesDiv = document.getElementById("lesson");
         lesDiv.innerHTML = '';
 
-        for (k = 0; k < students.length; k++) {
+
+        for (k = 0; k < students[index].lesson.length; k++) {
+
+
+            let span = document.createElement("span");
+            span.className = "t1";
+            span.innerHTML = students[index].lesson[k];
+            span.style.backgroundColor=colors[k];
+            lesDiv.appendChild(span);
+
+
+
 
             for (p = 0; p < classes.length; p++) {
 
@@ -421,6 +439,7 @@
         let jobM = document.getElementById("jModal").value;
         let yearM = document.getElementById("ybModal").value
         let codM = document.getElementById("coModal").value;
+
         let lessStu = studentLessonPassed();
 
         ///// set in li
@@ -432,6 +451,7 @@
             students.push({ firstName: name, lastName: family, job: jobM, dateBirth: yearM, code: codM, lesson: lessStu, id: students.length + 1 });
             loadstudents()
         }
+
     }
 
 

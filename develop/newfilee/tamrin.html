@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    function sort(s) {
+      let a = s[0];
+      let b = s[1];
+      let c = s[2];
+      if ((a > b && b < c) || (a > c && c < b)) {
+        return a;
+      }
+      if ((b > a && a < c) || (c > b && a < b)) {
+        return b;
+      }
+      if (c > b && b < a) {
+        return c;
+      }
+    }
+  </script>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var enter = "ali Is A Teacher , He Teaches English .";
+
+      var extra = "        hello               ";
+
+      console.log(enter);
+
+      console.log(enter.length);
+
+      console.log(enter.indexOf("T"));
+
+      console.log(enter.lastIndexOf("E"));
+
+      console.log(enter.slice(4, 10));
+
+      console.log(enter.slice(13));
+
+      console.log(enter.substring(13, 22));
+
+      console.log(enter.replace("A", "Farter"));
+
+      console.log(enter.toUpperCase());
+
+      console.log(enter.toLowerCase());
+
+      console.log(enter.concat(" He is a good teacher.", " He is from Tehran"));
+
+      console.log(extra.trim());
+
+      console.log(enter.split("T"));
+
+      var myEnter = enter.split(" ");
+      console.log(myEnter);
+
+      console.log(enter.charAt(0));
+      for (i = 5; i < 12; i++) {
+        console.log(enter.charAt(i));
+      }
+
+      console.log(enter.charCodeAt(7));
+
+      var xx = "123";
+      console.log(xx + 11);
+      console.log(Number(xx) + 22);
+      console.log(parseInt(xx) + 22);
+
+      var ss = "22.2";
+      console.log(parseFloat(ss) + 0.8);
+
+      var k = 223;
+      console.log(k + 100);
+      console.log(k.toString() + 33);
+      console.log(k.toString() + "33");
+
+      var e = 33.454;
+      console.log(e.toFixed(2));
+    </script>
+  </body>
+</html>
