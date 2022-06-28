@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <span onclick="getT(1)">1</span>
+    <span onclick="getT(2)">2</span>
+    <span onclick="getT(3)"> 3</span>
+    <span onclick="getT(4)">4</span>
+    <span onclick="getT(5)"> 5</span>
+</body>
+<script>
+    let selectedTag = [0]
+    let select = 0;
+    let goz = 0;
+    function getT(id) {
+
+        for (i = 0; i < selectedTag.length; i++) {
+            select = id;
+            goz = selectedTag[i]
+            if (select === goz) {
+                selectedTag.pop(selectedTag[i])
+
+            }
+            selectedTag.push(select)
+        }
+        console.log(selectedTag)
+    }
+</script>
+
+</html>
