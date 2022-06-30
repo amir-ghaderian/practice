@@ -16,22 +16,23 @@
     <span onclick="getT(5)"> 5</span>
 </body>
 <script>
-    let selectedTag = [0]
+    let selectedTag = []
     let select = 0;
-    let goz = 0;
+    let len = selectedTag.length + 1
+
     function getT(id) {
+        select = id;
 
-        for (i = 0; i < selectedTag.length; i++) {
-            select = id;
-            goz = selectedTag[i]
-            if (select === goz) {
-                selectedTag.pop(selectedTag[i])
+        for (i = 0; i < len; i++) {
+            if (select !== selectedTag[i]) {
+                selectedTag.push(select)
 
-            }
-            selectedTag.push(select)
+            }   
+            ///:((((?
         }
         console.log(selectedTag)
     }
+
 </script>
 
 </html>
