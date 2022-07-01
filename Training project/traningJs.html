@@ -27,10 +27,26 @@
             if (select !== selectedTag[i]) {
                 selectedTag.push(select)
 
-            }   
+            }
             ///:((((?
         }
         console.log(selectedTag)
+    }
+    let arr = [];
+
+    let amir = false;
+    function isOrIsNot(arr, num) {
+        for (i = 0; i < arr.length; i++) {
+            select = arr[i]
+
+            if (num !== select) {
+                amir = false
+
+            } else if (num === select) {
+                amir = true
+            }
+        }
+        return amir
     }
 
 </script>
