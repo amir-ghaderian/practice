@@ -22,26 +22,28 @@
 
     function getT(id) {
         select = id;
-
+        let found = false
         for (i = 0; i < len; i++) {
-            if (select !== selectedTag[i]) {
+            if (selectedTag.indexOf(select) >= 0) { 
+                selectedTag.splice(select,i)
+            }else{
                 selectedTag.push(select)
-
             }
-            ///:((((?
+
         }
         console.log(selectedTag)
     }
+
+
+
     let arr = [];
-
-
     function isOrIsNot(arr, num) {
         let found = false;
         for (i = 0; i < arr.length; i++) {
-            select= arr[i];
-            if (select === num) {
+            select = arr[i];
+            if (select !== num) {
                 found = true;
-            } 
+            }
 
         }
         return found;
