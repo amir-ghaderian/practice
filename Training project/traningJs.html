@@ -24,10 +24,13 @@
         select = id;
         let found = false
         for (i = 0; i < len; i++) {
-            if (selectedTag.indexOf(select) >= 0) { 
-                selectedTag.splice(select,i)
-            }else{
+            if (selectedTag.indexOf(select) === -1) { 
                 selectedTag.push(select)
+               
+            }else{
+               select=found
+           
+               selectedTag.splice(select)
             }
 
         }
@@ -48,6 +51,7 @@
         }
         return found;
     }
+    
 
 </script>
 
