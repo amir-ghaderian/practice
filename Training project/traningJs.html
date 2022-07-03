@@ -9,11 +9,14 @@
 </head>
 
 <body>
+    <span onclick="getT(5)"> 5</span>
     <span onclick="getT(1)">1</span>
+    <span onclick="getT(4)">4</span>
     <span onclick="getT(2)">2</span>
     <span onclick="getT(3)"> 3</span>
-    <span onclick="getT(4)">4</span>
-    <span onclick="getT(5)"> 5</span>
+
+
+
 </body>
 <script>
     let selectedTag = []
@@ -31,7 +34,7 @@
 
                 let location = selectedTag.lastIndexOf(select);
                 selectedTag.splice(location, len)
-               
+
             }
 
         }
