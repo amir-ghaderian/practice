@@ -21,11 +21,10 @@
 <script>
     let selectedTag = []
     function getT(id) {
-        select = id;
-        if (selectedTag.indexOf(select) === -1) {
-            selectedTag.push(select)
+        if (selectedTag.indexOf(id) === -1) {
+            selectedTag.push(id)
         } else {
-            let location = selectedTag.lastIndexOf(select);
+            let location = selectedTag.lastIndexOf(id);
             selectedTag.splice(location, 1)
         }
         console.log(selectedTag)
