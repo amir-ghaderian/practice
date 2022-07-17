@@ -121,7 +121,7 @@
     <div class="container mx-auto">
 
         <div class=" flex justify-around border-red-500 rounded-b-md bg-blue-200  mx-4 m-8 p-2 rounded-2xl relative...">
-            <ul id="list-disc space-y-1">
+            <ul id="nameStudent" class="flex flex-col">
 
             </ul>
 
@@ -219,11 +219,11 @@
 <script>
 
     var students = [
-        { firstName: "ali", lastName: "ghaderian", age: 34, dateBirth: "1987", code: "0032244455", job: "designer", lesson: [1, 24], id: 12, picProfile: "ASDF.JPG" },
+        { firstName: "ali", lastName: "ghaderian", age: 34, dateBirth: "1987", code: "0032244455", job: "designer", lesson: [1, 24], id: 11, picProfile: "ASDF.JPG" },
         { firstName: "amir", lastName: "ghaderian", age: 35, dateBirth: "1986", code: "0081125674", job: "front", lesson: [5, 24, 1, 3, 66], id: 4, picProfile: "1.jpeg" },
-        { firstName: "aida", lastName: "amiri", age: 20, dateBirth: "2001", code: "0032244455", job: "Airline employee", lesson: [1, 5, 66], id: 3, picProfile: "2.jpeg" },
-        { firstName: "houman", lastName: "ghaderian", age: 42, dateBirth: "1977", code: "0032244455", job: "CEO", lesson: [5, 46, 3], id: 25, picProfile: "ASD.PNG" },
-        { firstName: "hani", lastName: "ghaderian", age: 47, dateBirth: "1977", code: "32488488493", job: "teacher", lesson: [5], id: 2, picProfile: "3.jpeg" }];
+        { firstName: "aida", lastName: "amiri", age: 20, dateBirth: "2001", code: "0032244455", job: "Airline employee", lesson: [1, 5, 66], id: 31, picProfile: "2.jpeg" },
+        { firstName: "houman", lastName: "ghaderian", age: 42, dateBirth: "1977", code: "0032244455", job: "CEO", lesson: [5, 46, 3], id: 5, picProfile: "ASD.PNG" },
+        { firstName: "hani", lastName: "ghaderian", age: 47, dateBirth: "1977", code: "32488488493", job: "teacher", lesson: [5], id: 22, picProfile: "3.jpeg" }];
     var classes = [
         { title: 'HTML5', id: 1, teacher: " mr behnam khani", capacity: 3, numberOfStudents: 0 },
         { title: 'CSS', id: 24, teacher: "mr behnam khani", capacity: 2, numberOfStudents: 0 },
@@ -237,7 +237,7 @@
     calculatingCapacity()
     ///load student and set li list 
     function loadstudents() {
-        var ulName = document.getElementById("list-disc space-y-1");
+        var ulName = document.getElementById("nameStudent");
 
         ulName.innerHTML = "";
         for (j = 0; j < students.length; j++) {
@@ -245,17 +245,27 @@
 
             ulName.appendChild(liSet);
 
-            liSet.innerHTML = students[j].firstName + "_" + students[j].lastName;
+            liSet.innerHTML = students[j].firstName + " " + students[j].lastName;
+
+
             liSet.setAttribute("class", "flex items-start cursor-pointer hover:bg-gray-200 rounded-2xl ");
             liSet.setAttribute("onClick", 'showDetailStudent(' + j + ')');
+<<<<<<< HEAD:studentsList.html
             liSet.setAttribute("id", 'lap' + j );
+=======
+            liSet.setAttribute("id", 'lap' + j);
+
+
+>>>>>>> main:Training project/studentsList.html
         }
     }
 
 
     ////onclick in li list student show detail in front inputs
     var SelectedStudentIndex = 0;
+    var selectedTagIndex = 0;
     function showDetailStudent(index) {
+<<<<<<< HEAD:studentsList.html
         for (i = 0; i < students.length; i++) {
 
             document.getElementById('lap' + i ).classList.remove("bg-red-200");
@@ -264,31 +274,20 @@
         }
         SelectedStudentIndex = students[index].id;
         document.getElementById('lap' + index ).classList.add("bg-red-200");
+=======
+       
+        SelectedStudentIndex = students[index].id;
+       
+        selectedTagIndex = index;
+
+>>>>>>> main:Training project/studentsList.html
         document.getElementById("fname").value = students[index].firstName;
         document.getElementById("lname").value = students[index].lastName;
         document.getElementById("job").value = students[index].job;
         document.getElementById("dateBirth").value = students[index].dateBirth;
         document.getElementById("code").value = students[index].code;
-        // var lessonDiv = document.getElementById("lessons");
-        // lessonDiv.innerHTML = '';
 
-        // for (k = 0; k < students.length; k++) {
-
-        //     for (p = 0; p < classes.length; p++) {
-
-        //         if (students[index].lesson[k] === classes[p].id) {
-        //             var span = document.createElement("span");
-        //             lessonDiv.appendChild(span);
-        //             span.setAttribute("class", "bg-blue-200 p-1 rounded-2xl m-1")
-        //             span.innerHTML = classes[p].title;
-        //             document.getElementById("pic").style.display = "flex";
-        //             document.getElementById("pic").style.backgroundImage = "url('image/" + students[index].picProfile + "')";
-        //         }
-
-        //     }
-        // }
-
-          renderingStudent()
+        renderingStudent()
 
     }
     ////load classes and set li list 
@@ -306,7 +305,8 @@
     }
     ///onclick in classes li show detail
 
-    var selectClassIndex = 0;
+    var selectIndexId = 0;
+    var selectedClassIndex = 0;
     var lessonsFullCapacity = [];
     function showClassDetail(index) {
 
@@ -319,7 +319,8 @@
         document.getElementById("list").style.display = "flex";
         document.getElementById("numStudent").style.display = "flex";
         document.getElementById("capaityParent").style.display = "flex";
-        selectClassIndex = classes[index].id;
+        selectIndexId = classes[index].id;
+        selectedClassIndex = index;
         document.getElementById("teacher").value = classes[index].teacher;
         document.getElementById("classNumber").value = classes[index].id;
         document.getElementById("className").value = classes[index].title;
@@ -428,6 +429,7 @@
         closeModal();
 
 
+
         //get value in modal
         let family = document.getElementById("lnModal").value;
         let name = document.getElementById("fnModal").value;
@@ -435,13 +437,15 @@
         let yearM = document.getElementById("ybModal").value
         let codM = document.getElementById("coModal").value;
         let lessStu = studentLessonPassed();
-
+        let newIdStudent = getUniqueId();
+        
         ///// set in li
         if (name === "" || family === "" || jobM === "" || Number.isNaN(yearM) || codM === "") {
             alert("enter your all input");
             openModal();
 
         } else {
+<<<<<<< HEAD:studentsList.html
             students.push({ firstName: name, 
                             lastName: family, 
                             job: jobM, 
@@ -455,15 +459,25 @@
 
             showDetailStudent(students.length -1);
 
+=======
+            students.push({ firstName: name, lastName: family, job: jobM, dateBirth: yearM, code: codM, lesson: lessStu, id: newIdStudent });
+            selectedTagIndex=students.length - 1;
+            showDetailStudent(selectedTagIndex);
+          
+           
+          
+            document.getElementById("lap"+selectedTagIndex).classList.add("bg-red-200");
+>>>>>>> main:Training project/studentsList.html
         }
+        
     }
     ////
     ////
     ///add class
     function addClass() {
 
-        let plus = 0;
-
+        
+        let plus=0;
         closeClassModal()
         let newTeacher = document.getElementById("newTeacher").value;
         let newClassNum = document.getElementById("newClassNumber").value;
@@ -474,10 +488,10 @@
 
             openClassModal()
         } else {
-            classes.push({ title: newClass, id: parseInt(newClassNum), teacher: newTeacher, capacity: capacityClass, numberOfStudents: plus++ });
-            renderingClass()
+            classes.push({ title: newClass, id:getUniqueIdForClass(), teacher: newTeacher, capacity: capacityClass, numberOfStudents: plus++ });
+            
         }
-
+       
         loadClassSideBar()
 
 
@@ -491,12 +505,14 @@
         let newCod = document.getElementById("code").value;
 
         for (k = 0; k < students.length; k++) {
+
             if (students[k].id == SelectedStudentIndex) {
                 students[k].firstName = newname;
                 students[k].lastName = newLname;
                 students[k].job = newJob;
                 students[k].dateBirth = newBirth;
                 students[k].code = newCod;
+<<<<<<< HEAD:studentsList.html
                
                 document.getElementById("lap"+k ).classList.add("bg-red-200");  // When activated, this line gives an error, but it works and does not allow it to complete all its function ???
                
@@ -504,6 +520,12 @@
                 loadstudents();
                 renderingStudent();
             
+=======
+
+
+
+
+>>>>>>> main:Training project/studentsList.html
 
 
             } else if (newname == "" || newLname == "" || newJob == "" || newBirth == "" || newCod == "") {
@@ -511,9 +533,15 @@
             }
 
 
+
         }
+
+
+        loadstudents();
+        renderingStudent();
         renderingClass();
-        
+        document.getElementById("lap" + selectedTagIndex).classList.add("bg-red-200");
+
     }
     ///update and edit class
     function updateClass() {
@@ -522,20 +550,22 @@
         let newClassNumber = document.getElementById("classNumber").value;
         let newcapacity = document.getElementById("classCapacytyInput").value;
         for (n = 0; n < classes.length; n++) {
-            if (classes[n].id == selectClassIndex) {
+            if (classes[n].id == selectIndexId) {
                 classes[n].title = newClassName;
                 classes[n].teacher = newTeacherName;
                 classes[n].id = newClassNumber;
                 classes[n].capacity = newcapacity;
                 loadClassSideBar();
-                renderingClass()
-                renderingStudent()
-                document.getElementById("li" + n).classList.add("bg-red-200");
+
+
 
             } else if (newClassName == "" || newTeacherName == "" || newClassNumber == "" || newcapacity == "") {
                 alert("enter your all input");
             }
         }
+        renderingClass()
+        renderingStudent()
+        document.getElementById("li" + selectedClassIndex).classList.add("bg-red-200");
     }
     function calculatingCapacity() {
         for (let r = 0; r < students.length; r++) {
@@ -550,15 +580,11 @@
     }
     ///;D
 
-    function random(arr) {
-        var item = arr[Math.floor(Math.random() * arr.length)];
-        return item;
-    }
     function renderingClass() {
         let pTag = document.getElementById("listStudent");
 
         for (k = 0; k < classes.length; k++) {
-            if (selectClassIndex == classes[k].id) {
+            if (selectIndexId == classes[k].id) {
                 let result = classes[k].capacity - classes[k].numberOfStudents;
                 if (result <= 0) {
                     document.getElementById("or").innerHTML = "FULL";
@@ -576,9 +602,9 @@
         pTag.innerHTML = "";
         for (b = 0; b < students.length; b++) {
             for (c = 0; c < students[b].lesson.length; c++) {
-                if (selectClassIndex == students[b].lesson[c]) {
+                if (selectIndexId == students[b].lesson[c]) {
                     let list = document.getElementById("list");
-                    pTag.classList.add("flex")
+                    pTag.classList.add("flex");
                     let lineP = document.createElement("span");
                     pTag.appendChild(lineP);
                     lineP.setAttribute("class", "bg-blue-200 cursor-pointer hover:bg-gray-200 rounded-2xl p-1 m-1");
@@ -586,19 +612,22 @@
                 }
             }
         }
-
+        loadstudents()
     }
     function renderingStudent() {
+        loadstudents()
         var lessonsStudent = [];
         var lessonDiv = document.getElementById("lessons");
-       
+
         for (d = 0; d < students.length; d++) {
+            document.getElementById("lap"+d).classList.remove("bg-red-200");
+
             if (SelectedStudentIndex == students[d].id) {
                 ///add image for student
                 document.getElementById("pic").style.backgroundImage = "url('image/" + students[d].picProfile + "')";
                 ///update index with lessons id
                 lessonsStudent = students[d].lesson;
-               
+
             }
         }
         lessonDiv.innerHTML = '';
@@ -612,10 +641,13 @@
                     span.setAttribute("class", "bg-blue-200 p-1 rounded-2xl m-1")
                     span.innerHTML = classes[w].title;
                     document.getElementById("pic").style.display = "flex";
-                
+
                 }
             }
         }
+        
+        document.getElementById("lap" + selectedTagIndex).classList.add("bg-red-200");
+        loadClassSideBar()
     }
 
 
@@ -626,6 +658,55 @@
             reversed += str[i];
         }
         return reversed;
+    }
+
+
+
+    function random() {
+        let item = Math.floor(Math.random() * 101)
+        return item;
+    }
+
+
+    ///
+
+
+    function isUnique(arr, num) {
+        let len = arr.length;
+        let isUniq = true;
+        for (i = 0; i < len; i++) {
+            if (arr[i] == num) {
+                isUniq = false;
+            }
+        }
+        return isUniq;
+    }
+
+    function getUniqueId() {
+        let existStudent = [];
+        for (j = 0; j < students.length; j++) {
+            existStudent.push(students[j].id);
+        }
+        let num = random()
+        while (!isUnique(existStudent, num)) {
+            num = random()
+
+        }
+
+        return num;
+
+
+    }
+    function getUniqueIdForClass(){
+        let existClass=[];
+        for(k=0;k<classes.length;k++){
+         existClass.push(classes[k].id);
+        }
+        let numId=random()
+        while (!isUnique(existClass,numId)) {
+            numId=random()
+        }
+        return numId;
     }
 
 </script>

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d2d35f7979.js" crossorigin="anonymous"></script>
+
+
+    <title>Document</title>
+</head>
+<style>
+    #modal {
+        width: 100%;
+        height: 100vh;
+        display: none;
+        justify-content: center;
+        position: absolute;
+        background-color: #000000ab;
+        align-items: center;
+        font-weight: bolder;
+        z-index: 1
+    }
+</style>
+
+<body>
+    <div id="modal">
+        <div id="center" class="flex flex-col bg-blue-100  p-8 rounded-xl relative">
+            <div class="flex">
+                <div class="flex flex-col justify-center">
+                    <span class="m-1  p-2">task</span>
+
+
+                    <div class="flex flex-col ">
+                        <div class="m-1"><input type="text" id="newTask" value="" placeholder=""
+                                class="w-96 rounded-xl border-4 border-gray-100 p-1"></div>
+
+                        <button onclick="closeModal()"
+                            class="bg-red-400 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-gray-200 focus:ring-opacity-50 p-1 rounded-2xl active:bg-green-700 absolute top-1 right-2 ... ">X</button>
+                    </div>
+
+                </div>
+                <div>
+                    <select id="hour" class=" border bg-white rounded px-3 py-2 outline-none">
+                        <option value="1" class="py-1">1</option>
+                        <option value="2" class="py-1">2</option>
+                        <option value="3" class="py-1">3</option>
+                        <option value="4" class="py-1">4</option>
+                        <option value="5" class="py-1">5</option>
+                        <option value="6" class="py-1">6</option>
+                        <option value="7" class="py-1">7</option>
+                        <option value="8" class="py-1">8</option>
+                        <option value="9" class="py-1">9</option>
+                        <option value="10" class="py-1">10</option>
+                        <option value="11" class="py-1">11</option>
+                    </select>
+                    <select id="minut" class=" border bg-white rounded px-3 py-2 outline-none">
+                        <option value="10" class="py-1">10</option>
+                        <option value="20" class="py-1">20</option>
+                        <option value="30" class="py-1">30</option>
+                        <option value="40" class="py-1">40</option>
+                        <option value="50" class="py-1">50</option>
+
+                    </select>
+                    <select id="days" class=" border bg-white rounded px-3 py-2 outline-none">
+                        <option value="Mon" class="py-1">Mon</option>
+                        <option value="Sun" class="py-1">Sun</option>
+                        <option value="Sat" class="py-1">Sat</option>
+                        <option value="Tue" class="py-1">Tue</option>
+                        <option value="Wed" class="py-1">Wed</option>
+                        <option value="Thu" class="py-1">Thu</option>
+                        <option value="Fri" class="py-1">Fri</option>
+
+                    </select>
+                    <select id="status" class=" border bg-white rounded px-3 py-2 outline-none">
+                        <option value="Todo" class="py-1">Todo</option>
+                        <option value="inProgress" class="py-1">inProgress</option>
+                        <option value="done" class="py-1">done</option>
+                    </select>
+                </div>
+                <button onclick="pushTask() "
+                    class="transition duration-500 ease-in-out bg-blue-300 hover:bg-red-400 transform hover:-translate-y-1 hover:scale-110  p-2 rounded-2xl w-16  absolute right-2 bottom-1 ">add</button>
+            </div>
+        </div>
+    </div>
+    <div id="container" class="md:container md:mx-auto  h-screen flex rounded-2xl">
+
+        <div class="w-2/6 bg-red-100 m-1 rounded-2xl ">
+            <div class="font-bold py-4 w-full h-16 bg-black rounded-t-2xl text-white text-center text-2xl font-serif">
+                to
+                do</div>
+            <div class="flex justify-center"><i
+                    class="fas fa-plus green-100 text-2xl py-4 place-content-center transition duration-500 ease-in-out   transform hover:-translate-y-1 hover:scale-110"
+                    onclick="openModal(1)"></i></div>
+            <ul id="tasks" class="w-full h-full flex flex-col items-center"></ul>
+        </div>
+        <div class="w-2/6 bg-gray-100 m-1 rounded-2xl">
+            <div class=" font-bold py-4 w-full h-16 bg-black rounded-t-2xl text-white text-center text-2xl font-serif">
+                in progress</div>
+            <div class="flex justify-center"><i
+                    class="fas fa-marker green-100 text-2xl py-4 place-content-center transition duration-500 ease-in-out   transform hover:-translate-y-1 hover:scale-110"
+                    onclick="openModal(2)"></i></div>
+
+            <ul id="progress" class="w-full h-full flex flex-col items-center"></ul>
+        </div>
+        <div class="w-2/6 bg-green-100 m-1 rounded-2xl">
+            <div class=" font-bold py-4 w-full h-16 bg-black rounded-t-2xl text-white text-center text-2xl font-serif">
+                done</div>
+            <div class="flex justify-center"><i
+                    class="fas fa-sync green-100 text-2xl py-4 place-content-center transition duration-500 ease-in-out   transform hover:-translate-y-1 hover:scale-110"
+                    onclick="openModal(3)"></i></div>
+
+            <ul id="done" class="w-full h-full flex flex-col items-center"></ul>
+        </div>
+    </div>
+
+</body>
+<script>
+    var listOfTask = [
+        { task: "carwash", time: "2 : 30", day: "Sat", status: "Todo", id: 3 },
+        { task: "shoping", time: "1 : 40", day: "Wen", status: "inProgress", id: 4 },
+        { task: "resturant", time: "2 : 30", day: "Sun", status: "done", id: 1 },
+        { task: "Hiking", time: "4 : 30", day: "Fri", status: "Todo", id: 5 },
+        { task: "banking", time: "1 : 40", day: "Tue", status: "inProgress", id: 6 },
+        { task: "Real Estate", time: "1 : 30", day: "Mon", status: "done", id: 8 },
+    ]
+
+
+    var desiredOutcome = [
+        {
+            status: 'todo',
+            list: [
+                { task: "carwash", time: "2 : 30", day: "Sat", status: "Todo" },
+                { task: "Hiking", time: "4 : 30", day: "Fri", status: "Todo" }
+            ]
+        },
+        {
+            status: 'inProgress',
+            list: [
+                { task: "shoping", time: "1 : 40", day: "Wen", status: "inProgress" },
+                { task: "banking", time: "1 : 40", day: "Tue", status: "inProgress" }
+            ]
+        },
+        {
+            status: 'done',
+            list: [
+                { task: "resturant", time: "2 : 30", day: "Sun", status: "done" },
+                { task: "Hiking", time: "4 : 30", day: "Fri", status: "Todo" },
+                { task: "banking", time: "1 : 40", day: "Tue", status: "inProgress" },
+                { task: "Real Estate", time: "1 : 30", day: "Mon", status: "done" },
+            ]
+        }
+    ]
+
+    loadTaskToList()
+    ///
+    var listDone;
+    function loadTaskToList() {
+        listDone = getStatusList();
+        let ul = document.getElementById("tasks");
+        let ulProgress = document.getElementById("progress");
+        let ulDone = document.getElementById("done");
+        ul.innerHTML = "";
+        ulDone.innerHTML = "";
+        ulProgress.innerHTML = "";
+        for (i = 0; i < listDone.length; i++) {
+            for (s = 0; s < listDone[i].list.length; s++) {
+
+                let li = document.createElement("li");
+                let spanDay = document.createElement("span");
+                let spanTime = document.createElement("span");
+                li.className = " w-80 max-w-lg   cursor-pointer text-center text-2xl flex justify-between border-2 border-gray-300 rounded-xl  bg-white  ";
+                spanDay.className = "font-serif font-bold bg-blue-200  rounded-xl  ";
+                spanTime.className = "font-serif font-bold text-gray-500 hover:text-blue-600 rounded-xl  ";
+                li.innerText = listDone[i].list[s].task;
+                li.appendChild(spanTime);
+
+                li.appendChild(spanDay);
+                spanTime.innerHTML = listDone[i].list[s].time;
+
+                spanDay.innerText = listDone[i].list[s].day;
+                li.setAttribute("onmousedown", "taskMoveMouse()");
+                li.setAttribute("id", listDone[i].list[s].id)
+                if (listDone[i].status == "Todo") {
+                    ul.appendChild(li);
+
+                } if (listDone[i].status == "inProgress") {
+                    ulProgress.appendChild(li);
+                } if (listDone[i].status == "done") {
+                    ulDone.appendChild(li);
+                }
+
+            }
+
+
+        }
+    }
+
+
+    function taskMoveMouse() {
+
+        let li = event.target;
+        let liValue = li.id;
+        let ul = document.getElementById("tasks");
+        li.style.position = "absolute";
+        li.style.zIndex = "1";
+
+
+        function moveAt(pageX, pageY) {
+            li.style.left = pageX - li.offsetWidth / 2 + "px";
+            li.style.top = pageY - li.offsetHeight / 2 + "px";
+
+        }
+        moveAt(event.pageX, event.pageY);
+        function onMouseMove(event) {
+            moveAt(event.pageX, event.pageY);
+        }
+        li.addEventListener("mousemove", onMouseMove);
+        li.onmouseup = function (event) {
+
+
+            li.removeEventListener("mousemove", onMouseMove);
+            let liSelect = document.elementFromPoint(event.screenX, event.screenY);
+
+
+            for (q = 0; q < listOfTask.length; q++) {
+
+
+
+                if (liSelect == document.getElementById("tasks")) {
+                    if (listOfTask[q].id == liValue) {
+                        listOfTask[q].status = "Todo";
+
+                    }
+
+                } if (liSelect == document.getElementById("progress")) {
+                    if (listOfTask[q].id == liValue) {
+                        listOfTask[q].status = "inProgress";
+
+                    }
+                } if (liSelect == document.getElementById("done")) {
+                    if (listOfTask[q].id == liValue) {
+                        listOfTask[q].status = "done";
+
+                    }
+                }
+
+
+                loadTaskToList()
+            }
+        }
+
+
+
+    }
+
+
+    function inProgress(i) {
+        let ulProgress = document.getElementById("progress");
+        ulProgress.appendChild(document.getElementById("p" + i))
+    }
+    function clearTask(i) {
+        document.getElementById("p" + i).style.display = "none";
+    }
+    ////modal
+    function openModal(i) {
+        document.getElementById("newTask").value = "";
+        document.getElementById("modal").style.display = "flex";
+        if (i == 1) {
+            document.getElementById("status").value = "Todo";
+        }
+        if (i == 2) {
+            document.getElementById("status").value = "inProgress";
+        }
+        if (i == 3) {
+            document.getElementById("status").value = "done";
+        }
+    }
+    function closeModal() {
+        document.getElementById("modal").style.display = "none";
+
+
+
+    }
+
+
+    ////
+
+    function pushTime() {
+
+        var e = document.getElementById("hour");
+        var huorUser = e.value;
+        var m = document.getElementById("minut");
+        var minUser = m.value;
+
+        var periodOfTime = huorUser + " : " + minUser;
+        return periodOfTime;
+    }
+    function daysTask() {
+        var m = document.getElementById("days");
+        var dayUser = m.value;
+        return dayUser;
+    }
+    function getStatusTask() {
+        var m = document.getElementById("status");
+        var statusUser = m.value;
+        return statusUser;
+    }
+    function pushTask() {
+        closeModal()
+        let newTask = document.getElementById("newTask").value;
+        let newTime = pushTime();
+        let newTaskDay = daysTask()
+        let statusTask = getStatusTask()
+        let newId = getUniqueId();
+        if (newTask == "") {
+            alert("enter your all input");
+
+        } else {
+            listOfTask.push({ task: newTask, time: newTime, day: newTaskDay, status: statusTask, id: newId });
+        }
+
+        loadTaskToList()
+
+
+    }
+
+    //
+
+    function getStatusList() {
+        let len = listOfTask.length;
+        let statusList = [];
+        let done = [];
+        var list = [];
+        let stat;
+
+
+        for (l = 0; l < len; l++) {
+
+            if (statusList.indexOf(listOfTask[l].status) === -1 && listOfTask[l].status !== '') {
+                statusList.push(listOfTask[l].status);
+            }
+
+        }
+        for (i = 0; i < statusList.length; i++) {
+            var statusTasks = [];
+            for (c = 0; c < listOfTask.length; c++) {
+                if (statusList[i] == listOfTask[c].status) {
+                    statusTasks.push(listOfTask[c])
+
+                }
+            }
+            done.push({ status: statusList[i], list: statusTasks });
+
+        }
+
+
+        return done;
+
+    }
+    /////arrow function
+    var toDo = listOfTask.map(function (listOfTask) {
+        return listOfTask.task;
+    })
+    var time = listOfTask.map((listOfTask) => listOfTask.time);
+
+    ///
+    function random() {
+        let item = Math.floor(Math.random() * 101)
+        return item;
+    }
+
+    function isUnique(arr, num) {
+        let len = arr.length;
+        let isUniq = true;
+        for (i = 0; i < len; i++) {
+            if (arr[i] == num) {
+                isUniq = false;
+            }
+        }
+        return isUniq;
+    }
+    function getUniqueId() {
+        let existTask = [];
+        for (j = 0; j < listOfTask.length; j++) {
+            existTask.push(listOfTask[j].id);
+        }
+        let num = random()
+        while (!isUnique(existTask, num)) {
+            num = random()
+
+        }
+
+        return num;
+
+
+    }
+
+
+    ////valid or not valid
+    function chekEmail(eml) {
+        let valid = true;
+        let len = eml.length;
+        for (i = 1; i < len; i++) {
+            if (eml.indexOf("@") == -1) {
+                valid = false;
+
+            }
+            return valid;
+        }
+    }
+    ///
+    function chek(eml) {
+//
+        let a = eml.search("@");
+        if (a == -1) {
+            return false;
+        }
+        return true;
+    }
+    ///
+    function matchValue(eml){
+let result=eml.match(/[@]/g);
+let result2=eml.match(/[0-9]/g)
+let result3=eml.match(/\d/g);
+
+console.log(result);
+console.log(result2);
+console.log(result3);
+
+    }
+</script>
+
+</html>
