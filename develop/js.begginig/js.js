@@ -67,3 +67,15 @@ function person1(input) {
 }
 let max1 = person1(3);
 console.log(max1);
+
+function greet(volunteer1) {
+  return "Hello" + volunteer1;
+}
+let calc2 = greet("mahtab");
+console.log(calc2);
+
+function greet(a) {
+  return 'Hello ' + a +'!';
+}
+let b = greet("<parameter>");
+console.log(b);
