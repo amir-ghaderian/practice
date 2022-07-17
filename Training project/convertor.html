@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="flex justify-center">
+        <input class="border-2 rounded-lg border-gray-800" type="number" id="a1" placeholder="kilometr"
+            onkeyup="convert()">
+        <p id="p"></p>
+    </div>
+
+</body>
+<script>
+    function convert() {
+        let inClude = document.getElementById("a1").value;
+        let mile = inClude * 0.621371;
+        let p = document.getElementById("p");
+        p.innerHTML = mile + " " + "Mile";
+    }
+
+
+
+    var array = [18, -42, 21, 6, -50, 1, -0.3, -0.0000001];
+    array = array.filter(function (x) {
+        return x > 0;
+
+    });
+    // console.log(array);
+
+
+    function removeSpace(str) {
+        str = str.replace(/ /g, '');
+        return str;
+    }
+    function removeSpace2(str) {
+        let a = str.split(" ").join("");
+        return a;
+    }
+
+
+
+    function divisibleOfTen(str) {
+        let len = str.length - 1;
+        let lastDigit = str[len];
+        let pars = parseInt(lastDigit);
+        if (pars === 0) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+    ////arrow function filter negative
+    var filterNegative = array.filter((x) => x > 0);
+    console.log(filterNegative);
+
+
+
+    ////
+    /////sort negative without filter
+    function removeNegative(arr) {
+        let len = arr.length;
+        let arr2 = [];
+        for (i = -0; i < len; i++) {
+            if (arr[i] > 0) {
+                arr2.push(arr[i])
+            }
+        }
+        return arr2;
+    }
+</script>
+
+</html>
