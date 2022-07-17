@@ -250,9 +250,13 @@
 
             liSet.setAttribute("class", "flex items-start cursor-pointer hover:bg-gray-200 rounded-2xl ");
             liSet.setAttribute("onClick", 'showDetailStudent(' + j + ')');
+<<<<<<< HEAD:studentsList.html
+            liSet.setAttribute("id", 'lap' + j );
+=======
             liSet.setAttribute("id", 'lap' + j);
 
 
+>>>>>>> main:Training project/studentsList.html
         }
     }
 
@@ -261,11 +265,22 @@
     var SelectedStudentIndex = 0;
     var selectedTagIndex = 0;
     function showDetailStudent(index) {
+<<<<<<< HEAD:studentsList.html
+        for (i = 0; i < students.length; i++) {
+
+            document.getElementById('lap' + i ).classList.remove("bg-red-200");
+
+
+        }
+        SelectedStudentIndex = students[index].id;
+        document.getElementById('lap' + index ).classList.add("bg-red-200");
+=======
        
         SelectedStudentIndex = students[index].id;
        
         selectedTagIndex = index;
 
+>>>>>>> main:Training project/studentsList.html
         document.getElementById("fname").value = students[index].firstName;
         document.getElementById("lname").value = students[index].lastName;
         document.getElementById("job").value = students[index].job;
@@ -430,6 +445,21 @@
             openModal();
 
         } else {
+<<<<<<< HEAD:studentsList.html
+            students.push({ firstName: name, 
+                            lastName: family, 
+                            job: jobM, 
+                            dateBirth: yearM, 
+                            code: codM, 
+                            lesson: lessStu, 
+                            id: 72  // this is temporary. you should write a method for this: getAUniqeId(students)
+                        });
+            loadstudents()
+            renderingClass()
+
+            showDetailStudent(students.length -1);
+
+=======
             students.push({ firstName: name, lastName: family, job: jobM, dateBirth: yearM, code: codM, lesson: lessStu, id: newIdStudent });
             selectedTagIndex=students.length - 1;
             showDetailStudent(selectedTagIndex);
@@ -437,6 +467,7 @@
            
           
             document.getElementById("lap"+selectedTagIndex).classList.add("bg-red-200");
+>>>>>>> main:Training project/studentsList.html
         }
         
     }
@@ -481,10 +512,20 @@
                 students[k].job = newJob;
                 students[k].dateBirth = newBirth;
                 students[k].code = newCod;
+<<<<<<< HEAD:studentsList.html
+               
+                document.getElementById("lap"+k ).classList.add("bg-red-200");  // When activated, this line gives an error, but it works and does not allow it to complete all its function ???
+               
+              
+                loadstudents();
+                renderingStudent();
+            
+=======
 
 
 
 
+>>>>>>> main:Training project/studentsList.html
 
 
             } else if (newname == "" || newLname == "" || newJob == "" || newBirth == "" || newCod == "") {
