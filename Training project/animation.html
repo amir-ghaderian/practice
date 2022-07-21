@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #animat {
+            position: fixed;
+            inset: 0 -50% 0 -50%;
+            animation: slide 3s ease-in-out infinite alternate;
+            background-image: linear-gradient(60deg, #6c3 50%, #09f 50%);
+            opacity: .5;
+        }
+
+        .b {
+            animation-direction: alternate-reverse;
+            animation-duration: 5s;
+        }
+
+        .c {
+            animation-duration: 5s;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(-25%);
+            }
+
+            100% {
+                transform: translateX(25%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="animat" class="a"></div>
+    <div id="animat" class="b"></div>
+    <div id="animat" class="c"></div>
+</body>
+
+</html>
