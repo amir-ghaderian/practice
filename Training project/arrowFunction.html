@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    const obj = [{ name: 'amiir', age: 36, job: 'programmer' },
+    { name: 'ali', age: 34, job: 'carWash' },
+    { name: 'akbar', age: 66, job: 'docter' }];
+
+
+
+    var age = obj.map((a) => a.age);
+    var name = obj.map((b) => b.name);
+    var job = obj.map((c) => c.job);
+    var filt = obj.filter((d) => d.name.length > 3);
+    var fil1 = obj.filter((f) => f.age > 36);
+    var fil2 =obj.filter( (g) => g.job ==='carWash')
+    var fin1=obj.find( (h) =>h.age>35)////return first true 
+
+    console.log(fin1)
+</script>
+
+</html>
