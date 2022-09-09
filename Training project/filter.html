@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #player {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+
+    }
+
+    #p {
+        background-color: aquamarine;
+    }
+</style>
+
+<body>
+    <ul id="palyer">
+        <li onclick="filter(0)" id="p">zelatan </li>
+        <li onclick="filter(1)" id="p">ronaldo </li>
+        <li onclick="filter(2)" id="p"> mesi</li>
+        <li onclick="filter(3)" id="p"> benzema</li>
+    </ul>
+</body>
+<script>
+    const teams = [{ teamName: "manchester", since: 1920, bestPlayer: ['rony', 'ronaldo', 'gigs'] },
+    { teamName: "juventus", since: 1918, bestPlayer: ['zidan', 'delpiero', 'nedved'] },
+    { teamName: "ACmilan", since: 1916, bestPlayer: ['maldini', 'rivaldo', 'zelatan'] },
+    { teamName: "barcelona", since: 1936, bestPlayer: ['mesi', 'rivaldo', 'xavi'] },
+    { teamName: "real Madrid", since: 1916, bestPlayer: ['ronaldo', 'benzema', 'modrich'] },
+
+    ]
+    function filter(i) {
+      console.log(i)
+      console.log(event.target)
+    }
+</script>
+
+</html>
