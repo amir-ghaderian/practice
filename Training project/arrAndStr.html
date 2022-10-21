@@ -14,26 +14,21 @@
 <script>
     var arr1, arr2 = [];
     function hasCom(arr1, arr2) {
-
-
-
         for (i = 0; i < arr1.length; i++) {
-            elemnet = arr1[i];
-            for (j = 0; j < arr2.length; j++) {
-                element2 = arr2[j]
-                if (elemnet !== element2) {
-                    result = false
-                } else {
-                    result = true
-                }
-
+            element = arr1[i]
+            if (arr2.indexOf(element == -1)) {
+                result = true
+            }
+             if (arr2.indexOf(element) >= 0) {
+                result = false
             }
 
 
-        }
-        return result;
-    }
 
+
+        }
+        return result
+    }
 
 </script>
 
