@@ -32,13 +32,19 @@
         return result
     }
     function countWords(str) {
-        const arr = str.split(' ');
-        // for(let i=0;i<str.length;i++){
-        // console.log(str[i])
-        // }
+        space = 0;
+       let item;
+        for (let i = 0; i < str.length; i++) { 
+            if (str[i] === " ") {
+                space += 1
+            }
+        }
+        if(str.indexOf("  ")>-1){
+                console.log("have to space")
+            }
 
+        console.log(space)
 
-        return arr.length;
     }
 
 
