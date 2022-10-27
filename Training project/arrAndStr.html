@@ -9,7 +9,7 @@
 </head>
 
 <body>
-
+<button onclick="gozChos()" >print</button>
 </body>
 <script>
     var arr1, arr2 = [];
@@ -33,17 +33,33 @@
     }
     function countWords(str) {
         space = 0;
-       let item;
-        for (let i = 0; i < str.length; i++) { 
+        let item;
+        for (let i = 0; i < str.length; i++) {
             if (str[i] === " ") {
                 space += 1
             }
         }
-        if(str.indexOf("  ")>-1){
-                console.log("have to space")
-            }
+        if (str.indexOf("  ") > -1) {
+            console.log("have to space")
+        }
 
         console.log(space)
+
+    }
+    function gozChos() {
+        for ( i = 1; i <= 1000; i++) {
+            if (i % 3 && i % 5) {
+                document.write(i);
+            } else {
+                if (i % 3 == 0) {
+                    document.write("goz");
+                }
+                if (i % 5 == 0) {
+                    document.write("chos");
+                }
+            }
+            document.write('<br>'); 
+        }
 
     }
 
