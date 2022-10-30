@@ -9,7 +9,7 @@
 </head>
 
 <body>
-<button onclick="gozChos()" >print</button>
+    <button onclick="gozChos()">print</button>
 </body>
 <script>
     var arr1, arr2 = [];
@@ -47,7 +47,7 @@
 
     }
     function gozChos() {
-        for ( i = 1; i <= 1000; i++) {
+        for (i = 1; i <= 1000; i++) {
             if (i % 3 && i % 5) {
                 document.write(i);
             } else {
@@ -58,12 +58,23 @@
                     document.write("chos");
                 }
             }
-            document.write('<br>'); 
+            document.write('<br>');
         }
 
     }
+    function haseCammen() {
+        exist=false
+        for (i = 0; i < arguments.length; i++) {
+            for (j = 0; j < arguments[i].length; j++) {
+                console.log(arguments[i][j])
+               
 
-
+                
+            
+        }
+    }
+  
+    }
 </script>
 
 </html>
