@@ -62,16 +62,27 @@
         }
 
     }
+
     function haseCammen() {
-        exist = false
-        for (i = 0; i < arguments.length; i++) {
-            current = arguments[i];
-            for (j = 0; j < current.length; j++) {
-              console.log(current.indexOf(arguments[j]))
-              console.log(current)
+        let len = arguments.length;
+        for (i = 0; i < len; i++) {
+            for(j=0;j<arguments[i].length;j++){
+            goz = arguments[i].filter((index) => arguments[i].indexOf(arguments[i][j]) !== -1)
             }
         }
-        return exist;
+
+
+        // exist = false
+        // len = arguments.length - 1;
+        // for (i = len; i >= 0; i--) {
+        //     current = arguments[i]
+        //     for (a = 0; a < arguments[i].length; a++) {
+        //         goz = arguments[i][a];
+        //     }
+        //     console.log(current.indexOf(goz))
+
+        // }
+        console.log(goz)
     }
 
 </script>
