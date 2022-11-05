@@ -64,25 +64,23 @@
     }
 
     function haseCammen() {
-        let len = arguments.length;
-        for (i = 0; i < len; i++) {
-            for(j=0;j<arguments[i].length;j++){
-            goz = arguments[i].filter((index) => arguments[i].indexOf(arguments[i][j]) !== -1)
+
+        currnt = []
+        exist = false;
+        for (i = 0; i < arguments.length; i++) {
+            currnt = arguments[i]
+            for (j = 1; j <= arguments[i].length; j++) {
+                goz = arguments[i][j]
+                console.log(currnt.indexOf(goz))
+                // if (currnt.indexOf(arguments[i][j]) > 0) {
+                //     exist = true
+                // }
+
             }
+
         }
-
-
-        // exist = false
-        // len = arguments.length - 1;
-        // for (i = len; i >= 0; i--) {
-        //     current = arguments[i]
-        //     for (a = 0; a < arguments[i].length; a++) {
-        //         goz = arguments[i][a];
-        //     }
-        //     console.log(current.indexOf(goz))
-
-        // }
-        console.log(goz)
+/////agha to ro rohe emam hint bede....:(((
+        return exist
     }
 
 </script>
