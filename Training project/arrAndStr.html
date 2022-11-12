@@ -64,23 +64,16 @@
     }
 
     function haseCammen() {
-
-        currnt = []
-        exist = false;
-        for (i = 0; i < arguments.length; i++) {
-            currnt = arguments[i]
-            for (j = 1; j <= arguments[i].length; j++) {
-                goz = arguments[i][j]
-                console.log(currnt.indexOf(goz))
-                // if (currnt.indexOf(arguments[i][j]) > 0) {
-                //     exist = true
-                // }
-
-            }
-
+        let len = arguments.length;
+        let first = arguments[0];
+        for (i = len; i <= 1; i--) {
+            let antar = hasCom(first, arguments[i])
+            console.log(antar)
         }
-/////agha to ro rohe emam hint bede....:(((
-        return exist
+
+
+
+
     }
 
 </script>
