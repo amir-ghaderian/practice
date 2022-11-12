@@ -64,13 +64,14 @@
     }
 
     function haseCammen() {
-        let len = arguments.length;
-        let first = arguments[0];
-        for (i = len; i <= 1; i--) {
-            let antar = hasCom(first, arguments[i])
-            console.log(antar)
-        }
+        let check;
+        for (i = arguments.length - 1; i > 1; i--) {
+            let first = arguments[0];
 
+            check = hasCom(first, arguments[i])
+
+        }
+        console.log(check)
 
 
 
