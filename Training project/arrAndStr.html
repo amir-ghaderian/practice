@@ -65,14 +65,27 @@
 
     function haseCammen() {
         let check;
-        pr = 0;
-        arrs = arguments.length-1
-        for (index=1; index <= arrs; index++) {
 
-            let first = arguments[pr];
-            pr++
-         
-            check = hasCom(first, arguments[index])
+
+        pr = 0;
+        len = arguments.length;
+        for (index = 1; index <= len; index++) {
+
+
+
+            first = arguments[pr]
+
+
+            check = hasCom(first, arguments[index]);
+            if (pr == len - 2) {
+                break
+            }
+            if (index == len - 1) {
+                pr++
+                index = pr;
+            }if(check==true){
+                return true
+            }
 
         }
         console.log(check)
