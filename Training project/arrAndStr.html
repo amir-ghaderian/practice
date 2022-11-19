@@ -67,36 +67,30 @@
         let check;
 
 
-        pr = 0;
-        len = arguments.length;
-        for (index = 1; index <= len; index++) {
 
 
+        for (index = 0; index < arguments.length; index++) {
+            for (i = 0; i < arguments.length; i++) {
+                if (index === i) {
+                    i++
+                }
 
-            first = arguments[pr]
-
-
-            check = hasCom(first, arguments[index]);
-            if (pr == len - 2) {
-                break
+                check = hasCom(arguments[index], arguments[i])
+                if (check == true) {
+                    return true
+                }
             }
-            if (index == len - 1) {
-                pr++
-                index = pr;
-            } if (check == true) {
-                return true
-            }
+
+
+
 
         }
         console.log(check)
-
-
-
     }
     function cLog(arr) {
         for (i = 0; i < arr.length; i++) {
             for (c = 0; c < arr.length; c++) {
-                 console.log(arr[i],arr[c])
+                console.log(arr[i], arr[c])
             }
 
         }
