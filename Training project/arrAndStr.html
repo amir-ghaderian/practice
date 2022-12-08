@@ -95,6 +95,21 @@
 
         }
     }
+    function harshad(input) {
+        let str = input.toString()
+        result = 0;
+        for (index = 0; index < str.length; index++) {
+            result += parseInt(str[index])
+        }
+     
+        if (str % result === 0) {
+            console.log("number" + str + "   is  harshad")
+        }
+        
+    }
+    for (i = 1; i < 100; i++) {
+       console.log(harshad(i))
+    }
 
 </script>
 
