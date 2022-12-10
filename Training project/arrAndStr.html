@@ -7,9 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>traning js Houman Task</title>
 </head>
+<style>
+    #parent {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+</style>
 
 <body>
     <button onclick="gozChos()">print</button>
+    <div id="parent"></div>
 </body>
 <script>
     var arr1, arr2 = [];
@@ -105,17 +114,28 @@
         if (str % result === 0) {
             return true
         } else {
-            return  false
+            return false
         }
 
     }
     function printFirstHarshad() {
+        let parent = document.getElementById("parent")
+       
         for (x = 0; x < 1000; x++) {
-        let check=  isHarshad(x)
-        if(check){
-            document.write(x+" ")
+            let check = isHarshad(x)
+            
+            if (check) {
 
-        }
+                let span = document.createElement("span");
+                parent.appendChild(span)
+
+                span.innerHTML = x ;
+                if (parent.children.length >= 100) {
+                    break
+                }
+
+
+            }
 
         }
     }
