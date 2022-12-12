@@ -118,26 +118,34 @@
         }
 
     }
+
+    let check;
     function printFirstHarshad() {
-        let parent = document.getElementById("parent")
-       
-        for (x = 0; x < 1000; x++) {
-            let check = isHarshad(x)
-            
+        i = 1;
+        arr = []
+        do {
+            check = isHarshad(i)
             if (check) {
-
-                let span = document.createElement("span");
-                parent.appendChild(span)
-
-                span.innerHTML = x ;
-                if (parent.children.length >= 100) {
-                    break
-                }
-
-
+                arr.push(i)
             }
+            i ++;
 
-        }
+        } while (arr.length < 100);
+        console.log(arr)
+
+///2
+        // let arr = [];
+        // for (i = 0; i < 1000; i++) {
+        //     check = isHarshad(i)
+        //     if (check) {
+        //         arr.push(i)
+
+        //     }
+        //     if (arr.length == 100) {
+        //         break
+        //     }
+        // }
+        // console.log(arr)
     }
 
 </script>
