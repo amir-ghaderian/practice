@@ -160,10 +160,23 @@
                 result -= 1
             } else if (input[i] === "I") {
                 result += 1;
+            } else if (input[i] === "X") {
+                result += 10;
             }
+
         }
 
-        console.log(result)
+        return result
+    }
+    function heightestDigit(str) {
+        let check = [];
+        for (l = 0; l < str.length; l++) {
+            check.push(parseInt(roman(str[l])))
+
+
+        }
+
+        console.log(Math.max(...check))
     }
 
 
