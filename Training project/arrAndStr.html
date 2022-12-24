@@ -169,37 +169,47 @@
         return result
     }
 
-    function comp(a, b) {
-
-        if (a < b) {
-
-            return true;
-        } else if (a >= b) {
-
-            return false;
-        }
-    }
-
-    function heightestDigit(str) {
-
-        let first = 0;
-        let result = 0;
+    function comp(str) {
+        let logic = false;
+        let location = 0;
+        let biggest = roman(str[0])
         for (i = 0; i < str.length; i++) {
-            check = comp(roman(str[first]), roman(str[i]))
-            if (check) {
-
-                result = roman(str[i]) - result;
-            } else {
-                result = roman(str[i]) + result;
+            if (biggest <= roman(str[i])) {
+                biggest = roman(str[i]);
+                location = i;
+                logic = {
+                    biggest,
+                    location
+                }
 
             }
 
         }
+        return logic
 
 
-
-        console.log(result)
     }
+
+    function heightestDigit(str) {
+        let result = 0;
+        let check = comp(str)
+        if (check == false) {
+            for (i = 0; i < str.length; i++) {
+                result += roman(str[i])
+            }
+
+        } else {
+        console.log(check.location);
+        console.log(check.biggest);
+           
+        }
+
+        return result;
+    }
+
+
+
+
 
 
 </script>
