@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+
 </body>
 <script>
-       function roman(input) {
+    function roman(input) {
         let result = 0;
         let txt = input.toUpperCase()
         if (txt === "I") {
@@ -21,8 +23,7 @@
             result = 10;
         } else if (txt === "L") {
             result = 50;
-        }
-        else if (txt === "C") {
+        } else if (txt === "C") {
             result = 100;
         } else if (txt === "M") {
             result = 1000;
@@ -31,42 +32,56 @@
         return result
     }
 
-    function giveBiggestValue(str) {
 
-        let location = 0;
-        let biggest = roman(str[0])
-        for (i = 0; i < str.length; i++) {
-            if (biggest <= roman(str[i])) {
-                biggest = roman(str[i]);
-                location = i;
-                logic = {
-                    biggest,
-                    location
-                }
 
+
+    function getRomanValue(romanString) {
+
+        let total = 0;
+
+        for (let index = 0; index < romanString.length; index++) {
+
+            const element = romanString[index];
+
+            if (isLargerDigitAhead(index, romanString)) {
+                total = total - roman(element);
+            } else {
+                total = total + roman(element);
             }
 
         }
-        return logic
 
+        return total;
+    };
 
-    }
-    function shouldAdd(str) {
-        biggestLoication=[]
-        let big = giveBiggestValue(str)
-        for (i = 0; i < str.length; i++) {
-            if (roman(str[i]) == big.biggest) {
-                biggestLoication.push(i)
+    function isLargerDigitAhead(index, wholeString) {
+        result = false
+        for (c = 0; c < wholeString.length; c++) {
+            if (roman(wholeString[index]) >= roman(wholeString[c])) {
+                result = false;
+            } else {
+                result = true
             }
+
         }
-        console.log(biggestLoication)
+
+
+        // console.log('current index: ' + index + ' current Index digit ' + wholeString[index] + ' current Index digit value ' + roman(wholeString[index]));
+        // console.log('check  if after index: ' + index + ' there is a bigger digit in ' + wholeString);
+        return result;
+
     }
 
-    function heightestDigit(str) {
-       
-        ///???
-    }
+//  isLargerDigitAhead(0,'IV') should return  true
+//  isLargerDigitAhead(0,'VI') should return  false
+//  isLargerDigitAhead(0,'IIIV') should return  true
+//  isLargerDigitAhead(1,'IIIV') should return  true
+//  isLargerDigitAhead(2,'IIIV') should return  true
+//  isLargerDigitAhead(3,'IIIV') should return  false
+//  isLargerDigitAhead(0,'VVVI') should return  false
 
 
+// getRomanValue('IIV') returns 7.... should return 3
 </script>
+
 </html>
