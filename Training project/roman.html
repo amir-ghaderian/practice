@@ -49,39 +49,57 @@
                 total = total + roman(element);
             }
 
+            // if (index == romanString.length - 1) {
+            //     break
+            // }
+
+
         }
 
         return total;
     };
 
     function isLargerDigitAhead(index, wholeString) {
+
         result = false
-        for (c = 0; c < wholeString.length; c++) {
-            if (roman(wholeString[index]) >= roman(wholeString[c])) {
-                result = false;
-            } else {
-                result = true
-            }
+
+
+        pr = index + 1
+
+
+
+        if (roman(wholeString[index]) >= roman(wholeString[pr])) {
+            result = false;
+        } else {
+            result = true
+
 
         }
 
 
+
         // console.log('current index: ' + index + ' current Index digit ' + wholeString[index] + ' current Index digit value ' + roman(wholeString[index]));
         // console.log('check  if after index: ' + index + ' there is a bigger digit in ' + wholeString);
+
         return result;
 
     }
 
-//  isLargerDigitAhead(0,'IV') should return  true
-//  isLargerDigitAhead(0,'VI') should return  false
-//  isLargerDigitAhead(0,'IIIV') should return  true
-//  isLargerDigitAhead(1,'IIIV') should return  true
-//  isLargerDigitAhead(2,'IIIV') should return  true
-//  isLargerDigitAhead(3,'IIIV') should return  false
-//  isLargerDigitAhead(0,'VVVI') should return  false
+    //  isLargerDigitAhead(0,'IV') should return  true
+    //  isLargerDigitAhead(0,'VI') should return  false
+    //  isLargerDigitAhead(0,'IIIV') should return  true
+    //  isLargerDigitAhead(1,'IIIV') should return  true
+    //  isLargerDigitAhead(2,'IIIV') should return  true
+    //  isLargerDigitAhead(3,'IIIV') should return  false
+    //  isLargerDigitAhead(0,'VVVI') should return  false
 
 
-// getRomanValue('IIV') returns 7.... should return 3
+    // getRomanValue('IIV') returns 7.... should return 3
+
+
+
+
+
 </script>
 
 </html>
