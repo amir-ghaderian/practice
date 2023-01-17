@@ -49,9 +49,7 @@
                 total = total + roman(element);
             }
 
-            // if (index == romanString.length - 1) {
-            //     break
-            // }
+
 
 
         }
@@ -63,10 +61,12 @@
 
         result = false
 
+         
 
-        pr = index + 1
 
-
+        if (index < wholeString.length - 1) {
+            pr = index + 1
+        }
 
         if (roman(wholeString[index]) >= roman(wholeString[pr])) {
             result = false;
@@ -99,7 +99,10 @@
 
 
 
-
+    function asghar([arr], str) {
+        console.log(str.length)
+        console.log(arr.length)
+    }
 </script>
 
 </html>
