@@ -88,23 +88,22 @@
 
     }
 
-    //  isLargerDigitAhead(0,'IV') should return  true
-    //  isLargerDigitAhead(0,'VI') should return  false
-    //  isLargerDigitAhead(0,'IIIV') should return  true
-    //  isLargerDigitAhead(1,'IIIV') should return  true
-    //  isLargerDigitAhead(2,'IIIV') should return  true
-    //  isLargerDigitAhead(3,'IIIV') should return  false
-    //  isLargerDigitAhead(0,'VVVI') should return  false
-
-
-    // getRomanValue('IIV') returns 7.... should return 3
 
 
 
+    function longestCommonPrefix(str) {
+        let firstPrefix = str[0].slice(0,1)
+        let result = ""
+        for (word = 1; word < str.length; word++) {
 
-    function asghar([arr], str) {
-        console.log(str.length)
-        console.log(arr.length)
+
+            let prefix = str[word].slice(0, 2);
+            if (firstPrefix === prefix) {
+                result = prefix
+            }
+
+        }
+        return result;
     }
 </script>
 
