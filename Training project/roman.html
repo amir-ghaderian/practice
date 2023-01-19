@@ -25,7 +25,10 @@
             result = 50;
         } else if (txt === "C") {
             result = 100;
-        } else if (txt === "M") {
+        } else if (txt === "D") {
+            result = 500;
+        }
+        else if (txt === "M") {
             result = 1000;
         }
 
@@ -61,25 +64,25 @@
 
         result = false
 
-         
+
 
 
         if (index < wholeString.length - 1) {
             pr = index + 1
+            if (roman(wholeString[index]) >= roman(wholeString[pr])) {
+                result = false;
+            } else {
+                result = true
+
+
+            }
+
         }
 
-        if (roman(wholeString[index]) >= roman(wholeString[pr])) {
-            result = false;
-        } else {
-            result = true
-
-
-        }
 
 
 
-        // console.log('current index: ' + index + ' current Index digit ' + wholeString[index] + ' current Index digit value ' + roman(wholeString[index]));
-        // console.log('check  if after index: ' + index + ' there is a bigger digit in ' + wholeString);
+
 
         return result;
 
