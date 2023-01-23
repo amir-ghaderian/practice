@@ -92,18 +92,25 @@
 
 
     function longestCommonPrefix(str) {
-        let firstPrefix = str[0].slice(0,1)
-        let result = ""
-        for (word = 1; word < str.length; word++) {
+        let result = "";
 
+        if (str.length == 0) {
+            result = str.toString()
+        } else {
+            first = str[0][0]
+            second = str[0][1]
+            for (i = 1; i < str.length; i++) {
 
-            let prefix = str[word].slice(0, 2);
-            if (firstPrefix === prefix) {
-                result = prefix
+                if (first == str[i][0]) {
+                    result = first
+                }
+                if (second == str[i][1]) {
+                    result = first + second
+                }
             }
 
         }
-        return result;
+        return result
     }
 </script>
 
