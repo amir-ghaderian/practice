@@ -95,6 +95,7 @@
         let result = "";
 
         if (str.length == 0) {
+            str.replace(/","/g, "")
             result = str.toString()
         } else {
             first = str[0][0]
