@@ -113,6 +113,35 @@
         }
         return result
     }
+    function threeSum(nums) {
+        total = 0;
+        sum = [];
+        index = 0;
+        sum = [];
+        do {
+            total += nums[index];
+
+            if (total > 1) {
+                sum = [];
+            } else if (total == 0) {
+                sum.push(nums[index])
+            }
+            index++
+
+        } while (index < nums.length);
+
+
+        // for (a = 0; a < nums.length; a++) {
+        //     total += nums[a];
+           
+        // }
+        // if (total > 0) {
+        //         sum = []
+        //     } else if (total == 0) {
+        //         sum.push(nums[a])
+        //     }
+        return sum
+    }
 </script>
 
 </html>
