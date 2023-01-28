@@ -114,27 +114,37 @@
         return result
     }
     function threeSum(nums) {
-        total = 0;
-        sum = [];
-        pr = 2;
-        sum = [];
-        for (index = 0; index < nums.length; index++) {
-            first = nums[index]
-            second = nums[index + 1]
 
-            total = first + second + nums[pr];
-            if (total == 0) {
-                sum.push(first, second, nums[pr])
+        sum = [];
+        sum2 = [];
+        for (i = 0; i < nums.length; i++) {
+            for (j = 1; j < nums.length; j++) {
+                for (k = 2; k < nums.length; k++) {
+                    if (nums[i] !== nums[j] || nums[i] !== nums[k]) {
+                        sum = [nums[i], nums[j], nums[k]]
+                        sum2.push(sum)
+                    }
+
+
+
+
+                }
             }
-            pr++
-            if (pr == nums.length) {
-                pr = 0
+            result = 0;
+            for (x = 0; x < sum2.length; x++) {
+                for (n = 0; n < sum2[x].length; n++) {
+                    result += sum2[x][n]
+                    console.log("this" + sum2[x] + "result" + sum2[x][n] + " " + "=" + result)
+                    
+                }
             }
+
+
         }
 
 
 
-        return sum
+        console.log(sum2)
     }
 </script>
 
