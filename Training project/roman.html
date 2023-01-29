@@ -113,8 +113,10 @@
         }
         return result
     }
-    function threeSum(nums) {
 
+    function threeSum(nums) {
+        result = 0;
+        resultArr = []
         sum = [];
         sum2 = [];
         for (i = 0; i < nums.length; i++) {
@@ -130,22 +132,26 @@
 
                 }
             }
-            result = 0;
-            for (x = 0; x < sum2.length; x++) {
-                for (n = 0; n < sum2[x].length; n++) {
-                    result += sum2[x][n]
-                    console.log("this" + sum2[x] + "result" + sum2[x][n] + " " + "=" + result)
-                    
-                }
-            }
+
 
 
         }
 
+        for (x = 0; x < sum2.length; x++) {
+
+            result = sum2[x][0] + sum2[x][1] + sum2[x][2]
+
+            if (result === 0) {
+                resultArr.push(sum2[x])
 
 
-        console.log(sum2)
+            }
+        }
+        return resultArr
     }
+
+
+
 </script>
 
 </html>
