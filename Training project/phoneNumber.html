@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17 leet code</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function LetterCombinations(str) {
+        numbers = [
+            { title: 2, filds: "abc" },
+            { title: 3, filds: "def" },
+            { title: 4, filds: "ghi" },
+            { title: 5, filds: "jkl" },
+            { title: 6, filds: "mno" },
+            { title: 7, filds: "pqrs" },
+            { title: 8, filds: "tuv" },
+            { title: 9, filds: "wxyz" }
+        ]
+        result = 0;
+        arr2 = []
+        for (i = 0; i < str.length; i++) {
+            for (j = 0; j < numbers.length; j++){
+                if (numbers[j].title === parseInt(str[i])) {
+                    arr2.push(numbers[j].filds)
+                }
+            }
+        }
+        return arr2
+
+
+    } 
+</script>
+
+</html>
