@@ -85,17 +85,23 @@
     }
     ///
     function isPalindrome(str) {
-        result = false;
-        var lastWorld;
-        firstWorld = str[0][0];
-        for (i = 0; i < str[0].length; i++) {
-         lastWorld=str[0][i]
+        var len = str.length;
+        var first = str[0]
+        var last;
+        for (i = 0; i < len; i++) {
+
+            last = str[i]
         }
-        if (firstWorld === lastWorld) {
-            result = true;
+        if (last == first) {
+            return true
+        } else {
+            return false
+
         }
-        return result;
-    }///not worked
+
+    }
+    ////
+    
 </script>
 
 </html>
