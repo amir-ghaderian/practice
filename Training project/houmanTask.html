@@ -101,7 +101,34 @@
 
     }
     ////
-    
+    function charCount(str, a) {
+        var count = 0
+        for (i = 0; i < str.length; i++) {
+            if (a === str[i]) {
+                count++
+            }
+        }
+        return count
+    }
+    ///
+    function sortArray(numArray) {
+        
+        for (var i = 0; i < numArray.length - 1; i++) {
+            var min = i;
+            for (var j = i + 1; j < numArray.length; j++) {
+                if (numArray[j] < numArray[min]) {
+                    min = j;
+                }
+            }
+            if (min != i) {
+                var target = numArray[i];
+                numArray[i] = numArray[min];
+                numArray[min] = target;
+            }
+        }
+        return    numArray;
+    }
+
 </script>
 
 </html>
