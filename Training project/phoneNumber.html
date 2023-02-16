@@ -33,8 +33,23 @@
                 }
             }
         }
-        console.log(arr2)
+        pr = 0
+        for (d = 1; d < arr2.length; d++) {
+            first = arr2[0][pr]
 
+            for (c = 0; c < arr2[d].length; c++) {
+
+                let check = first.concat(arr2[d][c])
+                arr3.push(check)
+                ///console.log(arr3.indexOf(check))
+                // if (arr3.indexOf(check) > -1) {
+                //     arr3.push(check)
+                // }
+            }
+            pr++
+
+        }
+        console.log(arr3)
     }
 
 
