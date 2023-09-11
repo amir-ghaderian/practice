@@ -1,71 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-    .container {
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        background-color: aqua;
-        justify-content: center;
-    }
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+  }
 
-    .circle {
-        width: 40em;
-        height: 40em;
-        border-radius: 100%;
-        background-color: darkgoldenrod;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+  .circle-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background-color: #3498db;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-    }
-
-    .circle2 {
-        width: 30em;
-        height: 30em;
-        border-radius: 100%;
-        background-color:darkgoldenrod;
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-
-    }
-
-    .g {
-        width: 2em;
-        height: 2em;
-        border: 1px solid black;
-        background-color: antiquewhite;
-        padding: 1em;
-        margin: 4em;
-        
-    }
-
-   
+  .square {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #e74c3c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+  }
 </style>
-
+</head>
 <body>
-    <div class="container">
-        <div class="circle">
-            <div class="circle2">
-                
-                    <div class="g" class="1"></div>
-                    <div class="g" class="2"></div>
-                    <div class="g" class="3"></div>
-                    <div class="g" class="4x"></div>
+  <div class="circle-container">
+    <div class="square" style="transform: rotate(0deg) translate(200px) rotate(0deg);" onclick="connectSquares(0)">1</div>
+    <div class="square" style="transform: rotate(60deg) translate(200px) rotate(-60deg);" onclick="connectSquares(1)">2</div>
+    <div class="square" style="transform: rotate(120deg) translate(200px) rotate(-120deg);" onclick="connectSquares(2)">3</div>
+    <div class="square" style="transform: rotate(180deg) translate(200px) rotate(-180deg);" onclick="connectSquares(3)">4</div>
+    <div class="square" style="transform: rotate(240deg) translate(200px) rotate(-240deg);" onclick="connectSquares(4)">5</div>
+    <div class="square" style="transform: rotate(300deg) translate(200px) rotate(-300deg);" onclick="connectSquares(5)">6</div>
+  </div>
 
-                </div>
-            </div>
+  <script>
+    const squares = ['1', '2', '3', '4', '5', '6'];
+    let connectedSquares = [];
 
-        </div>
-    </div>
+    function connectSquares(index) {
+      const square = squares[index];
+
+      if (connectedSquares.length === 0) {
+        connectedSquares.push(square);
+      } else if (connectedSquares.length === 1) {
+        connectedSquares.push(square);
+        alert(`Connected: ${connectedSquares[0]} -> ${connectedSquares[1]}`);
+        connectedSquares = [];
+      }
+    }
+  </script>
 </body>
-
 </html>

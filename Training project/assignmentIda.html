@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>race</title>
+    <style>
+        .row {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 100px;
+            background-color: #f0f0f0;
+        }
+
+        .circle {
+            width: 50px;
+            height: 50px;
+            background-color: #3498db;
+            border-radius: 50%;
+            margin-left: 20px;
+            transition: margin-left 2s ease-in-out;
+        }
+
+        #row1 {
+            margin-bottom: 20px;
+        }
+
+        button {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="row" id="row1">
+        <div class="circle" id="circle1"></div>
+    </div>
+    <div class="row" id="row2">
+        <div class="circle" id="circle2"></div>
+    </div>
+    <button onclick="startMoving()">Start</button>
+
+    <script>
+        function startMoving() {
+            const circle1 = document.getElementById('circle1');
+            const circle2 = document.getElementById('circle2');
+            
+            const row1 = document.getElementById('row1');
+            const row2 = document.getElementById('row2');
+
+            const maxMarginLeft = row1.clientWidth - circle1.clientWidth;
+
+       
+            circle1.style.marginLeft = maxMarginLeft + 'px';
+            circle2.style.marginLeft = maxMarginLeft + 'px';
+        }
+    </script>
+</body>
+</html>
