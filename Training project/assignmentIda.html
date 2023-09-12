@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,31 +30,50 @@
         button {
             margin-left: 20px;
         }
+
+        #bump {
+            width: 60px;
+            height: 60px;
+            background-color: brown;
+            border-radius: 100%;
+            margin-left: 50%;
+            position: fixed;
+        }
     </style>
 </head>
+
 <body>
     <div class="row" id="row1">
         <div class="circle" id="circle1"></div>
     </div>
     <div class="row" id="row2">
         <div class="circle" id="circle2"></div>
+        <div id="bump">
+
+        </div>
     </div>
     <button onclick="startMoving()">Start</button>
 
     <script>
         function startMoving() {
-            const circle1 = document.getElementById('circle1');
-            const circle2 = document.getElementById('circle2');
-            
-            const row1 = document.getElementById('row1');
-            const row2 = document.getElementById('row2');
+            circle1 = document.getElementById('circle1');
+            circle2 = document.getElementById('circle2');
 
-            const maxMarginLeft = row1.clientWidth - circle1.clientWidth;
+            row1 = document.getElementById('row1');
+            row2 = document.getElementById('row2');
 
-       
+            bump = document.getElementById("bump");
+            maxMarginLeft = row1.clientWidth - circle1.clientWidth;
+
+
             circle1.style.marginLeft = maxMarginLeft + 'px';
             circle2.style.marginLeft = maxMarginLeft + 'px';
+
+            console.log(bump.getBoundingClientRect());
+            console.log(circle2.getBoundingClientRect());
+
         }
     </script>
 </body>
+
 </html>
