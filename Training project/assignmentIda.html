@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>race</title>
     <style>
+        
         .row {
             display: flex;
             align-items: center;
@@ -13,6 +14,7 @@
             height: 100px;
             background-color: #f0f0f0;
             position: relative;
+        
         }
 
         #circle {
@@ -42,17 +44,27 @@
             margin-left: 50%;
             position: fixed;
         }
+        #finish{
+            width: 2px;
+            height: 100vh;
+            background-color: black;
+            position: absolute;
+            right: 40px;
+            z-index: 1;
+        }
     </style>
 </head>
 
 <body>
     <div class="row" id="row1">
         <div id="circle"></div>
+        <div id="finish"></div>
     </div>
     <div class="row" id="row2">
         <div id="circle"></div>
         <div id="bump"></div>
     </div>
+    
     <button onclick="startMoving()">Start</button>
 
     <script>
@@ -67,7 +79,7 @@
             
             
             
-            finishLine = row.clientWidth - 50 + 'px'
+            finishLine = row.clientWidth - 40 + 'px'
             
             
             
