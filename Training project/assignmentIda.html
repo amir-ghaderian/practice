@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>race</title>
     <style>
-        
         .row {
             display: flex;
             align-items: center;
@@ -14,10 +13,10 @@
             height: 100px;
             background-color: #f0f0f0;
             position: relative;
-        
+
         }
 
-        #circle {
+        .circle {
             width: 50px;
             height: 50px;
             background-color: #3498db;
@@ -44,7 +43,8 @@
             margin-left: 50%;
             position: fixed;
         }
-        #finish{
+
+        #finish {
             width: 2px;
             height: 100vh;
             background-color: black;
@@ -57,33 +57,36 @@
 
 <body>
     <div class="row" id="row1">
-        <div id="circle"></div>
+        <div class="circle"></div>
         <div id="finish"></div>
     </div>
     <div class="row" id="row2">
-        <div id="circle"></div>
+        <div class="circle"></div>
         <div id="bump"></div>
     </div>
-    
-    <button onclick="startMoving()">Start</button>
+
+
 
     <script>
         i = 1
         function startMoving() {
             i++
-            circle = document.getElementById('circle');
+            circle = document.getElementsByClassName('circle');
             row = document.getElementById('row1')
 
+            circle1 = circle[0]
+            circle2 = circle[1]
 
-            circle.style.left = i + 'px'
-            
-            
-            
+            circle1.style.left = i + 'px'
+            circle2.style.left = i + 'px'
+
+
+
             finishLine = row.clientWidth - 40 + 'px'
-            
-            
-            
-            if (circle.style.left == finishLine) {
+
+
+
+            if (circle1.style.left && circle2.style.left == finishLine) {
                 alert('finish')
             }
 
