@@ -12,19 +12,22 @@
             width: 100%;
             height: 100px;
             background-color: #f0f0f0;
+            position: relative;
         }
 
-        .circle {
+        #circle {
             width: 50px;
             height: 50px;
             background-color: #3498db;
             border-radius: 50%;
             margin-left: 20px;
-            transition: margin-left 2s ease-in-out;
+            position: absolute;
+            left: 1px;
         }
 
         #row1 {
             margin-bottom: 20px;
+
         }
 
         button {
@@ -44,35 +47,38 @@
 
 <body>
     <div class="row" id="row1">
-        <div class="circle" id="circle1"></div>
+        <div id="circle"></div>
     </div>
     <div class="row" id="row2">
-        <div class="circle" id="circle2"></div>
-        <div id="bump">
-
-        </div>
+        <div id="circle"></div>
+        <div id="bump"></div>
     </div>
     <button onclick="startMoving()">Start</button>
 
     <script>
+        i = 1
         function startMoving() {
-            circle1 = document.getElementById('circle1');
-            circle2 = document.getElementById('circle2');
-
-            row1 = document.getElementById('row1');
-            row2 = document.getElementById('row2');
-
-            bump = document.getElementById("bump");
-            maxMarginLeft = row1.clientWidth - circle1.clientWidth;
+            i++
+            circle = document.getElementById('circle');
+            row = document.getElementById('row1')
 
 
-            circle1.style.marginLeft = maxMarginLeft + 'px';
-            circle2.style.marginLeft = maxMarginLeft + 'px';
+            circle.style.left = i + 'px'
+            
+            
+            
+            finishLine = row.clientWidth - 50 + 'px'
+            
+            
+            
+            if (circle.style.left == finishLine) {
+                alert('finish')
+            }
 
-            console.log(bump.getBoundingClientRect());
-            console.log(circle2.getBoundingClientRect());
+
 
         }
+        setInterval(startMoving, 10)
     </script>
 </body>
 
