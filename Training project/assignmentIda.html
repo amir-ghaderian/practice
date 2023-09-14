@@ -93,7 +93,12 @@
 
 
         }
-        setInterval(startMoving, 10)
+        function getSpeed(){
+           return Math.floor(Math.random() * 3000) + 1
+        }
+        
+    
+        setInterval(startMoving, getSpeed)
     </script>
 </body>
 
