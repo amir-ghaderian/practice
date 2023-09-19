@@ -69,36 +69,36 @@
 
     <script>
         i = 1
-        function startMoving() {
+        circle = document.getElementsByClassName('circle');
+        row = document.getElementById('row1')
+        finishLine = row.clientWidth - 40 + 'px'
+        circle1 = circle[0]
+        circle2 = circle[1]
+        function startMovingFirstCircle() {
             i++
-            circle = document.getElementsByClassName('circle');
-            row = document.getElementById('row1')
-
-            circle1 = circle[0]
-            circle2 = circle[1]
-
             circle1.style.left = i + 'px'
-            circle2.style.left = i + 'px'
-
-
-
-            finishLine = row.clientWidth - 40 + 'px'
-
-
-
-            if (circle1.style.left && circle2.style.left == finishLine) {
-                alert('finish')
+            if (circle1.style.left == finishLine) {
+                alert("player one win")
             }
 
+        }
+        function startMovingSecondCircle() {
+            i++
 
+            circle2.style.left = i + 'px'
+            if (circle2.style.left == finishLine) {
+                alert("player two win")
+            }
 
         }
-        function getSpeed(){
-           return Math.floor(Math.random() * 3) + 1
+
+        function getSpeed() {
+            return Math.floor(Math.random() * 300) + 1
         }
-        
-    
-        setInterval(startMoving, getSpeed)
+
+
+        setInterval(startMovingSecondCircle, getSpeed)
+        setInterval(startMovingFirstCircle, getSpeed)
     </script>
 </body>
 
