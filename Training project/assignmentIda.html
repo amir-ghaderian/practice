@@ -45,7 +45,7 @@
         }
 
         #finish {
-            width: 2px;
+            width: 8px;
             height: 100vh;
             background-color: black;
             position: absolute;
@@ -68,22 +68,27 @@
 
 
     <script>
-        i = 1
+        i = 0
         circle = document.getElementsByClassName('circle');
-        row = document.getElementById('row1')
-        finishLine = row.clientWidth - 40 + 'px'
+        row = document.getElementById('row1').clientWidth;
+        finish = document.getElementById('finish').clientWidth;
+        finishLine = row - goz + 'px'
         circle1 = circle[0]
         circle2 = circle[1]
         function startMovingFirstCircle() {
-            i++
+
+            i += getSpeed()
+
+
             circle1.style.left = i + 'px'
+            console.log(finishLine)
             if (circle1.style.left == finishLine) {
                 alert("player one win")
             }
 
         }
         function startMovingSecondCircle() {
-            i++
+            i += getSpeed()
 
             circle2.style.left = i + 'px'
             if (circle2.style.left == finishLine) {
@@ -93,12 +98,12 @@
         }
 
         function getSpeed() {
-            return Math.floor(Math.random() * 300) + 1
+            return Math.floor(Math.random() * 3) + 1
         }
 
 
-        setInterval(startMovingSecondCircle, getSpeed)
-        setInterval(startMovingFirstCircle, getSpeed)
+        setInterval(startMovingSecondCircle, 10)
+        setInterval(startMovingFirstCircle, 10)
     </script>
 </body>
 
