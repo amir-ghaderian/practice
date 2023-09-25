@@ -70,9 +70,9 @@
     <script>
         i = 0
         circle = document.getElementsByClassName('circle');
-        row = document.getElementById('row1').clientWidth;
-        finish = document.getElementById('finish').clientWidth;
-        finishLine = row - goz + 'px'
+        row = document.getElementById('row1');
+        finishLine = row.clientWidth - 40 + 'px';
+
         circle1 = circle[0]
         circle2 = circle[1]
         function startMovingFirstCircle() {
