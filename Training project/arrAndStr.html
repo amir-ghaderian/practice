@@ -148,9 +148,50 @@
         // console.log(arr)
     }
 
+<<<<<<< Updated upstream
  
 
 
+=======
+    function roman(input) {
+        let result = 0;
+        let text = input.toUpperCase()
+        if (text === "V") {
+            result = 5
+        }
+        if (text === "I") {
+            result = 1;
+        }
+        if (text === "X") {
+            result = 10;
+        }
+        if (text === "M") {
+            result = 1000;
+        }
+        if (text === "D") {
+            result = 500;
+        }
+        if (text === "C") {
+            result = 100;
+        }
+
+        return result;
+    }
+    function heightestDigit(str) {
+        let check = 0;
+       
+
+        let result = roman(str[0]);
+
+        for (i = 0; i < str.length; i++) {
+            check = roman(str[i])
+            if (result < check) {
+                result = check;
+            } 
+        }
+        console.log(result)
+    }
+>>>>>>> Stashed changes
 
 
 </script>
