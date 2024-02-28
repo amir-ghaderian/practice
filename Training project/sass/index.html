@@ -9,10 +9,25 @@
     <title>Document</title>
 </head>
 
-<body>
+<body >
     <header>heloo</header>
-    <p>Lorem ipsum dolor sit,<a href="">amet consectetur adipisicing elit.</a>  Impedit possimus odit sint vel quasi harum? Minus,
+    <p>Lorem ipsum dolor sit,<a href="">amet consectetur adipisicing elit.</a> Impedit possimus odit sint vel quasi
+        harum? Minus,
         cumque reprehenderit. Fuga tenetur dolores velit iste molestias, eos rerum! Ut ab natus totam?</p>
+        <button onclick="openModal()">heloo word</button>
+    <div id="modal" onclick="closeModal()">
+        <div class="loader"></div>
+    </div>
 </body>
+
+<script>
+    function openModal() {
+        document.getElementById('modal').style.visibility = "visible";
+    }
+    function closeModal(){
+        document.getElementById('modal').style.visibility = "hidden";
+
+    }
+</script>
 
 </html>
