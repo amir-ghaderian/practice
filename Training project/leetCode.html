@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function twoSum(nums, target) {
+        number = [];
+        for (i = 0; i < nums.length; i++) {
+
+            for (j = 1; j < nums.length; j++) {
+                result = nums[i] + nums[j];
+                if (result == target) {
+                    number.push(i, j)
+                }
+            }
+        }
+        return number;
+    }
+    function result(l1, l2) {
+        map1 = [];
+        map2 = [];
+        for (i = l1.length - 1; i >= 0; i--) {
+
+            valueL1 = l1[i]
+            map1.push(valueL1)
+        }
+        for (j = l2.length - 1; j >= 0; j--) {
+
+            valueL2 = l2[j]
+            map2.push(valueL2)
+        }
+        console.log( map1 , map2);
+    }
+</script>
+
+</html>
